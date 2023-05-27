@@ -1,3 +1,5 @@
+-- creacion lua DB
+
 -- DELETE FROM nombre_tabla;
 -- DELETE FROM Categoria;
 -- DELETE FROM Producto;
@@ -11,30 +13,32 @@
 
 -- SELECT resetDB();
 
+-- drop database luapetshop;
+-- CREATE DATABASE luapetshop;
+
+
 
 CREATE TABLE Categoria (
     id_categoria INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255)
-    --modificador
 );
-
+-- modificador
 
 CREATE TABLE Producto (
     id_producto INT AUTO_INCREMENT PRIMARY KEY,
     id_categoria INT,
-    --updated DATETIME,
     nombre VARCHAR(255),
     imagen VARCHAR(255),
-    --codigo_ref
     descripcion VARCHAR(1024),
-    --tamanio ?????? creo que no va
     precio_compra DECIMAL(12, 2),
-    -- rentabilidad depende de como emmik mida este valor, 0 a 1? 0 a 100? 
+    rentabilidad DECIMAL(5, 2), -- depende de como emmik mida este valor, 0 a 1? 0 a 100? 
     ganancia DECIMAL(12, 2),
     stock INT,
-
     FOREIGN KEY (id_categoria) REFERENCES Categoria (id_categoria)
 );
+    -- updated DATETIME,
+    -- codigo_ref
+    -- tamanio ?????? creo que no va
 
 
 CREATE TABLE Proveedor (
@@ -48,22 +52,20 @@ CREATE TABLE Producto_Proveedor (
     id_proveedor INT,
     id_producto INT,
     precio_compra DECIMAL(12, 2),
-
     FOREIGN KEY (id_proveedor) REFERENCES Proveedor (id_proveedor)
 );
 
 CREATE TABLE Compra (
     id_compra INT AUTO_INCREMENT PRIMARY KEY,
-    id_proveedor INT, --foreign key
+    id_proveedor INT,
     total DECIMAL(12, 2),
-
     FOREIGN KEY (id_proveedor) REFERENCES Proveedor (id_proveedor)
 );
 
 
 CREATE TABLE Cuenta (
     id_cuenta INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR,
+    nombre VARCHAR(255),
     saldo DECIMAL(12, 2)
 );
 
@@ -71,8 +73,7 @@ CREATE TABLE Medio_Pago (
     id_medio_pago INT AUTO_INCREMENT PRIMARY KEY,
     id_cuenta INT,
     nombre VARCHAR(255),
-    modificador DECIMAL(5, 2)
-
+    modificador DECIMAL(5, 2),
     FOREIGN KEY (id_cuenta) REFERENCES Cuenta (id_cuenta)
 );
 
@@ -81,7 +82,7 @@ CREATE TABLE Venta (
     id_medio_pago INT,
     fyh DATETIME,
     total DECIMAL(12, 2),
-    estado char, -- completa / incompleta / cancelada ????
+    estado char -- completa / incompleta / cancelada ????
 );
 
 CREATE TABLE Linea_Venta (
@@ -90,7 +91,6 @@ CREATE TABLE Linea_Venta (
     id_producto INT,
     precio_venta DECIMAL(12, 2),
     cantidad INT,
-
     FOREIGN KEY (id_venta) REFERENCES Venta (id_venta),
     FOREIGN KEY (id_producto) REFERENCES Producto (id_producto)
 );
@@ -101,15 +101,15 @@ CREATE TABLE Linea_Venta (
 
 --================ INSERTS ================--
 
---INSERT Categoria
-INSERT INTO Categoria ('nombre') values 
+-- INSERT Categoria
+INSERT INTO Categoria (nombre) values 
 ('cat 1'),
 ('cat 2'),
 ('cat 3'),
 ('cat 4'),
 ('cat 5');
 
---INSERT Producto
+-- INSERT Producto
 INSERT INTO Producto 
     (id_categoria, nombre, imagen, descripcion, precio_compra, ganancia, stock)
 VALUES 
@@ -261,20 +261,22 @@ VALUES
 
 
 
-DELIMITER //
-CREATE FUNCTION resetDB()
-RETURNS INT
-BEGIN
-    ALTER TABLE Categoria AUTO_INCREMENT = 1;
-    ALTER TABLE Producto AUTO_INCREMENT = 1;
-    ALTER TABLE Proveedor AUTO_INCREMENT = 1;
-    ALTER TABLE Producto_Proveedor AUTO_INCREMENT = 1;
-    ALTER TABLE Compra AUTO_INCREMENT = 1;
-    ALTER TABLE Venta AUTO_INCREMENT = 1;
-    ALTER TABLE Linea_Venta AUTO_INCREMENT = 1;
-    ALTER TABLE Cuenta AUTO_INCREMENT = 1;
-    ALTER TABLE Medio_Pago AUTO_INCREMENT = 1;
-    
-    RETURN 1;
-END //
-DELIMITER ;
+-- DELIMITER //
+-- CREATE FUNCTION resetDB()
+-- RETURNS INT
+-- BEGIN
+--     ALTER TABLE Categoria AUTO_INCREMENT = 1;
+--     ALTER TABLE Producto AUTO_INCREMENT = 1;
+--     ALTER TABLE Proveedor AUTO_INCREMENT = 1;
+--     ALTER TABLE Producto_Proveedor AUTO_INCREMENT = 1;
+--     ALTER TABLE Compra AUTO_INCREMENT = 1;
+--     ALTER TABLE Venta AUTO_INCREMENT = 1;
+--     ALTER TABLE Linea_Venta AUTO_INCREMENT = 1;
+--     ALTER TABLE Cuenta AUTO_INCREMENT = 1;
+--     ALTER TABLE Medio_Pago AUTO_INCREMENT = 1;
+--     
+--     RETURN 1;
+-- END //
+-- DELIMITER ;
+   
+   
