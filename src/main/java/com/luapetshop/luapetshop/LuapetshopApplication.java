@@ -9,9 +9,5 @@ public class LuapetshopApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(LuapetshopApplication.class, args);
 	}
-	
-	public String hello() {
-		return "hello world!";
-	}
 
 }
