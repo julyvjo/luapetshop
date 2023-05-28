@@ -1,108 +1,85 @@
--- creacion lua DB
-
--- DELETE FROM nombre_tabla;
--- DELETE FROM Categoria;
--- DELETE FROM Producto;
--- DELETE FROM Proveedor;
--- DELETE FROM Producto_Proveedor;
--- DELETE FROM Compra;
--- DELETE FROM Venta;
--- DELETE FROM Linea_Venta;
--- DELETE FROM Cuenta;
--- DELETE FROM Medio_Pago;
-
--- SELECT resetDB();
-
 -- drop database luapetshop;
 -- CREATE DATABASE luapetshop;
 
-
-
-CREATE TABLE Categoria (
+CREATE TABLE categoria (
     id_categoria INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255)
 );
--- modificador
 
-CREATE TABLE Producto (
+CREATE TABLE producto (
     id_producto INT AUTO_INCREMENT PRIMARY KEY,
     id_categoria INT,
     nombre VARCHAR(255),
     imagen VARCHAR(255),
     descripcion VARCHAR(1024),
     precio_compra DECIMAL(12, 2),
-    rentabilidad DECIMAL(5, 2), -- depende de como emmik mida este valor, 0 a 1? 0 a 100? 
+    rentabilidad DECIMAL(5, 2),
     ganancia DECIMAL(12, 2),
     stock INT,
-    FOREIGN KEY (id_categoria) REFERENCES Categoria (id_categoria)
+    FOREIGN KEY (id_categoria) REFERENCES categoria (id_categoria)
 );
-    -- updated DATETIME,
-    -- codigo_ref
-    -- tamanio ?????? creo que no va
 
-
-CREATE TABLE Proveedor (
+CREATE TABLE proveedor (
     id_proveedor INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255)
 );
 
-
-CREATE TABLE Producto_Proveedor (
+CREATE TABLE producto_proveedor (
     id_producto_proveedor INT AUTO_INCREMENT PRIMARY KEY,
     id_proveedor INT,
     id_producto INT,
     precio_compra DECIMAL(12, 2),
-    FOREIGN KEY (id_proveedor) REFERENCES Proveedor (id_proveedor)
+    FOREIGN KEY (id_proveedor) REFERENCES proveedor (id_proveedor)
 );
 
-CREATE TABLE Compra (
+CREATE TABLE compra (
     id_compra INT AUTO_INCREMENT PRIMARY KEY,
     id_proveedor INT,
     total DECIMAL(12, 2),
-    FOREIGN KEY (id_proveedor) REFERENCES Proveedor (id_proveedor)
+    FOREIGN KEY (id_proveedor) REFERENCES proveedor (id_proveedor)
 );
 
 
-CREATE TABLE Cuenta (
+CREATE TABLE cuenta (
     id_cuenta INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255),
     saldo DECIMAL(12, 2)
 );
 
-CREATE TABLE Medio_Pago (
+CREATE TABLE medio_pago (
     id_medio_pago INT AUTO_INCREMENT PRIMARY KEY,
     id_cuenta INT,
     nombre VARCHAR(255),
     modificador DECIMAL(5, 2),
-    FOREIGN KEY (id_cuenta) REFERENCES Cuenta (id_cuenta)
+    FOREIGN KEY (id_cuenta) REFERENCES cuenta (id_cuenta)
 );
 
-CREATE TABLE Venta (
+CREATE TABLE venta (
     id_venta INT AUTO_INCREMENT PRIMARY KEY,
     id_medio_pago INT,
     fyh DATETIME,
     total DECIMAL(12, 2),
-    estado char -- completa / incompleta / cancelada ????
+    estado char
 );
 
-CREATE TABLE Linea_Venta (
+CREATE TABLE linea_venta (
     id_linea_venta INT AUTO_INCREMENT PRIMARY KEY,
     id_venta INT,
     id_producto INT,
     precio_venta DECIMAL(12, 2),
     cantidad INT,
-    FOREIGN KEY (id_venta) REFERENCES Venta (id_venta),
-    FOREIGN KEY (id_producto) REFERENCES Producto (id_producto)
+    FOREIGN KEY (id_venta) REFERENCES venta (id_venta),
+    FOREIGN KEY (id_producto) REFERENCES producto (id_producto)
 );
 
 
 
 
 
---================ INSERTS ================--
+-- ================ INSERTS ================--
 
 -- INSERT Categoria
-INSERT INTO Categoria (nombre) values 
+INSERT INTO categoria (nombre) values 
 ('cat 1'),
 ('cat 2'),
 ('cat 3'),
@@ -110,27 +87,27 @@ INSERT INTO Categoria (nombre) values
 ('cat 5');
 
 -- INSERT Producto
-INSERT INTO Producto 
-    (id_categoria, nombre, imagen, descripcion, precio_compra, ganancia, stock)
+INSERT INTO producto 
+    (id_categoria, nombre, imagen, descripcion, precio_compra, rentabilidad, ganancia, stock)
 VALUES 
-    (1, 'Producto 1', 'imagen1.png', 'Descripción del producto 1', 10.99, 0.5, 100),
-    (2, 'Producto 2', 'imagen2.png', 'Descripción del producto 2', 15.99, 0.3, 50),
-    (3, 'Producto 3', 'imagen3.png', 'Descripción del producto 3', 20.99, 0.4, 80),
-    (4, 'Producto 4', 'imagen4.png', 'Descripción del producto 4', 12.99, 0.6, 70),
-    (5, 'Producto 5', 'imagen5.png', 'Descripción del producto 5', 18.99, 0.2, 90),
-    (1, 'Producto 6', 'imagen6.png', 'Descripción del producto 6', 11.99, 0.7, 120),
-    (3, 'Producto 7', 'imagen7.png', 'Descripción del producto 7', 14.99, 0.4, 60),
-    (2, 'Producto 8', 'imagen8.png', 'Descripción del producto 8', 16.99, 0.5, 110),
-    (4, 'Producto 9', 'imagen9.png', 'Descripción del producto 9', 19.99, 0.3, 80),
-    (5, 'Producto 10', 'imagen10.png', 'Descripción del producto 10', 22.99, 0.6, 95),
-    (3, 'Producto 11', 'imagen11.png', 'Descripción del producto 11', 13.99, 0.2, 65),
-    (1, 'Producto 12', 'imagen12.png', 'Descripción del producto 12', 17.99, 0.4, 105),
-    (2, 'Producto 13', 'imagen13.png', 'Descripción del producto 13', 21.99, 0.5, 85),
-    (4, 'Producto 14', 'imagen14.png', 'Descripción del producto 14', 24.99, 0.3, 75),
-    (5, 'Producto 15', 'imagen15.png', 'Descripción del producto 15', 27.99, 0.6, 100);
+    (1, 'Producto 1', 'imagen1.png', 'Descripción del producto 1', 10.99, 0.5, 0, 100),
+    (2, 'Producto 2', 'imagen2.png', 'Descripción del producto 2', 15.99, 0.3, 0, 50),
+    (3, 'Producto 3', 'imagen3.png', 'Descripción del producto 3', 20.99, 0.4, 0, 80),
+    (4, 'Producto 4', 'imagen4.png', 'Descripción del producto 4', 12.99, 0.6, 0, 70),
+    (5, 'Producto 5', 'imagen5.png', 'Descripción del producto 5', 18.99, 0.2, 0, 90),
+    (1, 'Producto 6', 'imagen6.png', 'Descripción del producto 6', 11.99, 0.7, 0, 120),
+    (3, 'Producto 7', 'imagen7.png', 'Descripción del producto 7', 14.99, 0.4, 0, 60),
+    (2, 'Producto 8', 'imagen8.png', 'Descripción del producto 8', 16.99, 0.5, 0, 110),
+    (4, 'Producto 9', 'imagen9.png', 'Descripción del producto 9', 19.99, 0.3, 0, 80),
+    (5, 'Producto 10', 'imagen10.png', 'Descripción del producto 10', 22.99, 0.6, 0, 95),
+    (3, 'Producto 11', 'imagen11.png', 'Descripción del producto 11', 13.99, 0.2, 0, 65),
+    (1, 'Producto 12', 'imagen12.png', 'Descripción del producto 12', 17.99, 0.4, 0, 105),
+    (2, 'Producto 13', 'imagen13.png', 'Descripción del producto 13', 21.99, 0.5, 0, 85),
+    (4, 'Producto 14', 'imagen14.png', 'Descripción del producto 14', 24.99, 0.3, 0, 75),
+    (5, 'Producto 15', 'imagen15.png', 'Descripción del producto 15', 27.99, 0.6, 0, 100);
 
 -- INSERT Proveedor
-INSERT INTO Proveedor
+INSERT INTO proveedor
     (nombre)
 VALUES
     ('Proveedor 1'),
@@ -142,7 +119,7 @@ VALUES
     ('Proveedor 7');
 
 -- INSERT Producto_Proveedor
-INSERT INTO Producto_Proveedor (id_proveedor, id_producto, precio_compra)
+INSERT INTO producto_proveedor (id_proveedor, id_producto, precio_compra)
 VALUES
     (1, 1, 10.99),
     (2, 2, 15.99),
@@ -162,7 +139,7 @@ VALUES
 
 
 -- INSERT Compra
-INSERT INTO Compra (id_proveedor, total)
+INSERT INTO compra (id_proveedor, total)
 VALUES
     (1, 15000),
     (2, 20000),
@@ -185,7 +162,7 @@ VALUES
 
 
 -- INSERT Cuenta
-INSERT INTO Cuenta
+INSERT INTO cuenta
     (nombre, saldo)
 VALUES
     ('Banco Provincia', 50000),
@@ -193,7 +170,7 @@ VALUES
     ('Efectivo', 30000);
 
 -- INSERT Medio_Pago
-INSERT INTO Medio_Pago
+INSERT INTO medio_pago
     (id_cuenta, nombre, modificador)
 VALUES
     (1, 'QR Provincia', 1.2),
@@ -202,7 +179,7 @@ VALUES
     (3, 'Efectivo', 1);
 
 -- INSERT Venta
-INSERT INTO Venta 
+INSERT INTO venta 
     (id_medio_pago, fyh, total, estado)
 VALUES
     (1, NOW(), 150.50, 'C'),
@@ -223,7 +200,7 @@ VALUES
 
 
 -- INSERT Linea_Venta
-INSERT INTO Linea_Venta 
+INSERT INTO linea_venta 
     (id_venta, id_producto, precio_venta, cantidad)
 VALUES
     (1, 1, 10.99, 3),
@@ -257,26 +234,5 @@ VALUES
     (10, 14, 24.99, 2),
     (10, 15, 27.99, 1);
 
--- Continuar insertando ventas y líneas de venta según sea necesario.
-
-
-
--- DELIMITER //
--- CREATE FUNCTION resetDB()
--- RETURNS INT
--- BEGIN
---     ALTER TABLE Categoria AUTO_INCREMENT = 1;
---     ALTER TABLE Producto AUTO_INCREMENT = 1;
---     ALTER TABLE Proveedor AUTO_INCREMENT = 1;
---     ALTER TABLE Producto_Proveedor AUTO_INCREMENT = 1;
---     ALTER TABLE Compra AUTO_INCREMENT = 1;
---     ALTER TABLE Venta AUTO_INCREMENT = 1;
---     ALTER TABLE Linea_Venta AUTO_INCREMENT = 1;
---     ALTER TABLE Cuenta AUTO_INCREMENT = 1;
---     ALTER TABLE Medio_Pago AUTO_INCREMENT = 1;
---     
---     RETURN 1;
--- END //
--- DELIMITER ;
    
    

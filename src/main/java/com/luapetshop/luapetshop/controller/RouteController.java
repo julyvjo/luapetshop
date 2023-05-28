@@ -10,4 +10,24 @@ public class RouteController {
 	public String index() {
 		return "index";
 	}
+	
+	@GetMapping("/venta")
+	public String venta() {
+		return "venta";
+	}
+	
+	@GetMapping("/compra")
+	public String compra() {
+		return "compra";
+	}
+	
+	@GetMapping("/proveedor")
+	public String proveedor() {
+		return "proveedor";
+	}
+	
+	@GetMapping("/cuenta")
+	public String cuenta() {
+		return "cuenta";
+	}
 }
