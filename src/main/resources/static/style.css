@@ -1,0 +1,82 @@
+html
+{
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body
+{
+	background-color: #121212;
+	color: #f2f2f2;
+	font-family: Helvetica;
+	max-width: 100vw;
+    height: 98vh;
+	margin: 1vh 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header, footer
+{
+    margin: 0;
+    padding: 0;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #f2f2f2;
+}
+
+header
+{
+    align-items: space-evenly;
+    height: 10vh;
+}
+
+footer
+{
+    align-items: center;
+    height: 5vh;
+}
+
+nav
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.navDiv
+{
+    text-align: center;
+    padding: 2.5vh 0;
+    border: 1px solid #f2f2f2;
+    width: 15vw;
+}
+
+.navDiv:first-child, .navDiv:last-child /* first and last child of navDiv */
+{
+    background-color: #7f7f7f;
+}
+
+.navDiv:not(:first-child):not(:last-child) /* Not first nor last child of navDiv */
+{
+    /* background-color: #4a480a; */
+    /* background-color: #205035; */
+    background-color: #04848b;
+}
+
+#app
+{
+    height: 80vh;
+    border: 1px solid #f2f2f2;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
