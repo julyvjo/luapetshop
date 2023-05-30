@@ -82,9 +82,12 @@ nav
     background-color: #04848b;
 }
 
-.actual
+#actual
 {
-    background-color: #7f7f7f;
+    /* background-color: #7f7f7f; */
+    /* background-color: #070707; */
+    background-color: #e4f8f8;
+    color: #070707;
 }
 
 #app
