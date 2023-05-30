@@ -82,6 +82,11 @@ nav
     background-color: #04848b;
 }
 
+.actual
+{
+    background-color: #7f7f7f;
+}
+
 #app
 {
     height: 80vh;

@@ -5,7 +5,8 @@ const footer = document.querySelector("footer");
 navDiv.forEach(element => {
     element.addEventListener("click", (e) =>
     {
-        goToApp(e.target.textContent);
+        // goToApp(e.target.textContent);
+        goToPage(e.target.textContent);
     });
 });
 
@@ -32,4 +33,38 @@ function goToApp(buttonId)
 
         // Here I would code the actual app invoke
     }
+}
+
+function goToPage(buttonId)
+{
+    switch (buttonId)
+    {
+        case "VOLVER":
+            window.location.href = "./landing.html";
+            break;
+        case "CUENTAS":
+            window.location.href = "./cuentas.html";
+            break;
+        case "VENTAS":
+            window.location.href = "./ventas.html";
+            break;
+        case "PRODUCTOS":
+            window.location.href = "./productos.html";
+            break;
+        case "PROVEEDORES":
+            window.location.href = "./proveedores.html";
+            break;
+        case "COMPRAS":
+            window.location.href = "./compras.html";
+            break;
+        case "USUARIOS":
+            window.location.href = "./usuarios.html";
+            break;
+    
+        default:
+            console.log(`ERROR: ${buttonId} seems to not be a valid page!`);
+            break;
+    }
+
+    window.location.href = url;
 }
