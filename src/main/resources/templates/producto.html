@@ -3,10 +3,26 @@
   <head>
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
     <link th:href="@{\css\bootstrap.min.css}" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="../static/style.css"> -->
+    <link rel="stylesheet" th:href="@{style.css}">
+    <!-- <script defer src="../static/script.js"></script> -->
+    <script defer th:src="@{script.js}"></script>
     <title>Productos</title>
   </head>
   
   <body>
+    <header>
+        <nav>
+            <div class="navDiv">VOLVER</div>
+            <div class="navDiv">CUENTAS</div>
+            <div class="navDiv">VENTAS</div>
+            <div id="actual" class="navDiv">PRODUCTOS</div>
+            <div class="navDiv">PROVEEDORES</div>
+            <div class="navDiv">COMPRAS</div>
+            <div class="navDiv">USUARIOS</div>
+        </nav>
+    </header>
+    <!-- <div id="app">APP PRODUCTOS</div> -->
     <div class="container">
         <div class="row">
             <div class="col-1"></div>
@@ -40,6 +56,7 @@
             <div class="col-1"></div>
         </div>
     </div>
+    <footer>POWERED BY JULY SRL</footer>
   </body>
 </html>
 
