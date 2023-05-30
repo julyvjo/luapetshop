@@ -51,13 +51,24 @@ nav
     justify-content: space-evenly;
 }
 
+.navLanding
+{
+    justify-content: space-between;
+    padding: 0 0.25vw;
+}
+
 .navDiv
 {
     text-align: center;
     padding: 2.5vh 0;
     border: 1px solid #f2f2f2;
-    width: 15vw;
+    width: 14vw;
 }
+
+/* .landingTitle
+{
+    width: 25vw;
+} */
 
 .navDiv:first-child, .navDiv:last-child /* first and last child of navDiv */
 {
@@ -71,6 +82,14 @@ nav
     background-color: #04848b;
 }
 
+#actual
+{
+    /* background-color: #7f7f7f; */
+    /* background-color: #070707; */
+    background-color: #e4f8f8;
+    color: #070707;
+}
+
 #app
 {
     height: 80vh;
@@ -79,4 +98,45 @@ nav
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#divLanding
+{
+    display: flex;
+    flex-direction: row;
+    
+    height: 80vh;
+    border: 1px solid #f2f2f2;
+    padding: 0.25vw;
+    gap: 0.25vw;
+}
+
+#divLanding > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #f2f2f2;
+    background-color: #04848b;
+}
+
+#divLanding > div:nth-child(2)
+{
+    background-color: #121212;
+    gap: 0.25vw;
+    border: 0;
+}
+
+
+#divLanding > div > div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    background-color: #04848b;
+    border: 1px solid #f2f2f2;
 }
