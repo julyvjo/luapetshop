@@ -42,7 +42,7 @@ function goToPage(buttonId)
         case "VOLVER":
             window.location.href = "./index.html";
             break;
-        case "CUENTAS":
+        case "CAJA":
             window.location.href = "./caja.html";
             break;
         case "VENTAS":
