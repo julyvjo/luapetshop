@@ -40,25 +40,25 @@ function goToPage(buttonId)
     switch (buttonId)
     {
         case "VOLVER":
-            window.location.href = "./index.html";
+            window.location.href = "./";
             break;
         case "CAJA":
-            window.location.href = "./caja.html";
+            window.location.href = "./caja";
             break;
         case "VENTAS":
-            window.location.href = "./venta.html";
+            window.location.href = "./venta";
             break;
         case "PRODUCTOS":
-            window.location.href = "./producto.html";
+            window.location.href = "./producto";
             break;
         case "PROVEEDORES":
-            window.location.href = "./proveedor.html";
+            window.location.href = "./proveedor";
             break;
         case "COMPRAS":
-            window.location.href = "./compra.html";
+            window.location.href = "./compra";
             break;
         case "USUARIOS":
-            window.location.href = "./usuario.html";
+            window.location.href = "./usuario";
             break;
     
         default:
