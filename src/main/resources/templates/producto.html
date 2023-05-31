@@ -1,59 +1,58 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
+<head>
     <link th:href="@{\css\bootstrap.min.css}" rel="stylesheet">
     <link rel="stylesheet" th:href="@{style.css}">
     <script defer th:src="@{script.js}"></script>
     <title>Productos</title>
-  </head>
-  
-  <body>
-    <header>
-        <nav>
-            <div class="navDiv">VOLVER</div>
-            <div class="navDiv">CUENTAS</div>
-            <div class="navDiv">VENTAS</div>
-            <div id="actual" class="navDiv">PRODUCTOS</div>
-            <div class="navDiv">PROVEEDORES</div>
-            <div class="navDiv">COMPRAS</div>
-            <div class="navDiv">USUARIOS</div>
-        </nav>
-    </header>
-    <div id="app">
-        <div class="container">
-            <div class="row">
-                <div class="col-1"></div>
-                <div class="col-10 mb-5">
-                    <table class="table table-striped align-middle text-center">
-                        <thead class="table-borderless">
-                            <tr class="table-header">
-                                <!--IMAGEN-->
-                                <td><h2 class="table-header-text-mini">Nombre</h2></td>
-                                <td><h2 class="table-header-text-mini">Descripcion</h2></td>
-                                <td><h2 class="table-header-text-mini">Precio Compra</h2></td>
-                                <td><h2 class="table-header-text-mini">% Rentabilidad</h2></td>
-                                <td><h2 class="table-header-text-mini">Ganancia</h2></td>
-                                <td><h2 class="table-header-text-mini">Stock</h2></td>
-                            </tr>
-                        </thead>
-                        <tbody class="table-borderless" style="border-top: none !important;">
-                            <tr th:each="item :${productos}">
-                                <td><h5 class="py-2" th:text="${item.nombre}"></h5></td>
-                                <td><h5 class="py-2" th:text="${item.descripcion}"></h5></td>
-                                <td><h5 class="py-2" th:text="${item.precio_compra}"></h5></td>
-                                <td><h5 class="py-2" th:text="${item.rentabilidad}"></h5></td>
-                                <td><h5 class="py-2" th:text="${item.ganancia}"></h5></td>
-                                <td><h5 class="py-2" th:text="${item.stock}"></h5></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-1"></div>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="navDiv fixed">PROVEEDORES</div>
+        <div class="navDiv fixed">COMPRAS</div>
+        <div id="actual" class="navDiv">PRODUCTOS</div>
+        <div class="navDiv">VENTAS</div>
+        <div class="navDiv">CAJA</div>
+        <div class="navDiv fixed">VOLVER</div>
+        <div class="navDiv fixed">USUARIOS</div>
+    </nav>
+</header>
+<div id="app">
+    <div class="container">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10 mb-5">
+                <table class="table table-striped align-middle text-center">
+                    <thead class="table-borderless">
+                        <tr class="table-header">
+                            <!--IMAGEN-->
+                            <td><h2 class="table-header-text-mini">Nombre</h2></td>
+                            <td><h2 class="table-header-text-mini">Descripcion</h2></td>
+                            <td><h2 class="table-header-text-mini">Precio Compra</h2></td>
+                            <td><h2 class="table-header-text-mini">% Rentabilidad</h2></td>
+                            <td><h2 class="table-header-text-mini">Ganancia</h2></td>
+                            <td><h2 class="table-header-text-mini">Stock</h2></td>
+                        </tr>
+                    </thead>
+                    <tbody class="table-borderless" style="border-top: none !important;">
+                        <tr th:each="item :${productos}">
+                            <td><h5 class="py-2" th:text="${item.nombre}"></h5></td>
+                            <td><h5 class="py-2" th:text="${item.descripcion}"></h5></td>
+                            <td><h5 class="py-2" th:text="${item.precio_compra}"></h5></td>
+                            <td><h5 class="py-2" th:text="${item.rentabilidad}"></h5></td>
+                            <td><h5 class="py-2" th:text="${item.ganancia}"></h5></td>
+                            <td><h5 class="py-2" th:text="${item.stock}"></h5></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+            <div class="col-1"></div>
         </div>
     </div>
-    <footer>POWERED BY JULY SRL</footer>
-  </body>
+</div>
+<footer>POWERED BY JULY SRL</footer>
+</body>
 </html>
 
 
