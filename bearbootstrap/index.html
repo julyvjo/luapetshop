@@ -14,65 +14,9 @@
     <script defer src="./script.js"></script>
     <!-- CSS -->
     <style>
-        body {
-            background-color: #121212;
-            max-height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
-    
-        div,
-        footer,
-        nav.container-fluid,
-        header.container-fluid,
-        header > div,
-        nav.container-fluid > div {
-            margin: 0;
-            padding: 0 0.25vw;
-            gap: 0.25vw;
-        }
-    
-        div,
-        footer {
-            color: #f2f2f2;
-        }
-    
-        header > div,
-        nav.container-fluid > div {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    
-        header.container-fluid,
-        nav.container-fluid,
-        div {
-            border: 1px solid #f2f2f2;
-        }
-    
-        header {
-            height: 10vh;
-        }
-    
-        nav {
-            height: 85vh;
-        }
-    
-        footer {
-            height: 5vh;
-        }
-    
-        header > div {
-            width: 14vw;
-        }
-    
-        nav.container-fluid,
-        div {
-            background-color: #04848b;
-        }
     </style>
 </head>
-<body>
+<body class="d-flex flex-column justify-content-between">
     <header class="container-fluid text-center d-flex justify-content-end align-items-center">
         <div>PROVEEDORES</div>
         <div>COMPRAS</div>
