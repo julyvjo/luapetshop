@@ -17,31 +17,72 @@
         body {
             background-color: #121212;
             max-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
-
-        div { color: #f2f2f2;   }
-
-        .container-fluid, div { border: 1px solid #f2f2f2;  }
-
-        /* Height */
-        header { height: 10vh;  }
-        div.container-fluid { height: 85vh;  }
-        footer { height: 5vh;   }
+    
+        div,
+        footer,
+        nav.container-fluid,
+        header.container-fluid,
+        header > div,
+        nav.container-fluid > div {
+            margin: 0;
+            padding: 0 0.25vw;
+            gap: 0.25vw;
+        }
+    
+        div,
+        footer {
+            color: #f2f2f2;
+        }
+    
+        header > div,
+        nav.container-fluid > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        header.container-fluid,
+        nav.container-fluid,
+        div {
+            border: 1px solid #f2f2f2;
+        }
+    
+        header {
+            height: 10vh;
+        }
+    
+        nav {
+            height: 85vh;
+        }
+    
+        footer {
+            height: 5vh;
+        }
+    
+        header > div {
+            width: 14vw;
+        }
+    
+        nav.container-fluid,
+        div {
+            background-color: #04848b;
+        }
     </style>
 </head>
 <body>
-    <header class="container-fluid text-center d-flex justify-content-evenly align-items-center">
+    <header class="container-fluid text-center d-flex justify-content-end align-items-center">
         <div>PROVEEDORES</div>
         <div>COMPRAS</div>
         <div>USUARIOS</div>
     </header>
-    <div class="container-fluid text-center d-flex justify-content-evenly align-items-center">
-        <div class="col">PRODUCTOS</div>
-        <div class="col">VENTAS</div>
-        <div class="col">CAJA</div>
-    </div>
-    <footer class="container-fluid text-center d-flex justify-content-evenly align-items-center">
-        <div>POWERED BY JULY SRL</div>
-    </footer>
+    <nav class="container-fluid text-center d-flex justify-content-evenly">
+        <div class="col-4">PRODUCTOS</div>
+        <div class="col-4">VENTAS</div>
+        <div class="col-4">CAJA</div>
+    </nav>
+    <footer class="container-fluid text-center d-flex justify-content-evenly align-items-center">POWERED BY JULY SRL</footer>
 </body>
 </html>
