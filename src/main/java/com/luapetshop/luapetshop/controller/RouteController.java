@@ -26,8 +26,13 @@ public class RouteController {
 		return "proveedor";
 	}
 	
-	@GetMapping("/cuenta")
-	public String cuenta() {
-		return "cuenta";
+	@GetMapping("/caja")
+	public String caja() {
+		return "caja";
+	}
+
+	@GetMapping("/usuario")
+	public String usuario() {
+		return "usuario";
 	}
 }
