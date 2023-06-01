@@ -5,24 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUA Petshop</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <!-- Bootstrap v5.1.3 -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script defer src="./js/bootstrap.min.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="luapetshop.jpg" type="image/x-icon">
+    <!-- Script -->
+    <script defer src="./script.js"></script>
+    <!-- CSS -->
+    <style>
+        body {
+            background-color: #121212;
+            max-height: 100vh;
+        }
+
+        div { color: #f2f2f2;   }
+
+        .container-fluid, div { border: 1px solid #f2f2f2;  }
+
+        /* Height */
+        header { height: 10vh;  }
+        div.container-fluid { height: 85vh;  }
+        footer { height: 5vh;   }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navLanding">
-            <div id="navLeft">
-                <div class="navDiv fixed">PROVEEDORES</div>
-                <div class="navDiv fixed">COMPRAS</div>
-            </div>
-            <div class="navDiv fixed">USUARIOS</div>
-        </nav>
+    <header class="container-fluid text-center d-flex justify-content-evenly align-items-center">
+        <div>PROVEEDORES</div>
+        <div>COMPRAS</div>
+        <div>USUARIOS</div>
     </header>
-    <div id="divLanding">
-        <div class="navDiv">PRODUCTOS</div>
-        <div class="navDiv">VENTAS</div>
-        <div class="navDiv">CAJA</div>
+    <div class="container-fluid text-center d-flex justify-content-evenly align-items-center">
+        <div class="col">PRODUCTOS</div>
+        <div class="col">VENTAS</div>
+        <div class="col">CAJA</div>
     </div>
-    <footer>POWERED BY JULY SRL</footer>
+    <footer class="container-fluid text-center d-flex justify-content-evenly align-items-center">
+        <div>POWERED BY JULY SRL</div>
+    </footer>
 </body>
 </html>
