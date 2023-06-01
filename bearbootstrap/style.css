@@ -1,0 +1,62 @@
+html
+{
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body
+{
+	background-color: #121212;
+	color: #f2f2f2;
+	font-family: Helvetica;
+	max-width: 100vw;
+    height: 98vh;
+	margin: 1vh 0;
+}
+
+header.container-fluid, footer.container-fluid
+{
+    margin: 0;
+    padding: 0 0.25vw;
+    gap: 0.25vw;
+    border: 1px solid #f2f2f2;
+}
+
+header.container-fluid
+{
+    height: 10vh;
+}
+
+footer
+{
+    height: 5vh;
+}
+
+header > div
+{
+    width: 14vw;
+    padding: 2.5vh 0;
+    border: 1px solid #f2f2f2;
+    background-color: #7f7f7f;
+    cursor: pointer;
+}
+
+nav.container-fluid
+{
+    height: 80vh;
+    border: 1px solid #f2f2f2;
+    padding: 0.25vw;
+    gap: 0.25vw;
+}
+
+nav > div
+{
+    background-color: #04848b;
+    cursor: pointer;
+    padding: 0 0.25vw;
+    border: 1px solid #f2f2f2;
+}
