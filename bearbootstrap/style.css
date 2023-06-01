@@ -18,7 +18,14 @@ body
 	margin: 1vh 0;
 }
 
-header.container-fluid, footer.container-fluid
+header.container-fluid
+{
+    margin: 0;
+    padding: 0;
+    border: 1px solid #f2f2f2;
+}
+
+.navegacion, footer.container-fluid
 {
     margin: 0;
     padding: 0 0.25vw;
@@ -36,7 +43,7 @@ footer
     height: 5vh;
 }
 
-header > div
+.navegacion > div
 {
     width: 14vw;
     padding: 2.5vh 0;
