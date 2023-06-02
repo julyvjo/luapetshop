@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.luapetshop.luapetshop.repository.IProductoRepository;
+
 @Service
 public class ProductoService {
 	private IProductoRepository productoRepository;

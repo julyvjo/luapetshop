@@ -20,8 +20,6 @@ public class ProductoController {
 	public String producto(Model model) {
 		List<Producto> productos = productoService.getProductos();
 		
-		System.out.println(productos.get(1).getNombre());
-		
 		model.addAttribute("productos", productos);
 		return "producto";
 	}
