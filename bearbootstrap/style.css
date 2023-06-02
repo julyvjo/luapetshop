@@ -58,7 +58,13 @@ header.container-fluid
     background-color: #7f7f7f;
 }
 
-/* NAV */
+#headerNav > div.actual
+{
+    background-color: #e4f8f8;
+    color: #070707;
+}
+
+/* NAV and APP */
 
 #nav
 {
@@ -79,6 +85,14 @@ header.container-fluid
     /*Had to add it here instead of a class becase Bootstrap
     handles flex-basis in a way that I don't understand :) */
     flex: 1;
+}
+
+#app
+{
+    margin: 0;
+    padding: 0;
+    height: 80vh;
+    border: 1px solid #f2f2f2;
 }
 
 
