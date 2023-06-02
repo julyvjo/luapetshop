@@ -1,39 +1,26 @@
 const body = document.body;
-const navDiv = document.querySelectorAll(".navDiv");
-const footer = document.querySelector("footer");
+const headerNav = document.getElementById('headerNav');
+const headerNavDivChildren = headerNav.querySelectorAll('div');
+const nav = document.getElementById('nav');
 
-navDiv.forEach(element => {
+if (nav)
+{
+    const navDivChildren = nav.querySelectorAll('div');
+
+    navDivChildren.forEach(element => {
+        element.addEventListener("click", (e) =>
+        {
+            goToPage(e.target.textContent);
+        });
+    });
+}
+
+headerNavDivChildren.forEach(element => {
     element.addEventListener("click", (e) =>
     {
-        // goToApp(e.target.textContent);
         goToPage(e.target.textContent);
     });
 });
-
-function goToApp(buttonId)
-{    
-    let appContainer = document.getElementById("app");
-    
-    // If an appContainer element does not exist; create a container
-    if (appContainer === null)
-    {
-        const container = document.createElement("div");
-        container.textContent = `Acá iría la acción o app para ${buttonId}`;
-        container.id = "app";
-
-        body.insertBefore(container, footer);
-        
-        // Here I would code the actual app invoke
-    }
-    else
-    {
-        // Potentially could add here a transition between apps
-
-        appContainer.textContent = `Acá iría la acción o app para ${buttonId}`;
-
-        // Here I would code the actual app invoke
-    }
-}
 
 function goToPage(buttonId)
 {
