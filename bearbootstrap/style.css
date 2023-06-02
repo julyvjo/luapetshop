@@ -14,12 +14,12 @@ html
 body
 {
     margin: 1vh 0;
+    padding: 0;
     height: 98vh;
+    max-width: 100vw;
     background-color: #121212;
 	color: #f2f2f2;
 	font-family: Helvetica;
-	max-width: 100vw;
- 
 }
 
 /* HEADER */
@@ -37,17 +37,19 @@ header.container-fluid
     margin: 0;
     padding: 0 0.25vw;
     gap: 0.25vw;
-    /* line-height: normal; */
 }
 
 #headerNav > div
 {
     margin: 0;
     padding: 2.5vh 0;
-    border: 1px solid #f2f2f2;
     width: 14vw;
+    border: 1px solid #f2f2f2;
     background-color: #04848b;
     cursor: pointer;
+
+    /* Bootstrap changes this with a root variable
+       so I manually had to change it :) */
     line-height: normal;
 }
 
@@ -60,24 +62,23 @@ header.container-fluid
 
 #nav
 {
-    height: 80vh;
-    border: 1px solid #f2f2f2;
     margin: 0;
     padding: 0.25vw;
     gap: 0.25vw;
+    height: 80vh;
+    border: 1px solid #f2f2f2;
 }
 
 #nav > div
 {
     margin: 0;
     padding: 2.5vh 0;
-    
-    /*Had to add it here instead of a class becase Bootstrap
-      handles flex-basis in a way that I don't understand :) */
-    flex: 1;
-
     border: 1px solid #f2f2f2;
     background-color: #04848b;
+
+    /*Had to add it here instead of a class becase Bootstrap
+    handles flex-basis in a way that I don't understand :) */
+    flex: 1;
 }
 
 
