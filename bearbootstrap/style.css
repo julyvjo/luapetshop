@@ -104,4 +104,8 @@ footer.container-fluid
     padding: 0;
     height: 5vh;
     border: 1px solid #f2f2f2;
+
+    /* Bootstrap changes this with a root variable
+    so I manually had to change it :) */
+    line-height: normal;
 }
