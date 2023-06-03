@@ -1,11 +1,24 @@
 const body = document.body;
-const navDiv = document.querySelectorAll(".navDiv");
 const footer = document.querySelector("footer");
+const headerNav = document.getElementById('headerNav');
+const headerNavDivChildren = headerNav.querySelectorAll('div');
+const nav = document.getElementById('nav');
 
-navDiv.forEach(element => {
+if (nav)
+{
+    const navDivChildren = nav.querySelectorAll('div');
+
+    navDivChildren.forEach(element => {
+        element.addEventListener("click", (e) =>
+        {
+            goToPage(e.target.textContent);
+        });
+    });
+}
+
+headerNavDivChildren.forEach(element => {
     element.addEventListener("click", (e) =>
     {
-        // goToApp(e.target.textContent);
         goToPage(e.target.textContent);
     });
 });
