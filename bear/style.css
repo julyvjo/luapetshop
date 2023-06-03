@@ -1,3 +1,6 @@
+/* Border toggle for debugging */
+/* body > * { border: 1px solid #f2f2f2; } */
+
 html
 {
 	box-sizing: border-box;
@@ -10,108 +13,122 @@ html
 
 body
 {
-	background-color: #121212;
+    margin: 1vh 0;
+    padding: 0;
+    height: 98vh;
+    max-width: 100vw;
+    background-color: #121212;
 	color: #f2f2f2;
 	font-family: Helvetica;
-	max-width: 100vw;
-    height: 98vh;
-	margin: 1vh 0;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-header, footer
-{
-    margin: 0;
-    padding: 0;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 1px solid #f2f2f2;
-}
+/* HEADER */
 
 header
 {
+    margin: 0;
+    padding: 0;
     height: 10vh;
-}
+    border: 1px solid #f2f2f2;
 
-footer
-{
-    align-items: center;
-    height: 5vh;
-}
-
-nav
-{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#headerNav
+{
+    margin: 0;
     padding: 0 0.25vw;
     gap: 0.25vw;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-.navLanding
+#headerNav > div
 {
-    justify-content: space-between;
-}
-
-.navDiv
-{
-    text-align: center;
+    margin: 0;
     padding: 2.5vh 0;
-    border: 1px solid #f2f2f2;
     width: 14vw;
+    border: 1px solid #f2f2f2;
     background-color: #04848b;
     cursor: pointer;
-}
 
-#navLeft
-{
     display: flex;
-    flex-direction: row;
-    gap: 0.25vw;
+    justify-content: center;
+    align-items: center;
 }
 
-.fixed
+#headerNav > div.fixed
 {
     background-color: #7f7f7f;
 }
 
-#actual
+#headerNav > div.actual
 {
     background-color: #e4f8f8;
     color: #070707;
 }
 
-#app
-{
-    height: 80vh;
-    border: 1px solid #f2f2f2;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-#divLanding
+/* NAV and APP */
+
+#nav
 {
-    display: flex;
-    flex-direction: row;
-    
-    height: 80vh;
-    border: 1px solid #f2f2f2;
+    margin: 0;
     padding: 0.25vw;
     gap: 0.25vw;
+    height: 80vh;
+    border: 1px solid #f2f2f2;
+
+    display: flex;
+    justify-content: space-evenly;
 }
 
-#divLanding > div {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
+#nav > div
+{
+    margin: 0;
+    padding: 2.5vh 0;
     border: 1px solid #f2f2f2;
     background-color: #04848b;
+    cursor: pointer;
+
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#app
+{
+    margin: 0;
+    padding: 0;
+    height: 80vh;
+    border: 1px solid #f2f2f2;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FOOTER */
+
+footer
+{
+    margin: 0;
+    padding: 0;
+    height: 5vh;
+    border: 1px solid #f2f2f2;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
