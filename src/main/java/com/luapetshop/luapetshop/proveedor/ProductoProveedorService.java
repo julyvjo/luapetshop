@@ -10,19 +10,26 @@ import com.luapetshop.luapetshop.repository.IProductoRepository;
 import com.luapetshop.luapetshop.repository.IProveedorRepository;
 
 @Service
-public class ProveedorService {
+public class ProductoProveedorService {
 	private IProductoProveedorRepository productoProveedorRepository;
 	
 	@Autowired
-	public ProveedorService(IProductoProveedorRepository productoProveedorRepository) {
+	public ProductoProveedorService(IProductoProveedorRepository productoProveedorRepository) {
 		super();
 		this.productoProveedorRepository = productoProveedorRepository;
 	}
 	
 	
-	public List<ProveedorDTO> getProveedoresDTO() {
+	public List<ProductoProveedor> getProductosProveedores() {
 		
-		return productoProveedorRepository.findAllProveedorDTO();
+		List<ProductoProveedor> productosProveedores = productoProveedorRepository.findAllOrderByProducto();
+		
+		for(ProductoProveedor pp : productosProveedores) {
+			pp.getProveedor();
+			pp.getProducto();
+		}
+		
+		return productosProveedores; 
 	}
 
 }

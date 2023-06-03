@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ProveedorController {
-	private ProveedorService proveedorService;
+	private ProductoProveedorService productoProveedorService;
 	
 	@Autowired
-	public ProveedorController(ProveedorService proveedorService) {
-		this.proveedorService = proveedorService;
+	public ProveedorController(ProductoProveedorService productoProveedorService) {
+		this.productoProveedorService = productoProveedorService;
 	}
 	
 	@GetMapping("/proveedor")
 	public String proveedor(Model model) {
-		List<ProveedorDTO> proveedoresDTO = proveedorService.getProveedoresDTO();
+		List<ProductoProveedor> productosProveedores = productoProveedorService.getProductosProveedores();
 		
-		model.addAttribute("proveedores", proveedoresDTO);
+		model.addAttribute("proveedores", productosProveedores);
 		return "proveedor";
 	}
 	

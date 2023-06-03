@@ -21,11 +21,6 @@ public class RouteController {
 		return "compra";
 	}
 	
-	@GetMapping("/proveedor")
-	public String proveedor() {
-		return "proveedor";
-	}
-	
 	@GetMapping("/caja")
 	public String caja() {
 		return "caja";

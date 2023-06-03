@@ -39,8 +39,8 @@
                         <tbody class="table-borderless" style="border-top: none !important;">
                             <tr th:each="item :${proveedores}">
                                 <td><h5 class="py-2" th:text="${item.id_producto_proveedor}"></h5></td>
-                                <td><h5 class="py-2" th:text="${item.nombre_proveedor}"></h5></td>
-                                <td><h5 class="py-2" th:text="${item.nombre_producto}"></h5></td>
+                                <td><h5 class="py-2" th:text="${item.proveedor.nombre}"></h5></td>
+                                <td><h5 class="py-2" th:text="${item.producto.nombre}"></h5></td>
                                 <td><h5 class="py-2" th:text="${item.precio_compra}"></h5></td>
                             </tr>
                         </tbody>
