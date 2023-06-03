@@ -81,6 +81,7 @@ header.container-fluid
     padding: 2.5vh 0;
     border: 1px solid #f2f2f2;
     background-color: #04848b;
+    cursor: pointer;
 
     /*Had to add it here instead of a class becase Bootstrap
     handles flex-basis in a way that I don't understand :) */
