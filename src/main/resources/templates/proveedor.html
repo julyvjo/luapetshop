@@ -18,7 +18,39 @@
             <div class="navDiv fixed">USUARIOS</div>
         </nav>
     </header>
-    <div id="app">APP PROVEEDORES</div>
+
+    <!-- APP PROVEEDOR -->
+
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10 mb-5">
+                    <table class="table table-striped align-middle text-center">
+                        <thead class="table-borderless">
+                            <tr class="table-header">
+                                <!--IMAGEN-->
+                                <td><h2 class="table-header-text-mini">id_producto_proveedor</h2></td>
+                                <td><h2 class="table-header-text-mini">nombre_proveedor</h2></td>
+                                <td><h2 class="table-header-text-mini">nombre_producto</h2></td>
+                                <td><h2 class="table-header-text-mini">precio_compra</h2></td>
+                            </tr>
+                        </thead>
+                        <tbody class="table-borderless" style="border-top: none !important;">
+                            <tr th:each="item :${proveedores}">
+                                <td><h5 class="py-2" th:text="${item.id_producto_proveedor}"></h5></td>
+                                <td><h5 class="py-2" th:text="${item.nombre_proveedor}"></h5></td>
+                                <td><h5 class="py-2" th:text="${item.nombre_producto}"></h5></td>
+                                <td><h5 class="py-2" th:text="${item.precio_compra}"></h5></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-1"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- 
     	Atributos de thymeleaf
     
@@ -27,6 +59,7 @@
 		nombre_producto
 		precio_compra
      -->
+
     <footer>POWERED BY JULY SRL</footer>
 </body>
 </html>
