@@ -1,21 +1,30 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUA Petshop</title>
+    <!-- Favicon -->
+    <!-- <link rel="shortcut icon" href="luapetshop.jpg" type="image/x-icon"> -->
+    <!-- Bootstrap -->
     <link th:href="@{\css\bootstrap.min.css}" rel="stylesheet">
+    <script defer th:src="@{\js\bootstrap.min.js}"></script>
+    <!-- CSS -->
     <link rel="stylesheet" th:href="@{style.css}">
+    <!-- Script -->
     <script defer th:src="@{script.js}"></script>
-    <title>Productos</title>
 </head>
 <body>
 <header>
-    <nav>
-        <div class="navDiv fixed">PROVEEDORES</div>
-        <div class="navDiv fixed">COMPRAS</div>
-        <div id="actual" class="navDiv">PRODUCTOS</div>
-        <div class="navDiv">VENTAS</div>
-        <div class="navDiv">CAJA</div>
-        <div class="navDiv fixed">VOLVER</div>
-        <div class="navDiv fixed">USUARIOS</div>
+    <nav id="headerNav">
+        <div class="fixed">VOLVER</div>
+        <div class="actual">PRODUCTOS</div>
+        <div class="">VENTAS</div>
+        <div class="">CAJA</div>
+        <div class="fixed">PROVEEDORES</div>
+        <div class="fixed">COMPRAS</div>
+        <div class="fixed">USUARIOS</div>
     </nav>
 </header>
 <div id="app">
