@@ -1,6 +1,9 @@
 /* Border toggle for debugging */
 /* body > * { border: 1px solid #f2f2f2; } */
 
+/* NOTE: All sizes use VH and VW relative units 
+         in this case asuming a 16:9 resolution. */
+
 :root
 {
     /* BEAR COLORS */
@@ -41,7 +44,8 @@ body
     max-width: 100vw;
     background-color: var(--secondary);
 	color: var(--primary);
-	font-family: Helvetica;
+	font-family: Helvetica, sans-serif;
+    font-size: 3vh;
 
     display: flex;
     flex-direction: column;
@@ -55,7 +59,7 @@ header
     margin: 0;
     padding: 0;
     height: 10vh;
-    border: 1px solid var(--primary);
+    border: 0.1vh solid var(--primary);
 
     display: flex;
     flex-direction: column;
@@ -67,6 +71,7 @@ header
     margin: 0;
     padding: 0 0.25vw;
     gap: 0.25vw;
+    height: 10vh;
 
     display: flex;
     justify-content: flex-end;
@@ -78,13 +83,16 @@ header
     margin: 0;
     padding: 2.5vh 0;
     width: 14vw;
-    border: 1px solid var(--primary);
+    height: 7vh;
+    border: 0.1vh solid var(--primary);
     background-color: var(--accent);
     cursor: pointer;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    overflow: hidden;
 }
 
 #headerNav > div.fixed
@@ -105,9 +113,9 @@ header
 {
     margin: 0;
     padding: 0.25vw;
-    gap: 0.25vw;
+    gap: 0.25w;
     height: 80vh;
-    border: 1px solid var(--primary);
+    border: 0.1vh solid var(--primary);
 
     display: flex;
     justify-content: space-evenly;
@@ -117,7 +125,7 @@ header
 {
     margin: 0;
     padding: 2.5vh 0;
-    border: 1px solid var(--primary);
+    border: 0.1vh solid var(--primary);
     background-color: var(--accent);
     cursor: pointer;
 
@@ -133,7 +141,7 @@ header
     margin: 0;
     padding: 0;
     height: 80vh;
-    border: 1px solid var(--primary);
+    border: 0.1vh solid var(--primary);
     
     display: flex;
     justify-content: center;
@@ -156,10 +164,12 @@ footer
     margin: 0;
     padding: 0;
     height: 5vh;
-    border: 1px solid var(--primary);
+    border: 0.1vh solid var(--primary);
     
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    overflow: hidden;
 }
