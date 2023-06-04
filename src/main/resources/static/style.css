@@ -1,3 +1,28 @@
+/* Border toggle for debugging */
+/* body > * { border: 1px solid #f2f2f2; } */
+
+:root
+{
+    /* BEAR COLORS */
+    --bearWhite: #f2f2f2;
+    --bearBlack: #121212;
+    --bearGrey: #7f7f7f;
+    --bearCyan: #04848b;
+
+    /* LUA PETSHOP COLORS */
+    --luaWhite: #e3f9f9;
+    --luaBlack: #404f48;
+    --luaGrey: #a0afa0;
+    --luaCyan: #05c2cf;
+    --luaLightBlue: #5dc6ca;
+
+    /* SITE COLORS */
+    --primary: var(--bearWhite);
+    --alternative: var(--bearGrey);
+    --secondary: var(--bearBlack);
+    --accent: var(--bearCyan);
+}
+
 html
 {
 	box-sizing: border-box;
@@ -10,116 +35,131 @@ html
 
 body
 {
-	background-color: #121212;
-	color: #f2f2f2;
-	font-family: Helvetica;
-	max-width: 100vw;
+    margin: 1vh 0;
+    padding: 0;
     height: 98vh;
-	margin: 1vh 0;
+    max-width: 100vw;
+    background-color: var(--secondary);
+	color: var(--primary);
+	font-family: Helvetica;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-header, footer
-{
-    margin: 0;
-    padding: 0;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 1px solid #f2f2f2;
-}
+/* HEADER */
 
 header
 {
+    margin: 0;
+    padding: 0;
     height: 10vh;
-}
+    border: 1px solid var(--primary);
 
-footer
-{
-    align-items: center;
-    height: 5vh;
-}
-
-nav
-{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#headerNav
+{
+    margin: 0;
     padding: 0 0.25vw;
     gap: 0.25vw;
-}
 
-.navLanding
-{
-    justify-content: space-between;
-}
-
-.navDiv
-{
-    text-align: center;
-    padding: 2.5vh 0;
-    border: 1px solid #f2f2f2;
-    width: 14vw;
-    background-color: #04848b;
-    cursor: pointer;
-}
-
-#navLeft
-{
     display: flex;
-    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#headerNav > div
+{
+    margin: 0;
+    padding: 2.5vh 0;
+    width: 14vw;
+    border: 1px solid var(--primary);
+    background-color: var(--accent);
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#headerNav > div.fixed
+{
+    background-color: var(--alternative);
+}
+
+#headerNav > div.actual
+{
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+
+/* NAV and APP */
+
+#nav
+{
+    margin: 0;
+    padding: 0.25vw;
     gap: 0.25vw;
+    height: 80vh;
+    border: 1px solid var(--primary);
+
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.fixed
+#nav > div
 {
-    background-color: #7f7f7f;
-}
+    margin: 0;
+    padding: 2.5vh 0;
+    border: 1px solid var(--primary);
+    background-color: var(--accent);
+    cursor: pointer;
 
-#actual
-{
-    background-color: #e4f8f8;
-    color: #070707;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #app
 {
+    margin: 0;
+    padding: 0;
     height: 80vh;
-    border: 1px solid #f2f2f2;
+    border: 1px solid var(--primary);
     
     display: flex;
     justify-content: center;
     align-items: center;
 
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .container
 {
     height: 80vh;
-    padding-top: 2vh;
+    padding: 2vh 0 0 0;
 }
 
-#divLanding
+/* FOOTER */
+
+footer
 {
-    display: flex;
-    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    height: 5vh;
+    border: 1px solid var(--primary);
     
-    height: 80vh;
-    border: 1px solid #f2f2f2;
-    padding: 0.25vw;
-    gap: 0.25vw;
-}
-
-#divLanding > div {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-
-    border: 1px solid #f2f2f2;
-    background-color: #04848b;
+    align-items: center;
 }
