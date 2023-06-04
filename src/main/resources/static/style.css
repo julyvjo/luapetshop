@@ -141,6 +141,7 @@ header
     margin: 0;
     padding: 0;
     height: 80vh;
+    width: calc(100vw - 0.2vh);
     border: 0.1vh solid var(--primary);
     background-color: var(--primary);
     color: var(--secondary);
@@ -150,6 +151,10 @@ header
     align-items: center;
 
     overflow: scroll;
+
+    /* Overflow alternative if x-axis scroll is not wanted */
+    /* overflow-y: scroll;
+    overflow-x: hidden; */
 }
 
 .container
@@ -157,10 +162,26 @@ header
     margin: 0;
     padding: 2vh 0 0 0;
     height: 80vh;
+    max-width: none;
 }
 
 h2 { font-size: 3vh; }
 h5 { font-size: 2vh; }
+
+.tableMargin
+{
+    /* Need to overwrite bootstrap default values for enabling custom widths */
+    width: 5%;
+    max-width: none;
+}
+
+.tableContainer
+{
+    /* Need to overwrite bootstrap default values for enabling custom widths */
+    width: 90%;
+    max-width: none;
+}
+
 
 /* FOOTER */
 
