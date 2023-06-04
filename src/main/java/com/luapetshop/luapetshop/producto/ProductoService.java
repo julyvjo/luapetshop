@@ -20,4 +20,9 @@ public class ProductoService {
 		return productoRepository.findAll();
 		//return productoRepository.findAllCustom();
 	}
+
+	public List<Producto> getProductosByName(String nombre) {
+
+		return productoRepository.findByNombreContaining(nombre);
+	}
 }
