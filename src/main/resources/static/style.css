@@ -52,7 +52,9 @@ body
     justify-content: space-between;
 }
 
-/* HEADER */
+/* ////////////// */
+/* /// HEADER /// */
+/* ////////////// */
 
 header
 {
@@ -106,14 +108,15 @@ header
     color: var(--secondary);
 }
 
-
-/* NAV and APP */
+/* /////////// */
+/* /// NAV /// */
+/* /////////// */
 
 #nav
 {
     margin: 0;
     padding: 0.25vw;
-    gap: 0.25w;
+    gap: 0.25vw;
     height: 80vh;
     border: 0.1vh solid var(--primary);
 
@@ -135,6 +138,10 @@ header
     justify-content: center;
     align-items: center;
 }
+
+/* /////////// */
+/* /// APP /// */
+/* /////////// */
 
 #app
 {
@@ -165,25 +172,9 @@ header
     max-width: none;
 }
 
-h2 { font-size: 3vh; }
-h5 { font-size: 2vh; }
-
-.tableMargin
-{
-    /* Need to overwrite bootstrap default values for enabling custom widths */
-    width: 5%;
-    max-width: none;
-}
-
-.tableContainer
-{
-    /* Need to overwrite bootstrap default values for enabling custom widths */
-    width: 90%;
-    max-width: none;
-}
-
-
-/* FOOTER */
+/* ////////////// */
+/* /// FOOTER /// */
+/* ////////////// */
 
 footer
 {
