@@ -16,59 +16,52 @@
     <script defer th:src="@{script.js}"></script>
 </head>
 <body>
-    <header>
-        <nav id="headerNav">
-            <div class="fixed">VOLVER</div>
-            <div class="">PRODUCTOS</div>
-            <div class="">VENTAS</div>
-            <div class="">CAJA</div>
-            <div class="actual">PROVEEDORES</div>
-            <div class="fixed">COMPRAS</div>
-            <div class="fixed">USUARIOS</div>
-        </nav>
-    </header>
-
-    <!-- APP PROVEEDOR -->
-
-    <div id="app">
-        <div class="container">
-            <div class="row">
-                <div class="tableMargin"></div>
-                <div class="tableContainer mb-5">
-                    <table class="table table-striped align-middle text-center">
-                        <thead class="table-borderless">
-                            <tr class="table-header">
-                                <!--IMAGEN-->
-                                <td><h2 class="table-header-text-mini">id_producto_proveedor</h2></td>
-                                <td><h2 class="table-header-text-mini">nombre_proveedor</h2></td>
-                                <td><h2 class="table-header-text-mini">nombre_producto</h2></td>
-                                <td><h2 class="table-header-text-mini">precio_compra</h2></td>
-                            </tr>
-                        </thead>
-                        <tbody id="table" class="table-borderless" style="border-top: none !important;">
-                            <tr th:each="item :${proveedores}">
-                                <td><h5 class="py-2" th:text="${item.id_producto_proveedor}"></h5></td>
-                                <td><h5 class="py-2" th:text="${item.proveedor.nombre}"></h5></td>
-                                <td><h5 class="py-2" th:text="${item.producto.nombre}"></h5></td>
-                                <td><h5 class="py-2" th:text="${item.precio_compra}"></h5></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="tableMargin"></div>
+<header>
+    <nav id="headerNav">
+        <div class="fixed">VOLVER</div>
+        <div class="">PRODUCTOS</div>
+        <div class="">VENTAS</div>
+        <div class="">CAJA</div>
+        <div class="actual">PROVEEDORES</div>
+        <div class="fixed">COMPRAS</div>
+        <div class="fixed">USUARIOS</div>
+    </nav>
+</header>
+<div id="app">
+    <!-- BUSCADOR -->
+    <div id="buscador">
+        <input type="search" name="search" placeholder="Comida para perro...">
+        <button id="botonBuscador">BUSCAR</button>
+    </div>
+    <!-- TABLA -->
+    <div class="container">
+        <div class="row">
+            <div class="tableMargin"></div>
+            <div class="tableContainer mb-5">
+                <table class="table table-striped align-middle text-center">
+                    <thead class="table-borderless">
+                        <tr class="table-header">
+                            <!--IMAGEN-->
+                            <td><h2 class="table-header-text-mini">id_producto_proveedor</h2></td>
+                            <td><h2 class="table-header-text-mini">nombre_proveedor</h2></td>
+                            <td><h2 class="table-header-text-mini">nombre_producto</h2></td>
+                            <td><h2 class="table-header-text-mini">precio_compra</h2></td>
+                        </tr>
+                    </thead>
+                    <tbody id="table" class="table-borderless" style="border-top: none !important;">
+                        <tr th:each="item :${proveedores}">
+                            <td><h5 class="py-2" th:text="${item.id_producto_proveedor}"></h5></td>
+                            <td><h5 class="py-2" th:text="${item.proveedor.nombre}"></h5></td>
+                            <td><h5 class="py-2" th:text="${item.producto.nombre}"></h5></td>
+                            <td><h5 class="py-2" th:text="${item.precio_compra}"></h5></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+            <div class="tableMargin"></div>
         </div>
     </div>
-
-    <!-- 
-    	Atributos de thymeleaf
-    
-    	id_producto_proveedor
-		nombre_proveedor
-		nombre_producto
-		precio_compra
-     -->
-
-    <footer>POWERED BY JULY SRL</footer>
+</div>
+<footer>POWERED BY JULY SRL</footer>
 </body>
 </html>
