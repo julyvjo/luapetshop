@@ -167,7 +167,7 @@ header
 .container
 {
     margin: 0;
-    padding: 2vh 0 0 0;
+    padding: 2vh 1vw 0 1vw;
     height: 80vh;
     max-width: none;
 }
