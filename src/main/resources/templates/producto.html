@@ -44,7 +44,7 @@
                             <td><h2 class="table-header-text-mini">Stock</h2></td>
                         </tr>
                     </thead>
-                    <tbody class="table-borderless" style="border-top: none !important;">
+                    <tbody id="table" class="table-borderless" style="border-top: none !important;">
                         <tr th:each="item :${productos}">
                             <td><h5 class="py-2" th:text="${item.nombre}"></h5></td>
                             <td><h5 class="py-2" th:text="${item.descripcion}"></h5></td>

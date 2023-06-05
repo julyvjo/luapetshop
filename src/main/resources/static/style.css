@@ -164,12 +164,30 @@ header
     overflow-x: hidden; */
 }
 
-.container
+.container /* Container of an individual app */
 {
     margin: 0;
     padding: 2vh 1vw 0 1vw;
     height: 80vh;
     max-width: none;
+}
+
+.table-header
+{
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+#table > :nth-child(odd) /* #table should be the <tbody> element of a table */
+{
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+#table > :nth-child(even)
+{
+    background-color: var(--alternative);
+    color: var(--primary);
 }
 
 /* ////////////// */
