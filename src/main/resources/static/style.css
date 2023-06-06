@@ -13,7 +13,7 @@
     --luaWhite: #e3f9f9;
     --luaBlack: #404f48;
     --luaGrey: #a0afa0;
-    --luaCyan: #05c2cf;
+    --luaCyan: #05c3d1;
     --luaLightBlue: #5dc6ca;
 
     /* SITE COLORS */
@@ -39,7 +39,7 @@ body
     padding: 0;
     height: 98vh;
     max-width: 100vw;
-    background: url("../img/Imagotipo-2.jpg");
+    background: url("../img/Imagotipo-2-cyan.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-color: var(--secondary); /* If background is defined; this needs to be AFTER it. */
@@ -292,7 +292,7 @@ footer
 
     align-self: center;
     overflow: hidden;
-    font-weight: 900;
+    font-weight: bold;
 }
 
 /* ///////////// */
