@@ -18,7 +18,7 @@
 
     /* SITE COLORS */
     --primary: var(--bearWhite);
-    --alternative: var(--bearGrey);
+    --alternative: var(--luaCyan);
     --secondary: var(--bearBlack);
     --accent: var(--bearCyan);
 }
@@ -94,7 +94,7 @@ header
     height: 7vh;
     border: 0.1vh solid var(--primary);
     border-radius: 1vw;
-    background-color: var(--accent);
+    background-color: var(--alternative);
     cursor: pointer;
 
     display: flex;
@@ -106,7 +106,7 @@ header
 
 #headerNav > div.fixed
 {
-    background-color: var(--alternative);
+    background-color: var(--accent);
 }
 
 #headerNav > div.actual
@@ -142,7 +142,7 @@ header
     background-color: var(--accent); */
     border-width: 1vh 1vw;
     border-style: solid;
-    border-color: var(--accent);
+    border-color: var(--alternative);
     border-radius: 1vw;
     background-color: #f2f2f2F4;
     color: var(--secondary);
