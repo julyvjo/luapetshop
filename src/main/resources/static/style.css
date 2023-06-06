@@ -172,7 +172,7 @@ header
     border-color: var(--accent);
     border-radius: 1vw;
     /* background-color: var(--primary); */
-    background-color: #f2f2f2F4;
+    background-color: #121212A0;
     color: var(--secondary);
     
     display: flex;
@@ -256,6 +256,11 @@ header
 {
     background-color: var(--alternative);
     color: var(--primary);
+}
+
+#table > :last-child > *
+{
+    border: none; /* Overwriting what Bootstrap does to borders :) */
 }
 
 #table > :last-child > :first-child
