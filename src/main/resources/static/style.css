@@ -166,16 +166,17 @@ header
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 
     overflow: scroll;
+    text-align: center;
 
     /* Overflow alternative if x-axis scroll is not wanted */
     /* overflow-y: scroll;
     overflow-x: hidden; */
 }
 
-#buscador
+#extraApps
 {
     margin: 0;
     padding: 2vh 1vw 0 1vw;
@@ -183,23 +184,31 @@ header
 
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.25vw;
 }
 
-#buscador > *
+#inputBuscador
 {
+    margin: 0;
     padding: 2vh 1vw;
     border-radius: 1vw;
+    width: 45vw;
 }
 
-#botonBuscador
+#botonBuscador, #botonEditorGeneral
 {
+    margin: 0;
+    padding: 2vh 1vw;
+    border-radius: 1vw;
     border: 0;
     background-color: var(--accent);
     color: var(--primary);
 }
+
+/* ///////////////// */
+/* /// APP TABLE /// */
+/* ///////////////// */
 
 .container /* Container of an individual app */
 {
