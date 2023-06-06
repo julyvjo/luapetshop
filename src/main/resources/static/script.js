@@ -4,10 +4,22 @@ const headerNavDivChildren = headerNav.querySelectorAll('div');
 const nav = document.getElementById('nav');
 const botonBuscador = document.getElementById('botonBuscador');
 const inputBuscador = document.getElementById('inputBuscador');
+const editorGeneral = document.getElementById('botonEditorGeneral');
 
 if (inputBuscador)
 {
     inputBuscador.focus();
+
+    inputBuscador.addEventListener("keydown", (e) =>
+    {
+        if (e.key === "Enter")
+        {
+          e.preventDefault();
+          const url = window.location.href;
+          const contenido = inputBuscador.value;
+          buscadorGoToPage(url, contenido);
+        }
+    });
 
     // I implemented it like this because script.js has "defer" attribute.
     // If in the future this changes, this needs to be implemented inside an Event Listener.
@@ -105,4 +117,14 @@ botonBuscador.addEventListener("click", (e) =>
 function buscadorGoToPage(url, contenido)
 {
     window.location.href = `${url}?nombre=${contenido}`;
+}
+
+botonEditorGeneral.addEventListener("click", (e) =>
+{
+    abrirEditor();
+});
+
+function abrirEditor()
+{
+
 }
