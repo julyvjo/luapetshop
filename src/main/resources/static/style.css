@@ -157,10 +157,12 @@ header
     padding: 0;
     height: 80vh;
     width: calc(100vw - 0.2vh);
-    border: 0.1vh solid var(--secondary);
+    border-width: 1vh 1vw;
+    border-style: solid;
+    border-color: var(--accent);
     border-radius: 1vw;
     /* background-color: var(--primary); */
-    background-color: #f2f2f2EE;
+    background-color: #f2f2f2F4;
     color: var(--secondary);
     
     display: flex;
@@ -224,6 +226,16 @@ header
     color: var(--primary);
 }
 
+.table-header > td:first-child
+{
+    border-radius: 1vw 0 0 0;
+}
+
+.table-header > td:last-child
+{
+    border-radius: 0 1vw 0 0;
+}
+
 #table > :nth-child(odd) /* #table should be the <tbody> element of a table */
 {
     background-color: var(--primary);
@@ -234,6 +246,16 @@ header
 {
     background-color: var(--alternative);
     color: var(--primary);
+}
+
+#table > :last-child > :first-child
+{
+    border-radius: 0 0 0 1vw;
+}
+
+#table > :last-child > :last-child
+{
+    border-radius: 0 0 1vw 0;
 }
 
 /* ////////////// */
