@@ -6,25 +6,6 @@ const botonBuscador = document.getElementById('botonBuscador');
 const inputBuscador = document.getElementById('inputBuscador');
 const editorGeneral = document.getElementById('botonEditorGeneral');
 
-if (inputBuscador)
-{
-    inputBuscador.focus();
-
-    inputBuscador.addEventListener("keydown", (e) =>
-    {
-        if (e.key === "Enter")
-        {
-          e.preventDefault();
-          const url = window.location.href;
-          const contenido = inputBuscador.value;
-          buscadorGoToPage(url, contenido);
-        }
-    });
-
-    // I implemented it like this because script.js has "defer" attribute.
-    // If in the future this changes, this needs to be implemented inside an Event Listener.
-}
-
 if (nav)
 {
     const navDivChildren = nav.querySelectorAll('div');
@@ -81,16 +62,43 @@ function goToPage(buttonId)
     window.location.href = url;
 }
 
+if (inputBuscador)
+{
+    inputBuscador.focus();
+
+    inputBuscador.addEventListener("keydown", (e) =>
+    {
+        if (e.key === "Enter")
+        {
+          e.preventDefault();
+          chequearBuscador();
+        }
+    });
+
+    // I implemented it like this because script.js has "defer" attribute.
+    // If in the future this changes, this needs to be implemented inside an Event Listener.
+}
+
 botonBuscador.addEventListener("click", (e) =>
+{
+    chequearBuscador();
+});
+
+function chequearBuscador()
 {
     const url = window.location.href;
     const contenido = inputBuscador.value;
-    buscadorGoToPage(url, contenido);
-});
+
+    if (contenido !== "")
+        buscadorGoToPage(url, contenido);
+    else
+        console.log("ERROR: Empty search bar!");
+}
 
 function buscadorGoToPage(url, contenido)
 {
-    window.location.href = `${url}?nombre=${contenido}`;
+    const cleanURL = url.split(/[?]/)[0];
+    window.location.href = `${cleanURL}?nombre=${contenido}`;
 }
 
 botonEditorGeneral.addEventListener("click", (e) =>
