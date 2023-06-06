@@ -79,10 +79,13 @@ if (inputBuscador)
     // If in the future this changes, this needs to be implemented inside an Event Listener.
 }
 
-botonBuscador.addEventListener("click", (e) =>
+if (botonBuscador)
 {
-    chequearBuscador();
-});
+    botonBuscador.addEventListener("click", (e) =>
+    {
+        chequearBuscador();
+    });
+}
 
 function chequearBuscador()
 {
@@ -101,10 +104,13 @@ function buscadorGoToPage(url, contenido)
     window.location.href = `${cleanURL}?nombre=${contenido}`;
 }
 
-botonEditorGeneral.addEventListener("click", (e) =>
+if (editorGeneral)
 {
-    abrirEditor();
-});
+    botonEditorGeneral.addEventListener("click", (e) =>
+    {
+        abrirEditor();
+    });
+}
 
 function abrirEditor()
 {
