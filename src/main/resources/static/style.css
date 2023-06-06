@@ -63,7 +63,7 @@ header
     margin: 0;
     padding: 0;
     height: 10vh;
-    border: 0.1vh solid var(--primary);
+    /* border: 0.1vh solid var(--primary); */
     /* background-color: var(--secondary); */
     background-color: transparent;
 
@@ -124,7 +124,7 @@ header
     padding: 0.25vw;
     gap: 0.25vw;
     height: 80vh;
-    border: 0.1vh solid var(--primary);
+    /* border: 0.1vh solid var(--primary); */
 
     background-color: transparent;
 
@@ -136,8 +136,14 @@ header
 {
     margin: 0;
     padding: 2.5vh 0;
-    border: 0.1vh solid var(--primary);
-    background-color: var(--accent);
+    /* border: 0.1vh solid var(--primary);
+    background-color: var(--accent); */
+    border-width: 1vh 1vw;
+    border-style: solid;
+    border-color: var(--accent);
+    border-radius: 1vw;
+    background-color: #f2f2f2F4;
+    color: var(--secondary);
     cursor: pointer;
 
     display: flex;
@@ -265,15 +271,22 @@ header
 footer
 {
     margin: 0;
-    padding: 0;
+    padding: 2vh 0;
     height: 5vh;
-    border: 0.1vh solid var(--primary);
-    background-color: var(--secondary);
+    width: 33vw;
+    /* border: 0.1vh solid var(--primary); */
+    border: 0.5vh solid var(--accent);
+    border-radius: 1vw;
+    /* background-color: var(--secondary); */
+    background-color: transparent;
+    color: var(--secondary);
     
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    align-self: center;
 
     overflow: hidden;
 }
