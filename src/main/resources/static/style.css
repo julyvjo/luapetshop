@@ -1,6 +1,3 @@
-/* Border toggle for debugging */
-/* body > * { border: 1px solid #f2f2f2; } */
-
 /* NOTE: All sizes use VH and VW relative units 
          in this case asuming a 16:9 resolution. */
 
@@ -220,7 +217,7 @@ header
     max-width: none;
 }
 
-.table-header
+.table-header /* .table-header should be the <theader> element of a table */
 {
     background-color: var(--accent);
     color: var(--primary);
