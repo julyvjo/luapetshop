@@ -217,7 +217,8 @@ function crearModal(modalId)
     // Create modal body
     const modalBody = document.createElement("div");
     modalBody.classList.add("modal-body");
-    modalBody.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+
+    modalBody.textContent = "Se supone que acá cargaría la función.";
 
     // Append modal components
     modalContent.appendChild(modalHeader);
