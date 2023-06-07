@@ -104,18 +104,11 @@ function buscadorGoToPage(url, contenido)
     window.location.href = `${cleanURL}?nombre=${contenido}`;
 }
 
-if (editorGeneral)
-{
-    botonEditorGeneral.addEventListener("click", (e) =>
-    {
-        abrirEditor();
-    });
-}
-
-function abrirEditor()
+function crearModal(modalId)
 {
     // Create modal container
     const modalContainer = document.createElement("div");
+    modalContainer.id = modalId;
     modalContainer.classList.add("modal", "fade");
     modalContainer.setAttribute("tabindex", "-1");
     modalContainer.setAttribute("role", "dialog");
@@ -166,16 +159,36 @@ function abrirEditor()
     // Append modal container to #app
     app.appendChild(modalContainer);
 
-    // Show the modal
-    modalContainer.classList.add("show");
-    modalContainer.style.display = "block";
-    modalContainer.removeAttribute("aria-hidden");
-
     // Add click event listener to close the modal
     modalCloseButton.addEventListener("click", () =>
     {
         modalContainer.classList.remove("show");
         modalContainer.style.display = "none";
         modalContainer.setAttribute("aria-hidden", "true");
+        modalContainer.remove();
+    });
+}
+
+function mostrarModal(buttonId)
+{
+    // Show the modal
+    const modalQueQuieroMostrar = document.getElementById(buttonId);
+    modalQueQuieroMostrar.classList.add("show");
+    modalQueQuieroMostrar.style.display = "block";
+    modalQueQuieroMostrar.removeAttribute("aria-hidden");
+}
+
+function abrirEditor()
+{
+    const modalId = "modalEditorGeneral";
+    crearModal(modalId);
+    mostrarModal(modalId);
+}
+
+if (editorGeneral)
+{
+    botonEditorGeneral.addEventListener("click", (e) =>
+    {
+        abrirEditor();
     });
 }
