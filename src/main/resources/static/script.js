@@ -1,13 +1,20 @@
-const body = document.body;
+// HEADER NAVBAR
+
 const headerNav = document.getElementById('headerNav');
 const headerNavDivChildren = headerNav.querySelectorAll('div');
+
+headerNavDivChildren.forEach(element =>
+{
+    element.addEventListener("click", (e) =>
+    {
+        goToPage(e.target.textContent);
+    });
+});
+// **************************************************************
+
+// INDEX.HTML NAVBAR
+
 const nav = document.getElementById('nav');
-const app = document.getElementById('app');
-const botonBuscador = document.getElementById('botonBuscador');
-const inputBuscador = document.getElementById('inputBuscador');
-const editorGeneral = document.getElementById('botonEditorGeneral');
-const arrayBotonFoto = document.querySelectorAll('.botonFoto');
-const arrayBotonEditar = document.querySelectorAll('.botonEditar');
 
 if (nav)
 {
@@ -21,14 +28,7 @@ if (nav)
         });
     });
 }
-
-headerNavDivChildren.forEach(element =>
-{
-    element.addEventListener("click", (e) =>
-    {
-        goToPage(e.target.textContent);
-    });
-});
+// **************************************************************
 
 function goToPage(buttonId)
 {
@@ -64,6 +64,10 @@ function goToPage(buttonId)
     window.location.href = url;
 }
 
+// SEARCHBAR INPUT
+
+const inputBuscador = document.getElementById('inputBuscador');
+
 if (inputBuscador)
 {
     inputBuscador.focus();
@@ -80,6 +84,11 @@ if (inputBuscador)
     // I implemented it like this because script.js has "defer" attribute.
     // If in the future this changes, this needs to be implemented inside an Event Listener.
 }
+// **************************************************************
+
+// SEARCHBAR BUTTON
+
+const botonBuscador = document.getElementById('botonBuscador');
 
 if (botonBuscador)
 {
@@ -88,6 +97,7 @@ if (botonBuscador)
         chequearBuscador();
     });
 }
+// **************************************************************
 
 function chequearBuscador()
 {
@@ -105,6 +115,60 @@ function buscadorGoToPage(url, contenido)
     const cleanURL = url.split(/[?]/)[0];
     window.location.href = `${cleanURL}?nombre=${contenido}`;
 }
+
+// GENERAL EDIT BUTTON
+
+const editorGeneral = document.getElementById('botonEditorGeneral');
+
+if (editorGeneral)
+{
+    botonEditorGeneral.addEventListener("click", (e) =>
+    {
+        abrirEditor();
+    });
+}
+// **************************************************************
+
+// INDIVIDUAL EDIT BUTTON
+
+const arrayBotonEditar = document.querySelectorAll('.botonEditar');
+
+if (arrayBotonEditar.length !== 0)
+{
+    arrayBotonEditar.forEach(element =>
+    {
+        element.addEventListener("click", (e) =>
+        {
+            abrirEditor();
+        });    
+    });
+}
+// **************************************************************
+
+// PRODUCT PHOTO BUTTON
+
+const arrayBotonFoto = document.querySelectorAll('.botonFoto');
+
+if (arrayBotonFoto.length !== 0)
+{
+    arrayBotonFoto.forEach(element =>
+    {
+        element.addEventListener("click", (e) =>
+        {
+            abrirEditor();
+        });    
+    });
+}
+// **************************************************************
+
+function abrirEditor()
+{
+    const modalId = "modalEditorGeneral";
+    crearModal(modalId);
+    mostrarModal(modalId);
+}
+
+const app = document.getElementById('app');
 
 function crearModal(modalId)
 {
@@ -181,41 +245,4 @@ function mostrarModal(buttonId)
     modalQueQuieroMostrar.classList.add("show");
     modalQueQuieroMostrar.style.display = "block";
     modalQueQuieroMostrar.removeAttribute("aria-hidden");
-}
-
-function abrirEditor()
-{
-    const modalId = "modalEditorGeneral";
-    crearModal(modalId);
-    mostrarModal(modalId);
-}
-
-if (editorGeneral)
-{
-    botonEditorGeneral.addEventListener("click", (e) =>
-    {
-        abrirEditor();
-    });
-}
-
-if (arrayBotonEditar.length !== 0)
-{
-    arrayBotonEditar.forEach(element =>
-    {
-        element.addEventListener("click", (e) =>
-        {
-            abrirEditor();
-        });    
-    });
-}
-
-if (arrayBotonFoto.length !== 0)
-{
-    arrayBotonFoto.forEach(element =>
-    {
-        element.addEventListener("click", (e) =>
-        {
-            abrirEditor();
-        });    
-    });
 }
