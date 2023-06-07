@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:fragment="headBoilerplate (title)">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUA Petshop</title>
+    <title th:value="${value}"></title>
     <!-- Favicon -->
     <link rel="shortcut icon" th:href="@{\img\Imagotipo-2.ico}" type="image/x-icon">
     <!-- Bootstrap -->
@@ -15,21 +15,7 @@
     <!-- Script -->
     <script defer th:src="@{script.js}"></script>
 </head>
-<!-- <head th:replace="fragments/general.html :: formField(title='LUA PETSHOP')"></head> -->
 <body>
-    <header>
-        <nav id="headerNav">
-            <div class="fixed">PROVEEDORES</div>
-            <div class="fixed">COMPRAS</div>
-            <div class="fixed">USUARIOS</div>
-        </nav>
-    </header>
-    <nav id="nav">
-        <div class="">PRODUCTOS</div>
-        <div class="">VENTAS</div>
-        <div class="">CAJA</div>
-    </nav>
-    <footer>LUA PETSHOP ERP - by j&b - v0.11.13</footer>
-    <!-- <div th:replace="fragments/general.html :: footer"></div> -->
+    <footer th:fragment="footer">LUA PETSHOP ERP - by j&b - v0.12.5</footer>
 </body>
 </html>
