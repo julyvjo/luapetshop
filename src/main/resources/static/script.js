@@ -6,6 +6,8 @@ const app = document.getElementById('app');
 const botonBuscador = document.getElementById('botonBuscador');
 const inputBuscador = document.getElementById('inputBuscador');
 const editorGeneral = document.getElementById('botonEditorGeneral');
+const arrayBotonFoto = document.querySelectorAll('.botonFoto');
+const arrayBotonEditar = document.querySelectorAll('.botonEditar');
 
 if (nav)
 {
@@ -108,7 +110,9 @@ function crearModal(modalId)
 {
     // Create modal container
     const modalContainer = document.createElement("div");
+
     modalContainer.id = modalId;
+
     modalContainer.classList.add("modal", "fade");
     modalContainer.setAttribute("tabindex", "-1");
     modalContainer.setAttribute("role", "dialog");
@@ -132,6 +136,7 @@ function crearModal(modalId)
     const modalTitle = document.createElement("h5");
     modalTitle.classList.add("modal-title");
     modalTitle.setAttribute("id", "editorModalLabel");
+
     modalTitle.textContent = "Editor";
 
     // Create modal close button
@@ -190,5 +195,27 @@ if (editorGeneral)
     botonEditorGeneral.addEventListener("click", (e) =>
     {
         abrirEditor();
+    });
+}
+
+if (arrayBotonEditar.length !== 0)
+{
+    arrayBotonEditar.forEach(element =>
+    {
+        element.addEventListener("click", (e) =>
+        {
+            abrirEditor();
+        });    
+    });
+}
+
+if (arrayBotonFoto.length !== 0)
+{
+    arrayBotonFoto.forEach(element =>
+    {
+        element.addEventListener("click", (e) =>
+        {
+            abrirEditor();
+        });    
     });
 }
