@@ -2,17 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="../fragments/general.html :: headBoilerplate"></head>
 <body>
-    <header>
-        <nav id="headerNav">
-            <div class="fixed">VOLVER</div>
-            <div class="">PRODUCTOS</div>
-            <div class="">VENTAS</div>
-            <div class="actual">CAJA</div>
-            <div class="fixed">PROVEEDORES</div>
-            <div class="fixed">COMPRAS</div>
-            <div class="fixed">USUARIOS</div>
-        </nav>
-    </header>
+    <header th:replace="../fragments/headernav.html :: headerNavFull (class1='', class2='', class3='actual', class4='', class5='', class6='')"></header>
     <div id="app">APP CAJA</div>
     <footer th:replace="../fragments/general.html :: footer"></footer>
 </body>
