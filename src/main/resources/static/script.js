@@ -124,7 +124,7 @@ if (editorGeneral)
 {
     botonEditorGeneral.addEventListener("click", (e) =>
     {
-        abrirEditor();
+        mostrarModal("modalGeneral");
     });
 }
 // **************************************************************
@@ -139,7 +139,7 @@ if (arrayBotonEditar.length !== 0)
     {
         element.addEventListener("click", (e) =>
         {
-            abrirEditor();
+            mostrarModal("modalEditorLinea");
         });    
     });
 }
@@ -155,17 +155,11 @@ if (arrayBotonFoto.length !== 0)
     {
         element.addEventListener("click", (e) =>
         {
-            abrirEditor();
+            mostrarModal("modalFoto");
         });    
     });
 }
 // **************************************************************
-
-function abrirEditor()
-{
-    const modalId = "modalGeneral";
-    mostrarModal(modalId);
-}
 
 function mostrarModal(buttonId)
 {

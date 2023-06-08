@@ -222,17 +222,29 @@ header
 /* /// MODAL /// */
 /* ///////////// */
 
-#modalGeneral /* Acts as a backdrop for the modal */
+#modalGeneral, #modalFoto, #modalEditorLinea /* Acts as a backdrop for the modal */
 {
     background-color: #121212A0;
 }
 
-#modalGeneral > div > div
+#modalGeneral > div > div, #modalFoto > div > div, #modalEditorLinea > div > div
 {
     border: 0.5vh solid var(--accent);
     border-radius: 1vw;
     background-color: var(--alternative);
     color: var(--primary);
+}
+
+.modal-title
+{
+    font-weight: bold;
+}
+
+img
+{
+    border-radius: 1vw;
+    max-width: 100%;
+    height: auto;
 }
 
 /* ///////////////// */
