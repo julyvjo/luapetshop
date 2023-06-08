@@ -2,15 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head></head>
 <body>
-    <header th:fragment="headerNavFull (class1, class2, class3, class4, class5, class6)">
+    <header th:fragment="headerNavFull" th:with="class1=${class1}, class2=${class2}, class3=${class3}, class4=${class4}, class5=${class5}, class6=${class6}">
         <nav id="headerNav">
             <div class="fixed">VOLVER</div>
-            <div th:classappend="${class1}">PRODUCTOS</div>
-            <div th:classappend="${class2}">VENTAS</div>
-            <div th:classappend="${class3}">CAJA</div>
-            <div class="fixed" th:classappend="${class4}">PROVEEDORES</div>
-            <div class="fixed" th:classappend="${class5}">COMPRAS</div>
-            <div class="fixed" th:classappend="${class6}">USUARIOS</div>
+            <div th:class="${class1}">PRODUCTOS</div>
+            <div th:class="${class2}">VENTAS</div>
+            <div th:class="${class3}">CAJA</div>
+            <div th:class="${class4} ?: 'fixed'">PROVEEDORES</div>
+            <div th:class="${class5} ?: 'fixed'">COMPRAS</div>
+            <div th:class="${class6} ?: 'fixed'">USUARIOS</div>
         </nav>
     </header>
 </body>
