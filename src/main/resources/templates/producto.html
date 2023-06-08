@@ -56,46 +56,12 @@
     <footer th:replace="../fragments/general.html :: footer"></footer>
 
     <!-- MODAL GENERAL -->
-    <div id="modalGeneral" class="modal fade" tabindex="-1" role="dialog"style="display: none;">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Editor</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close" onclick="ocultarModal('modalGeneral')">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">MODAL GENERAL</div>
-            </div>
-        </div>
-    </div>
+    <div th:replace="../fragments/modals.html :: modalGeneral"></div>
+    
     <!-- MODAL FOTO -->
-    <div id="modalFoto" class="modal fade" tabindex="-1" role="dialog" style="display: none;">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">IMAGEN DEL PRODUCTO</h5>
-                    <button class="close" type="button" data-dismiss="modal" onclick="ocultarModal('modalFoto')">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body"><img th:src="@{\img\Imagotipo-2-cyan.jpg}" alt="logo petshop"></div>
-            </div>
-        </div>
-    </div>
+    <div th:replace="../fragments/modals.html :: modalFoto"></div>
+    
     <!-- MODAL EDITOR LINEA -->
-    <div id="modalEditorLinea" class="modal fade" tabindex="-1" role="dialog"style="display: none;">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Editor</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close" onclick="ocultarModal('modalEditorLinea')">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">MODAL EDITOR LINEA</div>
-            </div>
-        </div>
-    </div>
+    <div th:replace="../fragments/modals.html :: modalEditorLinea"></div>
 </body>
 </html>
