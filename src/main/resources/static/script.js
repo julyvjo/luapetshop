@@ -164,82 +164,8 @@ if (arrayBotonFoto.length !== 0)
 function abrirEditor()
 {
     const modalId = "modalGeneral";
-    // crearModal(modalId);
     mostrarModal(modalId);
 }
-
-/*
-const app = document.getElementById('app');
-
-function crearModal(modalId)
-{
-    // Create modal container
-    const modalContainer = document.createElement("div");
-
-    modalContainer.id = modalId;
-
-    modalContainer.classList.add("modal", "fade");
-    modalContainer.setAttribute("tabindex", "-1");
-    modalContainer.setAttribute("role", "dialog");
-    modalContainer.setAttribute("aria-labelledby", "editorModalLabel");
-    modalContainer.setAttribute("aria-hidden", "true");
-
-    // Create modal dialog
-    const modalDialog = document.createElement("div");
-    modalDialog.classList.add("modal-dialog");
-    modalDialog.setAttribute("role", "document");
-
-    // Create modal content
-    const modalContent = document.createElement("div");
-    modalContent.classList.add("modal-content");
-
-    // Create modal header
-    const modalHeader = document.createElement("div");
-    modalHeader.classList.add("modal-header");
-
-    // Create modal title
-    const modalTitle = document.createElement("h5");
-    modalTitle.classList.add("modal-title");
-    modalTitle.setAttribute("id", "editorModalLabel");
-
-    modalTitle.textContent = "Editor";
-
-    // Create modal close button
-    const modalCloseButton = document.createElement("button");
-    modalCloseButton.classList.add("close");
-    modalCloseButton.setAttribute("type", "button");
-    modalCloseButton.setAttribute("data-dismiss", "modal");
-    modalCloseButton.setAttribute("aria-label", "Close");
-    modalCloseButton.innerHTML = `<span aria-hidden="true">&times;</span>`;
-
-    modalHeader.appendChild(modalTitle);
-    modalHeader.appendChild(modalCloseButton);
-
-    // Create modal body
-    const modalBody = document.createElement("div");
-    modalBody.classList.add("modal-body");
-
-    modalBody.textContent = "Se supone que acá cargaría la función.";
-
-    // Append modal components
-    modalContent.appendChild(modalHeader);
-    modalContent.appendChild(modalBody);
-    modalDialog.appendChild(modalContent);
-    modalContainer.appendChild(modalDialog);
-
-    // Append modal container to #app
-    app.appendChild(modalContainer);
-
-    // Add click event listener to close the modal
-    modalCloseButton.addEventListener("click", () =>
-    {
-        modalContainer.classList.remove("show");
-        modalContainer.style.display = "none";
-        modalContainer.setAttribute("aria-hidden", "true");
-        modalContainer.remove();
-    });
-}
-*/
 
 function mostrarModal(buttonId)
 {
