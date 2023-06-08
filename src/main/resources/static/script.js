@@ -163,11 +163,12 @@ if (arrayBotonFoto.length !== 0)
 
 function abrirEditor()
 {
-    const modalId = "modalEditorGeneral";
-    crearModal(modalId);
+    const modalId = "modalGeneral";
+    // crearModal(modalId);
     mostrarModal(modalId);
 }
 
+/*
 const app = document.getElementById('app');
 
 function crearModal(modalId)
@@ -238,6 +239,7 @@ function crearModal(modalId)
         modalContainer.remove();
     });
 }
+*/
 
 function mostrarModal(buttonId)
 {
@@ -246,4 +248,13 @@ function mostrarModal(buttonId)
     modalQueQuieroMostrar.classList.add("show");
     modalQueQuieroMostrar.style.display = "block";
     modalQueQuieroMostrar.removeAttribute("aria-hidden");
+}
+
+function ocultarModal(buttonId)
+{
+    // Hide the modal
+    const modalQueQuieroMostrar = document.getElementById(buttonId);
+    modalQueQuieroMostrar.classList.remove("show");
+    modalQueQuieroMostrar.style.display = "none";
+    modalQueQuieroMostrar.setAttribute("aria-hidden", "true");
 }

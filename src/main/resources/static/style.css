@@ -208,13 +208,30 @@ header
     width: 45vw;
 }
 
-#botonBuscador, #botonEditorGeneral
+#botonBuscador, #botonEditorGeneral, #botonBearModal
 {
     margin: 0;
     padding: 2vh 1vw;
     border-radius: 1vw;
     border: 0;
     background-color: var(--accent);
+    color: var(--primary);
+}
+
+/* ///////////// */
+/* /// MODAL /// */
+/* ///////////// */
+
+#modalGeneral /* Acts as a backdrop for the modal */
+{
+    background-color: #121212A0;
+}
+
+#modalGeneral > div > div
+{
+    border: 0.5vh solid var(--accent);
+    border-radius: 1vw;
+    background-color: var(--alternative);
     color: var(--primary);
 }
 
