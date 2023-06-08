@@ -168,13 +168,35 @@ function mostrarModal(buttonId)
     modalQueQuieroMostrar.classList.add("show");
     modalQueQuieroMostrar.style.display = "block";
     modalQueQuieroMostrar.removeAttribute("aria-hidden");
+
+    // Automatically focus the modal
+    modalQueQuieroMostrar.focus();
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event)
+    {
+        if (event.target == modalQueQuieroMostrar)
+        {
+            ocultarModal(buttonId);
+        }
+    }
+
+    // When the user presses the escape key, close the modal
+    modalQueQuieroMostrar.addEventListener("keydown", (e) =>
+    {
+        if (e.key === "Escape")
+        {
+          e.preventDefault();
+          ocultarModal(buttonId);
+        }
+    });
 }
 
 function ocultarModal(buttonId)
 {
     // Hide the modal
-    const modalQueQuieroMostrar = document.getElementById(buttonId);
-    modalQueQuieroMostrar.classList.remove("show");
-    modalQueQuieroMostrar.style.display = "none";
-    modalQueQuieroMostrar.setAttribute("aria-hidden", "true");
+    const modalQueQuieroOcultar = document.getElementById(buttonId);
+    modalQueQuieroOcultar.classList.remove("show");
+    modalQueQuieroOcultar.style.display = "none";
+    modalQueQuieroOcultar.setAttribute("aria-hidden", "true");
 }
