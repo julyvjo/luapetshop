@@ -222,12 +222,12 @@ header
 /* /// MODAL /// */
 /* ///////////// */
 
-#modalGeneral, #modalFoto, #modalEditorLinea /* Acts as a backdrop for the modal */
+.modal /* Acts as a backdrop for the modal */
 {
     background-color: #121212A0;
 }
 
-#modalGeneral > div > div, #modalFoto > div > div, #modalEditorLinea > div > div
+.modal > div > div
 {
     border: 0.5vh solid var(--accent);
     border-radius: 1vw;
@@ -240,7 +240,7 @@ header
     font-weight: bold;
 }
 
-img
+.modal-photo
 {
     border-radius: 1vw;
     max-width: 100%;
