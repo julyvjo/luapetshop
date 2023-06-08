@@ -312,11 +312,9 @@ footer
     padding: 2vh 0;
     height: 5vh;
     width: 33vw;
-    /* border: 0.1vh solid var(--primary); */
     border: 0.5vh solid var(--accent);
     border-radius: 1vw;
-    /* background-color: var(--secondary); */
-    background-color: transparent;
+    background-color: var(--primary);
     color: var(--secondary);
     
     display: flex;

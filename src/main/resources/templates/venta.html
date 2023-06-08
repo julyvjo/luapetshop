@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="../fragments/general.html :: headBoilerplate"></head>
+<head th:replace="fragments/general.html :: headBoilerplate"></head>
 <body>
-    <header th:replace="../fragments/headernav.html :: headerNavFull (class2='actual')"></header>
+    <header th:replace="fragments/headernav.html :: headerNavFull (class2='actual')"></header>
     <div id="app">APP VENTA
         <div id="extraApps">
             <!-- BUSCADOR -->
@@ -16,9 +16,9 @@
             </div>
         </div>
     </div>
-    <footer th:replace="../fragments/general.html :: footer"></footer>
+    <footer th:replace="fragments/general.html :: footer"></footer>
 
     <!-- MODAL GENERAL -->
-    <div th:replace="../fragments/modals.html :: modalGeneral"></div>
+    <div th:replace="fragments/modals.html :: modalGeneral"></div>
 </body>
 </html>
