@@ -317,6 +317,34 @@ header
     border-radius: 0 0 1vw 0;
 }
 
+/* /////////////////////// */
+/* /// PAGE NAVIGATION /// */
+/* /////////////////////// */
+
+#pageNavigation > ul > li > a
+{
+    margin: 1vh 0.5vw;
+    padding: 1vh 1vw;
+    width: 4vw;
+    border: 0.1vh solid var(--primary);
+    border-radius: 1vw;
+    background-color: var(--alternative);
+    color: var(--primary);
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+#pageNavigation > ul > li > a.fixed
+{
+    width: 10vw;
+    background-color: var(--accent);
+}
+
 /* ////////////// */
 /* /// FOOTER /// */
 /* ////////////// */
