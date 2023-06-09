@@ -117,9 +117,21 @@ function chequearBuscador()
 function buscadorGoToPage(url, contenido)
 {
     // const cleanURL = url.split(/[?]/)[0];
-    const cleanURL = url.split(/\?n/)[0]; // split literally in "?n"
-    window.location.href = `${cleanURL}?nombre=${contenido}`;
+    // const cleanURL = url.split(/\?n/)[0]; // split literally in "?n"
+    // window.location.href = `${cleanURL}?nombre=${contenido}`;
     // window.location.href = `${cleanURL}?nombre=${contenido}?page=1`;
+
+    //Nuevo seteo de url para busquedas
+    let actualurl = new URL(window.location.href);
+    let nombre = actualurl.searchParams.get('nombre');
+    console.log('parametro nombre =' + nombre)
+    if (contenido){
+        actualurl.searchParams.set('nombre',contenido)
+        actualurl.searchParams.set('page',1)
+        console.log('nueva url =' + actualurl.toString())
+        window.location.href = actualurl.toString()
+    }
+        
 }
 
 // GENERAL EDIT BUTTON

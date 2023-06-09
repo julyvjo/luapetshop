@@ -50,6 +50,7 @@ public class ProductoController {
 			List<Integer> pages = IntStream.rangeClosed(1, totalpages).boxed().collect(Collectors.toList());
 			model.addAttribute("pages", pages);
 		}
+		model.addAttribute("nombre", nombre);
 		model.addAttribute("productos", pageProducto.getContent());
 		model.addAttribute("current", page+1);
 		model.addAttribute("prev", page);
