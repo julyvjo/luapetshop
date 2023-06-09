@@ -39,7 +39,7 @@ public class ProductoController {
 				(String.valueOf(params.get("nombre"))):null;
 		
 		//page -> en que pagina estoy
-		//PAGE_SIZE -> que tamanio tienen pas pages
+		//PAGE_SIZE -> que tamanyo tienen las pages
 		Pageable pageRequest = (Pageable) PageRequest.of(page, PAGE_SIZE);
 		
 		//obtengo datos
