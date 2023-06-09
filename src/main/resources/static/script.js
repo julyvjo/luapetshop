@@ -20,11 +20,15 @@ if (nav)
 {
     const navDivChildren = nav.querySelectorAll('div');
 
-    navDivChildren.forEach(element =>
+    navDivChildren.forEach(element => 
     {
-        element.addEventListener("click", (e) =>
+        // Made this mess so every child of 'element' also triggers this event.
+        const elementId = document.getElementById(`${element.id}`);
+        
+        // Note that without getting the element by its id SHOULD work, but somehow it doesn't :)
+        elementId.addEventListener("click", (e) =>
         {
-            goToPage(e.target.textContent);
+            goToPage(`${element.id}`);
         });
     });
 }

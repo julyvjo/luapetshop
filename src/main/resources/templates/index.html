@@ -10,10 +10,32 @@
         </nav>
     </header>
     <nav id="nav">
-        <div class="">PRODUCTOS</div>
-        <div class="">VENTAS</div>
-        <div class="">CAJA</div>
+        <div id="PRODUCTOS" class="navDiv">
+            <img class="navDiv" th:src="@{\img\inventory-2.svg}" alt="PRODUCTOS LOGO">
+            <p class="navDiv">PRODUCTOS</p>
+        </div>
+        <div id="VENTAS" class="navDiv">
+            <img class="navDiv" th:src="@{\img\local-mall.svg}" alt="PRODUCTOS LOGO">
+            <p class="navDiv">VENTAS</p>
+        </div>
+        <div id="CAJA" class="navDiv">
+            <img class="navDiv" th:src="@{\img\account-balance.svg}" alt="PRODUCTOS LOGO">
+            <p class="navDiv">CAJA</p>
+        </div>
     </nav>
     <footer th:replace="fragments/general.html :: footer"></footer>
+    
+    <!-- SVG filter -->
+    <svg style="display:none">
+        <filter id="color-change">
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 242
+                    0 0 0 0 242
+                    0 0 0 0 242
+                    0 0 0 1 0"
+          />
+        </filter>
+    </svg>
 </body>
 </html>
