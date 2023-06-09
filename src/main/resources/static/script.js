@@ -116,8 +116,10 @@ function chequearBuscador()
 
 function buscadorGoToPage(url, contenido)
 {
-    const cleanURL = url.split(/[?]/)[0];
+    // const cleanURL = url.split(/[?]/)[0];
+    const cleanURL = url.split(/\?n/)[0]; // split literally in "?n"
     window.location.href = `${cleanURL}?nombre=${contenido}`;
+    // window.location.href = `${cleanURL}?nombre=${contenido}?page=1`;
 }
 
 // GENERAL EDIT BUTTON
