@@ -345,6 +345,18 @@ header
     background-color: var(--accent);
 }
 
+#pageNavigation > ul > li.disabled > a
+{
+    background-color: var(--bearGrey);
+}
+
+#pageNavigation > ul > li.actual > a
+{
+    border-color: var(--secondary);
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
 /* ////////////// */
 /* /// FOOTER /// */
 /* ////////////// */

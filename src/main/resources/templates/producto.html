@@ -3,6 +3,7 @@
 <head th:replace="fragments/general.html :: headBoilerplate"></head>
 <body>
     <header th:replace="fragments/headernav.html :: headerNavFull (class1='actual')"></header>
+
     <div id="app">
         <!-- APPBAR -->
         <div id="extraApps">
@@ -11,11 +12,13 @@
                 <input id="inputBuscador" type="search" name="search" placeholder="Comida para perro...">
                 <button id="botonBuscador">BUSCAR</button>
             </div>
+
             <!-- EDITOR GENERAL -->
             <div id="editorGeneral">
                 <button id="botonEditorGeneral">Editar</button>
             </div>
         </div>
+
         <!-- TABLA -->
         <div class="container">
             <div class="row">
@@ -51,23 +54,10 @@
                 <div class="tableMargin"></div>
             </div>
         </div>
-        <!-- PAGINAS -->
-        <!-- <div id="pageNav"> -->
-            <!-- <ul> -->
-                <!-- <li class="active"><a href="">1</a></li> -->
-                <!-- <li><a th:href="">2</a></li> -->
-                <!-- <li><a th:href="">3</a></li> -->
-                <!-- <li>…</li> -->
-                <!-- <li><a th:href="">4</a></li> -->
-                <!-- <li><a th:href="">5</a></li> -->
-                <!-- <li><a th:href="">Página siguiente »</a></li> -->
-            <!-- </ul> -->
-        <!-- </div> -->
     </div>
 
     <!--Pagination-->
-    
-    <!--h1 th:text="${nombre}"></h1-->
+
     <nav id="pageNavigation" aria-label="Page navigation">
         <ul class="pagination justify-content-center">  
             <li class="page-item" th:classappend="${prev == 0? 'disabled':''}">
@@ -75,7 +65,7 @@
                 <a class="fixed page-link" th:href="@{/producto(page=${prev}, nombre=${nombre})}">Anterior</a>
             </li>
             
-            <li class="page-item" th:each="page : ${pages}" th:classappend="${current == page? 'active':''}">
+            <li class="page-item" th:each="page : ${pages}" th:classappend="${current == page? 'actual':''}">
                 <a class="page-link" th:href="@{/producto(page=${page}, nombre=${nombre})}" th:text="${page}"></a>
             </li>
             
@@ -85,15 +75,14 @@
         </ul>
     </nav>
 
-
     <footer th:replace="fragments/general.html :: footer"></footer>
 
     <!-- MODAL GENERAL -->
     <div th:replace="fragments/modals.html :: modalGeneral"></div>
-    
+
     <!-- MODAL FOTO -->
     <div th:replace="fragments/modals.html :: modalFoto"></div>
-    
+
     <!-- MODAL EDITOR LINEA -->
     <div th:replace="fragments/modals.html :: modalEditorLinea"></div>
 </body>
