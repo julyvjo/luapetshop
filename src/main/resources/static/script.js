@@ -106,7 +106,7 @@ if (botonBuscador)
 function chequearBuscador()
 {
     if (inputBuscador.value !== "")
-        buscadorGoToPage(contenido);
+        buscadorGoToPage(inputBuscador.value);
     else
         console.log("ERROR: Empty search bar!");
 }
