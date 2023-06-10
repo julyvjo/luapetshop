@@ -31,6 +31,9 @@ if (nav)
             goToPage(`${element.id}`);
         });
     });
+
+    // I implemented it like this because script.js has "defer" attribute.
+    // If in the future this changes, this needs to be implemented inside an Event Listener.
 }
 // **************************************************************
 
@@ -100,6 +103,9 @@ if (botonBuscador)
     {
         chequearBuscador();
     });
+
+    // I implemented it like this because script.js has "defer" attribute.
+    // If in the future this changes, this needs to be implemented inside an Event Listener.
 }
 // **************************************************************
 
@@ -108,28 +114,19 @@ function chequearBuscador()
     if (inputBuscador.value !== "")
         buscadorGoToPage(inputBuscador.value);
     else
-        console.log("ERROR: Empty search bar!");
+        console.log("WARNING: Empty search bar!");
 }
 
 function buscadorGoToPage(contenido)
 {
-    // const cleanURL = url.split(/[?]/)[0];
-    // const cleanURL = url.split(/\?n/)[0]; // split literally in "?n"
-    // window.location.href = `${cleanURL}?nombre=${contenido}`;
-    // window.location.href = `${cleanURL}?nombre=${contenido}?page=1`;
-
     let actualurl = new URL(window.location.href);
     let nombre = actualurl.searchParams.get('nombre');
-    console.log('parametro nombre =' + nombre);
+    // console.log('parametro nombre =' + nombre);
 
-    if (contenido)  // No debería ser necesario este if gracias a chequearBuscador()...
-    {
-        actualurl.searchParams.set('nombre',contenido);
-        actualurl.searchParams.set('page',1);
-        console.log('nueva url =' + actualurl.toString());
-        window.location.href = actualurl.toString();
-    }
-        
+    actualurl.searchParams.set('nombre',contenido);
+    actualurl.searchParams.set('page',1);
+    // console.log('nueva url =' + actualurl.toString());
+    window.location.href = actualurl.toString();        
 }
 
 // GENERAL EDIT BUTTON
@@ -142,6 +139,9 @@ if (editorGeneral)
     {
         mostrarModal("modalGeneral");
     });
+
+    // I implemented it like this because script.js has "defer" attribute.
+    // If in the future this changes, this needs to be implemented inside an Event Listener.
 }
 // **************************************************************
 
@@ -158,6 +158,9 @@ if (arrayBotonEditar.length !== 0)
             mostrarModal("modalEditorLinea");
         });    
     });
+
+    // I implemented it like this because script.js has "defer" attribute.
+    // If in the future this changes, this needs to be implemented inside an Event Listener.
 }
 // **************************************************************
 
@@ -174,6 +177,9 @@ if (arrayBotonFoto.length !== 0)
             mostrarModal("modalFoto");
         });    
     });
+
+    // I implemented it like this because script.js has "defer" attribute.
+    // If in the future this changes, this needs to be implemented inside an Event Listener.
 }
 // **************************************************************
 
