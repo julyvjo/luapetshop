@@ -3,7 +3,79 @@
 <head th:replace="fragments/general.html :: headBoilerplate"></head>
 <body>
     <header th:replace="fragments/headernav.html :: headerNavFull (class5='actual')"></header>
-    <div id="app">APP COMPRA</div>
+    <div id="app">
+        <div id="formCompraContainer">
+            <form id="formCompra" method="post">
+                <h5>FORMULARIO COMPRA</h5>
+
+                <div>
+                    <label for="formCompraProveedor">PROVEEDOR</label>
+                    <select id="formCompraProveedor" name="formCompraProveedor" required>
+                        <option>Proveedor 1</option>
+                        <option>Proveedor 2</option>
+                        <option>Proveedor 3</option>
+                        <option>Proveedor 4</option>
+                        <option>Proveedor 5</option>
+                    </select>
+                </div>
+
+                <div>
+                    <div id="formCompraPaymentAmmount">
+                        <label for="formCompraPaymentAmmount">MONTO ABONADO</label>
+                        <input type="number" step="0.01" min="0" name="formCompraPaymentAmmount" placeholder="0.00" required>
+                    </div>
+                    
+                    <div id="formCompraPaymentMethod">
+                        <label for="formCompraPaymentMethod">METODO DE PAGO</label>
+                        <select name="formCompraPaymentMethod" required>
+                            <option>Efectivo</option>
+                            <option>Mercado Pago CVU</option>
+                            <option>Mercado Pago QR</option>
+                            <option>Banco Provincia CVU</option>
+                            <option>Banco Provincia QR</option>
+                            <option>Banco Nación</option>
+                            <option>Modo</option>
+                            <option>Tarjeta débito</option>
+                            <option>Tarjeta crédito</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="formCompraButton" type="submit">Guardar</button>
+            </form>
+        </div>
+    </div>
     <footer th:replace="fragments/general.html :: footer"></footer>
 </body>
 </html>
+
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <form th:action="@{/admin/planestudio/{id}(id=${planestudio.id_plan_estudio})}" th:object="${planestudio}" method="post">
+                <h5 class="mb-2">Carrera</h5>
+                <select class="form-select mb-3" th:field="*{id_carrera}" id="id_carrera" name="id_carrera">
+                <option th:each="carrera : ${carreras}" th:value="${carrera.id_carrera}" th:text="${carrera.titulo}"></option>
+                </select><h5 class="mb-2">Asignatura</h5>
+                <select class="form-select mb-3" th:field="*{id_asignatura}" id="id_asignatura" name="id_asignatura">
+                <option th:each="asignatura : ${asignaturas}" th:value="${asignatura.id_asignatura}" th:text="${asignatura.titulo}"></option>
+                </select>
+                                <div class="form-floating mb-3">
+                <input type="number" class="form-control" th:value="*{anio}" name="anio" id="anio" placeholder="anio" required>
+                <label for="anio" class="text-muted">Año</label>
+                </div>
+                                <div class="form-floating mb-3">
+                <input type="number" class="form-control" th:value="*{cuatrimestre}" name="cuatrimestre" id="cuatrimestre" placeholder="cuatrimestre" required>
+                <label for="cuatrimestre" class="text-muted">Cuatrimestre</label>
+                </div>
+                                <div class="form-floating mb-3">
+                <input type="text" class="form-control" th:value="*{url}" name="url" id="url" placeholder="url">
+                <label for="username" class="text-muted">url</label>
+                </div>
+                <button class="w-100 btn btn-lg btn-navbar" type="submit"><h5>Guardar</h5></button>
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div> -->
