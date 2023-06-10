@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -12,7 +14,9 @@ public class Producto {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_producto;
-	private int id_categoria ;
+	@OneToOne
+	@JoinColumn(name = "id_categoria")
+	private Categoria categoria;
 	private String nombre;
 	private String imagen;
 	private String descripcion;
@@ -25,11 +29,11 @@ public class Producto {
 		super();
 	}
 
-	public Producto(int id_producto, int id_categoria, String nombre, String imagen, String descripcion,
+	public Producto(int id_producto, Categoria categoria, String nombre, String imagen, String descripcion,
 			double precio_compra, double rentabilidad, double ganancia, int stock) {
 		super();
 		this.id_producto = id_producto;
-		this.id_categoria = id_categoria;
+		this.categoria = categoria;
 		this.nombre = nombre;
 		this.imagen = imagen;
 		this.descripcion = descripcion;
@@ -39,10 +43,10 @@ public class Producto {
 		this.stock = stock;
 	}
 
-	public Producto(int id_categoria, String nombre, String imagen, String descripcion, double precio_compra,
+	public Producto(Categoria categoria, String nombre, String imagen, String descripcion, double precio_compra,
 			double rentabilidad, double ganancia, int stock) {
 		super();
-		this.id_categoria = id_categoria;
+		this.categoria = categoria;
 		this.nombre = nombre;
 		this.imagen = imagen;
 		this.descripcion = descripcion;
@@ -51,6 +55,8 @@ public class Producto {
 		this.ganancia = ganancia;
 		this.stock = stock;
 	}
+
+
 
 	public int getId_producto() {
 		return id_producto;
@@ -60,12 +66,12 @@ public class Producto {
 		this.id_producto = id_producto;
 	}
 
-	public int getId_categoria() {
-		return id_categoria;
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public void setId_categoria(int id_categoria) {
-		this.id_categoria = id_categoria;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 	public String getNombre() {

@@ -11,16 +11,6 @@ public class RouteController {
 		return "index";
 	}
 	
-	@GetMapping("/venta")
-	public String venta() {
-		return "venta";
-	}
-	
-	@GetMapping("/compra")
-	public String compra() {
-		return "compra";
-	}
-	
 	@GetMapping("/caja")
 	public String caja() {
 		return "caja";

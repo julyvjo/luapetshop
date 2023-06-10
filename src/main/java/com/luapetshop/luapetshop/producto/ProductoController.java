@@ -57,9 +57,6 @@ public class ProductoController {
 		model.addAttribute("next", page+2);
 		model.addAttribute("last", totalpages);
 		
-		
-		
-		
 		return "producto";
 	}
 	
