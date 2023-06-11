@@ -3,6 +3,7 @@
 <head th:replace="fragments/general.html :: headBoilerplate"></head>
 <body>
     <header th:replace="fragments/headernav.html :: headerNavFull (class3='actual')"></header>
+
     <div id="app">
         <div id="appCajaContainer">
             <div id="appCajaFondos">
@@ -17,17 +18,21 @@
                     <div id="appCajaMetodoPagoExcepcional">MÉTODO DE PAGO EXCEPCIONAL</div>
                     <div id="appCajaSaldoTotal">SALDO TOTAL</div>
                 </div>
-                <div id="appCajaCerrarCaja">CERRAR CAJA DIARIA</div>
+                <button id="botonCerrarCaja">CERRAR CAJA DIARIA</button>
             </div>
         </div>
     </div>
+
     <footer th:replace="fragments/general.html :: footer"></footer>
+
+    <!-- MODAL GENERAL -->
+    <div th:replace="fragments/modals.html :: modalCerrarCaja"></div>
 </body>
 </html>
 
 <!-- OLD VERSION OF APPCAJA
 
-        <div id="app">
+    <div id="app">
         <div id="appCajaContainer">
             <div id="appCajaFondos">
                 <div>CAJA EFECTIVO</div>

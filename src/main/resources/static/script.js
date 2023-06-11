@@ -135,7 +135,7 @@ const editorGeneral = document.getElementById('botonEditorGeneral');
 
 if (editorGeneral)
 {
-    botonEditorGeneral.addEventListener("click", (e) =>
+    editorGeneral.addEventListener("click", (e) =>
     {
         mostrarModal("modalGeneral");
     });
@@ -176,6 +176,22 @@ if (arrayBotonFoto.length !== 0)
         {
             mostrarModal("modalFoto");
         });    
+    });
+
+    // I implemented it like this because script.js has "defer" attribute.
+    // If in the future this changes, this needs to be implemented inside an Event Listener.
+}
+// **************************************************************
+
+// GENERAL EDIT BUTTON
+
+const cerrarCaja = document.getElementById('botonCerrarCaja');
+
+if (cerrarCaja)
+{
+    cerrarCaja.addEventListener("click", (e) =>
+    {
+        mostrarModal("modalCerrarCaja");
     });
 
     // I implemented it like this because script.js has "defer" attribute.
