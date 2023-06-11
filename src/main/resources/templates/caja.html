@@ -3,7 +3,29 @@
 <head th:replace="fragments/general.html :: headBoilerplate"></head>
 <body>
     <header th:replace="fragments/headernav.html :: headerNavFull (class3='actual')"></header>
-    <div id="app">APP CAJA</div>
+    <div id="app">
+        <div id="appCajaContainer">
+            <div id="appCajaFondos">
+                <div>CAJA EFECTIVO</div>
+                <div>CAJA MERCADO PAGO</div>
+                <div>CAJA BANCO PROVINCIA</div>
+                <div>CAJA BANCO NACIÓN / BBVA FRANCES</div>
+            </div>
+            <div>
+                <div id="appCajaContadorBilletes">CONTADOR DE BILLETES</div>
+                <div>
+                    <div id="appCajaSaldoTotal">SALDO TOTAL</div>
+                    <div>
+                        <div>
+                            <div id="appCajaGastoExcepcional">GASTO EXCEPCIONAL</div>
+                            <div id="appCajaMetodoPagoExcepcional">MÉTODO DE PAGO EXCEPCIONAL</div>
+                        </div>
+                        <div id="appCajaCerrarCaja">CERRAR CAJA DIARIA</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer th:replace="fragments/general.html :: footer"></footer>
 </body>
 </html>
