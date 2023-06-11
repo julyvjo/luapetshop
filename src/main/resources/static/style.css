@@ -266,6 +266,9 @@ header
 {
     margin: 1vh 1vw;
     padding: 0;
+
+    height: 30vh;
+    
     border: 1vw solid var(--primary);
 }
 
@@ -283,67 +286,9 @@ header
     justify-content: space-between;
 }
 
-#appCajaContadorBilletes
-{
-    margin: 1vh 1vw;
-    padding: 0;
-
-    border: 1vw solid var(--primary);
-}
-
-#appCajaContainer > :nth-child(2) > :nth-child(2)
-{
-    margin: 1vh 1vw;
-    padding: 0;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 2vh;
-}
-
-#appCajaSaldoTotal
-{
-    margin: 1vh 1vw;
-    padding: 0;
-
-    border: 1vw solid var(--primary);
-}
-
-#appCajaContainer > :nth-child(2) > :nth-child(2) > :nth-child(2)
-{
-    margin: 1vh 1vw;
-    padding: 0;
-
-    border: 1vw solid var(--primary);
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 2vw;
-}
-
-#appCajaContainer > :nth-child(2) > :nth-child(2) > :nth-child(2) > :first-child
-{
-    margin: 1vh 1vw;
-    padding: 0;
-
-    border: 1vw solid var(--primary);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 2vh;
-}
-
-#appCajaGastoExcepcional, #appCajaMetodoPagoExcepcional
-{
-    margin: 1vh 1vw;
-    padding: 0;
-
-    border: 1vw solid var(--primary);
-}
-
+#appCajaGastoExcepcional,
+#appCajaMetodoPagoExcepcional,
+#appCajaSaldoTotal,
 #appCajaCerrarCaja
 {
     margin: 1vh 1vw;
