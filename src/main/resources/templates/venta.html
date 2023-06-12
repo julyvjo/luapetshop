@@ -3,16 +3,39 @@
 <head th:replace="fragments/general.html :: headBoilerplate"></head>
 <body>
     <header th:replace="fragments/headernav.html :: headerNavFull (class2='actual')"></header>
-    <div id="app">APP VENTA
-        <div id="extraApps">
-            <!-- BUSCADOR -->
-            <div id="buscador">
-                <input id="inputBuscador" type="search" name="search" placeholder="Comida para perro...">
-                <button id="botonBuscador">BUSCAR</button>
+    <div id="app">
+        <div id="appVentaContainer">
+            <div>
+                <!-- BUSCADOR -->
+                <div id="buscador">
+                    <input id="inputBuscador" type="search" name="search" placeholder="Comida para perro...">
+                    <button id="botonBuscador">BUSCAR</button>
+                </div>
+
+                <!-- EDITOR GENERAL -->
+                <div id="editorGeneral">
+                    <button id="botonEditorGeneral">HISTORIAL</button>
+                </div>
             </div>
-            <!-- EDITOR GENERAL -->
-            <div id="editorGeneral">
-                <button id="botonEditorGeneral">Editar</button>
+            <div>RESULTADOS BUSCADOR</div>
+            <div>CARRITO</div>
+            <div>
+                <div>
+                    <div>
+                        <div>METODO PAGO 1</div>
+                        <div id="appVentaMetodoPago1">MONTO A PAGAR 1</div>
+                    </div>
+                    <div>
+                        <div>METODO PAGO 2</div>
+                        <div id="appVentaMetodoPago2">MONTO A PAGAR 1</div>
+                    </div>
+                    <div>
+                        <div>TOTAL</div>
+                        <div id="appVentaTotal">$$$</div>
+                    </div>
+
+                </div>
+                <div id="appVentaFinalizarCompra">FINALIZAR COMPRA</div>
             </div>
         </div>
     </div>

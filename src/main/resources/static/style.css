@@ -306,6 +306,126 @@ header
     border: 1vw solid var(--primary);
 }
 
+/* || APP VENTA  */
+
+#appVentaContainer
+{
+    margin: 0;
+    padding: 1vh 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--accent);
+    align-self: center;
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    gap: 2vh;
+}
+
+#appVentaContainer > :first-child
+{
+    margin: 0;
+    padding: 0;
+    background-color: var(--alternative);
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#appVentaContainer > :nth-child(2)
+{
+    margin: 0;
+    padding: 0;
+
+    /* Borrar cuando se tenga versión final */
+    height: 15vh;
+    /* -- */
+
+    background-color: var(--alternative);
+}
+
+#appVentaContainer > :nth-child(3)
+{
+    margin: 0;
+    padding: 1vh 1vw;
+
+    /* Borrar cuando se tenga versión final */
+    height: 15vh;
+    /* -- */
+
+    background-color: var(--alternative);
+}
+
+#appVentaContainer > :last-child
+{
+    margin: 0;
+    padding: 1vh 1vw;
+
+    /* Borrar cuando se tenga versión final */
+    height: 30vh;
+    /* -- */
+
+    background-color: var(--alternative);
+
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 2vw;
+    flex: 1;
+}
+
+#appVentaContainer > :last-child > :first-child
+{
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 3;
+}
+
+#appVentaContainer > :last-child > :first-child > div
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+}
+
+#appVentaContainer > :last-child > :first-child > div > div
+/* #appVentaMetodoPago1, */
+/* #appVentaMetodoPago2, */
+/* #appVentaTotal */
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    
+    background-color: var(--primary);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#appVentaContainer > :last-child > :last-child
+/* #appVentaFinalizarCompra */
+{
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--primary);
+    flex-grow: 1;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* ///////////// */
 /* /// MODAL /// */
