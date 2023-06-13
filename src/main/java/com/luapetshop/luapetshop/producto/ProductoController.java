@@ -8,11 +8,12 @@ import java.util.stream.IntStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ProductoController {
@@ -58,6 +59,16 @@ public class ProductoController {
 		model.addAttribute("last", totalpages);
 		
 		return "producto";
+	}
+	
+	@GetMapping("/api/producto")
+	@ResponseBody
+	public List<Producto> getProductos(@RequestParam Map<String, Object> params){
+		
+		String nombre = params.get("nombre") != null ? 
+				(String.valueOf(params.get("nombre"))):null;
+		
+		return productoService.getProductos(nombre);
 	}
 	
 	

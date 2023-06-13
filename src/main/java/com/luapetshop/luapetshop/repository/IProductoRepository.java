@@ -11,7 +11,6 @@ import com.luapetshop.luapetshop.producto.Producto;
 public interface IProductoRepository extends JpaRepository<Producto, Integer> {
 
 	List<Producto> findByNombreContaining(String nombre);
-
 	
 	Page<Producto> findByNombreContaining(String nombre, Pageable pageable);
 	

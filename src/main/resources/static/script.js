@@ -238,3 +238,29 @@ function ocultarModal(buttonId)
     modalQueQuieroOcultar.style.display = "none";
     modalQueQuieroOcultar.setAttribute("aria-hidden", "true");
 }
+
+// **************************************************************
+
+async function fetchJSON(URL) {
+    const response = await fetch(URL);
+    const res = await response.json();
+    return res;
+}
+
+async function buscarEnVentas(){
+    const URL = "/api/producto"
+    let url = new URL(URL);
+    let nombre = "1" //aca habria que inyectar el input
+    
+    url.searchParams.set('nombre', nombre);
+
+    //setear el event listener para detectar que el search cambia 
+    //(sino usar el boton de buscar)
+    //el event listener llama a una funcion que dispara la busqueda de productos
+    //una vez obtenidos los productos, mostrarlos en la interfaz con un dropdown
+    //o similar, lo que sea mas facil
+    let productos = await fetchJSON(url.toString());
+
+    console.log(productos)
+
+}

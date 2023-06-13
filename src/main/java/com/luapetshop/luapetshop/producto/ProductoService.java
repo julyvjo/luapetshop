@@ -18,9 +18,13 @@ public class ProductoService {
 		this.productoRepository = productoRepository;
 	}
 	
-	public List<Producto> getProductos() {
-		return productoRepository.findAll();
-		//return productoRepository.findAllCustom();
+	public List<Producto> getProductos(String nombre) {
+		
+		List<Producto> productos = nombre == null? 
+				productoRepository.findAll() : 
+					productoRepository.findByNombreContaining(nombre);
+			
+		return productos;
 	}
 
 	public List<Producto> getProductosByName(String nombre) {
