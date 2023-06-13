@@ -443,7 +443,7 @@ header
 
     display: flex;
     flex-direction: row;
-    gap: 2vw;
+    gap: 1vw;
 }
 
 #appVentaContainer > :last-child > :first-child > div > div
@@ -472,6 +472,7 @@ header
     color: var(--primary);
     border: 0;
     border-radius: 1vw;
+    cursor: pointer;
     flex-grow: 1;
     
     display: flex;
