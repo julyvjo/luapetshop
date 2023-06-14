@@ -18,9 +18,6 @@
                 </div>
             </div>
             <div>
-                <div id="appVentaResultadosBuscador">RESULTADOS BUSCADOR</div>
-            </div>
-            <div>
                 <div id="appVentaProductos">PRODUCTOS SELECCIONADOS</div>
                 <div id="appVentaCantidades">CANTIDAD</div>
                 <div id="appVentaPrecios">PRECIO</div>
@@ -51,3 +48,38 @@
     <div th:replace="fragments/modals.html :: modalGeneral"></div>
 </body>
 </html>
+
+<!-- BACKUP RESULTADOS BUSCADOR -->
+<!-- 
+    <div>
+        <div id="appVentaResultadosBuscador">RESULTADOS BUSCADOR</div>
+    </div>
+ -->
+
+ <!-- CSS -->
+ <!-- 
+    #appVentaContainer > :nth-child(2)
+    /* RESULTADOS BUSCADOR */
+    {
+        margin: 0;
+        padding: 1vh 1vw;
+
+        /* Borrar cuando se tenga versión final */
+        height: 15vh;
+        /* -- */
+
+        background-color: var(--alternative);
+    }
+
+    #appVentaResultadosBuscador
+    {
+        margin: 0;
+        padding: 0;
+
+        /* Borrar cuando se tenga versión final */
+        height: 100%;
+        /* -- */
+
+        background-color: var(--primary);
+    }
+  -->

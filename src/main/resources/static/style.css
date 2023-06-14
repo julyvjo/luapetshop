@@ -320,7 +320,7 @@ header
     display: flex;
     flex-direction: column;
     /* justify-content: space-evenly; */
-    gap: 2vh;
+    /* gap: 2vh; */
 }
 
 #appVentaContainer > :first-child
@@ -335,39 +335,10 @@ header
 }
 
 #appVentaContainer > :nth-child(2)
-/* RESULTADOS BUSCADOR */
-{
-    margin: 0;
-    padding: 1vh 1vw;
-
-    /* Borrar cuando se tenga versión final */
-    height: 15vh;
-    /* -- */
-
-    background-color: var(--alternative);
-}
-
-#appVentaResultadosBuscador
-{
-    margin: 0;
-    padding: 0;
-
-    /* Borrar cuando se tenga versión final */
-    height: 100%;
-    /* -- */
-
-    background-color: var(--primary);
-}
-
-#appVentaContainer > :nth-child(3)
 /* CARRITO DE COMPRA */
 {
     margin: 0;
     padding: 1vh 1vw;
-
-    /* Borrar cuando se tenga versión final */
-    height: 15vh;
-    /* -- */
 
     background-color: var(--alternative);
 
@@ -376,7 +347,7 @@ header
     gap: 1vw;
 }
 
-#appVentaContainer > :nth-child(3) > :first-child
+#appVentaContainer > :nth-child(2) > :first-child
 /* #appVentaProductos */
 {
     margin: 0;
@@ -386,7 +357,7 @@ header
     flex-grow: 3;
 }
 
-#appVentaContainer > :nth-child(3) > :nth-child(2)
+#appVentaContainer > :nth-child(2) > :nth-child(2)
 /* #appVentaCantidades */
 {
     margin: 0;
@@ -396,7 +367,7 @@ header
     flex-grow: 1;
 }
 
-#appVentaContainer > :nth-child(3) > :last-child
+#appVentaContainer > :nth-child(2) > :last-child
 /* #appVentaPrecios */
 {
     margin: 0;
@@ -412,16 +383,12 @@ header
     margin: 0;
     padding: 1vh 1vw;
 
-    /* Borrar cuando se tenga versión final */
-    height: 30vh;
-    /* -- */
-
     background-color: var(--alternative);
 
+    height: 20vh;
+
     display: flex;
-    /* justify-content: space-between; */
     gap: 2vw;
-    flex: 1;
 }
 
 #appVentaContainer > :last-child > :first-child
@@ -443,7 +410,6 @@ header
 
     display: flex;
     flex-direction: row;
-    /* gap: 1vw; */
 }
 
 #appVentaContainer > :last-child > :first-child > div :nth-child(odd)
