@@ -186,14 +186,12 @@ header
     border-style: solid;
     border-color: var(--accent);
     border-radius: 1vw;
-    /* background-color: var(--primary); */
     background-color: #121212A0;
     color: var(--secondary);
     
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
 
     overflow: scroll;
     text-align: center;
@@ -206,8 +204,8 @@ header
 #extraApps
 {
     margin: 0;
-    padding: 2vh 1vw 0 1vw;
-    height: 20vh;
+    padding: 1vh 1vw;
+    /* height: 20vh; */
 
     display: flex;
     flex-direction: row;
@@ -215,18 +213,29 @@ header
     align-items: center;
 }
 
+#buscador
+{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1vw;
+}
+
 #inputBuscador
 {
     margin: 0;
-    padding: 2vh 1vw;
-    border-radius: 1vw;
+    padding: 1vh 1vw;
     width: 45vw;
+    border: 0;
+    border-radius: 1vw;
+
+    outline: none;
 }
 
 #botonBuscador, #botonEditorGeneral, #botonBearModal
 {
     margin: 0;
-    padding: 2vh 1vw;
+    padding: 1vh 1vw;
     border-radius: 1vw;
     border: 0;
     background-color: var(--accent);
@@ -372,10 +381,9 @@ header
 {
     margin: 0;
     padding: 1vh 1vw;
-    /* background-color: var(--alternative); */
 
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 #appVentaContainer > :nth-child(2)
@@ -630,6 +638,11 @@ header
 /* /////////////////////// */
 /* /// PAGE NAVIGATION /// */
 /* /////////////////////// */
+
+#pageNavigation > ul
+{
+    margin: 0;
+}
 
 #pageNavigation > ul > li > a
 {
