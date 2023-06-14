@@ -314,13 +314,12 @@ header
     padding: 0;
     height: 100%;
     width: 100%;
-    background-color: var(--accent);
+    /* background-color: var(--accent); */
+    background-color: transparent;
     align-self: center;
 
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
-    /* gap: 2vh; */
 }
 
 #appVentaContainer > :first-child
@@ -328,53 +327,18 @@ header
 {
     margin: 0;
     padding: 1vh 1vw;
-    background-color: var(--alternative);
+    /* background-color: var(--alternative); */
 
     display: flex;
     justify-content: space-evenly;
 }
 
 #appVentaContainer > :nth-child(2)
-/* CARRITO DE COMPRA */
+/* CARRITO COMPRA */
 {
     margin: 0;
     padding: 1vh 1vw;
-
-    background-color: var(--alternative);
-
-    display: flex;
-    flex: 1;
-    gap: 1vw;
-}
-
-#appVentaContainer > :nth-child(2) > :first-child
-/* #appVentaProductos */
-{
-    margin: 0;
-    padding: 1vh 1vw;
-    background-color: var(--primary);
-
-    flex-grow: 3;
-}
-
-#appVentaContainer > :nth-child(2) > :nth-child(2)
-/* #appVentaCantidades */
-{
-    margin: 0;
-    padding: 1vh 1vw;
-    background-color: var(--primary);
-    
-    flex-grow: 1;
-}
-
-#appVentaContainer > :nth-child(2) > :last-child
-/* #appVentaPrecios */
-{
-    margin: 0;
-    padding: 1vh 1vw;
-    background-color: var(--primary);
-    
-    flex-grow: 1;
+    /* background-color: var(--alternative); */
 }
 
 #appVentaContainer > :last-child
@@ -382,8 +346,7 @@ header
 {
     margin: 0;
     padding: 1vh 1vw;
-
-    background-color: var(--alternative);
+    /* background-color: var(--alternative); */
 
     height: 20vh;
 
