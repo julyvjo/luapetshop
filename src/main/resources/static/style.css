@@ -272,11 +272,11 @@ header
 #appCajaContainer > :last-child
 {
     margin: 0;
-    padding: 1vh 1vw;
+    padding: 1vh 0;
     height: 20vh;
 
     display: flex;
-    gap: 2vw;
+    gap: 18vw;
 }
 
 #appCajaContainer > :last-child > :first-child
@@ -498,6 +498,8 @@ header
     height: auto;
 }
 
+/* || MODAL CERRAR CAJA */
+
 #modalCerrarCaja > div.modal-dialog
 {
     display: flex;
@@ -513,6 +515,15 @@ header
     align-self: center;
 }
 
+#modalCerrarCaja > div.modal-dialog > div.modal-content > div.modal-header > :last-child
+{
+    background-color: var(--primary);
+    color: var(--secondary);
+    border: 0;
+    border-radius: 1vw;
+    width: 5vw;
+}
+
 #modalCerrarCajaDiv
 {
     display: flex;
@@ -522,12 +533,12 @@ header
 #modalCerrarCajaDiv > :first-child
 {
     margin: 0 1vw;
-    padding: 0;
-
+    padding: 1vh 1vw;
     height: 65vh;
     width: 40vw;
-
-    border: 1vw solid var(--primary);
+    background-color: var(--accent);
+    color: var(--primary);
+    border-radius: 1vw;
 }
 
 #modalCerrarCajaDiv > :nth-child(2)
@@ -542,13 +553,23 @@ header
 
 #modalCerrarCajaDiv > :nth-child(2) > :first-child
 {
-    margin: 1vh 1vw;
-    padding: 0;
+    margin: 0;
+    padding: 1vh 1vw;
 
     height: 50vh;
     width: 30vw;
 
-    border: 1vw solid var(--primary);
+    background-color: var(--accent);
+    color: var(--primary);
+    border-radius: 1vw;
+}
+
+#modalCerrarCajaDiv > :nth-child(2) > :last-child
+{
+    background-color: var(--primary);
+    color: var(--secondary);
+    border: 0;
+    border-radius: 1vw;
 }
 
 /* ///////////////// */
