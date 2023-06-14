@@ -443,7 +443,21 @@ header
 
     display: flex;
     flex-direction: row;
-    gap: 1vw;
+    /* gap: 1vw; */
+}
+
+#appVentaContainer > :last-child > :first-child > div :nth-child(odd)
+{
+    background-color: var(--accent);
+    color: var(--primary);
+    /* border-right: 0.1vw solid var(--secondary); */
+    border-radius: 1vw 0 0 1vw;
+}
+
+#appVentaContainer > :last-child > :first-child > div :nth-child(even)
+{
+    /* border-left: 0.1vw solid var(--secondary); */
+    border-radius: 0 1vw 1vw 0;
 }
 
 #appVentaContainer > :last-child > :first-child > div > div

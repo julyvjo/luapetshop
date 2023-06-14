@@ -71,64 +71,6 @@ function goToPage(buttonId)
     window.location.href = url;
 }
 
-// SEARCHBAR INPUT
-
-const inputBuscador = document.getElementById('inputBuscador');
-
-if (inputBuscador)
-{
-    inputBuscador.focus();
-
-    inputBuscador.addEventListener("keydown", (e) =>
-    {
-        if (e.key === "Enter")
-        {
-          e.preventDefault();
-          chequearBuscador();
-        }
-    });
-
-    // I implemented it like this because script.js has "defer" attribute.
-    // If in the future this changes, this needs to be implemented inside an Event Listener.
-}
-// **************************************************************
-
-// SEARCHBAR BUTTON
-
-const botonBuscador = document.getElementById('botonBuscador');
-
-if (botonBuscador)
-{
-    botonBuscador.addEventListener("click", (e) =>
-    {
-        chequearBuscador();
-    });
-
-    // I implemented it like this because script.js has "defer" attribute.
-    // If in the future this changes, this needs to be implemented inside an Event Listener.
-}
-// **************************************************************
-
-function chequearBuscador()
-{
-    if (inputBuscador.value !== "")
-        buscadorGoToPage(inputBuscador.value);
-    else
-        console.log("WARNING: Empty search bar!");
-}
-
-function buscadorGoToPage(contenido)
-{
-    let actualurl = new URL(window.location.href);
-    let nombre = actualurl.searchParams.get('nombre');
-    // console.log('parametro nombre =' + nombre);
-
-    actualurl.searchParams.set('nombre',contenido);
-    actualurl.searchParams.set('page',1);
-    // console.log('nueva url =' + actualurl.toString());
-    window.location.href = actualurl.toString();        
-}
-
 // GENERAL EDIT BUTTON
 
 const editorGeneral = document.getElementById('botonEditorGeneral');
@@ -239,6 +181,64 @@ function ocultarModal(buttonId)
     modalQueQuieroOcultar.setAttribute("aria-hidden", "true");
 }
 
+// SEARCHBAR INPUT
+
+const inputBuscador = document.getElementById('inputBuscador');
+
+if (inputBuscador)
+{
+    inputBuscador.focus();
+
+    inputBuscador.addEventListener("keydown", (e) =>
+    {
+        if (e.key === "Enter")
+        {
+          e.preventDefault();
+          chequearBuscador();
+        }
+    });
+
+    // I implemented it like this because script.js has "defer" attribute.
+    // If in the future this changes, this needs to be implemented inside an Event Listener.
+}
+// **************************************************************
+
+// SEARCHBAR BUTTON
+
+const botonBuscador = document.getElementById('botonBuscador');
+
+if (botonBuscador)
+{
+    botonBuscador.addEventListener("click", (e) =>
+    {
+        chequearBuscador();
+    });
+
+    // I implemented it like this because script.js has "defer" attribute.
+    // If in the future this changes, this needs to be implemented inside an Event Listener.
+}
+// **************************************************************
+
+function chequearBuscador()
+{
+    if (inputBuscador.value !== "")
+        buscadorGoToPage(inputBuscador.value);
+    else
+        console.log("WARNING: Empty search bar!");
+}
+
+function buscadorGoToPage(contenido)
+{
+    let actualurl = new URL(window.location.href);
+    let nombre = actualurl.searchParams.get('nombre');
+    // console.log('parametro nombre =' + nombre);
+
+    actualurl.searchParams.set('nombre',contenido);
+    actualurl.searchParams.set('page',1);
+    // console.log('nueva url =' + actualurl.toString());
+    window.location.href = actualurl.toString();        
+}
+
 // **************************************************************
 
 async function fetchJSON(URL) {
@@ -247,10 +247,30 @@ async function fetchJSON(URL) {
     return res;
 }
 
+/*
 async function buscarEnVentas(){
     const URL = "/api/producto"
     let url = new URL(URL);
     let nombre = "1" //aca habria que inyectar el input
+    
+    url.searchParams.set('nombre', nombre);
+
+    //setear el event listener para detectar que el search cambia 
+    //(sino usar el boton de buscar)
+    //el event listener llama a una funcion que dispara la busqueda de productos
+    //una vez obtenidos los productos, mostrarlos en la interfaz con un dropdown
+    //o similar, lo que sea mas facil
+    let productos = await fetchJSON(url.toString());
+
+    console.log(productos)
+
+}
+*/
+
+async function buscarEnProducto(nombre)
+{
+    const URL = "/api/producto"
+    let url = new URL(URL);
     
     url.searchParams.set('nombre', nombre);
 
