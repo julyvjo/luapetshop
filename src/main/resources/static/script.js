@@ -196,6 +196,11 @@ if (inputBuscador)
           e.preventDefault();
           chequearBuscador();
         }
+        else // Maybe I should use some regEx to improve this...
+        {
+            // e.preventDefault(); // This will come useful when using ctrl/shift/alt modifications
+            // chequearBuscador();
+        }
     });
 
     // I implemented it like this because script.js has "defer" attribute.
@@ -223,6 +228,7 @@ function chequearBuscador()
 {
     if (inputBuscador.value !== "")
         buscadorGoToPage(inputBuscador.value);
+        // buscarEnProducto(inputBuscador.value);
     else
         console.log("WARNING: Empty search bar!");
 }
@@ -281,6 +287,6 @@ async function buscarEnProducto(nombre)
     //o similar, lo que sea mas facil
     let productos = await fetchJSON(url.toString());
 
-    console.log(productos)
+    console.log(productos);
 
 }
