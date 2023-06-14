@@ -239,12 +239,12 @@ header
 {
     margin: 0;
     padding: 1vh 1vw;
-
-    border: 1vw solid var(--primary);
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 2vh;
 }
 
@@ -252,58 +252,103 @@ header
 {
     margin: 0;
     padding: 0;
-
-    background-color: var(--accent);
-
-    border: 1vw solid var(--primary);
+    flex-grow: 3;
 
     display: flex;
     flex-direction: row;
-    gap: 2vw;
+    gap: 1vw;
 }
 
 #appCajaFondos > div
 {
-    margin: 1vh 1vw;
-    padding: 0;
-
-    height: 30vh;
-    
-    border: 1vw solid var(--primary);
+    margin: 0;
+    padding: 1vh 1vw;
+    background-color: var(--accent);
+    color: var(--primary);
+    border-radius: 1vw;
+    width: 25%;
 }
 
-#appCajaContainer > :nth-child(2)
+#appCajaContainer > :last-child
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    height: 20vh;
+
+    display: flex;
+    gap: 2vw;
+}
+
+#appCajaContainer > :last-child > :first-child
+/* #appCajaGastoExcepcional, */
+/* #appCajaMetodoPagoExcepcional, */
+/* #appCajaSaldoTotal */
 {
     margin: 0;
     padding: 0;
-
-    border: 1vw solid var(--primary);
-    
-    background-color: var(--accent);
+    flex-grow: 3;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
 }
 
-#appCajaGastoExcepcional,
-#appCajaMetodoPagoExcepcional,
-#appCajaSaldoTotal
+#appCajaContainer > :last-child > :first-child > div
 {
-    margin: 1vh 1vw;
+    margin: 0;
     padding: 0;
+    width: 100%;
 
-    border: 1vw solid var(--primary);
+    display: flex;
+    flex-direction: row;
+}
+
+#appCajaContainer > :last-child > :first-child > div :nth-child(odd)
+{
+    padding: 0 1vw;
+    background-color: var(--accent);
+    color: var(--primary);
+    border-radius: 1vw 0 0 1vw;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#appCajaContainer > :last-child > :first-child > div :nth-child(even)
+{
+    padding: 0 1vw;
+    border-radius: 0 1vw 1vw 0;
+}
+
+#appCajaContainer > :last-child > :first-child > div > div
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    
+    background-color: var(--primary);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #botonCerrarCaja
 {
-    margin: 1vh 1vw;
+    margin: 0;
     padding: 0;
 
-    background-color: var(--alternative);
-
-    border: 1vw solid var(--primary);
+    background-color: var(--accent);
+    color: var(--primary);
+    border: 0;
+    border-radius: 1vw;
+    cursor: pointer;
+    flex-grow: 1;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* || APP VENTA  */
