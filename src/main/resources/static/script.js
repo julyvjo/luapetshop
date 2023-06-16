@@ -259,8 +259,8 @@ if (botonBuscador)
 function chequearBuscador()
 {
     if (inputBuscador.value !== "")
-        buscadorGoToPage(inputBuscador.value);
-        // buscarEnProducto(inputBuscador.value);
+        // buscadorGoToPage(inputBuscador.value);
+        buscarEnProducto(inputBuscador.value);
     else
         console.log("WARNING: Empty search bar!");
 }
@@ -307,18 +307,43 @@ async function buscarEnVentas(){
 
 async function buscarEnProducto(nombre)
 {
-    const URL = "/api/producto"
-    let url = new URL(URL);
+    const apiURL = "/api/producto"
+
+    // 
+    let url = new URL(apiURL, window.location.origin + "/../");
     
     url.searchParams.set('nombre', nombre);
 
-    //setear el event listener para detectar que el search cambia 
-    //(sino usar el boton de buscar)
-    //el event listener llama a una funcion que dispara la busqueda de productos
-    //una vez obtenidos los productos, mostrarlos en la interfaz con un dropdown
-    //o similar, lo que sea mas facil
+    // Setear el event listener para detectar que el search cambia (sino usar el boton de buscar)
+
+    // El event listener llama a una funcion que dispara la busqueda de productos
+    
+    // Una vez obtenidos los productos, mostrarlos en la interfaz con un dropdown o similar.
+
     let productos = await fetchJSON(url.toString());
 
     console.log(productos);
-
 }
+
+/*
+async function buscarEnProducto(nombre) {
+    const apiURL = "/api/producto";
+    const url = new URL(apiURL, window.location.origin + "/../");
+    
+    url.searchParams.set('nombre', nombre);
+  
+    try {
+      const response = await fetch(url); // Send a GET request to the API
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+      
+      const data = await response.json(); // Parse the response data as JSON
+  
+      // Handle the data here (e.g., display the results)
+      console.log(data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+*/
