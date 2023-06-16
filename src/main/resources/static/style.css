@@ -232,7 +232,10 @@ header
     outline: none;
 }
 
-#botonBuscador, #botonEditorGeneral, #botonBearModal
+#botonBuscador,
+#botonNuevoProducto,
+#botonEditorGeneral,
+#botonBearModal
 {
     margin: 0;
     padding: 1vh 1vw;

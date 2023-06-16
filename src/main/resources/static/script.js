@@ -125,6 +125,22 @@ if (arrayBotonFoto.length !== 0)
 }
 // **************************************************************
 
+// NUEVO PRODUCTO BUTTON
+
+const nuevoProducto = document.getElementById('botonNuevoProducto');
+
+if (nuevoProducto)
+{
+    nuevoProducto.addEventListener("click", (e) =>
+    {
+        mostrarModal("modalNuevoProducto");
+    });
+
+    // I implemented it like this because script.js has "defer" attribute.
+    // If in the future this changes, this needs to be implemented inside an Event Listener.
+}
+// **************************************************************
+
 // CERRAR CAJA BUTTON
 
 const cerrarCaja = document.getElementById('botonCerrarCaja');
