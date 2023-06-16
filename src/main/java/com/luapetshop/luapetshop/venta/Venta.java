@@ -1,6 +1,7 @@
 package com.luapetshop.luapetshop.venta;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.luapetshop.luapetshop.model.MedioPago;
 
@@ -10,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,27 +26,46 @@ public class Venta {
 	private LocalDateTime fyh;
 	private double total;
 	private char estado;
+	@OneToMany(mappedBy = "venta")
+	private List<LineaVenta> lineasVenta;
 	
 	public Venta() {
 		super();
 	}
 
-	public Venta(int id_venta, MedioPago medio_pago, LocalDateTime fyh, double total, char estado) {
+	public Venta(int id_venta, MedioPago medio_pago, LocalDateTime fyh, double total, char estado,
+			List<LineaVenta> lineasVenta) {
 		super();
 		this.id_venta = id_venta;
 		this.medio_pago = medio_pago;
 		this.fyh = fyh;
 		this.total = total;
 		this.estado = estado;
+		this.lineasVenta = lineasVenta;
 	}
 
-	public Venta(MedioPago medio_pago, LocalDateTime fyh, double total, char estado) {
+	public Venta(MedioPago medio_pago, LocalDateTime fyh, double total, char estado, List<LineaVenta> lineasVenta) {
 		super();
 		this.medio_pago = medio_pago;
 		this.fyh = fyh;
 		this.total = total;
 		this.estado = estado;
+		this.lineasVenta = lineasVenta;
 	}
+
+
+
+	public List<LineaVenta> getLineasVenta() {
+		return lineasVenta;
+	}
+
+
+
+	public void setLineasVenta(List<LineaVenta> lineasVenta) {
+		this.lineasVenta = lineasVenta;
+	}
+
+
 
 	public int getId_venta() {
 		return id_venta;

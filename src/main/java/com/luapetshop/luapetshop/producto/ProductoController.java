@@ -30,7 +30,7 @@ public class ProductoController {
 			Model model, 
 			@RequestParam Map<String, Object> params) {
 		
-		int PAGE_SIZE = 3;
+		int PAGE_SIZE = 20;
 		
 		int page = params.get("page") != null ? 
 				(Integer.valueOf(params.get("page").toString())-1):0;
