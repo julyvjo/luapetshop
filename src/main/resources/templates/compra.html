@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/general.html :: headBoilerplate"></head>
+<head th:replace="~{fragments/general.html :: headBoilerplate}"></head>
 <body>
-    <header th:replace="fragments/headernav.html :: headerNavFull (class5='actual')"></header>
+    <header th:replace="~{fragments/headernav.html :: headerNavFull (class5='actual')}"></header>
     <div id="app">
         <div id="formCompraContainer">
             <form id="formCompra" method="post">
@@ -45,7 +45,7 @@
             </form>
         </div>
     </div>
-    <footer th:replace="fragments/general.html :: footer"></footer>
+    <footer th:replace="~{fragments/general.html :: footer}"></footer>
 </body>
 </html>
 

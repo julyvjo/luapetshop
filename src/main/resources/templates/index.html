@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/general.html :: headBoilerplate"></head>
+<head th:replace="~{fragments/general.html :: headBoilerplate}"></head>
 <body>
     <header>
         <nav id="headerNav">
@@ -23,7 +23,7 @@
             <p class="navDiv">CAJA</p>
         </div>
     </nav>
-    <footer th:replace="fragments/general.html :: footer"></footer>
+    <footer th:replace="~{fragments/general.html :: footer}"></footer>
     
     <!-- SVG filter -->
     <svg style="display:none">

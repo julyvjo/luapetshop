@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/general.html :: headBoilerplate"></head>
+<head th:replace="~{fragments/general.html :: headBoilerplate}"></head>
 <body>
-    <header th:replace="fragments/headernav.html :: headerNavFull (class3='actual')"></header>
+    <header th:replace="~{fragments/headernav.html :: headerNavFull (class3='actual')}"></header>
 
     <div id="app">
         <div id="appCajaContainer">
@@ -32,10 +32,10 @@
         </div>
     </div>
 
-    <footer th:replace="fragments/general.html :: footer"></footer>
+    <footer th:replace="~{fragments/general.html :: footer}"></footer>
 
     <!-- MODAL GENERAL -->
-    <div th:replace="fragments/modals.html :: modalCerrarCaja"></div>
+    <div th:replace="~{fragments/modals.html :: modalCerrarCaja}"></div>
 </body>
 </html>
 
