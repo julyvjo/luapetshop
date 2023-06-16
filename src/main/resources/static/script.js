@@ -125,7 +125,7 @@ if (arrayBotonFoto.length !== 0)
 }
 // **************************************************************
 
-// GENERAL EDIT BUTTON
+// CERRAR CAJA BUTTON
 
 const cerrarCaja = document.getElementById('botonCerrarCaja');
 
