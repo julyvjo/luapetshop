@@ -49,7 +49,7 @@ public class VentaController {
 			ventaService.createNewVenta(datos);
 		} catch (Exception e) {
 			
-			System.out.println("failed");
+			e.printStackTrace();
 		}
 
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(datos.toString());

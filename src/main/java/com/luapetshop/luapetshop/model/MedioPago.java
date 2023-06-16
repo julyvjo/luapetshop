@@ -19,14 +19,14 @@ public class MedioPago {
 	@OneToOne
 	@JoinColumn(name = "id_cuenta")
 	private Cuenta cuenta;
-	private double nombre;
+	private String nombre;
 	private double modificador;
 	
 	public MedioPago() {
 		super();
 	}
 
-	public MedioPago(int id_medio_pago, Cuenta cuenta, double nombre, double modificador) {
+	public MedioPago(int id_medio_pago, Cuenta cuenta, String nombre, double modificador) {
 		super();
 		this.id_medio_pago = id_medio_pago;
 		this.cuenta = cuenta;
@@ -34,7 +34,7 @@ public class MedioPago {
 		this.modificador = modificador;
 	}
 
-	public MedioPago(Cuenta cuenta, double nombre, double modificador) {
+	public MedioPago(Cuenta cuenta, String nombre, double modificador) {
 		super();
 		this.cuenta = cuenta;
 		this.nombre = nombre;
@@ -59,11 +59,11 @@ public class MedioPago {
 		this.cuenta = cuenta;
 	}
 
-	public double getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(double nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 

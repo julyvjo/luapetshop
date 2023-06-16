@@ -1,6 +1,7 @@
 package com.luapetshop.luapetshop.producto;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -38,5 +39,10 @@ public class ProductoService {
 			return productoRepository.findAll(pageable);
 		else
 			return productoRepository.findByNombreContaining(nombre, pageable);
+	}
+
+	public Optional<Producto> getProducto(int id) {
+		
+		return productoRepository.findById(id);
 	}
 }

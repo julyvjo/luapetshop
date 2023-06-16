@@ -1,6 +1,7 @@
 package com.luapetshop.luapetshop.venta;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.luapetshop.luapetshop.model.MedioPago;
@@ -27,7 +28,7 @@ public class Venta {
 	private double total;
 	private char estado;
 	@OneToMany(mappedBy = "venta")
-	private List<LineaVenta> lineasVenta;
+	private List<LineaVenta> lineasVenta = new ArrayList<LineaVenta>();
 	
 	public Venta() {
 		super();
