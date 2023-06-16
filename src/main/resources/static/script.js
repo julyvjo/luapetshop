@@ -332,8 +332,27 @@ async function buscarEnProducto(nombre)
 
 function mostrarResultadosBusqueda(resultado)
 {
-    console.table(resultado);
-    console.log(resultado);
+    const resultadosBuscador = document.getElementById("resultadosBuscador");
+
+    if (resultadosBuscador)
+        resultadosBuscador.style.display = 'block';
+    else
+        console.log("ERROR: It seems like no #resultadosBuscador element exists in this page!");
+
+    if (resultado.length < 1)
+        console.log("WARNING: No results found!");
+    else
+    {
+        resultado.forEach((e) =>
+        {
+            // console.log(e);
+            const resultadoBuscadorIndividual = document.createElement('div');
+            resultadoBuscadorIndividual.textContent = e.nombre;
+            resultadosBuscador.appendChild(resultadoBuscadorIndividual);
+        });
+        // console.table(resultado);
+        // console.log(resultado);
+    }
 }
 
 /*
