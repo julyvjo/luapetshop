@@ -231,7 +231,8 @@ if (inputBuscador)
         else // Maybe I should use some regEx to improve this...
         {
             // e.preventDefault(); // This will come useful when using ctrl/shift/alt modifications
-            // chequearBuscador();
+            // chequearBuscador(inputBuscador.value + e.key);
+            // console.log(inputBuscador.value + e.key);
         }
     });
 
@@ -256,11 +257,14 @@ if (botonBuscador)
 }
 // **************************************************************
 
-function chequearBuscador()
+async function chequearBuscador()
 {
     if (inputBuscador.value !== "")
+    {
         // buscadorGoToPage(inputBuscador.value);
-        buscarEnProducto(inputBuscador.value);
+        const resultadoBusqueda = await buscarEnProducto(inputBuscador.value);
+        mostrarResultadosBusqueda(resultadoBusqueda);
+    }
     else
         console.log("WARNING: Empty search bar!");
 }
@@ -322,7 +326,14 @@ async function buscarEnProducto(nombre)
 
     let productos = await fetchJSON(url.toString());
 
-    console.log(productos);
+    // console.log(productos);
+    return productos;
+}
+
+function mostrarResultadosBusqueda(resultado)
+{
+    console.table(resultado);
+    console.log(resultado);
 }
 
 /*
