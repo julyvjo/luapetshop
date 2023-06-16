@@ -67,6 +67,43 @@
         </div>
     </div>
 
+    <!-- MODAL NUEVO PROVEEDOR -->
+    <div th:fragment="modalNuevoProveedor" id="modalNuevoProveedor" class="modal fade" tabindex="-1" role="dialog" style="display: none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">NUEVO PROVEEDOR</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close" onclick="ocultarModal('modalNuevoProveedor')">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post">
+                        <div>
+                            <label for="idProducto">id_producto_proveedor</label>
+                            <input type="text" id="idProducto" name="idProducto" required>
+                        </div>
+                        <div>
+                            <label for="nombreProveedor">nombre_proveedor</label>
+                            <input type="text" id="nombreProveedor" name="nombreProveedor" required>
+                        </div>
+                        <div>
+                            <label for="nombreProducto">nombre_producto</label>
+                            <input type="text" id="nombreProducto" name="nombreProducto" required>
+                        </div>
+                        <div>
+                            <label for="precioCompra">precio_compra</label>
+                            <input type="number" id="precioCompra" name="precioCompra" required>
+                        </div>
+                        <div>
+                            <input type="submit" value="Agregar Proveedor">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- MODAL FOTO -->
     <div th:fragment="modalFoto" id="modalFoto" class="modal fade" tabindex="-1" role="dialog" style="display: none;">
         <div class="modal-dialog" role="document">
