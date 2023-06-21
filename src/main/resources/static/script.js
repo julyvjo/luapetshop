@@ -377,3 +377,12 @@ async function buscarEnProducto(nombre) {
     }
   }
 */
+
+
+/*  TO-DO LIST
+
+||  Buscador VENTA
+    -   Evitar múltiples submit con inputs idénticos (por ej. si apreto enter más de una vez por accidente)
+    -   Dropdown de resultados parciales;probablemente sea necesario cambiar a un formulario / imitar cómo funcionan los autocompletados de navegadores/buscadores como YT, Google, etc.
+    -   Dropdown de resultados parciaes; debería ser un pop-up por arriba de la tabla, no tiene que mover las demás cosas.
+*/
