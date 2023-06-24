@@ -394,8 +394,46 @@ header
 {
     margin: 0;
     padding: 0;
+    width: 50vw;
+    background-color: var(--primary);
+    border: 0;
+    border-radius: 1vw;
+    position: relative;
+
     display: flex;
     flex-direction: column;
+}
+
+#appVentaContainer > :first-child > :first-child > :first-child
+/* #buscadorRow */
+{
+    margin: 0;
+    padding: 1vh 1vw;
+
+    display: flex;
+    align-items: center;
+    /* gap: 1vw; */
+}
+
+#appVentaContainer > :first-child > :first-child > :first-child > :first-child
+/* #buscadorInput */
+{
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    flex-grow: 1;
+    border: 0;
+
+    outline: none;
+}
+
+#appVentaContainer > :first-child > :first-child > :first-child > :last-child
+/* #buscadorButton */
+{
+    margin: 0;
+    padding: 0 0 0 1vw;
+    background-color: transparent;
+    border: 0;
 }
 
 #appVentaContainer > :first-child > :first-child > :last-child
@@ -403,14 +441,14 @@ header
 {
     margin: 0;
     padding: 1vh 1vw;
+    width: 100%;
     background-color: var(--primary);
     color: var(--secondary);
-    /* width: 45vw; */
-    border: 0;
+    border-top: 0.1vw solid var(--secondary);
     border-radius: 1vw;
 
-    outline: none;
-    
+    top: 7vh;
+    position: absolute;
     display: none;
 }
 

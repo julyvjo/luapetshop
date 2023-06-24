@@ -16,13 +16,13 @@ if (historialVenta)
 
 // SEARCHBAR INPUT
 
-const inputBuscador = document.getElementById('inputBuscador');
+const buscadorInput = document.getElementById('buscadorInput');
 
-if (inputBuscador)
+if (buscadorInput)
 {
-    inputBuscador.focus();
+    buscadorInput.focus();
 
-    inputBuscador.addEventListener("input", (e) =>
+    buscadorInput.addEventListener("input", (e) =>
     {
         chequearBuscador();
         // console.log(e.target.value.toLowerCase());
@@ -35,11 +35,11 @@ if (inputBuscador)
 
 // SEARCHBAR BUTTON
 
-const botonBuscador = document.getElementById('botonBuscador');
+const buscadorButton = document.getElementById('buscadorButton');
 
-if (botonBuscador)
+if (buscadorButton)
 {
-    botonBuscador.addEventListener("click", (e) =>
+    buscadorButton.addEventListener("click", (e) =>
     {
         chequearBuscador();
     });
@@ -53,9 +53,9 @@ if (botonBuscador)
 
 async function chequearBuscador()
 {
-    if (inputBuscador.value !== "")
+    if (buscadorInput.value !== "")
     {
-        const resultadoBusqueda = await buscarEnProducto(inputBuscador.value);
+        const resultadoBusqueda = await buscarEnProducto(buscadorInput.value);
         mostrarResultadosBusqueda(resultadoBusqueda);
     }
     else
@@ -145,19 +145,18 @@ function mostrarResultadosBusqueda(resultado)
         console.log("ERROR: It seems like no #resultadosBuscador element exists in this page!");
         return;
     }
-    else
+
+    resultadosBuscador.style.display = 'block';
+    
+    while (resultadosBuscador.firstChild)
     {
-        resultadosBuscador.style.display = 'block';
-        
-        while (resultadosBuscador.firstChild)
-        {
-            resultadosBuscador.removeChild(resultadosBuscador.firstChild);
-        }
+        resultadosBuscador.removeChild(resultadosBuscador.firstChild);
     }
 
     if (resultado.length < 1)
     {
         console.log("WARNING: No results found!");
+        buscador.style.borderRadius = "1vw";
         resultadosBuscador.style.display = 'none';
     }
     else
@@ -185,6 +184,6 @@ function ocultarResultadosBusqueda()
     {
         resultadosBuscador.removeChild(resultadosBuscador.firstChild);
     }
-
+    
     resultadosBuscador.style.display = 'none';
 }
