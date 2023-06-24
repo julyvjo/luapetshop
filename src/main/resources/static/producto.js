@@ -52,44 +52,6 @@ if (nuevoProducto)
 }
 // **************************************************************
 
-// MODAL FUNCTIONS
-
-function mostrarModal(buttonId)
-{
-    const modalQueQuieroMostrar = document.getElementById(buttonId);
-    modalQueQuieroMostrar.classList.add("show");
-    modalQueQuieroMostrar.style.display = "block";
-    modalQueQuieroMostrar.removeAttribute("aria-hidden");
-
-    modalQueQuieroMostrar.focus();
-
-    window.onclick = function(event)
-    {
-        if (event.target == modalQueQuieroMostrar)
-        {
-            ocultarModal(buttonId);
-        }
-    }
-
-    modalQueQuieroMostrar.addEventListener("keydown", (e) =>
-    {
-        if (e.key === "Escape")
-        {
-          e.preventDefault();
-          ocultarModal(buttonId);
-        }
-    });
-}
-
-function ocultarModal(buttonId)
-{
-    const modalQueQuieroOcultar = document.getElementById(buttonId);
-    modalQueQuieroOcultar.classList.remove("show");
-    modalQueQuieroOcultar.style.display = "none";
-    modalQueQuieroOcultar.setAttribute("aria-hidden", "true");
-}
-// **************************************************************
-
 // SEARCH FUNCTIONS
 
 function chequearBuscador()
