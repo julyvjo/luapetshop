@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/general.html :: headBoilerplate}"></head>
+<head>
+    <script defer th:src="@{compra.js}"></script>
+</head>
 <body>
     <header th:replace="~{fragments/headernav.html :: headerNavFull (class5='actual')}"></header>
     <div id="app">
