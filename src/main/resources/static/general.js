@@ -107,3 +107,35 @@ function ocultarModal(buttonId)
     modalQueQuieroOcultar.setAttribute("aria-hidden", "true");
 }
 // **************************************************************
+
+/*  || TO-DO LIST
+
+||  GENERAL
+    -   Chequear si es correcto implementar los JS de la forma que hice esto (no se si es necesario usar "import" o algo así en los otros archivos para que usen las funciones que defina acá)
+    -   Preguntar si se puede reubicar todo lo referido a BOOTSTRAP, así organizo mejor CSS y JS.
+
+||  PRODUCTO
+    -   Ajustar formato del formulario "Nuevo Producto".
+
+||  VENTA
+    -   BUSCADOR; Evitar múltiples submit con inputs idénticos (por ej. si apreto enter más de una vez por accidente)
+    -   DROPDOWN DE RESULTADOS PARCIALES; probablemente sea necesario cambiar a un formulario / imitar cómo funcionan los autocompletados de navegadores/buscadores como YT, Google, etc.
+    -   DROPDOWN DE RESULTADOS PARCIALES; debería ser un pop-up por arriba de la tabla, no tiene que mover las demás cosas.
+
+||  CAJA
+    -   Debería generarse un scroll horizontal en caso de agregar otro fondo.
+    -   Anotar qué información tiene que mostrarse en cada fondo (ideal: sin overflow)
+    -   Implementar botón "Detalles" para abrir un modal con la información completa, en cada fondo.
+
+||  PROVEEDOR
+    -   Chequear qué información debería mostrarse en la tabla.
+    -   Implementar buscador (chequear si además habría que hacer algo desde backend)
+    -   Implementar "agregarProveedor" (botón modal que debería ser formulario para agregar un proveedor)
+
+||  COMPRA
+    -   Chequear si sería válido implementar "agregarProveedor" de PROVEEDOR también acá.
+    -   Implementar correctamente formulario (Necesita generar un JSON ?)
+
+||  USUARIO
+    -   Analizar si realmente es necesario implementar esta sección (potencial conflico si hay empleados)
+*/
