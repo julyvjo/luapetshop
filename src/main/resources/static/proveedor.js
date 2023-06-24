@@ -1,12 +1,12 @@
-// CERRAR CAJA BUTTON
+// NUEVO PROVEEDOR BUTTON
 
-const cerrarCaja = document.getElementById('botonCerrarCaja');
+const nuevoProveedor = document.getElementById('botonNuevoProveedor');
 
-if (cerrarCaja)
+if (nuevoProveedor)
 {
-    cerrarCaja.addEventListener("click", (e) =>
+    nuevoProveedor.addEventListener("click", (e) =>
     {
-        mostrarModal("modalCerrarCaja");
+        mostrarModal("modalNuevoProveedor");
     });
 
     // I implemented it like this because script.js has "defer" attribute.
