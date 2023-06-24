@@ -22,19 +22,10 @@ if (inputBuscador)
 {
     inputBuscador.focus();
 
-    inputBuscador.addEventListener("keydown", (e) =>
+    inputBuscador.addEventListener("input", (e) =>
     {
-        if (e.key === "Enter")
-        {
-          e.preventDefault();
-          chequearBuscador();
-        }
-        else // Maybe I should use some regEx to improve this...
-        {
-            // e.preventDefault(); // This will come useful when using ctrl/shift/alt modifications
-            // chequearBuscador(inputBuscador.value + e.key);
-            // console.log(inputBuscador.value + e.key);
-        }
+        chequearBuscador();
+        // console.log(e.target.value.toLowerCase());
     });
 
     // I implemented it like this because script.js has "defer" attribute.
@@ -68,7 +59,10 @@ async function chequearBuscador()
         mostrarResultadosBusqueda(resultadoBusqueda);
     }
     else
+    {
         console.log("WARNING: Empty search bar!");
+        ocultarResultadosBusqueda();
+    }
 }
 
 async function fetchJSON(URL) {
@@ -77,7 +71,7 @@ async function fetchJSON(URL) {
     return res;
 }
 
-/*
+/* VERSIÓN JULY
 async function buscarEnVentas(){
     const URL = "/api/producto"
     let url = new URL(URL);
@@ -96,6 +90,30 @@ async function buscarEnVentas(){
 
 }
 */
+
+/* VERSIÓN CHAT GPT
+async function buscarEnProducto(nombre) {
+    const apiURL = "/api/producto";
+    const url = new URL(apiURL, window.location.origin + "/../");
+    
+    url.searchParams.set('nombre', nombre);
+  
+    try {
+      const response = await fetch(url); // Send a GET request to the API
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+      
+      const data = await response.json(); // Parse the response data as JSON
+  
+      // Handle the data here (e.g., display the results)
+      console.log(data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+*/
+// **************************************************************
 
 async function buscarEnProducto(nombre)
 {
@@ -122,13 +140,26 @@ function mostrarResultadosBusqueda(resultado)
 {
     const resultadosBuscador = document.getElementById("resultadosBuscador");
 
-    if (resultadosBuscador)
-        resultadosBuscador.style.display = 'block';
-    else
+    if (!resultadosBuscador)
+    {
         console.log("ERROR: It seems like no #resultadosBuscador element exists in this page!");
+        return;
+    }
+    else
+    {
+        resultadosBuscador.style.display = 'block';
+        
+        while (resultadosBuscador.firstChild)
+        {
+            resultadosBuscador.removeChild(resultadosBuscador.firstChild);
+        }
+    }
 
     if (resultado.length < 1)
+    {
         console.log("WARNING: No results found!");
+        resultadosBuscador.style.display = 'none';
+    }
     else
     {
         resultado.forEach((e) =>
@@ -143,26 +174,17 @@ function mostrarResultadosBusqueda(resultado)
     }
 }
 
-/*
-async function buscarEnProducto(nombre) {
-    const apiURL = "/api/producto";
-    const url = new URL(apiURL, window.location.origin + "/../");
-    
-    url.searchParams.set('nombre', nombre);
-  
-    try {
-      const response = await fetch(url); // Send a GET request to the API
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
-      }
-      
-      const data = await response.json(); // Parse the response data as JSON
-  
-      // Handle the data here (e.g., display the results)
-      console.log(data);
-    } catch (error) {
-      console.error('Error:', error);
+function ocultarResultadosBusqueda()
+{
+    const resultadosBuscador = document.getElementById("resultadosBuscador");
+
+    if (!resultadosBuscador)
+        return;
+
+    while (resultadosBuscador.firstChild)
+    {
+        resultadosBuscador.removeChild(resultadosBuscador.firstChild);
     }
-  }
-*/
-// **************************************************************
+
+    resultadosBuscador.style.display = 'none';
+}
