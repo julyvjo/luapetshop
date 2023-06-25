@@ -444,7 +444,7 @@ header
     width: 100%;
     background-color: var(--primary);
     color: var(--secondary);
-    border-top: 0.1vw solid var(--secondary);
+    border: 0.1vw solid #121212A0;
     border-radius: 1vw;
 
     top: 7vh;

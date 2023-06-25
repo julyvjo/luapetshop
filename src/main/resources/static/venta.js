@@ -161,13 +161,19 @@ function mostrarResultadosBusqueda(resultado)
     }
     else
     {
+        const resultadoBuscadorLista = document.createElement('ul');
+        resultadoBuscadorLista.style.margin = 0;
+        resultadoBuscadorLista.style.listStyleType = "none";
         resultado.forEach((e) =>
         {
             // console.log(e);
-            const resultadoBuscadorIndividual = document.createElement('div');
+            const resultadoBuscadorIndividual = document.createElement('li');
+            resultadoBuscadorIndividual.style.marker
             resultadoBuscadorIndividual.textContent = e.nombre;
-            resultadosBuscador.appendChild(resultadoBuscadorIndividual);
+            resultadoBuscadorLista.appendChild(resultadoBuscadorIndividual);
         });
+
+        resultadosBuscador.appendChild(resultadoBuscadorLista);
         // console.table(resultado);
         // console.log(resultado);
     }
@@ -184,6 +190,6 @@ function ocultarResultadosBusqueda()
     {
         resultadosBuscador.removeChild(resultadosBuscador.firstChild);
     }
-    
+
     resultadosBuscador.style.display = 'none';
 }
