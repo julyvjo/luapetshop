@@ -28,6 +28,23 @@ if (buscadorInput)
         // console.log(e.target.value.toLowerCase());
     });
 
+    buscadorInput.addEventListener("keydown", (e) =>
+    {
+        if (buscadorInput.value === "")
+            return;
+        
+        if (e.key === "ArrowDown")
+        {
+            // console.log("ABAJO");
+        }
+        else if (e.key === "ArrowUp")
+        {
+            // console.log("ARRIBA");
+        }
+        
+        // console.log(e.key);
+    });
+
     // I implemented it like this because script.js has "defer" attribute.
     // If in the future this changes, this needs to be implemented inside an Event Listener.
 }
@@ -168,7 +185,6 @@ function mostrarResultadosBusqueda(resultado)
         {
             // console.log(e);
             const resultadoBuscadorIndividual = document.createElement('li');
-            resultadoBuscadorIndividual.style.marker
             resultadoBuscadorIndividual.textContent = e.nombre;
             resultadoBuscadorLista.appendChild(resultadoBuscadorIndividual);
         });
