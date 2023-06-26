@@ -47,48 +47,47 @@ if (buscadorInput)
 
         const listaResultados = document.querySelectorAll("li");
 
+        if (posicionListaResultados != -1)
+        {
+            listaResultados[posicionListaResultados].style.backgroundColor = "var(--primary)";
+            listaResultados[posicionListaResultados].style.color = "var(--secondary)";
+        }
+
         //  Acá abajo hay código que pareciera estar innecesariamente repetido...
         //  pero hay bugs que aparecen solamente por no aislar la acción a estas teclas específicas.
 
         if (e.key === "ArrowUp")
         {
-            // console.log("ARRIBA");
             e.preventDefault();
 
-            if (posicionListaResultados != -1)
-            {
-                listaResultados[posicionListaResultados].style.backgroundColor = "var(--primary)";
-                listaResultados[posicionListaResultados].style.color = "var(--secondary)";
-            }
-
             if (listaResultados[(posicionListaResultados - 1)])
+            {
                 posicionListaResultados--;
+
+                listaResultados[posicionListaResultados].style.backgroundColor = "var(--accent)";
+                listaResultados[posicionListaResultados].style.color = "var(--primary)";
+                buscadorInput.value = listaResultados[posicionListaResultados].textContent;
+            }
             else
-            {   
+            {
                 //  Se presionó "ArrowUp" en el primer resultado => volver a búsqueda original.
                 buscadorInput.value = busquedaActual;
                 posicionListaResultados = -1;
-                return;
             }
         }
         else if (e.key === "ArrowDown")
         {
-            // console.log("ABAJO");
             e.preventDefault();
 
-            if (posicionListaResultados != -1)
-            {
-                listaResultados[posicionListaResultados].style.backgroundColor = "var(--primary)";
-                listaResultados[posicionListaResultados].style.color = "var(--secondary)";
-            }
-
             if (listaResultados[(posicionListaResultados + 1)])
+            {
                 posicionListaResultados++;
+
+                listaResultados[posicionListaResultados].style.backgroundColor = "var(--accent)";
+                listaResultados[posicionListaResultados].style.color = "var(--primary)";
+                buscadorInput.value = listaResultados[posicionListaResultados].textContent;
+            }
         }
-        
-        listaResultados[posicionListaResultados].style.backgroundColor = "var(--accent)";
-        listaResultados[posicionListaResultados].style.color = "var(--primary)";
-        buscadorInput.value = listaResultados[posicionListaResultados].textContent;
 
         // console.log(busquedaActual);
     });
