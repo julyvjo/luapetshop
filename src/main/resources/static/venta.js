@@ -37,27 +37,24 @@ if (buscadorInput)
         if (buscadorInput.value === "")
             return;
 
+        const listaResultados = document.querySelectorAll("li");
+
         if (e.key === "Enter")
         {
             e.preventDefault();
-            // console.log("ENVIAR", buscadorInput.value);
-            carritoCrearFila(buscadorInput.value);  //  VALIDAR QUE HAYA ALGÚN RESULTADO ?
             
-            //  Reiniciar buscador
-            buscadorInput.value = "";
-            ocultarResultadosBusqueda();
-            posicionListaResultados = -1;
-            busquedaActual = buscadorInput.value;
+            if (posicionListaResultados != -1)
+            {
+                carritoCrearFila(buscadorInput.value); //  VALIDAR QUE NO EXISTA EN CARRITO
+                
+                //  Reiniciar buscador
+                buscadorInput.value = "";
+                ocultarResultadosBusqueda();
+                posicionListaResultados = -1;
+                busquedaActual = buscadorInput.value;
+            }
 
             return;
-        }
-
-        const listaResultados = document.querySelectorAll("li");
-
-        if (posicionListaResultados != -1)
-        {
-            listaResultados[posicionListaResultados].style.backgroundColor = "var(--primary)";
-            listaResultados[posicionListaResultados].style.color = "var(--secondary)";
         }
 
         //  Acá abajo hay código que pareciera estar innecesariamente repetido...
@@ -66,6 +63,12 @@ if (buscadorInput)
         if (e.key === "ArrowUp")
         {
             e.preventDefault();
+
+            if (posicionListaResultados != -1)
+            {
+                listaResultados[posicionListaResultados].style.backgroundColor = "var(--primary)";
+                listaResultados[posicionListaResultados].style.color = "var(--secondary)";
+            }
 
             if (listaResultados[(posicionListaResultados - 1)])
             {
@@ -86,6 +89,12 @@ if (buscadorInput)
         {
             e.preventDefault();
 
+            if (posicionListaResultados != -1)
+            {
+                listaResultados[posicionListaResultados].style.backgroundColor = "var(--primary)";
+                listaResultados[posicionListaResultados].style.color = "var(--secondary)";
+            }
+
             if (listaResultados[(posicionListaResultados + 1)])
             {
                 posicionListaResultados++;
@@ -95,8 +104,6 @@ if (buscadorInput)
                 buscadorInput.value = listaResultados[posicionListaResultados].textContent;
             }
         }
-
-        // console.log(busquedaActual);
     });
 
     // I implemented it like this because script.js has "defer" attribute.
@@ -277,7 +284,7 @@ function carritoCrearFila(texto)
     
     const fila = document.createElement("tr");
 
-    for (let columna = 1; index < 4; columna++)
+    for (let columna = 1; columna < 4; columna++)
     {
         const data = document.createElement("td");
         const h5 = document.createElement("h5");
