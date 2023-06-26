@@ -21,10 +21,14 @@ const buscadorInput = document.getElementById('buscadorInput');
 if (buscadorInput)
 {
     buscadorInput.focus();
+    let posicionListaResultados = -1;   //  Para navegar entre los resultados de la búsqueda.
+    let busquedaActual = "";            //  Para recordar qué búsqueda generó la lista de resultados.
 
     buscadorInput.addEventListener("input", (e) =>
     {
         chequearBuscador();
+        posicionListaResultados = -1;
+        busquedaActual = buscadorInput.value;
         // console.log(e.target.value.toLowerCase());
     });
 
@@ -32,17 +36,61 @@ if (buscadorInput)
     {
         if (buscadorInput.value === "")
             return;
-        
-        if (e.key === "ArrowDown")
+
+        if (e.key === "Enter")
         {
-            // console.log("ABAJO");
+            e.preventDefault();
+            console.log("ENVIAR", buscadorInput.value);
+            
+            return;
         }
-        else if (e.key === "ArrowUp")
+
+        const listaResultados = document.querySelectorAll("li");
+
+        //  Acá abajo hay código que pareciera estar innecesariamente repetido...
+        //  pero hay bugs que aparecen solamente por no aislar la acción a estas teclas específicas.
+
+        if (e.key === "ArrowUp")
         {
             // console.log("ARRIBA");
+            e.preventDefault();
+
+            if (posicionListaResultados != -1)
+            {
+                listaResultados[posicionListaResultados].style.backgroundColor = "var(--primary)";
+                listaResultados[posicionListaResultados].style.color = "var(--secondary)";
+            }
+
+            if (listaResultados[(posicionListaResultados - 1)])
+                posicionListaResultados--;
+            else
+            {   
+                //  Se presionó "ArrowUp" en el primer resultado => volver a búsqueda original.
+                buscadorInput.value = busquedaActual;
+                posicionListaResultados = -1;
+                return;
+            }
+        }
+        else if (e.key === "ArrowDown")
+        {
+            // console.log("ABAJO");
+            e.preventDefault();
+
+            if (posicionListaResultados != -1)
+            {
+                listaResultados[posicionListaResultados].style.backgroundColor = "var(--primary)";
+                listaResultados[posicionListaResultados].style.color = "var(--secondary)";
+            }
+
+            if (listaResultados[(posicionListaResultados + 1)])
+                posicionListaResultados++;
         }
         
-        // console.log(e.key);
+        listaResultados[posicionListaResultados].style.backgroundColor = "var(--accent)";
+        listaResultados[posicionListaResultados].style.color = "var(--primary)";
+        buscadorInput.value = listaResultados[posicionListaResultados].textContent;
+
+        // console.log(busquedaActual);
     });
 
     // I implemented it like this because script.js has "defer" attribute.
@@ -173,13 +221,13 @@ function mostrarResultadosBusqueda(resultado)
     if (resultado.length < 1)
     {
         console.log("WARNING: No results found!");
-        buscador.style.borderRadius = "1vw";
         resultadosBuscador.style.display = 'none';
     }
     else
     {
         const resultadoBuscadorLista = document.createElement('ul');
         resultadoBuscadorLista.style.margin = 0;
+        resultadoBuscadorLista.style.padding = 0;
         resultadoBuscadorLista.style.listStyleType = "none";
         resultado.forEach((e) =>
         {
