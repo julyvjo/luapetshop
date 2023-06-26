@@ -70,14 +70,14 @@ function chequearBuscador()
 
 function buscadorGoToPage(contenido)
 {
-    console.log("HELLO WORLD");
-    // let actualurl = new URL(window.location.href);
+    //console.log("HELLO WORLD");
+    let actualurl = new URL(window.location.href);
     // let nombre = actualurl.searchParams.get('nombre');
     // // console.log('parametro nombre =' + nombre);
 
-    // actualurl.searchParams.set('nombre',contenido);
-    // actualurl.searchParams.set('page',1);
+    actualurl.searchParams.set('nombre',contenido);
+    actualurl.searchParams.set('page',1);
     // // console.log('nueva url =' + actualurl.toString());
-    // window.location.href = actualurl.toString();        
+    window.location.href = actualurl.toString();        
 }
 // **************************************************************

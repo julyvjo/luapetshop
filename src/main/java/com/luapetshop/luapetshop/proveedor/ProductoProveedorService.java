@@ -3,6 +3,8 @@ package com.luapetshop.luapetshop.proveedor;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.luapetshop.luapetshop.repository.IProductoProveedorRepository;
@@ -30,6 +32,18 @@ public class ProductoProveedorService {
 		}
 		
 		return productosProveedores; 
+	}
+
+
+	public Page<ProductoProveedor> getPageProductoProveedor(Pageable pageable, String nombre) {
+		Page<ProductoProveedor> pageProductoProveedor;
+		
+		if(nombre == null)
+			pageProductoProveedor = productoProveedorRepository.findByNombreProductoContaining("", pageable);
+		else
+			pageProductoProveedor = productoProveedorRepository.findByNombreProductoContaining(nombre, pageable);
+		
+		return pageProductoProveedor;
 	}
 
 }
