@@ -40,8 +40,15 @@ if (buscadorInput)
         if (e.key === "Enter")
         {
             e.preventDefault();
-            console.log("ENVIAR", buscadorInput.value);
+            // console.log("ENVIAR", buscadorInput.value);
+            carritoCrearFila(buscadorInput.value);  //  VALIDAR QUE HAYA ALGÚN RESULTADO ?
             
+            //  Reiniciar buscador
+            buscadorInput.value = "";
+            ocultarResultadosBusqueda();
+            posicionListaResultados = -1;
+            busquedaActual = buscadorInput.value;
+
             return;
         }
 
@@ -255,4 +262,35 @@ function ocultarResultadosBusqueda()
     }
 
     resultadosBuscador.style.display = 'none';
+}
+
+
+
+
+
+
+// **************
+
+function carritoCrearFila(texto)
+{
+    const carrito = document.getElementById("table");
+    
+    const fila = document.createElement("tr");
+
+    for (let columna = 1; index < 4; columna++)
+    {
+        const data = document.createElement("td");
+        const h5 = document.createElement("h5");
+        h5.classList.add("py-2");
+
+        if (columna === 1)
+            h5.textContent = texto;
+        else
+            h5.textContent = "1";
+        
+        data.appendChild(h5);
+        fila.appendChild(data);
+    }
+
+    carrito.appendChild(fila);
 }
