@@ -284,7 +284,7 @@ function carritoCrearFila(texto)
     
     const fila = document.createElement("tr");
 
-    for (let columna = 1; columna < 4; columna++)
+    for (let columna = 1; columna < 5; columna++)
     {
         const data = document.createElement("td");
         const h5 = document.createElement("h5");
