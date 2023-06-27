@@ -20,7 +20,73 @@
             <div class="fixed">USUARIOS</div>
         </nav>
     </header>
-    <div id="app">APP VENTA</div>
+    <div id="app">
+        <div>
+            <!-- BUSCADOR -->
+
+            <div id="buscador">
+                <div id="buscadorRow">
+                    <input id="buscadorInput" type="search" placeholder="Buscar..." autocomplete="off">
+                    <button id="buscadorButton">&#x1F50D;</button>
+                </div>
+                <div id="resultadosBuscador"></div>
+            </div>
+
+            <!-- EDITOR GENERAL -->
+
+            <div id="editorGeneral">
+                <button id="botonEditorGeneral">HISTORIAL</button>
+            </div>
+        </div>
+
+        <!-- CARRITO COMPRA -->
+        
+        <table>
+            <thead>
+                <td>
+                    <h2>PRODUCTO SELECCIONADO</h2>
+                </td>
+                <td>
+                    <h2>CANTIDAD</h2>
+                </td>
+                <td>
+                    <h2>PRECIO</h2>
+                </td>
+            </thead>
+            <tbody id="table">
+                <tr>
+                    <td>
+                        <h2>PRODUCTO SELECCIONADO</h2>
+                    </td>
+                    <td>
+                        <h2>CANTIDAD</h2>
+                    </td>
+                    <td>
+                        <h2>PRECIO</h2>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <div>
+                <div>
+                    <div>METODO PAGO 1</div>
+                    <div id="appVentaMetodoPago1">$$$ METODO PAGO 1</div>
+                </div>
+                <div>
+                    <div>METODO PAGO 2</div>
+                    <div id="appVentaMetodoPago2">$$$ METODO PAGO 2</div>
+                </div>
+                <div>
+                    <div>TOTAL</div>
+                    <div id="appVentaTotal">$$$</div>
+                </div>
+
+            </div>
+            <div id="appVentaFinalizarCompra" onclick="window.confirm('Estás por finalizar la compra... ¿Estás seguro?')">FINALIZAR COMPRA</div>
+        </div>
+    </div>
     <footer>POWERED BY JULY SRL</footer>
 </body>
 </html>
