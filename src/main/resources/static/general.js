@@ -123,6 +123,9 @@ function ocultarModal(buttonId)
     -   BUSCADOR; Añadir funcionalidad con mouse para elegir resultado.
     -   BUSCADOR; Quitar botón con icono de búsqueda.
     -   CSS CARRITO; Scrollbar debería ser solamente para <tbody> para dejar siempre a la vista el header. (Tal vez preguntar si hay preferencia para esto...)
+    -   CSS CARRITO; Quitar márgenes inferiores que tiene la tabla para evitar espacios en blanco innecesarios.
+    -   CSS CARRITO; Dar formato a los input de cantidad.
+    -   CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.
     -   CSS #APP; Deshabilitar overflow, así no ocupa tanto espacio ahora que hay otro scrollbar...
 
 ||  CAJA
