@@ -115,12 +115,15 @@ function ocultarModal(buttonId)
     -   Preguntar si se puede reubicar todo lo referido a BOOTSTRAP, así organizo mejor CSS y JS.
 
 ||  PRODUCTO
-    -   Ajustar formato del formulario "Nuevo Producto".
+    -   NUEVO PROUDCTO; Revisar si se va a implementar de esta forma; ajustar formato.
+    -   BUSCADOR; Implementar estética del buscador en VENTA?
 
 ||  VENTA
-    -   BUSCADOR; Evitar múltiples submit con inputs idénticos (por ej. si apreto enter más de una vez por accidente)
-    -   DROPDOWN DE RESULTADOS PARCIALES; probablemente sea necesario cambiar a un formulario / imitar cómo funcionan los autocompletados de navegadores/buscadores como YT, Google, etc.
-    -   DROPDOWN DE RESULTADOS PARCIALES; debería ser un pop-up por arriba de la tabla, no tiene que mover las demás cosas.
+    -   CARRITO; Añadir botón eliminar fila/producto. TIENE QUE ACTUALIZAR TOTAL.
+    -   BUSCADOR; Añadir funcionalidad con mouse para elegir resultado.
+    -   BUSCADOR; Quitar botón con icono de búsqueda.
+    -   CSS CARRITO; Scrollbar debería ser solamente para <tbody> para dejar siempre a la vista el header. (Tal vez preguntar si hay preferencia para esto...)
+    -   CSS #APP; Deshabilitar overflow, así no ocupa tanto espacio ahora que hay otro scrollbar...
 
 ||  CAJA
     -   Debería generarse un scroll horizontal en caso de agregar otro fondo.
@@ -129,8 +132,8 @@ function ocultarModal(buttonId)
 
 ||  PROVEEDOR
     -   Chequear qué información debería mostrarse en la tabla.
-    -   Implementar buscador (chequear si además habría que hacer algo desde backend)
     -   Implementar "agregarProveedor" (botón modal que debería ser formulario para agregar un proveedor)
+    -   BUSCADOR; Implementar estética del buscador en VENTA?
 
 ||  COMPRA
     -   Chequear si sería válido implementar "agregarProveedor" de PROVEEDOR también acá.
