@@ -45,11 +45,14 @@ if (buscadorInput)
             
             if (posicionListaResultados != -1)
             {
-                // carritoCrearFila(buscadorInput.value);
                 const idResultado = listaResultados[posicionListaResultados].getAttribute("data-id-resultado");
-                // console.log(resultadoBusqueda[idResultado]);
-                carritoCrearFila(resultadoBusqueda[idResultado]);
                 
+                if ( estaEnCarrito(resultadoBusqueda[idResultado].id_producto) )
+                    //  ACÁ SE PUEDE EMITIR UN TOAST NOTIFICANDO DEL ERROR
+                    return;
+
+                carritoCrearFila(resultadoBusqueda[idResultado]);
+            
                 //  Reiniciar buscador
                 buscadorInput.value = "";
                 ocultarResultadosBusqueda();
@@ -281,10 +284,30 @@ function ocultarResultadosBusqueda()
 
 // **************
 
+// CARRITO VENTA FUNCTIONS
+
 let carritoVenta = {};  //  ESTE OBJETO ES LO QUE SE ENVIARÍA AL BACK AL FINALIZAR COMPRA
 
+function estaEnCarrito(id_producto) //  id_producto es el nombre de la propiedad en la DB
+{
+    const listadoCarrito = document.querySelectorAll("tr");
+
+    for (let index = 0; index < listadoCarrito.length; index++)
+    {
+        const tieneElAtributo = listadoCarrito[index].hasAttribute("data-id-producto");
+
+        const valorAtributo = listadoCarrito[index].getAttribute("data-id-producto");
+        
+        //  Resulta necesario convertir ambos valores a String porque originalmente no conozco su tipo de valor.
+
+        if (tieneElAtributo && valorAtributo.toString() === id_producto.toString())
+            return true;
+    }
+
+    return false;
+}
+
 function carritoCrearFila(resultadoBusquedaProducto)
-// function carritoCrearFila(texto)
 {
     const carrito = document.getElementById("table");
     
@@ -355,3 +378,4 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
     carrito.appendChild(fila);
 }
+// **************************************************************
