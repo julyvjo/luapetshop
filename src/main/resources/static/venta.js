@@ -45,7 +45,10 @@ if (buscadorInput)
             
             if (posicionListaResultados != -1)
             {
-                carritoCrearFila(buscadorInput.value); //  VALIDAR QUE NO EXISTA EN CARRITO
+                // carritoCrearFila(buscadorInput.value);
+                const idResultado = listaResultados[posicionListaResultados].getAttribute("data-id-resultado");
+                // console.log(resultadoBusqueda[idResultado]);
+                carritoCrearFila(resultadoBusqueda[idResultado]);
                 
                 //  Reiniciar buscador
                 buscadorInput.value = "";
@@ -129,11 +132,13 @@ if (buscadorButton)
 
 // SEARCH FUNCTIONS
 
+let resultadoBusqueda = {};
+
 async function chequearBuscador()
 {
     if (buscadorInput.value !== "")
     {
-        const resultadoBusqueda = await buscarEnProducto(buscadorInput.value);
+        resultadoBusqueda = await buscarEnProducto(buscadorInput.value);
         mostrarResultadosBusqueda(resultadoBusqueda);
     }
     else
@@ -242,10 +247,13 @@ function mostrarResultadosBusqueda(resultado)
         resultadoBuscadorLista.style.margin = 0;
         resultadoBuscadorLista.style.padding = 0;
         resultadoBuscadorLista.style.listStyleType = "none";
-        resultado.forEach((e) =>
+
+
+        resultado.forEach((e, index) =>
         {
             // console.log(e);
             const resultadoBuscadorIndividual = document.createElement('li');
+            resultadoBuscadorIndividual.setAttribute("data-id-resultado", index);
             resultadoBuscadorIndividual.textContent = e.nombre;
             resultadoBuscadorLista.appendChild(resultadoBuscadorIndividual);
         });
@@ -271,33 +279,79 @@ function ocultarResultadosBusqueda()
     resultadosBuscador.style.display = 'none';
 }
 
-
-
-
-
-
 // **************
 
-function carritoCrearFila(texto)
+let carritoVenta = {};  //  ESTE OBJETO ES LO QUE SE ENVIARÍA AL BACK AL FINALIZAR COMPRA
+
+function carritoCrearFila(resultadoBusquedaProducto)
+// function carritoCrearFila(texto)
 {
     const carrito = document.getElementById("table");
     
     const fila = document.createElement("tr");
+    fila.setAttribute("data-id-producto", resultadoBusquedaProducto.id_producto);
 
-    for (let columna = 1; columna < 5; columna++)
-    {
-        const data = document.createElement("td");
-        const h5 = document.createElement("h5");
+    // COLUMNA 1 - NOMBRE
+
+        let data = document.createElement("td");
+            
+        let h5 = document.createElement("h5");
         h5.classList.add("py-2");
 
-        if (columna === 1)
-            h5.textContent = texto;
-        else
-            h5.textContent = "1";
-        
+        h5.textContent = resultadoBusquedaProducto.nombre;
+
         data.appendChild(h5);
+
         fila.appendChild(data);
-    }
+
+    // COLUMNA 2 - PRECIO UNITARIO
+
+        data = document.createElement("td");
+
+        const precioUnitario = (resultadoBusquedaProducto.precio_compra * ( 1 + resultadoBusquedaProducto.rentabilidad)).toFixed(2);
+            
+        h5 = document.createElement("h5");
+        h5.classList.add("py-2");
+        h5.textContent = precioUnitario;
+
+        data.appendChild(h5);
+
+        fila.appendChild(data);
+
+    // COLUMNA 3 - CANTIDAD
+
+        data = document.createElement("td");
+
+        const cantidadInput = document.createElement("input");
+        cantidadInput.classList.add("py-2");
+        cantidadInput.id = "buscadorInput";
+        cantidadInput.setAttribute("type", "number");
+        cantidadInput.setAttribute("autocomplete", "off");
+        cantidadInput.value = 1;
+
+        data.appendChild(cantidadInput);
+
+        fila.appendChild(data);
+
+    // COLUMNA 4 - SUBTOTAL
+
+        data = document.createElement("td");
+
+        h5 = document.createElement("h5");
+        h5.id = `subtotal-id-${fila.getAttribute("data-id-producto")}`;
+        h5.classList.add("py-2");
+        h5.textContent = precioUnitario * cantidadInput.value;
+
+        data.appendChild(h5);
+
+        fila.appendChild(data);
+
+        cantidadInput.addEventListener("input", () =>
+        {
+            document.getElementById(`subtotal-id-${fila.getAttribute("data-id-producto")}`).textContent = (precioUnitario * cantidadInput.value).toFixed(2);
+        });
+
+    // AGREGAR FILA AL CARRITO
 
     carrito.appendChild(fila);
 }
