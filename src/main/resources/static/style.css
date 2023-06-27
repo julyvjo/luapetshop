@@ -656,6 +656,11 @@ header
     padding: 2vh 1vw 0 1vw;
     height: 60vh;
     max-width: none;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: scroll;
 }
 
 .table-header /* .table-header should be the <theader> element of a table */
