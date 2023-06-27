@@ -263,12 +263,12 @@ footer
     color: var(--primary);
 }
 
-#app > table > thead > td:first-child
+#app > table > thead > tr > :first-child
 {
     border-radius: 1vw 0 0 0;
 }
 
-#app > table > thead > td:last-child
+#app > table > thead > tr > :last-child
 {
     border-radius: 0 1vw 0 0;
 }
