@@ -331,11 +331,33 @@ function carritoCrearFila(resultadoBusquedaProducto)
     const fila = document.createElement("tr");
     fila.setAttribute("data-id-producto", resultadoBusquedaProducto.id_producto);
 
-    // COLUMNA 1 - NOMBRE
-
+    // COLUMNA 1 - BOTON ELIMINAR FILA
+    
         let data = document.createElement("td");
-            
+                
         let h5 = document.createElement("h5");
+        h5.classList.add("py-2");
+
+        const button = document.createElement("button");
+        button.classList.add("botonBorrarFila");
+        button.textContent = "🗑";
+
+        button.addEventListener("click", (e) =>
+        {
+            carritoEliminarFila(resultadoBusquedaProducto.id_producto);
+        });
+
+        h5.appendChild(button);
+
+        data.appendChild(h5);
+
+        fila.appendChild(data);
+
+    // COLUMNA 2 - NOMBRE
+
+        data = document.createElement("td");
+            
+        h5 = document.createElement("h5");
         h5.classList.add("py-2");
 
         h5.textContent = resultadoBusquedaProducto.nombre;
@@ -344,7 +366,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
         fila.appendChild(data);
 
-    // COLUMNA 2 - PRECIO UNITARIO
+    // COLUMNA 3 - PRECIO UNITARIO
 
         data = document.createElement("td");
 
@@ -358,7 +380,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
         fila.appendChild(data);
 
-    // COLUMNA 3 - CANTIDAD
+    // COLUMNA 4 - CANTIDAD
 
         data = document.createElement("td");
 
@@ -374,7 +396,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
         fila.appendChild(data);
 
-    // COLUMNA 4 - SUBTOTAL
+    // COLUMNA 5 - SUBTOTAL
 
         data = document.createElement("td");
 
@@ -418,6 +440,40 @@ function carritoCrearFila(resultadoBusquedaProducto)
     // AGREGAR FILA AL CARRITO
 
     carrito.appendChild(fila);
+}
+
+function carritoEliminarFila(id_producto)
+{
+    const listadoCarrito = document.querySelectorAll("tr");
+
+    let index = 1;
+    let sigue = index < listadoCarrito.length;
+
+    while (sigue)
+    {
+        const tieneElAtributo = listadoCarrito[index].hasAttribute("data-id-producto");
+
+        const valorAtributo = listadoCarrito[index].getAttribute("data-id-producto");
+        
+        //  Resulta necesario convertir ambos valores a String porque originalmente no conozco su tipo de valor.
+
+        if (tieneElAtributo && valorAtributo.toString() === id_producto.toString())
+        {     
+            
+            // Actualizar TOTAL
+            // Actualizar METODOS DE PAGO
+            
+            const tablaCarritoVenta = document.getElementById("table");
+            tablaCarritoVenta.removeChild(listadoCarrito[index]);
+
+            return;
+        }
+
+        index++;
+        let sigue = index < listadoCarrito.length;
+    }
+
+    console.log("ERROR: Somehow id_producto is not in the cart...");
 }
 
 function cargarCarritoVenta()
