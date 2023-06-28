@@ -207,20 +207,12 @@ async function buscarEnProducto(nombre)
 {
     const apiURL = "/api/producto"
 
-    // 
     let url = new URL(apiURL, window.location.origin + "/../");
     
     url.searchParams.set('nombre', nombre);
 
-    // Setear el event listener para detectar que el search cambia (sino usar el boton de buscar)
-
-    // El event listener llama a una funcion que dispara la busqueda de productos
-    
-    // Una vez obtenidos los productos, mostrarlos en la interfaz con un dropdown o similar.
-
     let productos = await fetchJSON(url.toString());
 
-    // console.log(productos);
     return productos;
 }
 
@@ -289,7 +281,23 @@ function ocultarResultadosBusqueda()
 // CARRITO VENTA FUNCTIONS
 
 //  Este objeto es el que se envía al finalizar la venta.
-let carritoVenta = {};
+let carritoVenta = {
+    "id_medio_pago": 1,
+    "monto_medio_pago": 1,
+
+    "id_medio_pago_2": 1,
+    "monto_medio_pago_2": 0,
+
+    "total": 4400.0,
+
+    "lineas_venta": []
+    // Contenido de cada objeto de lineas_venta
+    // {
+    //     "id_producto": 1,
+    //     "cantidad": 3,
+    //     "precio": 1000.0
+    // }
+}
 
 function estaEnCarrito(id_producto) //  id_producto es el nombre de la propiedad en la DB
 {
@@ -350,7 +358,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
         const cantidadInput = document.createElement("input");
         cantidadInput.classList.add("py-2");
-        cantidadInput.id = "buscadorInput";
+        cantidadInput.id = `cantidadInput${resultadoBusquedaProducto.id_producto}`;
         cantidadInput.setAttribute("type", "number");
         cantidadInput.setAttribute("autocomplete", "off");
         cantidadInput.value = 1;
@@ -364,7 +372,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
         data = document.createElement("td");
 
         h5 = document.createElement("h5");
-        h5.id = `subtotal-id-${fila.getAttribute("data-id-producto")}`;
+        h5.id = `subtotalId${fila.getAttribute("data-id-producto")}`;
         h5.classList.add("py-2");
         h5.textContent = precioUnitario * cantidadInput.value;
 
@@ -374,12 +382,36 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
         cantidadInput.addEventListener("input", () =>
         {
-            document.getElementById(`subtotal-id-${fila.getAttribute("data-id-producto")}`).textContent = (precioUnitario * cantidadInput.value).toFixed(2);
+            const subtotal = document.getElementById(h5.id);
+            subtotal.textContent = (precioUnitario * cantidadInput.value).toFixed(2);
         });
 
     // AGREGAR FILA AL CARRITO
 
     carrito.appendChild(fila);
+}
+
+function cargarCarritoVenta()
+{
+    const listadoCarrito = document.querySelectorAll("tr");
+
+    let dataIdProducto = 0;
+    let cantidad = 0;
+    let precio = 0;
+
+    //  index = 2 Para saltear <thead> y el placeholder.
+    for (let index = 2; index < listadoCarrito.length; index++)
+    {
+        dataIdProducto = listadoCarrito[index].getAttribute("data-id-producto");
+        cantidad = document.getElementById(`cantidadInput${dataIdProducto}`).value;
+        precio = document.getElementById(`subtotalId${dataIdProducto}`).textContent;
+
+        carritoVenta.lineas_venta.push({
+            "id_producto": dataIdProducto,
+            "cantidad": cantidad,
+            "precio": precio
+        })
+    }
 }
 // **************************************************************
 
@@ -398,7 +430,8 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
         if ( !window.confirm("¿Realmente estás seguro?") )
         return;
 
+        cargarCarritoVenta();
         console.log("VENTA FINALIZADA");
-        // console.log(carritoVenta);
+        console.log(carritoVenta);
     }, 250);
 });
