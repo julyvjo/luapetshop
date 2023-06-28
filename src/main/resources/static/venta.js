@@ -48,8 +48,10 @@ if (buscadorInput)
                 const idResultado = listaResultados[posicionListaResultados].getAttribute("data-id-resultado");
                 
                 if ( estaEnCarrito(resultadoBusqueda[idResultado].id_producto) )
-                    //  ACÁ SE PUEDE EMITIR UN TOAST NOTIFICANDO DEL ERROR
+                {
+                    console.log("ERROR: The selected item is already in the cart!");
                     return;
+                }
 
                 carritoCrearFila(resultadoBusqueda[idResultado]);
             
