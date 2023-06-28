@@ -193,12 +193,7 @@ header
     flex-direction: column;
     justify-content: center;
 
-    overflow: scroll;
     text-align: center;
-
-    /* Overflow alternative if x-axis scroll is not wanted */
-    /* overflow-y: scroll;
-    overflow-x: hidden; */
 }
 
 #extraApps

@@ -126,7 +126,6 @@ function ocultarModal(buttonId)
     -   CSS CARRITO; Quitar márgenes inferiores que tiene la tabla para evitar espacios en blanco innecesarios.
     -   CSS CARRITO; Dar formato a los input de cantidad.
     -   CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.
-    -   CSS #APP; Deshabilitar overflow, así no ocupa tanto espacio ahora que hay otro scrollbar...
 
 ||  CAJA
     -   Debería generarse un scroll horizontal en caso de agregar otro fondo.
