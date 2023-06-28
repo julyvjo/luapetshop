@@ -519,8 +519,8 @@ header
     align-items: center;
 }
 
+/* #appVentaFinalizarVenta */
 #appVentaContainer > :last-child > :last-child
-/* #appVentaFinalizarCompra */
 {
     margin: 0;
     padding: 0;

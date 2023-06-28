@@ -381,3 +381,6 @@ function carritoCrearFila(resultadoBusquedaProducto)
     carrito.appendChild(fila);
 }
 // **************************************************************
+
+// FINALIZAR COMPRA
+onclick="window.confirm('Estás por finalizar la compra... ¿Estás seguro?')"
