@@ -63,17 +63,19 @@
             <div>
                 <!-- METODOS DE PAGO Y TOTAL -->
                 <div>
-                    <div>
-                        <div>METODO PAGO 1</div>
-                        <div id="appVentaMetodoPago1">$$$ METODO PAGO 1</div>
+                    <div id="appVentaMetodoPago1">
+                        <select th:replace="~{fragments/metodosPago.html :: metodosPago}" ></select>
+                        <!-- <div>$$$ METODO PAGO 1</div> -->
+                        <input type="number" autocomplete="off" value="1">
                     </div>
-                    <div>
-                        <div>METODO PAGO 2</div>
-                        <div id="appVentaMetodoPago2">$$$ METODO PAGO 2</div>
+                    <div id="appVentaMontoMetodoPago2">
+                        <select th:replace="~{fragments/metodosPago.html :: metodosPago}" ></select>
+                        <!-- <div >$$$ METODO PAGO 2</div> -->
+                        <input type="number" autocomplete="off" value="0">
                     </div>
                     <div>
                         <div>TOTAL</div>
-                        <div id="appVentaTotal">$$$</div>
+                        <div id="appVentaTotal">0</div>
                     </div>
                 </div>
 

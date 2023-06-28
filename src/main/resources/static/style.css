@@ -483,27 +483,12 @@ header
 {
     margin: 0;
     padding: 0;
-    width: 100%;
 
     display: flex;
     flex-direction: row;
 }
 
-#appVentaContainer > :last-child > :first-child > div :nth-child(odd)
-{
-    background-color: var(--accent);
-    color: var(--primary);
-    /* border-right: 0.1vw solid var(--secondary); */
-    border-radius: 1vw 0 0 1vw;
-}
-
-#appVentaContainer > :last-child > :first-child > div :nth-child(even)
-{
-    /* border-left: 0.1vw solid var(--secondary); */
-    border-radius: 0 1vw 1vw 0;
-}
-
-#appVentaContainer > :last-child > :first-child > div > div
+#appVentaContainer > :last-child > :first-child > div > *
 /* #appVentaMetodoPago1, */
 /* #appVentaMetodoPago2, */
 /* #appVentaTotal */
@@ -513,10 +498,29 @@ header
     width: 100%;
     
     background-color: var(--primary);
+    text-align: center;
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#appVentaContainer > :last-child > :first-child > div :nth-child(odd)
+{
+    padding: 1vh 1vw;
+    width: 50%;
+    background-color: var(--accent);
+    color: var(--primary);
+    /* border-right: 0.1vw solid var(--secondary); */
+    border-radius: 1vw 0 0 1vw;
+    line-height: normal;
+}
+
+#appVentaContainer > :last-child > :first-child > div :nth-child(even)
+{
+    width: 50%;
+    /* border-left: 0.1vw solid var(--secondary); */
+    border-radius: 0 1vw 1vw 0;
 }
 
 /* #appVentaFinalizarVenta */

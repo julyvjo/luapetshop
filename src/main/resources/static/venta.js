@@ -412,6 +412,12 @@ function cargarCarritoVenta()
             "precio": precio
         })
     }
+    
+    const metodoPago1 = document.getElementById("appVentaMetodoPago1");
+
+    const metodoPago2 = document.getElementById("appVentaMetodoPago2");
+    
+    const totalVenta = document.getElementById("appVentaTotal");
 }
 // **************************************************************
 
