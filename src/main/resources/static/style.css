@@ -455,6 +455,17 @@ header
     /* background-color: var(--alternative); */
 }
 
+input.py-2
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    border: 0.1vw solid var(--secondary);
+    border-radius: 1vw;
+    background-color: var(--primary);
+    color: var(--secondary);
+    line-height: normal;
+}
+
 #appVentaContainer > :last-child
 /* TOTAL Y FINALIZAR COMPRA */
 {
@@ -660,6 +671,11 @@ header
     flex-direction: column;
 
     overflow-y: scroll;
+}
+
+.table
+{
+    margin: 0;
 }
 
 .table-header /* .table-header should be the <theader> element of a table */

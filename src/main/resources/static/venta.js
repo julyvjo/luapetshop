@@ -54,10 +54,12 @@ if (buscadorInput)
                 return;
             }
 
-            if (document.getElementById("productoPlaceholder"))
+            const productoPlaceholder = document.getElementById("productoPlaceholder");
+            
+            if (productoPlaceholder)
             {
-                //  ELIMINAR ESTA FILA
-                console.log("EXISTE");
+                const tablaCarritoVenta = document.getElementById("table");
+                tablaCarritoVenta.removeChild(productoPlaceholder);
             }
 
             carritoCrearFila(resultadoBusqueda[idResultado]);
@@ -390,6 +392,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
         cantidadInput.setAttribute("type", "number");
         cantidadInput.setAttribute("autocomplete", "off");
         cantidadInput.setAttribute("min", 1);
+        cantidadInput.style.textAlign = "center";
         cantidadInput.value = 1;
 
         data.appendChild(cantidadInput);
@@ -425,7 +428,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
             let totalVentaConvertido = parseFloat(totalVenta.textContent);
 
             //  Quito el valor del subtotal previo a totalVenta
-            totalVenta.textContent = totalVentaConvertido - subtotalConvertido;
+            totalVenta.textContent = (totalVentaConvertido - subtotalConvertido).toFixed(2);
 
             //  Actualizo valores de subtotal y totalVenta
             subtotal.textContent = (precioUnitario * cantidadInput.value).toFixed(2);
@@ -461,6 +464,17 @@ function carritoEliminarFila(id_producto)
         {     
             
             // Actualizar TOTAL
+
+            //  Convierto valores de subtotal y totalVenta a flotantes
+            const subtotal = document.getElementById(`subtotalId${id_producto}`);
+            let subtotalConvertido = parseFloat(subtotal.textContent);
+
+            const totalVenta = document.getElementById("appVentaTotal");
+            let totalVentaConvertido = parseFloat(totalVenta.textContent);
+
+            //  Quito el valor del subtotal a totalVenta
+            totalVenta.textContent = (totalVentaConvertido - subtotalConvertido).toFixed(2);
+
             // Actualizar METODOS DE PAGO
             
             const tablaCarritoVenta = document.getElementById("table");
@@ -520,10 +534,13 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
     setTimeout(() =>
     {
         if ( !window.confirm("¿Realmente estás seguro?") )
-        return;
+            return;
 
         cargarCarritoVenta();
         console.log("VENTA FINALIZADA");
         console.log(carritoVenta);
+        
+        //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+        location.reload();
     }, 250);
 });

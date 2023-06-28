@@ -28,7 +28,7 @@
             <div class="container">
                 <div class="row">
                     <div class="tableMargin"></div>
-                    <div class="tableContainer mb-5">
+                    <div class="tableContainer">
                         <table class="table table-striped align-middle text-center">
                             <thead class="table-borderless">
                                 <tr class="table-header">
@@ -51,7 +51,7 @@
                                         <h5 class="py-2">18.12</h5>
                                     </td>
                                     <td>
-                                        <input class="py-2" type="number" autocomplete="off" value="1" min="1">
+                                        <input class="py-2" type="number" autocomplete="off" value="1" min="1" style="text-align: center">
                                     </td>
                                     <td>
                                         <h5 class="py-2">18.12</h5>
@@ -70,16 +70,16 @@
                     <div id="appVentaMetodoPago1">
                         <select th:replace="~{fragments/metodosPago.html :: metodosPago}" ></select>
                         <!-- <div>$$$ METODO PAGO 1</div> -->
-                        <input type="number" autocomplete="off" value="1">
+                        <input type="number" autocomplete="off" value="1.00">
                     </div>
                     <div id="appVentaMontoMetodoPago2">
                         <select th:replace="~{fragments/metodosPago.html :: metodosPago}" ></select>
                         <!-- <div >$$$ METODO PAGO 2</div> -->
-                        <input type="number" autocomplete="off" value="0">
+                        <input type="number" autocomplete="off" value="0.00">
                     </div>
                     <div>
                         <div>TOTAL</div>
-                        <div id="appVentaTotal">0</div>
+                        <div id="appVentaTotal">0.00</div>
                     </div>
                 </div>
 
