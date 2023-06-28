@@ -43,24 +43,30 @@ if (buscadorInput)
         {
             e.preventDefault();
             
-            if (posicionListaResultados != -1)
-            {
-                const idResultado = listaResultados[posicionListaResultados].getAttribute("data-id-resultado");
-                
-                if ( estaEnCarrito(resultadoBusqueda[idResultado].id_producto) )
-                {
-                    console.log("ERROR: The selected item is already in the cart!");
-                    return;
-                }
+            if (posicionListaResultados === -1)
+                return;
 
-                carritoCrearFila(resultadoBusqueda[idResultado]);
+            const idResultado = listaResultados[posicionListaResultados].getAttribute("data-id-resultado");
             
-                //  Reiniciar buscador
-                buscadorInput.value = "";
-                ocultarResultadosBusqueda();
-                posicionListaResultados = -1;
-                busquedaActual = buscadorInput.value;
+            if ( estaEnCarrito(resultadoBusqueda[idResultado].id_producto) )
+            {
+                console.log("ERROR: The selected item is already in the cart!");
+                return;
             }
+
+            if (document.getElementById("productoPlaceholder"))
+            {
+                //  ELIMINAR ESTA FILA
+                console.log("EXISTE");
+            }
+
+            carritoCrearFila(resultadoBusqueda[idResultado]);
+        
+            //  Reiniciar buscador
+            buscadorInput.value = "";
+            ocultarResultadosBusqueda();
+            posicionListaResultados = -1;
+            busquedaActual = buscadorInput.value;
 
             return;
         }
@@ -361,6 +367,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
         cantidadInput.id = `cantidadInput${resultadoBusquedaProducto.id_producto}`;
         cantidadInput.setAttribute("type", "number");
         cantidadInput.setAttribute("autocomplete", "off");
+        cantidadInput.setAttribute("min", 1);
         cantidadInput.value = 1;
 
         data.appendChild(cantidadInput);
@@ -374,16 +381,38 @@ function carritoCrearFila(resultadoBusquedaProducto)
         h5 = document.createElement("h5");
         h5.id = `subtotalId${fila.getAttribute("data-id-producto")}`;
         h5.classList.add("py-2");
-        h5.textContent = precioUnitario * cantidadInput.value;
+        h5.textContent = (precioUnitario * cantidadInput.value).toFixed(2);
 
         data.appendChild(h5);
 
         fila.appendChild(data);
 
+        const totalVenta = document.getElementById("appVentaTotal");
+        let totalVentaConvertido = parseFloat(totalVenta.textContent);
+        totalVentaConvertido += parseFloat(h5.textContent);
+        totalVenta.textContent = totalVentaConvertido;
+
+
         cantidadInput.addEventListener("input", () =>
         {
+            //  Convierto valores de subtotal y totalVenta a flotantes
             const subtotal = document.getElementById(h5.id);
+            let subtotalConvertido = parseFloat(subtotal.textContent);
+
+            const totalVenta = document.getElementById("appVentaTotal");
+            let totalVentaConvertido = parseFloat(totalVenta.textContent);
+
+            //  Quito el valor del subtotal previo a totalVenta
+            totalVenta.textContent = totalVentaConvertido - subtotalConvertido;
+
+            //  Actualizo valores de subtotal y totalVenta
             subtotal.textContent = (precioUnitario * cantidadInput.value).toFixed(2);
+
+            subtotalConvertido = parseFloat(subtotal.textContent);
+            totalVentaConvertido = parseFloat(totalVenta.textContent);
+
+            //  Finalmente actualizo el valor de totalVenta con el nuevo subtotal
+            totalVenta.textContent = (totalVentaConvertido + subtotalConvertido).toFixed(2);
         });
 
     // AGREGAR FILA AL CARRITO
@@ -416,8 +445,9 @@ function cargarCarritoVenta()
     const metodoPago1 = document.getElementById("appVentaMetodoPago1");
 
     const metodoPago2 = document.getElementById("appVentaMetodoPago2");
-    
+
     const totalVenta = document.getElementById("appVentaTotal");
+    carritoVenta.total = parseFloat(totalVenta.textContent);
 }
 // **************************************************************
 
