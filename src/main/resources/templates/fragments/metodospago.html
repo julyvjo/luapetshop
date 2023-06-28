@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+    <select th:fragment="metodosPago">
+        <option value="default" disabled selected>METODO DE PAGO</option>
+        <option value="efectivo">Efectivo</option>
+        <option value="mpago-cvu">Mercado Pago CVU</option>
+        <option value="mpago-qr">Mercado Pago QR</option>
+        <option value="bapro-cvu">Banco Provincia CVU</option>
+        <option value="bapro-qr">Banco Provincia QR</option>
+        <option value="nacion">Banco Nación</option>
+        <option value="modo">Modo</option>
+        <option value="debito">Tarjeta débito</option>
+        <option value="credito">Tarjeta crédito</option>
+    </select>
+</body>
+</html>
