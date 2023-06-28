@@ -288,7 +288,8 @@ function ocultarResultadosBusqueda()
 
 // CARRITO VENTA FUNCTIONS
 
-let carritoVenta = {};  //  ESTE OBJETO ES LO QUE SE ENVIARÍA AL BACK AL FINALIZAR COMPRA
+//  Este objeto es el que se envía al finalizar la venta.
+let carritoVenta = {};
 
 function estaEnCarrito(id_producto) //  id_producto es el nombre de la propiedad en la DB
 {
@@ -383,4 +384,21 @@ function carritoCrearFila(resultadoBusquedaProducto)
 // **************************************************************
 
 // FINALIZAR COMPRA
-onclick="window.confirm('Estás por finalizar la compra... ¿Estás seguro?')"
+
+const appVentaFinalizarVenta = document.getElementById("appVentaFinalizarVenta");
+
+appVentaFinalizarVenta.addEventListener("click", (e) => 
+{
+    if ( !window.confirm("Estás por finalizar la venta... ¿Estás seguro?") )
+        return;
+
+    // Insistir con la confirmación para evitar lo máximo posible finalizar la venta por accidente.
+    setTimeout(() =>
+    {
+        if ( !window.confirm("¿Realmente estás seguro?") )
+        return;
+
+        console.log("VENTA FINALIZADA");
+        // console.log(carritoVenta);
+    }, 250);
+});
