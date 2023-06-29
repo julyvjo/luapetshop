@@ -498,8 +498,8 @@ function cargarCarritoVenta()
     let cantidad = 0;
     let precio = 0;
 
-    //  index = 2 Para saltear <thead> y el placeholder.
-    for (let index = 2; index < listadoCarrito.length; index++)
+    //  index = 1 Para saltear el tr de <thead>
+    for (let index = 1; index < listadoCarrito.length; index++)
     {
         dataIdProducto = listadoCarrito[index].getAttribute("data-id-producto");
         cantidad = document.getElementById(`cantidadInput${dataIdProducto}`).value;
@@ -527,6 +527,25 @@ const appVentaFinalizarVenta = document.getElementById("appVentaFinalizarVenta")
 
 appVentaFinalizarVenta.addEventListener("click", (e) => 
 {
+    // Si el carrito contiene producto placeholder => nunca se agregó un item al carrito!
+    const productoPlaceholder = document.getElementById("productoPlaceholder");
+            
+    if (productoPlaceholder)
+    {
+        console.log("ERROR: You have to add at least one item to the cart. The placeholder does not count as one!");
+        return;
+    }
+
+    // listadoCarrito.length debería ser > 1 para indicar que existe al menos 1 producto en el carrito.
+    const listadoCarrito = document.querySelectorAll("tr");
+
+    if (listadoCarrito.length === 1)
+    {
+        console.log("ERROR: Empty cart!");
+        return;
+    }
+
+    /*
     if ( !window.confirm("Estás por finalizar la venta... ¿Estás seguro?") )
         return;
 
@@ -543,4 +562,10 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
         //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
         location.reload();
     }, 250);
+    */
+
+    //  IMPLEMENTACIÓN SIN CONFIRMACIÓN PARA AGILIZAR TESTING
+    cargarCarritoVenta();
+    console.log("VENTA FINALIZADA");
+    console.log(carritoVenta);
 });

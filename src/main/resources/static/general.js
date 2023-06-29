@@ -125,6 +125,7 @@ function ocultarModal(buttonId)
     -   BUSCADOR; Considerar mostrar un TOAST indicando errores (input repetido, búsqueda vacía, sin resultados, etc).
     -   CSS CARRITO; Scrollbar debería ser solamente para <tbody> para dejar siempre a la vista el header. (Tal vez preguntar si hay preferencia para esto...)
     -   CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.
+    -   FINALIZAR VENTA; Recordar des-comentar el código para pedir doble confirmación de finalización de venta.
 
 ||  CAJA
     -   Debería generarse un scroll horizontal en caso de agregar otro fondo.
