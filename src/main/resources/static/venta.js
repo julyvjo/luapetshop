@@ -18,20 +18,20 @@ if (historialVenta)
 
 const buscadorInput = document.getElementById('buscadorInput');
 
-/* 
-    -   buscadorInput INPUT Event Listener for written text => triggers search and result list display.
+/*
+    [*] buscadorInput INPUT Event Listener for written text => triggers search and result list display.
 
-    -   mostrarResultadosBusqueda MOUSEOVER and MOUSEOUT Event Listeners for SHOWING POSITION in result list.
+    [*] mostrarResultadosBusqueda MOUSEOVER and MOUSEOUT Event Listeners for SHOWING POSITION in result list.
 
-    -   buscadorInput KEYDOWN "ArrowUp" and "ArrowDown" Event Listeners for SHOWING SELECTION in result list.
+    [ ] buscadorInput KEYDOWN "ArrowUp" and "ArrowDown" Event Listeners for SHOWING SELECTION in result list.
 
-    -   mostrarResultadosBusqueda CLICK Event Listener for SELECTING from result list.
+    [ ] mostrarResultadosBusqueda CLICK Event Listener for SELECTING from result list.
 
-    -   These two should call the same function!
-        [   
-            -   buscadorInput KEYDOWN "ENTER" Event Listener for SUBMITTING result list.
-            -   buscadorButton CLICK Event Listener for SUBMITTING result list.
-        ]
+    [ ] These two should call the same function!
+        {   
+            [ ] buscadorInput KEYDOWN "ENTER" Event Listener for SUBMITTING result list.
+            [ ] buscadorButton CLICK Event Listener for SUBMITTING result list.
+        }
 */
 
 if (buscadorInput)
