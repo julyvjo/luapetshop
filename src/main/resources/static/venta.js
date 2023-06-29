@@ -289,22 +289,30 @@ function ocultarResultadosBusqueda()
 // CARRITO VENTA FUNCTIONS
 
 //  Este objeto es el que se envía al finalizar la venta.
-let carritoVenta = {
-    "id_medio_pago": 1,
-    "monto_medio_pago": 1,
+let carritoVenta = {};
+carritoVenta = iniciarCarritoVenta(carritoVenta);
 
-    "id_medio_pago_2": 1,
-    "monto_medio_pago_2": 0,
+function iniciarCarritoVenta(carritoVenta)
+{
+    carritoVenta = {
+        "id_medio_pago": "default",
+        "monto_medio_pago": 1.00,
 
-    "total": 4400.0,
+        "id_medio_pago_2": "default",
+        "monto_medio_pago_2": 0.00,
 
-    "lineas_venta": []
-    // Contenido de cada objeto de lineas_venta
-    // {
-    //     "id_producto": 1,
-    //     "cantidad": 3,
-    //     "precio": 1000.0
-    // }
+        "total": 0.00,
+
+        "lineas_venta": []
+        // Contenido de cada objeto de lineas_venta
+        // {
+        //     "id_producto": 1,
+        //     "cantidad": 3,
+        //     "precio": 1000.0
+        // }
+    }
+
+    return carritoVenta;
 }
 
 function estaEnCarrito(id_producto) //  id_producto es el nombre de la propiedad en la DB
@@ -567,5 +575,9 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
     //  IMPLEMENTACIÓN SIN CONFIRMACIÓN PARA AGILIZAR TESTING
     cargarCarritoVenta();
     console.log("VENTA FINALIZADA");
+
+    // ACÁ ENVIAR carritoVenta a donde corresponda.
     console.log(carritoVenta);
+
+    carritoVenta = iniciarCarritoVenta(carritoVenta); 
 });
