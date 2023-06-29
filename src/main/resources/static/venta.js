@@ -49,7 +49,7 @@ if (buscadorInput)
             const idResultado = listaResultados[posicionListaResultados].getAttribute("data-id-resultado");
             
             if ( estaEnCarrito(resultadoBusqueda[idResultado].id_producto) )
-            {
+            {   //  resultadoBusqueda is defined in the SEARCH FUNCTIONS section globally!
                 console.log("ERROR: The selected item is already in the cart!");
                 return;
             }
@@ -254,13 +254,34 @@ function mostrarResultadosBusqueda(resultado)
         resultadoBuscadorLista.style.listStyleType = "none";
 
 
-        resultado.forEach((e, index) =>
+        resultado.forEach((elementoActual, index) =>
         {
-            // console.log(e);
+            // console.log(elementoActual);
             const resultadoBuscadorIndividual = document.createElement('li');
             resultadoBuscadorIndividual.setAttribute("data-id-resultado", index);
-            resultadoBuscadorIndividual.textContent = e.nombre;
+            resultadoBuscadorIndividual.style.cursor = "pointer";
+            resultadoBuscadorIndividual.textContent = elementoActual.nombre;
             resultadoBuscadorLista.appendChild(resultadoBuscadorIndividual);
+
+            resultadoBuscadorIndividual.addEventListener("mouseover", (e) =>
+            {
+                // console.log("hola");
+                e.target.style.backgroundColor = "var(--accent)";
+                e.target.style.color = "var(--primary)";
+            });
+
+            resultadoBuscadorIndividual.addEventListener("mouseout", (e) =>
+            {
+                // console.log("chau");
+                e.target.style.backgroundColor = "var(--primary)";
+                e.target.style.color = "var(--secondary)";
+            });
+
+            resultadoBuscadorIndividual.addEventListener("click", (e) =>
+            {
+                // console.log("hehe boi");
+                buscadorInput.value = e.target.textContent;
+            });
         });
 
         resultadosBuscador.appendChild(resultadoBuscadorLista);
