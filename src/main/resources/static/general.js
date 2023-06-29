@@ -121,7 +121,7 @@ function ocultarModal(buttonId)
 
 ||  VENTA
     -   PREGUNTAR; Al finalizar una venta, es correcto recargar la página? Ó debería evitarlo y reiniciar la tabla manualmente...
-    -   BUSCADOR; Añadir funcionalidad con mouse para elegir resultado.
+    -   BUSCADOR; Completar funcionalidad con mouse para elegir resultado; al hacer click tiene que pasar lo mismo que al elegir un resultado con los cursores => así al apretar ENTER o el botón para seleccionar el resultado TAMBIÉN HAGAN lo mismo.
     -   BUSCADOR; Considerar mostrar un TOAST indicando errores (input repetido, búsqueda vacía, sin resultados, etc).
     -   CSS CARRITO; Scrollbar debería ser solamente para <tbody> para dejar siempre a la vista el header. (Tal vez preguntar si hay preferencia para esto...)
     -   CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.
