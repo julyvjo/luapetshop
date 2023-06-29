@@ -565,10 +565,15 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
 
         cargarCarritoVenta();
         console.log("VENTA FINALIZADA");
+
+        // ACÁ ENVIAR carritoVenta a donde corresponda.
         console.log(carritoVenta);
+
+        // Reiniciar carritoVenta
+        carritoVenta = iniciarCarritoVenta(carritoVenta); 
         
         //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
-        location.reload();
+        //  location.reload();
     }, 250);
     */
 
