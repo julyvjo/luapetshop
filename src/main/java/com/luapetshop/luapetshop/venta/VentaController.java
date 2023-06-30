@@ -32,8 +32,10 @@ public class VentaController {
 			Model model, 
 			@RequestParam Map<String, Object> params) {
 		
-//		List<MedioPago> mediospago = medioPagoService.getMediosPago();
-//		model.addAttribute("mediospago", mediospago);
+		List<MedioPago> mediospago = medioPagoService.getMediosPago();
+		model.addAttribute("mediospago", mediospago);
+		
+		System.out.println(mediospago.get(0).getNombre());
 		
 		return "venta";
 	}

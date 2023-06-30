@@ -68,14 +68,37 @@
                 <!-- METODOS DE PAGO Y TOTAL -->
                 <div>
                     <div id="appVentaMetodoPago1">
-                        <select th:replace="~{fragments/metodosPago.html :: metodosPago}" ></select>
+                        <select name="itemSelected">
+                            <option value="default" disabled selected>METODO DE PAGO</option>
+                            <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}"></option>
+                        </select>
                         <!-- <div>$$$ METODO PAGO 1</div> -->
                         <input type="number" autocomplete="off" value="1.00">
                     </div>
                     <div id="appVentaMontoMetodoPago2">
-                        <select th:replace="~{fragments/metodosPago.html :: metodosPago}" ></select>
+                        <select name="itemSelected">
+                            <option value="default" disabled selected>METODO DE PAGO</option>
+                            <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}"></option>
+                        </select>
                         <!-- <div >$$$ METODO PAGO 2</div> -->
                         <input type="number" autocomplete="off" value="0.00">
+                    </div>
+                    <div>
+                        <div>TOTAL</div>
+                        <div id="appVentaTotal">0.00</div>
+                    </div>
+                </div>
+
+                <!--div>
+                    <div id="appVentaMetodoPago1">
+                        <select th:replace="~{fragments/metodosPago.html :: metodosPago}" ></select>
+                        <!-- <div>$$$ METODO PAGO 1</div> -->
+                        <!--input type="number" autocomplete="off" value="1.00">
+                    </div>
+                    <div id="appVentaMontoMetodoPago2">
+                        <select th:replace="~{fragments/metodosPago.html :: metodosPago}" ></select>
+                        <!-- <div >$$$ METODO PAGO 2</div> -->
+                        <!--input type="number" autocomplete="off" value="0.00">
                     </div>
                     <div>
                         <div>TOTAL</div>
