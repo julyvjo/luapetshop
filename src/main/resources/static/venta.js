@@ -18,27 +18,12 @@ if (historialVenta)
 
 const buscadorInput = document.getElementById('buscadorInput');
 
-/*
-    [*] buscadorInput INPUT Event Listener for written text => triggers search and result list display.
-
-    [*] mostrarResultadosBusqueda MOUSEOVER and MOUSEOUT Event Listeners for SHOWING POSITION in result list.
-
-    [ ] buscadorInput KEYDOWN "ArrowUp" and "ArrowDown" Event Listeners for SHOWING SELECTION in result list.
-
-    [ ] mostrarResultadosBusqueda CLICK Event Listener for SELECTING from result list.
-
-    [ ] These two should call the same function!
-        {   
-            [ ] buscadorInput KEYDOWN "ENTER" Event Listener for SUBMITTING result list.
-            [ ] buscadorButton CLICK Event Listener for SUBMITTING result list.
-        }
-*/
+let posicionListaResultados = -1;   //  Para navegar entre los resultados de la búsqueda.
+let busquedaActual = "";            //  Para recordar qué búsqueda generó la lista de resultados.
 
 if (buscadorInput)
 {
     buscadorInput.focus();
-    let posicionListaResultados = -1;   //  Para navegar entre los resultados de la búsqueda.
-    let busquedaActual = "";            //  Para recordar qué búsqueda generó la lista de resultados.
 
     buscadorInput.addEventListener("input", (e) =>
     {
@@ -296,7 +281,27 @@ function mostrarResultadosBusqueda(resultado)
             resultadoBuscadorIndividual.addEventListener("click", (e) =>
             {
                 // console.log("hehe boi");
-                buscadorInput.value = e.target.textContent;
+            
+                if ( estaEnCarrito(resultadoBusqueda[index].id_producto) )
+                {   //  resultadoBusqueda is defined in the SEARCH FUNCTIONS section globally!
+                    console.log("ERROR: The selected item is already in the cart!");
+                    return;
+                }
+
+                const productoPlaceholder = document.getElementById("productoPlaceholder");
+            
+                if (productoPlaceholder)
+                {
+                    const tablaCarritoVenta = document.getElementById("table");
+                    tablaCarritoVenta.removeChild(productoPlaceholder);
+                }
+    
+                carritoCrearFila(resultadoBusqueda[index]);
+            
+                //  Reiniciar buscador
+                buscadorInput.value = "";
+                ocultarResultadosBusqueda();
+                buscadorInput.focus();
             });
         });
 
