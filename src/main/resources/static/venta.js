@@ -130,18 +130,18 @@ if (buscadorInput)
 
 // SEARCHBAR BUTTON
 
-const buscadorButton = document.getElementById('buscadorButton');
+// const buscadorButton = document.getElementById('buscadorButton');
 
-if (buscadorButton)
-{
-    buscadorButton.addEventListener("click", (e) =>
-    {
-        chequearBuscador();
-    });
+// if (buscadorButton)
+// {
+//     buscadorButton.addEventListener("click", (e) =>
+//     {
+//         chequearBuscador();
+//     });
 
-    // I implemented it like this because script.js has "defer" attribute.
-    // If in the future this changes, this needs to be implemented inside an Event Listener.
-}
+//     // I implemented it like this because script.js has "defer" attribute.
+//     // If in the future this changes, this needs to be implemented inside an Event Listener.
+// }
 // **************************************************************
 
 // SEARCH FUNCTIONS
