@@ -338,7 +338,7 @@ function iniciarCarritoVenta(carritoVenta)
 {
     carritoVenta = {
         "id_medio_pago": "default",
-        "monto_medio_pago": 1.00,
+        "monto_medio_pago": 0.00,
 
         "id_medio_pago_2": "default",
         "monto_medio_pago_2": 0.00,

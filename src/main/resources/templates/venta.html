@@ -72,17 +72,17 @@
                             <option value="default" disabled selected>METODO DE PAGO</option>
                             <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}"></option>
                         </select>
-                        <!-- <div>$$$ METODO PAGO 1</div> -->
-                        <input type="number" autocomplete="off" value="1.00">
-                    </div>
-                    <div id="appVentaMontoMetodoPago2">
-                        <select name="itemSelected">
-                            <option value="default" disabled selected>METODO DE PAGO</option>
-                            <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}"></option>
-                        </select>
-                        <!-- <div >$$$ METODO PAGO 2</div> -->
                         <input type="number" autocomplete="off" value="0.00">
                     </div>
+
+                    <div id="appVentaMetodoPago2">
+                        <select name="itemSelected">
+                            <option value="default" disabled selected>METODO DE PAGO COMPLEMENTARIO</option>
+                            <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}"></option>
+                        </select>
+                        <input type="number" autocomplete="off" value="0.00">
+                    </div>
+
                     <div>
                         <div>TOTAL</div>
                         <div id="appVentaTotal">0.00</div>
