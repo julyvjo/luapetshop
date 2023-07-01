@@ -67,15 +67,15 @@
             <div>
                 <!-- METODOS DE PAGO Y TOTAL -->
                 <div>
-                    <div id="appVentaMetodoPago">
+                    <div id="containerMetodoPago">
                         <select name="itemSelected">
                             <option value="default" disabled selected>METODO DE PAGO</option>
                             <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}"></option>
                         </select>
-                        <input autocomplete="off" value="0.00">
+                        <input disabled autocomplete="off" value="0.00">
                     </div>
 
-                    <div id="appVentaMetodoPagoComplementario">
+                    <div id="containerMetodoPagoComplementario">
                         <select disabled name="itemSelected">
                             <option value="default" selected>METODO DE PAGO COMPLEMENTARIO</option>
                             <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}"></option>

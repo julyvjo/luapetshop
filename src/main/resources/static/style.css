@@ -501,8 +501,8 @@ input.py-2
 }
 
 #appVentaContainer > :last-child > :first-child > div > *
-/* #appVentaMetodoPago, */
-/* #appVentaMetodoPagoComplementario, */
+/* #containerMetodoPago, */
+/* #containerMetodoPagoComplementario, */
 /* #appVentaTotal */
 {
     margin: 0;
