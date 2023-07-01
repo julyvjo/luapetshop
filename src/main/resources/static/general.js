@@ -118,6 +118,7 @@ function ocultarModal(buttonId)
 ||  PRODUCTO
     -   NUEVO PROUDCTO; Revisar si se va a implementar de esta forma; ajustar formato.
     -   BUSCADOR; Implementar estética del buscador en VENTA?
+    -   METADATA PRODUCTO; Necesito que cada producto tenga un valor que determine COMO INTERPRETAR SU STOCK (Kg, cantidad, etc.) => para poder validar input de CANTIDAD en VENTA
 
 ||  VENTA
     -   PREGUNTAR; Al finalizar una venta, es correcto recargar la página? Ó debería evitarlo y reiniciar la tabla manualmente...
@@ -125,8 +126,6 @@ function ocultarModal(buttonId)
     -   CSS CARRITO; Scrollbar debería ser solamente para <tbody> para dejar siempre a la vista el header. (Tal vez preguntar si hay preferencia para esto...)
     -   CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.
     -   CARRITO; Estaría bueno si CANTIDAD tuviese 2 botones para aumentar/disminuir con clicks (deshabilitando los propios del <input>)
-    -   CSS METODOS DE PAGO; Tienen que ser idénticos a TOTAL y MONTO TOTAL (considerar tenerlos dentro de otro div para espaciarlos bien?)'
-    -   METODOS DE PAGO; Estaría bueno que METODO DE PAGO COMPLEMENTARIO estuviese deshabilitado hasta que METODO DE PAGO tenga algún valor válido seleccionado.
     -   METODOS DE PAGO; Estaría bueno que METODO DE PAGO COMPLEMENTARIO pudiese volver al valor default tanto como opción como apretando "Escape" por ejemplo.
     -   FINALIZAR VENTA; Recordar des-comentar el código para pedir doble confirmación de finalización de venta.
 

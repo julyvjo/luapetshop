@@ -587,12 +587,7 @@ metodoPago.setAttribute("data-valor-previo", metodoPago.value);
 
 metodoPago.addEventListener("change", () =>
 {     
-    
-    if(metodoPagoComplementario.hasAttribute("disabled"))
-        metodoPagoComplementario.removeAttribute("disabled");
-
-    if(montoMetodoPago.hasAttribute("disabled"))
-        montoMetodoPago.removeAttribute("disabled");
+    metodoPagoComplementario.disabled = false;
 
     const valorPrevio = metodoPago.getAttribute("data-valor-previo");
     console.log("valorPrevio = ", valorPrevio);
@@ -641,18 +636,16 @@ metodoPagoComplementario.addEventListener("change", () =>
 {      
     if (metodoPagoComplementario.value === "default")
     {
-        montoMetodoPago.toggleAttribute("disabled");
+        montoMetodoPago.disabled = true;
 
-        montoMetodoPagoComplementario.toggleAttribute("disabled");
+        montoMetodoPagoComplementario.disabled = true;
         montoMetodoPagoComplementario.value = "NO USADO";
     }
     else
     {
-        if(montoMetodoPago.hasAttribute("disabled"))
-            montoMetodoPago.removeAttribute("disabled");
+        montoMetodoPago.disabled = false;
 
-        if(montoMetodoPagoComplementario.hasAttribute("disabled"))
-            montoMetodoPagoComplementario.removeAttribute("disabled");
+        montoMetodoPagoComplementario.disabled = false;
     }
 
     const valorPrevio = metodoPagoComplementario.getAttribute("data-valor-previo");
