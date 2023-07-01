@@ -464,8 +464,14 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
         const totalVenta = document.getElementById("appVentaTotal");
         let totalVentaConvertido = parseFloat(totalVenta.textContent);
+
+        console.log("totalVentaConvertido", totalVentaConvertido);
+
         totalVentaConvertido += parseFloat(h5.textContent);
-        totalVenta.textContent = totalVentaConvertido;
+
+        console.log("totalVentaConvertido += parseFloat(h5.textContent)", totalVentaConvertido);
+
+        totalVenta.textContent = totalVentaConvertido.toFixed(2);
 
 
         cantidadInput.addEventListener("input", () =>
@@ -478,21 +484,27 @@ function carritoCrearFila(resultadoBusquedaProducto)
             let totalVentaConvertido = parseFloat(totalVenta.textContent);
 
             //  Quito el valor del subtotal previo a totalVenta
-            totalVenta.textContent = (totalVentaConvertido - subtotalConvertido).toFixed(2);
+            totalVenta.textContent = (totalVentaConvertido - subtotalConvertido);
 
             //  Actualizo valores de subtotal y totalVenta
             subtotal.textContent = (precioUnitario * cantidadInput.value).toFixed(2);
 
-            subtotalConvertido = parseFloat(subtotal.textContent);
             totalVentaConvertido = parseFloat(totalVenta.textContent);
+            subtotalConvertido = parseFloat(subtotal.textContent);
 
             //  Finalmente actualizo el valor de totalVenta con el nuevo subtotal
             totalVenta.textContent = (totalVentaConvertido + subtotalConvertido).toFixed(2);
+
+            actualizarMetodoPagoYTotal();
         });
 
     // AGREGAR FILA AL CARRITO
 
     carrito.appendChild(fila);
+
+    // ACTUALIZAR TABLA DE VALORES
+
+    actualizarMetodoPagoYTotal();
 }
 
 function carritoEliminarFila(id_producto)
@@ -517,10 +529,10 @@ function carritoEliminarFila(id_producto)
 
             //  Convierto valores de subtotal y totalVenta a flotantes
             const subtotal = document.getElementById(`subtotalId${id_producto}`);
-            let subtotalConvertido = parseFloat(subtotal.textContent);
+            let subtotalConvertido = parseFloat(subtotal.textContent).toFixed(2);
 
             const totalVenta = document.getElementById("appVentaTotal");
-            let totalVentaConvertido = parseFloat(totalVenta.textContent);
+            let totalVentaConvertido = parseFloat(totalVenta.textContent).toFixed(2);
 
             //  Quito el valor del subtotal a totalVenta
             totalVenta.textContent = (totalVentaConvertido - subtotalConvertido).toFixed(2);
@@ -561,14 +573,48 @@ function cargarCarritoVenta()
             "precio": precio
         })
     }
-    
-    const metodoPago1 = document.getElementById("appVentaMetodoPago1");
-
-    const metodoPago2 = document.getElementById("appVentaMetodoPago2");
 
     const totalVenta = document.getElementById("appVentaTotal");
-    carritoVenta.total = parseFloat(totalVenta.textContent);
+    carritoVenta.total = parseFloat(totalVenta.textContent).toFixed(2);
 }
+// **************************************************************
+
+// METODOS DE PAGO Y TOTAL DE VENTA
+
+const containerMetodoPago1 = document.getElementById("appVentaMetodoPago1");
+const metodoPago1 = containerMetodoPago1.querySelector("select");
+
+metodoPago1.addEventListener("change", actualizarMetodoPagoYTotal);
+
+function actualizarMetodoPagoYTotal()
+{
+    // const containerMetodoPago1 = document.getElementById("appVentaMetodoPago1");
+    // const metodoPago1 = containerMetodoPago1.querySelector("select");
+
+    if (metodoPago1.value === "default")
+    {
+        console.log("ERROR: You need to have at least 1 metodo de pago to complete a venta.");
+        return;
+    }
+
+    const montoMetodoPago1 = containerMetodoPago1.querySelector("input");
+
+    const containerMetodoPago2 = document.getElementById("appVentaMetodoPago2");
+    const metodoPago2 = containerMetodoPago2.querySelector("select");
+
+    const totalVenta = document.getElementById("appVentaTotal");
+
+    if (metodoPago2.value === "default")
+    {
+        console.log("Metodo de pago complementario NO seleccionado!");
+        montoMetodoPago1.value = totalVenta.textContent;
+        return;
+    }
+
+    const montoMetodoPago2 = containerMetodoPago2.querySelector("input");
+
+}
+
 // **************************************************************
 
 // FINALIZAR COMPRA

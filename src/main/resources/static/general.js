@@ -124,7 +124,10 @@ function ocultarModal(buttonId)
     -   BUSCADOR; Considerar mostrar un TOAST indicando errores (input repetido, búsqueda vacía, sin resultados, etc).
     -   CSS CARRITO; Scrollbar debería ser solamente para <tbody> para dejar siempre a la vista el header. (Tal vez preguntar si hay preferencia para esto...)
     -   CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.
-    -   CSS METODOS DE PAGO; Tienen que ser idénticos a TOTAL y MONTO TOTAL (considerar tenerlos dentro de otro div para espaciarlos bien?)
+    -   CARRITO; Estaría bueno si CANTIDAD tuviese 2 botones para aumentar/disminuir con clicks (deshabilitando los propios del <input>)
+    -   CSS METODOS DE PAGO; Tienen que ser idénticos a TOTAL y MONTO TOTAL (considerar tenerlos dentro de otro div para espaciarlos bien?)'
+    -   METODOS DE PAGO; Estaría bueno que METODO DE PAGO COMPLEMENTARIO estuviese deshabilitado hasta que METODO DE PAGO tenga algún valor válido seleccionado.
+    -   METODOS DE PAGO; Estaría bueno que METODO DE PAGO COMPLEMENTARIO pudiese volver al valor default tanto como opción como apretando "Escape" por ejemplo.
     -   FINALIZAR VENTA; Recordar des-comentar el código para pedir doble confirmación de finalización de venta.
 
 ||  CAJA
