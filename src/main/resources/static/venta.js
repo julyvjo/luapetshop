@@ -521,6 +521,25 @@ function carritoCrearFila(resultadoBusquedaProducto)
             actualizarMetodoPagoYTotal();
         });
 
+        cantidadInput.addEventListener("keydown", (e) =>
+        {
+            if (e.key === "ArrowUp")
+            {
+                // console.log("SUBIR CANTIDAD.");
+                e.preventDefault();
+
+                cantidadInput.value = parseInt(cantidadInput.value) + 1;
+            }
+            else if (e.key === "ArrowDown")
+            {
+                // console.log("BAJAR CANTIDAD.");
+                e.preventDefault();
+
+                if (parseInt(cantidadInput.value) - 1 > 0)
+                    cantidadInput.value = parseInt(cantidadInput.value) - 1;
+            }
+        });
+
     // AGREGAR FILA AL CARRITO
 
     carrito.appendChild(fila);
