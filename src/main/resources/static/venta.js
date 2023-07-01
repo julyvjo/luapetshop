@@ -581,37 +581,42 @@ function cargarCarritoVenta()
 
 // METODOS DE PAGO Y TOTAL DE VENTA
 
-const containerMetodoPago1 = document.getElementById("appVentaMetodoPago1");
-const metodoPago1 = containerMetodoPago1.querySelector("select");
+const containerMetodoPago = document.getElementById("appVentaMetodoPago");
+const metodoPago = containerMetodoPago.querySelector("select");
 
-metodoPago1.addEventListener("change", actualizarMetodoPagoYTotal);
+metodoPago.addEventListener("change", () => {
+    const containerMetodoPagoComplementario = document.getElementById("appVentaMetodoPagoComplementario");
+    const metodoPagoComplementario = containerMetodoPagoComplementario.querySelector("select");
+    metodoPagoComplementario.removeAttribute("disabled");
+    actualizarMetodoPagoYTotal();
+});
 
 function actualizarMetodoPagoYTotal()
 {
-    // const containerMetodoPago1 = document.getElementById("appVentaMetodoPago1");
-    // const metodoPago1 = containerMetodoPago1.querySelector("select");
+    // const containerMetodoPago = document.getElementById("appVentametodoPago");
+    // const metodoPago = containerMetodoPago.querySelector("select");
 
-    if (metodoPago1.value === "default")
+    if (metodoPago.value === "default")
     {
         console.log("ERROR: You need to have at least 1 metodo de pago to complete a venta.");
         return;
     }
 
-    const montoMetodoPago1 = containerMetodoPago1.querySelector("input");
+    const montometodoPago = containerMetodoPago.querySelector("input");
 
-    const containerMetodoPago2 = document.getElementById("appVentaMetodoPago2");
-    const metodoPago2 = containerMetodoPago2.querySelector("select");
+    const containerMetodoPagoComplementario = document.getElementById("appVentaMetodoPagoComplementario");
+    const metodoPagoComplementario = containerMetodoPagoComplementario.querySelector("select");
 
     const totalVenta = document.getElementById("appVentaTotal");
 
-    if (metodoPago2.value === "default")
+    if (metodoPagoComplementario.value === "default")
     {
         console.log("Metodo de pago complementario NO seleccionado!");
-        montoMetodoPago1.value = totalVenta.textContent;
+        montometodoPago.value = totalVenta.textContent;
         return;
     }
 
-    const montoMetodoPago2 = containerMetodoPago2.querySelector("input");
+    const montometodoPagoComplementario = containerMetodoPagoComplementario.querySelector("input");
 
 }
 

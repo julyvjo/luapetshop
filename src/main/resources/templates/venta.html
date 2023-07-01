@@ -76,11 +76,11 @@
                     </div>
 
                     <div id="appVentaMetodoPagoComplementario">
-                        <select name="itemSelected">
+                        <select disabled name="itemSelected">
                             <option value="default" selected>METODO DE PAGO COMPLEMENTARIO</option>
                             <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}"></option>
                         </select>
-                        <input autocomplete="off" value="0.00">
+                        <input disabled autocomplete="off" value="NO USADO">
                     </div>
 
                     <div>
