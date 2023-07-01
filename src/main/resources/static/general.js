@@ -116,16 +116,20 @@ function ocultarModal(buttonId)
     -   CSS; considerar usar sombras para mejorar el formato.
 
 ||  PRODUCTO
+    -   PREGUNTAR; Implementar estética del buscador en VENTA?
     -   NUEVO PROUDCTO; Revisar si se va a implementar de esta forma; ajustar formato.
-    -   BUSCADOR; Implementar estética del buscador en VENTA?
     -   METADATA PRODUCTO; Necesito que cada producto tenga un valor que determine COMO INTERPRETAR SU STOCK (Kg, cantidad, etc.) => para poder validar input de CANTIDAD en VENTA
 
 ||  VENTA
     -   PREGUNTAR; Al finalizar una venta, es correcto recargar la página? Ó debería evitarlo y reiniciar la tabla manualmente...
+    -   PREGUNTAR; En el carrito de venta, CANTIDAD cómo debería saber el stock actual? (para setear máximo)
+    -   PREGUNTAR; El objeto carritoVenta, cómo debería indicar que NO se usó un método de pago complementario?
+    -   CSS GENERAL; Estaría bueno si todos los valroes tuviesen unidades ($ por ejemplo, ideal considerar también los de cantidad)
+    -   CSS GENERAL; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y achi
     -   BUSCADOR; Considerar mostrar un TOAST indicando errores (input repetido, búsqueda vacía, sin resultados, etc).
+    -   CARRITO; Estaría bueno si CANTIDAD tuviese 2 botones para aumentar/disminuir con clicks (deshabilitando los propios del <input>)
     -   CSS CARRITO; Scrollbar debería ser solamente para <tbody> para dejar siempre a la vista el header. (Tal vez preguntar si hay preferencia para esto...)
     -   CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.
-    -   CARRITO; Estaría bueno si CANTIDAD tuviese 2 botones para aumentar/disminuir con clicks (deshabilitando los propios del <input>)
     -   METODOS DE PAGO; Estaría bueno que METODO DE PAGO COMPLEMENTARIO pudiese volver al valor default tanto como opción como apretando "Escape" por ejemplo.
     -   FINALIZAR VENTA; Recordar des-comentar el código para pedir doble confirmación de finalización de venta.
 
@@ -135,9 +139,9 @@ function ocultarModal(buttonId)
     -   Implementar botón "Detalles" para abrir un modal con la información completa, en cada fondo.
 
 ||  PROVEEDOR
+    -   PREGUNTAR; Implementar estética del buscador en VENTA?
     -   Chequear qué información debería mostrarse en la tabla.
     -   Implementar "agregarProveedor" (botón modal que debería ser formulario para agregar un proveedor)
-    -   BUSCADOR; Implementar estética del buscador en VENTA?
 
 ||  COMPRA
     -   Chequear si sería válido implementar "agregarProveedor" de PROVEEDOR también acá.

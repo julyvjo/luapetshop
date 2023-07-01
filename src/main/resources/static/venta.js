@@ -502,21 +502,21 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
             carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
 
-            actualizarMetodoPagoYTotal();
+            actualizarMetodoPagoYTotal("aparte");
         });
 
         cantidadInput.addEventListener("keydown", (e) =>
         {
-            if (e.key === "ArrowUp")
+            if (e.key === "ArrowUp" || e.key === "ArrowRight")
             {
                 // console.log("SUBIR CANTIDAD.");
                 e.preventDefault();
 
                 cantidadInput.value = parseInt(cantidadInput.value) + 1;
                 carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
-                actualizarMetodoPagoYTotal();
+                actualizarMetodoPagoYTotal("aparte");
             }
-            else if (e.key === "ArrowDown")
+            else if (e.key === "ArrowDown" || e.key === "ArrowLeft")
             {
                 // console.log("BAJAR CANTIDAD.");
                 e.preventDefault();
@@ -525,12 +525,10 @@ function carritoCrearFila(resultadoBusquedaProducto)
                 {
                     cantidadInput.value = parseInt(cantidadInput.value) - 1;
                     carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
-                    actualizarMetodoPagoYTotal();
+                    actualizarMetodoPagoYTotal("aparte");
                 }
             }
         });
-
-    console.log(fila);
 
     // AGREGAR FILA AL CARRITO
 
@@ -538,7 +536,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
     // ACTUALIZAR TABLA DE VALORES
 
-    actualizarMetodoPagoYTotal();
+    actualizarMetodoPagoYTotal("aparte");
 }
 
 function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId)
@@ -671,7 +669,7 @@ metodoPago.addEventListener("change", () =>
 
     metodoPago.setAttribute("data-valor-previo", metodoPago.value);
 
-    actualizarMetodoPagoYTotal();
+    actualizarMetodoPagoYTotal("aparte");
 });
 
 const montoMetodoPago = containerMetodoPago.querySelector("input");
@@ -687,9 +685,8 @@ montoMetodoPago.addEventListener("change", () =>
         return;
     }
     
-    actualizarMetodoPagoYTotal();
+    actualizarMetodoPagoYTotal("metodoPago");
 });
-
 // **************************************************************
 
 // METODO DE PAGO COMPLEMENTARIO
@@ -730,7 +727,7 @@ metodoPagoComplementario.addEventListener("change", () =>
 
     metodoPagoComplementario.setAttribute("data-valor-previo", metodoPagoComplementario.value);
 
-    actualizarMetodoPagoYTotal();
+    actualizarMetodoPagoYTotal("aparte");
 });
 
 const montoMetodoPagoComplementario = containerMetodoPagoComplementario.querySelector("input");
@@ -746,10 +743,11 @@ montoMetodoPagoComplementario.addEventListener("change", () =>
         return;
     }
 
-    actualizarMetodoPagoYTotal();
+    actualizarMetodoPagoYTotal("metodoPagoComplementario");
 });
-
 // **************************************************************
+
+// METODO DE PAGO FUNCTIONS
 
 function buscarOpcionMetodoPago(idMetodoPago, value)
 {
@@ -786,26 +784,79 @@ function validarInputMontos(string)
 
 function actualizarMetodoPagoYTotal()
 {
-    if (metodoPago.value === "default")
-    {
-        console.log("WARNING: You need to select at least 1 METODO DE PAGO");
-        // return;
-    }
+    // if (metodoPago.value === "default")
+    // {
+    //     console.log("WARNING: You need to select at least 1 METODO DE PAGO");
+    //     return;
+    // }
 
-    const montoMetodoPago = containerMetodoPago.querySelector("input");
+    // const montoMetodoPago = containerMetodoPago.querySelector("input");
 
-    const containerMetodoPagoComplementario = document.getElementById("containerMetodoPagoComplementario");
-    const metodoPagoComplementario = containerMetodoPagoComplementario.querySelector("select");
+    // const containerMetodoPagoComplementario = document.getElementById("containerMetodoPagoComplementario");
+    // const metodoPagoComplementario = containerMetodoPagoComplementario.querySelector("select");
+    // const montoMetodoPagoComplementario = containerMetodoPago.querySelector("input");
 
     const totalVenta = document.getElementById("appVentaTotal");
 
     if (metodoPagoComplementario.value === "default")
     {
-        console.log("Metodo de pago complementario NO seleccionado!");
+        // console.log("Metodo de pago complementario NO seleccionado!");
         montoMetodoPago.value = totalVenta.textContent;
+        montoMetodoPagoComplementario.value = "0.00";
+        return;
+    }
+
+    if (!arguments[0])
+    {
+        console.log("ERROR: Expected 1 argument to handle multiple metodo de pago. Asuming default case.");
+        montoMetodoPago.value = parseFloat(totalVenta.textContent);
+        montoMetodoPagoComplementario.value = "0.00";
+        return;
+    }
+
+    //  El if (valorActual < 0) lo repito en los 3 casos válidos porque hay 2 posibilidades del "else" distintas.
+    
+    if (arguments[0] === "metodoPago")
+    {
+        console.log("metodoPago");
+        const valorActual = (parseFloat(totalVenta.textContent) - montoMetodoPago.value).toFixed(2);
+
+        if (valorActual < 0)
+        {
+            console.log("ERROR: Values for both metodos de pago no longer valid. Resetting to default case.");
+    
+            montoMetodoPago.value = parseFloat(totalVenta.textContent);
+            montoMetodoPagoComplementario.value = "0.00";
+            return;
+        }
+        
+        montoMetodoPagoComplementario.value = valorActual;
+    }
+    else if (arguments[0] === "metodoPagoComplementario" || arguments[0] === "aparte")
+    {
+        console.log(arguments[0]);
+        const valorActual = (parseFloat(totalVenta.textContent) - montoMetodoPagoComplementario.value).toFixed(2);
+
+        if (valorActual < 0)
+        {
+            console.log("ERROR: Values for both metodos de pago no longer valid. Resetting to default case.");
+    
+            montoMetodoPago.value = parseFloat(totalVenta.textContent);
+            montoMetodoPagoComplementario.value = "0.00";
+            return;
+        }
+        
+        montoMetodoPago.value = valorActual;
+    }
+    else
+    {
+        console.log("ERROR: Argument not recognized. Asuming default case.");
+        montoMetodoPago.value = parseFloat(totalVenta.textContent);
+        montoMetodoPagoComplementario.value = "0.00";
         return;
     }
 }
+// **************************************************************
 
 // FINALIZAR COMPRA
 
