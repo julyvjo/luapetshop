@@ -539,6 +539,89 @@ function carritoCrearFila(resultadoBusquedaProducto)
     actualizarMetodoPagoYTotal("aparte");
 }
 
+function carritoInsertarPlaceholder()
+{
+    const carrito = document.getElementById("table");
+    
+    const fila = document.createElement("tr");
+    fila.id = "productoPlaceholder";
+
+    // COLUMNA 1 - BOTON ELIMINAR FILA
+    
+        let data = document.createElement("td");
+                
+        let h5 = document.createElement("h5");
+        h5.classList.add("py-2");
+
+        const button = document.createElement("button");
+        button.classList.add("botonBorrarFila");
+        button.textContent = "🗑";
+
+        h5.appendChild(button);
+
+        data.appendChild(h5);
+
+        fila.appendChild(data);
+
+    // COLUMNA 2 - NOMBRE
+
+        data = document.createElement("td");
+            
+        h5 = document.createElement("h5");
+        h5.classList.add("py-2");
+
+        h5.textContent = "Producto placeholder";
+
+        data.appendChild(h5);
+
+        fila.appendChild(data);
+
+    // COLUMNA 3 - PRECIO UNITARIO
+
+        data = document.createElement("td");
+            
+        h5 = document.createElement("h5");
+        h5.classList.add("py-2");
+        h5.textContent = "18.12";
+
+        data.appendChild(h5);
+
+        fila.appendChild(data);
+
+    // COLUMNA 4 - CANTIDAD
+
+        data = document.createElement("td");
+
+        const cantidadInput = document.createElement("input");
+        cantidadInput.classList.add("py-2");
+        // cantidadInput.setAttribute("type", "number");
+        cantidadInput.setAttribute("autocomplete", "off");
+        cantidadInput.setAttribute("min", 1);
+        cantidadInput.style.textAlign = "center";
+        cantidadInput.value = 1;
+
+        data.appendChild(cantidadInput);
+
+        fila.appendChild(data);
+
+    // COLUMNA 5 - SUBTOTAL
+
+        data = document.createElement("td");
+
+        h5 = document.createElement("h5");
+        h5.classList.add("py-2");
+        h5.textContent = "18.12";
+
+        data.appendChild(h5);
+
+        fila.appendChild(data);
+
+    // AGREGAR FILA AL CARRITO
+
+    carrito.appendChild(fila);
+}
+
+
 function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId)
 {
     // console.log(subtotalId);
@@ -592,7 +675,7 @@ function carritoEliminarFila(id_producto)
             // Actualizar TOTAL
 
             //  Convierto valores de subtotal y totalVenta a flotantes
-            const subtotal = document.getElementById(`subtotalId${id_producto}`);
+            const subtotal = document.getElementById(`subtotal${id_producto}`);
             let subtotalConvertido = parseFloat(subtotal.textContent).toFixed(2);
 
             const totalVenta = document.getElementById("appVentaTotal");
@@ -605,6 +688,11 @@ function carritoEliminarFila(id_producto)
             
             const tablaCarritoVenta = document.getElementById("table");
             tablaCarritoVenta.removeChild(listadoCarrito[index]);
+
+            if (listadoCarrito.length === 2)    //  Este valor no se actualiza luego de borrar,   
+                carritoInsertarPlaceholder();   //  ergo indica que el carrito está vacío
+
+            actualizarMetodoPagoYTotal();
 
             return;
         }

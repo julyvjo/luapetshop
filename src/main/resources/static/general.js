@@ -128,6 +128,7 @@ function ocultarModal(buttonId)
     -   CSS GENERAL; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y achi
     -   BUSCADOR; Considerar mostrar un TOAST indicando errores (input repetido, búsqueda vacía, sin resultados, etc).
     -   CARRITO; Estaría bueno si CANTIDAD tuviese 2 botones para aumentar/disminuir con clicks (deshabilitando los propios del <input>)
+    -   CARRITO; Quizás se puede insertar un elemento placeholder (vacío?) cuando se elimine el último elemento del carrito.
     -   CSS CARRITO; Scrollbar debería ser solamente para <tbody> para dejar siempre a la vista el header. (Tal vez preguntar si hay preferencia para esto...)
     -   CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.
     -   METODOS DE PAGO; Estaría bueno que METODO DE PAGO COMPLEMENTARIO pudiese volver al valor default tanto como opción como apretando "Escape" por ejemplo.
