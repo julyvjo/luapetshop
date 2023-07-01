@@ -441,6 +441,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
         const precioUnitario = (resultadoBusquedaProducto.precio_compra * ( 1 + resultadoBusquedaProducto.rentabilidad)).toFixed(2);
             
         h5 = document.createElement("h5");
+        h5.id = `precioUnitario${fila.getAttribute("data-id-producto")}`;
         h5.classList.add("py-2");
         h5.textContent = precioUnitario;
 
@@ -470,7 +471,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
         data = document.createElement("td");
 
         h5 = document.createElement("h5");
-        h5.id = `subtotalId${fila.getAttribute("data-id-producto")}`;
+        h5.id = `subtotal${fila.getAttribute("data-id-producto")}`;
         h5.classList.add("py-2");
         h5.textContent = (precioUnitario * cantidadInput.value).toFixed(2);
 
@@ -499,24 +500,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
                 return;
             }
 
-            //  Convierto valores de subtotal y totalVenta a flotantes
-            const subtotal = document.getElementById(h5.id);
-            let subtotalConvertido = parseFloat(subtotal.textContent);
-
-            const totalVenta = document.getElementById("appVentaTotal");
-            let totalVentaConvertido = parseFloat(totalVenta.textContent);
-
-            //  Quito el valor del subtotal previo a totalVenta
-            totalVenta.textContent = (totalVentaConvertido - subtotalConvertido);
-
-            //  Actualizo valores de subtotal y totalVenta
-            subtotal.textContent = (precioUnitario * cantidadInput.value).toFixed(2);
-
-            totalVentaConvertido = parseFloat(totalVenta.textContent);
-            subtotalConvertido = parseFloat(subtotal.textContent);
-
-            //  Finalmente actualizo el valor de totalVenta con el nuevo subtotal
-            totalVenta.textContent = (totalVentaConvertido + subtotalConvertido).toFixed(2);
+            carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
 
             actualizarMetodoPagoYTotal();
         });
@@ -529,6 +513,8 @@ function carritoCrearFila(resultadoBusquedaProducto)
                 e.preventDefault();
 
                 cantidadInput.value = parseInt(cantidadInput.value) + 1;
+                carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
+                actualizarMetodoPagoYTotal();
             }
             else if (e.key === "ArrowDown")
             {
@@ -536,9 +522,15 @@ function carritoCrearFila(resultadoBusquedaProducto)
                 e.preventDefault();
 
                 if (parseInt(cantidadInput.value) - 1 > 0)
+                {
                     cantidadInput.value = parseInt(cantidadInput.value) - 1;
+                    carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
+                    actualizarMetodoPagoYTotal();
+                }
             }
         });
+
+    console.log(fila);
 
     // AGREGAR FILA AL CARRITO
 
@@ -547,6 +539,38 @@ function carritoCrearFila(resultadoBusquedaProducto)
     // ACTUALIZAR TABLA DE VALORES
 
     actualizarMetodoPagoYTotal();
+}
+
+function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId)
+{
+    // console.log(subtotalId);
+    
+    //  Convierto valores de subtotal y totalVenta a flotantes
+    const subtotal = document.getElementById(`${subtotalId}`);
+    let subtotalConvertido = parseFloat(subtotal.textContent);
+
+    const totalVenta = document.getElementById("appVentaTotal");
+    let totalVentaConvertido = parseFloat(totalVenta.textContent);
+
+    // console.log("Convierto valores de subtotal y totalVenta a flotantes", subtotalConvertido, totalVentaConvertido);
+
+    //  Quito el valor del subtotal previo a totalVenta
+    if (totalVenta.textContent != "0.00")
+    {
+        totalVenta.textContent = (totalVentaConvertido - subtotalConvertido);
+        // console.log("Quito el valor del subtotal previo a totalVenta", totalVenta.textContent);
+    }
+
+    //  Actualizo valores de subtotal y totalVenta
+    subtotal.textContent = (precioUnitario * cantidadInput).toFixed(2);
+    // console.log("Actualizo valores de subtotal y totalVenta", subtotal.textContent);
+
+    totalVentaConvertido = parseFloat(totalVenta.textContent);
+    subtotalConvertido = parseFloat(subtotal.textContent);
+    // console.log("totalVentaConvertido", totalVentaConvertido,"subtotalConvertido", subtotalConvertido);
+
+    //  Finalmente actualizo el valor de totalVenta con el nuevo subtotal
+    totalVenta.textContent = (totalVentaConvertido + subtotalConvertido).toFixed(2);
 }
 
 function carritoEliminarFila(id_producto)
