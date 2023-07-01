@@ -376,6 +376,22 @@ function estaEnCarrito(id_producto) //  id_producto es el nombre de la propiedad
     return false;
 }
 
+function carritoValidarCantidad(string)
+{
+    //  Regular expression para validar que string represente un número entero
+     const numberRegex = /^[0-9]+$/;
+    // const numberRegex = /^[0-9]+([.,][0-9]+)?$/;  //  Por si solo quisiera validar un número float.
+
+    return numberRegex.test(string);
+
+    // Ejemplos:
+    console.log(validateNumber("12345"));   // true
+    console.log(validateNumber("12.345"));  // false (número float)
+    console.log(validateNumber("12,345"));  // false (número float)
+    console.log(validateNumber("12,34.56"));// false (múltiples separadores)
+    console.log(validateNumber("abc"));     // false (contiene caracteres no válidos como letras)
+}
+
 function carritoCrearFila(resultadoBusquedaProducto)
 {
     const carrito = document.getElementById("table");
@@ -590,11 +606,11 @@ metodoPago.addEventListener("change", () =>
     metodoPagoComplementario.disabled = false;
 
     const valorPrevio = metodoPago.getAttribute("data-valor-previo");
-    console.log("valorPrevio = ", valorPrevio);
+    // console.log("valorPrevio = ", valorPrevio);
 
     if(valorPrevio != "default")
     {
-        console.log("valorPrevio != default");
+        // console.log("valorPrevio != default");
         const optionParaBloquear = buscarOpcionMetodoPago("containerMetodoPagoComplementario", valorPrevio);
         optionParaBloquear.disabled = false;
     }
@@ -646,14 +662,15 @@ metodoPagoComplementario.addEventListener("change", () =>
         montoMetodoPago.disabled = false;
 
         montoMetodoPagoComplementario.disabled = false;
+        montoMetodoPagoComplementario.value = "0.00";
     }
 
     const valorPrevio = metodoPagoComplementario.getAttribute("data-valor-previo");
-    console.log("valorPrevio = ", valorPrevio);
+    // console.log("valorPrevio = ", valorPrevio);
 
     if(valorPrevio != "default")
     {
-        console.log("valorPrevio != default");
+        // console.log("valorPrevio != default");
         const optionParaBloquear = buscarOpcionMetodoPago("containerMetodoPago", valorPrevio);
         optionParaBloquear.disabled = false;
     }
@@ -721,8 +738,8 @@ function actualizarMetodoPagoYTotal()
 {
     if (metodoPago.value === "default")
     {
-        console.log("ERROR: You need to select at least 1 METODO DE PAGO");
-        return;
+        console.log("WARNING: You need to select at least 1 METODO DE PAGO");
+        // return;
     }
 
     const montoMetodoPago = containerMetodoPago.querySelector("input");
