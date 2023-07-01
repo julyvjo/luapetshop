@@ -618,6 +618,14 @@ const montoMetodoPago = containerMetodoPago.querySelector("input");
 montoMetodoPago.addEventListener("change", () =>
 {
     console.log("montoMetodoPago cambió su valor");
+    
+    if (validarInputMontos(montoMetodoPago.value) === false)
+    {
+        console.log("ERROR: Expecting integer or float number! ");
+        montoMetodoPago.value = "0.00";
+        return;
+    }
+    
     actualizarMetodoPagoYTotal();
 });
 
@@ -670,6 +678,14 @@ const montoMetodoPagoComplementario = containerMetodoPagoComplementario.querySel
 montoMetodoPagoComplementario.addEventListener("change", () =>
 {
     console.log("montoMetodoPagoComplementario cambió su valor");
+
+    if (validarInputMontos(montoMetodoPagoComplementario.value) === false)
+    {
+        console.log("ERROR: Expecting integer or float number! ");
+        montoMetodoPagoComplementario.value = "0.00";
+        return;
+    }
+
     actualizarMetodoPagoYTotal();
 });
 
