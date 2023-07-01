@@ -439,7 +439,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
         const cantidadInput = document.createElement("input");
         cantidadInput.classList.add("py-2");
         cantidadInput.id = `cantidadInput${resultadoBusquedaProducto.id_producto}`;
-        cantidadInput.setAttribute("type", "number");
+        // cantidadInput.setAttribute("type", "number");
         cantidadInput.setAttribute("autocomplete", "off");
         cantidadInput.setAttribute("min", 1);
         cantidadInput.style.textAlign = "center";

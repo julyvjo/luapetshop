@@ -51,7 +51,7 @@
                                         <h5 class="py-2">18.12</h5>
                                     </td>
                                     <td>
-                                        <input class="py-2" type="number" autocomplete="off" value="1" min="1" style="text-align: center">
+                                        <input class="py-2" autocomplete="off" value="1" min="1" style="text-align: center">
                                     </td>
                                     <td>
                                         <h5 class="py-2">18.12</h5>
@@ -67,20 +67,20 @@
             <div>
                 <!-- METODOS DE PAGO Y TOTAL -->
                 <div>
-                    <div id="appVentaMetodoPago1">
+                    <div id="appVentaMetodoPago">
                         <select name="itemSelected">
                             <option value="default" disabled selected>METODO DE PAGO</option>
                             <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}"></option>
                         </select>
-                        <input type="number" autocomplete="off" value="0.00">
+                        <input autocomplete="off" value="0.00">
                     </div>
 
-                    <div id="appVentaMetodoPago2">
+                    <div id="appVentaMetodoPagoComplementario">
                         <select name="itemSelected">
-                            <option value="default" disabled selected>METODO DE PAGO COMPLEMENTARIO</option>
+                            <option value="default" selected>METODO DE PAGO COMPLEMENTARIO</option>
                             <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}"></option>
                         </select>
-                        <input type="number" autocomplete="off" value="0.00">
+                        <input autocomplete="off" value="0.00">
                     </div>
 
                     <div>

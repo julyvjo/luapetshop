@@ -501,8 +501,8 @@ input.py-2
 }
 
 #appVentaContainer > :last-child > :first-child > div > *
-/* #appVentaMetodoPago1, */
-/* #appVentaMetodoPago2, */
+/* #appVentaMetodoPago, */
+/* #appVentaMetodoPagoComplementario, */
 /* #appVentaTotal */
 {
     margin: 0;
@@ -519,20 +519,39 @@ input.py-2
 
 #appVentaContainer > :last-child > :first-child > div :nth-child(odd)
 {
-    padding: 1vh 1vw;
+    margin: 0;
+    padding: 0 1vw;
     width: 50%;
     background-color: var(--accent);
     color: var(--primary);
+    border: 0;
     /* border-right: 0.1vw solid var(--secondary); */
     border-radius: 1vw 0 0 1vw;
     line-height: normal;
+    outline: none;
+}
+
+#appVentaContainer > :last-child > :first-child > div :nth-child(odd) > option
+{
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+#appVentaContainer > :last-child > :first-child > div :nth-child(odd) > option:hover
+{
+    background-color: var(--accent);
+    color: var(--primary);
 }
 
 #appVentaContainer > :last-child > :first-child > div :nth-child(even)
 {
+    margin: 0;
+    padding: 0 1vw;
     width: 50%;
+    border: 0;
     /* border-left: 0.1vw solid var(--secondary); */
     border-radius: 0 1vw 1vw 0;
+    outline: none;
 }
 
 /* #appVentaFinalizarVenta */
