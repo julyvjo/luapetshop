@@ -490,8 +490,15 @@ function carritoCrearFila(resultadoBusquedaProducto)
         totalVenta.textContent = totalVentaConvertido.toFixed(2);
 
 
-        cantidadInput.addEventListener("input", () =>
-        {
+        cantidadInput.addEventListener("change", () =>
+        {   
+            if (carritoValidarCantidad(cantidadInput.value) === false)
+            {
+                console.log("ERROR: Expecting integer number! Reseting to default value.");
+                cantidadInput.value = "1";
+                return;
+            }
+
             //  Convierto valores de subtotal y totalVenta a flotantes
             const subtotal = document.getElementById(h5.id);
             let subtotalConvertido = parseFloat(subtotal.textContent);
@@ -608,7 +615,7 @@ metodoPago.addEventListener("change", () =>
     const valorPrevio = metodoPago.getAttribute("data-valor-previo");
     // console.log("valorPrevio = ", valorPrevio);
 
-    if(valorPrevio != "default")
+    if (valorPrevio != "default")
     {
         // console.log("valorPrevio != default");
         const optionParaBloquear = buscarOpcionMetodoPago("containerMetodoPagoComplementario", valorPrevio);
