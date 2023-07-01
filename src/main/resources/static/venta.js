@@ -641,6 +641,23 @@ montoMetodoPagoComplementario.addEventListener("change", () =>
 
 // **************************************************************
 
+function buscarOpcionMetodoPago(idMetodoPago, value)
+{
+    const container = document.getElementById(idMetodoPago);
+    const select = container.querySelector("select");
+    const options = select.options;
+
+    //  Uso bucle for para buscar porque los métodos de pago no tienen orden alfabético.
+    for (let index = 0; index < options.length; index++) 
+    {
+        if (options[index].value === value)
+            return options[index];
+    }
+    
+    console.log("ERROR: Value not found in option list");
+    return;
+}
+
 function actualizarMetodoPagoYTotal()
 {
     if (metodoPago.value === "default")
