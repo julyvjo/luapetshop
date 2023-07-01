@@ -583,14 +583,32 @@ function cargarCarritoVenta()
 
 const containerMetodoPago = document.getElementById("containerMetodoPago");
 const metodoPago = containerMetodoPago.querySelector("select");
+metodoPago.setAttribute("data-valor-previo", metodoPago.value);
 
 metodoPago.addEventListener("change", () =>
 {     
+    
     if(metodoPagoComplementario.hasAttribute("disabled"))
         metodoPagoComplementario.removeAttribute("disabled");
 
     if(montoMetodoPago.hasAttribute("disabled"))
         montoMetodoPago.removeAttribute("disabled");
+
+    const valorPrevio = metodoPago.getAttribute("data-valor-previo");
+    console.log("valorPrevio = ", valorPrevio);
+
+    if(valorPrevio != "default")
+    {
+        console.log("valorPrevio != default");
+        const optionParaBloquear = buscarOpcionMetodoPago("containerMetodoPagoComplementario", valorPrevio);
+        optionParaBloquear.disabled = false;
+    }
+
+    const optionParaBloquear = buscarOpcionMetodoPago("containerMetodoPagoComplementario", metodoPago.value);
+    optionParaBloquear.disabled = true;
+
+
+    metodoPago.setAttribute("data-valor-previo", metodoPago.value);
 
     actualizarMetodoPagoYTotal();
 });
@@ -609,6 +627,7 @@ montoMetodoPago.addEventListener("change", () =>
 
 const containerMetodoPagoComplementario = document.getElementById("containerMetodoPagoComplementario");
 const metodoPagoComplementario = containerMetodoPagoComplementario.querySelector("select");
+metodoPagoComplementario.setAttribute("data-valor-previo", metodoPagoComplementario.value);
 
 metodoPagoComplementario.addEventListener("change", () =>
 {      
@@ -627,6 +646,21 @@ metodoPagoComplementario.addEventListener("change", () =>
         if(montoMetodoPagoComplementario.hasAttribute("disabled"))
             montoMetodoPagoComplementario.removeAttribute("disabled");
     }
+
+    const valorPrevio = metodoPagoComplementario.getAttribute("data-valor-previo");
+    console.log("valorPrevio = ", valorPrevio);
+
+    if(valorPrevio != "default")
+    {
+        console.log("valorPrevio != default");
+        const optionParaBloquear = buscarOpcionMetodoPago("containerMetodoPago", valorPrevio);
+        optionParaBloquear.disabled = false;
+    }
+
+    const optionParaBloquear = buscarOpcionMetodoPago("containerMetodoPago", metodoPagoComplementario.value);
+    optionParaBloquear.disabled = true;
+
+    metodoPagoComplementario.setAttribute("data-valor-previo", metodoPagoComplementario.value);
 
     actualizarMetodoPagoYTotal();
 });
