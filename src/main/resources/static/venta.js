@@ -692,6 +692,22 @@ function buscarOpcionMetodoPago(idMetodoPago, value)
     return;
 }
 
+function validarInputMontos(string)
+{
+    //  Regular expression para validar que string represente un número float
+    //  const numberRegex = /^[0-9]+$/;  //  Por si solo quisiera validar un número entero.
+    const numberRegex = /^[0-9]+([.,][0-9]+)?$/;;
+
+    return numberRegex.test(string);
+
+    // Ejemplos:
+    console.log(validateNumber("12345"));   // true
+    console.log(validateNumber("12.345"));  // true
+    console.log(validateNumber("12,345"));  // true
+    console.log(validateNumber("12,34.56"));// false (múltiples separadores)
+    console.log(validateNumber("abc"));     // false (contiene caracteres no válidos como letras)
+}
+
 function actualizarMetodoPagoYTotal()
 {
     if (metodoPago.value === "default")
