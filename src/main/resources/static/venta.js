@@ -584,17 +584,27 @@ function cargarCarritoVenta()
 const containerMetodoPago = document.getElementById("appVentaMetodoPago");
 const metodoPago = containerMetodoPago.querySelector("select");
 
-metodoPago.addEventListener("change", () => {
+metodoPago.addEventListener("change", () =>
+{
     const containerMetodoPagoComplementario = document.getElementById("appVentaMetodoPagoComplementario");
     const metodoPagoComplementario = containerMetodoPagoComplementario.querySelector("select");
     metodoPagoComplementario.removeAttribute("disabled");
+    
     actualizarMetodoPagoYTotal();
 });
 
 function actualizarMetodoPagoYTotal()
 {
-    // const containerMetodoPago = document.getElementById("appVentametodoPago");
-    // const metodoPago = containerMetodoPago.querySelector("select");
+    /*
+        Ésta función debería llamarse en 5 casos:
+
+        [*] #appVentaMetodoPago fue selecionado
+        [ ] monto de método de pago principal fue ajustado.
+        [ ] #appVentaMetodoPagoComplementario fue selecionado
+        [ ] monto de método de pago complementario fue ajustado.
+
+        [*] monto total fue ajustado (por acciones del carrito de compra)
+    */
 
     if (metodoPago.value === "default")
     {
@@ -615,9 +625,6 @@ function actualizarMetodoPagoYTotal()
         montometodoPago.value = totalVenta.textContent;
         return;
     }
-
-    const montometodoPagoComplementario = containerMetodoPagoComplementario.querySelector("input");
-
 }
 
 // **************************************************************
