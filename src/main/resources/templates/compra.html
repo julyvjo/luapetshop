@@ -9,7 +9,7 @@
     <div id="app">
         <div id="formCompraContainer">
             <form id="formCompra" method="post">
-                <h5>FORMULARIO COMPRA</h5>
+                <h5>REGISTRAR NUEVA COMPRA</h5>
 
                 <div>
                     <label for="formCompraProveedor">PROVEEDOR</label>
@@ -28,7 +28,7 @@
                         <input type="number" step="0.01" min="0" name="formCompraPaymentAmmount" placeholder="0.00" required>
                     </div>
                     
-                    <div id="formCompraPaymentMethod">
+                    <!-- <div id="formCompraPaymentMethod">
                         <label for="formCompraPaymentMethod">METODO DE PAGO</label>
                         <select name="formCompraPaymentMethod" required>
                             <option>Efectivo</option>
@@ -40,6 +40,14 @@
                             <option>Modo</option>
                             <option>Tarjeta débito</option>
                             <option>Tarjeta crédito</option>
+                        </select>
+                    </div> -->
+
+                    <div id="formCompraPaymentMethod">
+                        <label for="formCompraPaymentMethod">METODO DE PAGO</label>
+                        <select name="formCompraPaymentMethod" required>
+                            <option value="default" disabled selected>METODO DE PAGO</option>
+                            <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}"></option>
                         </select>
                     </div>
                 </div>
