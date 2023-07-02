@@ -847,6 +847,11 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
         return;
     }
 
+    //  VALIDO METODOS DE PAGO
+
+    if ( !validarMetodosPago() )
+        return;
+
     if ( !window.confirm("Estás por finalizar la venta...\n\n¿Estás seguro?") )
         return;
 
@@ -856,12 +861,6 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
         if ( !window.confirm("¿Realmente estás seguro?") )
             return;
 
-        //  VALIDO METODOS DE PAGO
-
-        if ( !validarMetodosPago() )
-            return;
-
-        //  IMPLEMENTACIÓN SIN CONFIRMACIÓN PARA AGILIZAR TESTING
         cargarCarritoVenta();
         window.alert("VENTA FINALIZADA");
 
