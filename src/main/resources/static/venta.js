@@ -994,6 +994,11 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
     }, 250);
     */
 
+    //  VALIDO METODOS DE PAGO
+
+    if ( !validarMetodosPago() )
+        return;
+
     //  IMPLEMENTACIÓN SIN CONFIRMACIÓN PARA AGILIZAR TESTING
     cargarCarritoVenta();
     console.log("VENTA FINALIZADA");
@@ -1003,3 +1008,43 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
 
     carritoVenta = iniciarCarritoVenta(carritoVenta); 
 });
+
+function validarMetodosPago()
+{
+    const containerMetodoPago = document.getElementById("containerMetodoPago");
+    const metodoPago = containerMetodoPago.querySelector("select");
+    const montoMetodoPago = containerMetodoPago.querySelector("input");
+
+    const containerMetodoPagoComplementario = document.getElementById("containerMetodoPagoComplementario");
+    const metodoPagoComplementario = containerMetodoPagoComplementario.querySelector("select");
+    const montoMetodoPagoComplementario = containerMetodoPagoComplementario.querySelector("input");
+
+    const metodo1valido = containerMetodoPago && metodoPago && montoMetodoPago;
+    const metodo2valido = containerMetodoPagoComplementario && metodoPagoComplementario && montoMetodoPagoComplementario;
+
+    if ( !metodo1valido && !metodo2valido )
+    {
+        window.alert("ERROR: An element for METODO DE PAGO or METODO DE PAGO COMPLEMENTARIO has not been defined!");
+        return false;
+    }
+
+    if ( metodoPago.value === "default" )
+    {
+        window.alert("ERROR: There needs to be at least 1 METODO DE PAGO selected!");
+        return false;
+    }
+
+    if ( montoMetodoPago === 0 )
+    {
+        window.alert("ERROR: METODO DE PAGO is not being used!");
+        return false;
+    }
+
+    if ( metodoPagoComplementario.value != "default" && montoMetodoPago === 0 )
+    {
+        window.alert("ERROR: METODO DE PAGO COMPLEMENTARIO is not being used!");
+        return false;
+    }
+
+    return true;
+}
