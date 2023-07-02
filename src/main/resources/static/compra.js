@@ -111,7 +111,13 @@ function finalizarCompra()
         window.alert("ERROR: Tiene que haber un proveedor seleccionado!");
         return;
     }
+
     //  VALIDAR METODO DE PAGO
+    if (metodoDePago.value === "default")
+    {
+        window.alert("ERROR: Tiene que haber un método de pago seleccionado!");
+        return;
+    }
 
     cargarCompra();
     console.log(compra);
