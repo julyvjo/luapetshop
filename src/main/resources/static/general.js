@@ -144,7 +144,7 @@ function ocultarModal(buttonId)
 
 ||  COMPRA
     -   Chequear si sería válido implementar "agregarProveedor" de PROVEEDOR también acá.
-    -   Implementar correctamente formulario (Necesita generar un JSON ?)
+    -   PROVEEDOR; Hay que hacer que traiga la lista de proveedores de la DB en lugar de tenerlos manualmente en el HTML
 
 ||  USUARIO
     -   Analizar si realmente es necesario implementar esta sección (potencial conflico si hay empleados)

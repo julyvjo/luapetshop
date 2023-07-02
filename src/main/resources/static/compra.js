@@ -18,13 +18,7 @@ let compra = {};    //  Este objeto es el que se envía al finalizar la Compra.
 
 compraButton.addEventListener("click", (e) =>
 {
-    //  VALIDAR PROVEEDOR
-    //  VALIDAR MONTO ABONADO
-    //  VALIDAR METODO DE PAGO
-
-    cargarCompra();
-    console.log(compra);
-    window.alert("Compra registrada exitosamente!");
+    finalizarCompra();
 });
 
 compra = iniciarCompra(compra);
@@ -49,4 +43,26 @@ function cargarCompra()
     compra.id_medio_pago = metodoDePago.value;
 
     compra.total = parseFloat(montoAbonado.value).toFixed(2);
+}
+
+function finalizarCompra()
+{
+    //  VALIDAR PROVEEDOR
+    if (proveedor.value === "default")
+    {
+        window.alert("ERROR: Tiene que haber un proveedor seleccionado!");
+        return;
+    }
+
+    //  VALIDAR MONTO ABONADO
+    if (montoAbonado.value === 0)
+    {
+        window.alert("ERROR: Tiene que haber un proveedor seleccionado!");
+        return;
+    }
+    //  VALIDAR METODO DE PAGO
+
+    cargarCompra();
+    console.log(compra);
+    window.alert("Compra registrada exitosamente!");
 }
