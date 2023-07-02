@@ -30,7 +30,6 @@ if (buscadorInput)
         chequearBuscador();
         posicionListaResultados = -1;
         busquedaActual = buscadorInput.value;
-        // console.log(e.target.value.toLowerCase());
     });
 
     buscadorInput.addEventListener("keydown", (e) =>
@@ -167,49 +166,6 @@ async function fetchJSON(URL) {
     const res = await response.json();
     return res;
 }
-
-/* VERSIÓN JULY
-async function buscarEnVentas(){
-    const URL = "/api/producto"
-    let url = new URL(URL);
-    let nombre = "1" //aca habria que inyectar el input
-    
-    url.searchParams.set('nombre', nombre);
-
-    //setear el event listener para detectar que el search cambia 
-    //(sino usar el boton de buscar)
-    //el event listener llama a una funcion que dispara la busqueda de productos
-    //una vez obtenidos los productos, mostrarlos en la interfaz con un dropdown
-    //o similar, lo que sea mas facil
-    let productos = await fetchJSON(url.toString());
-
-    console.log(productos)
-
-}
-*/
-
-/* VERSIÓN CHAT GPT
-async function buscarEnProducto(nombre) {
-    const apiURL = "/api/producto";
-    const url = new URL(apiURL, window.location.origin + "/../");
-    
-    url.searchParams.set('nombre', nombre);
-  
-    try {
-      const response = await fetch(url); // Send a GET request to the API
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
-      }
-      
-      const data = await response.json(); // Parse the response data as JSON
-  
-      // Handle the data here (e.g., display the results)
-      console.log(data);
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
-*/
 // **************************************************************
 
 async function buscarEnProducto(nombre)
@@ -257,7 +213,6 @@ function mostrarResultadosBusqueda(resultado)
 
         resultado.forEach((elementoActual, index) =>
         {
-            // console.log(elementoActual);
             const resultadoBuscadorIndividual = document.createElement('li');
             resultadoBuscadorIndividual.setAttribute("data-id-resultado", index);
             resultadoBuscadorIndividual.style.cursor = "pointer";
@@ -266,22 +221,18 @@ function mostrarResultadosBusqueda(resultado)
 
             resultadoBuscadorIndividual.addEventListener("mouseover", (e) =>
             {
-                // console.log("hola");
                 e.target.style.backgroundColor = "var(--accent)";
                 e.target.style.color = "var(--primary)";
             });
 
             resultadoBuscadorIndividual.addEventListener("mouseout", (e) =>
             {
-                // console.log("chau");
                 e.target.style.backgroundColor = "var(--primary)";
                 e.target.style.color = "var(--secondary)";
             });
 
             resultadoBuscadorIndividual.addEventListener("click", (e) =>
             {
-                // console.log("hehe boi");
-            
                 if ( estaEnCarrito(resultadoBusqueda[index].id_producto) )
                 {   //  resultadoBusqueda is defined in the SEARCH FUNCTIONS section globally!
                     console.log("ERROR: The selected item is already in the cart!");
@@ -306,8 +257,6 @@ function mostrarResultadosBusqueda(resultado)
         });
 
         resultadosBuscador.appendChild(resultadoBuscadorLista);
-        // console.table(resultado);
-        // console.log(resultado);
     }
 }
 
@@ -429,7 +378,6 @@ function carritoCrearFila(resultadoBusquedaProducto)
         const cantidadInput = document.createElement("input");
         cantidadInput.classList.add("py-2");
         cantidadInput.id = `cantidadInput${resultadoBusquedaProducto.id_producto}`;
-        // cantidadInput.setAttribute("type", "number");
         cantidadInput.setAttribute("autocomplete", "off");
         cantidadInput.setAttribute("min", 1);
         cantidadInput.style.textAlign = "center";
@@ -455,11 +403,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
         const totalVenta = document.getElementById("appVentaTotal");
         let totalVentaConvertido = parseFloat(totalVenta.textContent);
 
-        // console.log("totalVentaConvertido", totalVentaConvertido);
-
         totalVentaConvertido += parseFloat(h5.textContent);
-
-        // console.log("totalVentaConvertido += parseFloat(h5.textContent)", totalVentaConvertido);
 
         totalVenta.textContent = totalVentaConvertido.toFixed(2);
 
@@ -482,7 +426,6 @@ function carritoCrearFila(resultadoBusquedaProducto)
         {
             if (e.key === "ArrowUp" || e.key === "ArrowRight")
             {
-                // console.log("SUBIR CANTIDAD.");
                 e.preventDefault();
 
                 cantidadInput.value = parseInt(cantidadInput.value) + 1;
@@ -491,7 +434,6 @@ function carritoCrearFila(resultadoBusquedaProducto)
             }
             else if (e.key === "ArrowDown" || e.key === "ArrowLeft")
             {
-                // console.log("BAJAR CANTIDAD.");
                 e.preventDefault();
 
                 if (parseInt(cantidadInput.value) - 1 > 0)
@@ -581,7 +523,6 @@ function carritoInsertarPlaceholder()
 
         const cantidadInput = document.createElement("input");
         cantidadInput.classList.add("py-2");
-        // cantidadInput.setAttribute("type", "number");
         cantidadInput.setAttribute("autocomplete", "off");
         cantidadInput.setAttribute("min", 1);
         cantidadInput.style.textAlign = "center";
@@ -610,9 +551,7 @@ function carritoInsertarPlaceholder()
 
 
 function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId)
-{
-    // console.log(subtotalId);
-    
+{    
     //  Convierto valores de subtotal y totalVenta a flotantes
     const subtotal = document.getElementById(`${subtotalId}`);
     let subtotalConvertido = parseFloat(subtotal.textContent);
@@ -620,22 +559,17 @@ function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId)
     const totalVenta = document.getElementById("appVentaTotal");
     let totalVentaConvertido = parseFloat(totalVenta.textContent);
 
-    // console.log("Convierto valores de subtotal y totalVenta a flotantes", subtotalConvertido, totalVentaConvertido);
-
     //  Quito el valor del subtotal previo a totalVenta
     if (totalVenta.textContent != "0.00")
     {
         totalVenta.textContent = (totalVentaConvertido - subtotalConvertido);
-        // console.log("Quito el valor del subtotal previo a totalVenta", totalVenta.textContent);
     }
 
     //  Actualizo valores de subtotal y totalVenta
     subtotal.textContent = (precioUnitario * cantidadInput).toFixed(2);
-    // console.log("Actualizo valores de subtotal y totalVenta", subtotal.textContent);
 
     totalVentaConvertido = parseFloat(totalVenta.textContent);
     subtotalConvertido = parseFloat(subtotal.textContent);
-    // console.log("totalVentaConvertido", totalVentaConvertido,"subtotalConvertido", subtotalConvertido);
 
     //  Finalmente actualizo el valor de totalVenta con el nuevo subtotal
     totalVenta.textContent = (totalVentaConvertido + subtotalConvertido).toFixed(2);
@@ -703,11 +637,9 @@ metodoPago.addEventListener("change", () =>
     metodoPagoComplementario.disabled = false;
 
     const valorPrevio = metodoPago.getAttribute("data-valor-previo");
-    // console.log("valorPrevio = ", valorPrevio);
 
     if (valorPrevio != "default")
     {
-        // console.log("valorPrevio != default");
         const optionParaBloquear = buscarOpcionMetodoPago("containerMetodoPagoComplementario", valorPrevio);
         optionParaBloquear.disabled = false;
     }
@@ -762,11 +694,9 @@ metodoPagoComplementario.addEventListener("change", () =>
     }
 
     const valorPrevio = metodoPagoComplementario.getAttribute("data-valor-previo");
-    // console.log("valorPrevio = ", valorPrevio);
 
     if(valorPrevio != "default")
     {
-        // console.log("valorPrevio != default");
         const optionParaBloquear = buscarOpcionMetodoPago("containerMetodoPago", valorPrevio);
         optionParaBloquear.disabled = false;
     }
@@ -833,23 +763,10 @@ function validarInputMontos(string)
 
 function actualizarMetodoPagoYTotal()
 {
-    // if (metodoPago.value === "default")
-    // {
-    //     console.log("WARNING: You need to select at least 1 METODO DE PAGO");
-    //     return;
-    // }
-
-    // const montoMetodoPago = containerMetodoPago.querySelector("input");
-
-    // const containerMetodoPagoComplementario = document.getElementById("containerMetodoPagoComplementario");
-    // const metodoPagoComplementario = containerMetodoPagoComplementario.querySelector("select");
-    // const montoMetodoPagoComplementario = containerMetodoPago.querySelector("input");
-
     const totalVenta = document.getElementById("appVentaTotal");
 
     if (metodoPagoComplementario.value === "default")
     {
-        // console.log("Metodo de pago complementario NO seleccionado!");
         montoMetodoPago.value = totalVenta.textContent;
         montoMetodoPagoComplementario.value = "0.00";
         return;
@@ -883,7 +800,6 @@ function actualizarMetodoPagoYTotal()
     }
     else if (arguments[0] === "metodoPagoComplementario" || arguments[0] === "aparte")
     {
-        console.log(arguments[0]);
         const valorActual = (parseFloat(totalVenta.textContent) - montoMetodoPagoComplementario.value).toFixed(2);
 
         if (valorActual < 0)
@@ -963,25 +879,6 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
         //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
         //  location.reload();
     }, 250);
-
-    /*
-    //  IMPLEMENTACIÓN SIN CONFIRMACIÓN PARA AGILIZAR TESTING
-
-    //  VALIDO METODOS DE PAGO
-
-    if ( !validarMetodosPago() )
-        return;
-
-    cargarCarritoVenta();
-    window.alert("VENTA FINALIZADA");
-
-    //  ACÁ ENVIAR carritoVenta a donde corresponda.
-    console.log(carritoVenta);
-
-    //  REINICIAR CONTENIDOS DEL CARRITO
-    carritoVenta = iniciarCarritoVenta(carritoVenta);
-    carritoReiniciar();
-    */
 });
 // **************************************************************
 
@@ -989,14 +886,6 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
 
 function validarMetodosPago()
 {
-    // const containerMetodoPago = document.getElementById("containerMetodoPago");
-    // const metodoPago = containerMetodoPago.querySelector("select");
-    // const montoMetodoPago = containerMetodoPago.querySelector("input");
-
-    // const containerMetodoPagoComplementario = document.getElementById("containerMetodoPagoComplementario");
-    // const metodoPagoComplementario = containerMetodoPagoComplementario.querySelector("select");
-    // const montoMetodoPagoComplementario = containerMetodoPagoComplementario.querySelector("input");
-
     const metodo1valido = containerMetodoPago && metodoPago && montoMetodoPago;
     const metodo2valido = containerMetodoPagoComplementario && metodoPagoComplementario && montoMetodoPagoComplementario;
 
@@ -1057,16 +946,9 @@ function iniciarCarritoVenta(carritoVenta)
 function cargarCarritoVenta()
 {
     //  METODOS DE PAGO
-    // const containerMetodoPago = document.getElementById("containerMetodoPago");
-    // const metodoPago = containerMetodoPago.querySelector("select");
-    // const montoMetodoPago = containerMetodoPago.querySelector("input");
 
     carritoVenta.id_medio_pago = metodoPago.value;
     carritoVenta.monto_medio_pago = parseFloat(montoMetodoPago.value).toFixed(2);
-
-    // const containerMetodoPagoComplementario = document.getElementById("containerMetodoPagoComplementario");
-    // const metodoPagoComplementario = containerMetodoPagoComplementario.querySelector("select");
-    // const montoMetodoPagoComplementario = containerMetodoPagoComplementario.querySelector("input");
 
     carritoVenta.id_medio_pago_2 = metodoPagoComplementario.value;
 
