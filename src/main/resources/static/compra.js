@@ -16,6 +16,16 @@ let compra = {};    //  Este objeto es el que se envía al finalizar la Compra.
 
 
 
+montoAbonado.addEventListener("change", (e) =>
+{
+    if ( validarInputMonto(montoAbonado.value) === false )
+    {
+        window.alert("ERROR: El monto abonado es inválido!\n\nSe va a reiniciar el valor a 0.");
+        montoAbonado.value = "0.00";
+        return;
+    }
+});
+
 montoAbonado.addEventListener("keydown", (e) =>
 {
     if (e.key === "ArrowUp" || e.key === "ArrowRight")
@@ -33,10 +43,31 @@ montoAbonado.addEventListener("keydown", (e) =>
     }
 });
 
+function validarInputMonto(string)
+{
+    //  Regular expression para validar que string represente un número float
+    //  const numberRegex = /^[0-9]+$/;  //  Por si solo quisiera validar un número entero.
+    const numberRegex = /^[0-9]+([.,][0-9]+)?$/;;
+
+    return numberRegex.test(string);
+
+    // Ejemplos:
+    console.log(validateNumber("12345"));   // true
+    console.log(validateNumber("12.345"));  // true
+    console.log(validateNumber("12,345"));  // true
+    console.log(validateNumber("12,34.56"));// false (múltiples separadores)
+    console.log(validateNumber("abc"));     // false (contiene caracteres no válidos como letras)
+}
+
 compraButton.addEventListener("click", (e) =>
 {
     finalizarCompra();
 });
+
+
+// **************************************************************
+
+
 
 compra = iniciarCompra(compra);
 
