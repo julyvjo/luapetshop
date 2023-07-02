@@ -957,10 +957,3 @@ footer
     font-weight: 100;
     font-style: normal;
 }
-
-/*  || TO-DO LIST
-
-    -   Setear comentarios separadores de bloques de reglas CSS para navegarlo más fácilmente ( https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Organizing )
-    -   Analizar si puede ser mejor crear múltiples archivos CSS para simplificar navegación de las reglas CSS (por ejemplo separar reglas de CSS de elementos de una página en específico, ordenadas usando los mismos bloques en todos los archivos CSS para poder comparar rápidamente la sección de la página que estaría ajustando)
-    -   Troubleshooting de cómo en algunos navegadores se rompen las dimensiones
-*/
