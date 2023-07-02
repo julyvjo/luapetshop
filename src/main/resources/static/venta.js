@@ -918,7 +918,7 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
             
     if (productoPlaceholder)
     {
-        console.log("ERROR: You have to add at least one item to the cart. The placeholder does not count as one!");
+        window.alert("ERROR: Tiene que haber al menos un producto en el carrito.\n\nEl placeholder no cuenta!");
         return;
     }
 
@@ -927,11 +927,11 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
 
     if (listadoCarrito.length === 1)
     {
-        console.log("ERROR: Empty cart!");
+        window.alert("ERROR: Empty cart!");
         return;
     }
 
-    if ( !window.confirm("Estás por finalizar la venta... ¿Estás seguro?") )
+    if ( !window.confirm("Estás por finalizar la venta...\n\n¿Estás seguro?") )
         return;
 
     // Insistir con la confirmación para evitar lo máximo posible finalizar la venta por accidente.
@@ -952,9 +952,13 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
         //  ACÁ ENVIAR carritoVenta a donde corresponda.
         console.log(carritoVenta);
 
-        //  REINICIAR CONTENIDOS DEL CARRITO
-        carritoVenta = iniciarCarritoVenta(carritoVenta);
+        //  REINICIAR TODO
         carritoReiniciar();
+        carritoVenta = iniciarCarritoVenta(carritoVenta);
+        metodoPago.value = "default";
+        montoMetodoPago.value = "0.00";
+        metodoPagoComplementario.value = "default";
+        montoMetodoPagoComplementario.value = "0.00";
         
         //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
         //  location.reload();
@@ -985,13 +989,13 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
 
 function validarMetodosPago()
 {
-    const containerMetodoPago = document.getElementById("containerMetodoPago");
-    const metodoPago = containerMetodoPago.querySelector("select");
-    const montoMetodoPago = containerMetodoPago.querySelector("input");
+    // const containerMetodoPago = document.getElementById("containerMetodoPago");
+    // const metodoPago = containerMetodoPago.querySelector("select");
+    // const montoMetodoPago = containerMetodoPago.querySelector("input");
 
-    const containerMetodoPagoComplementario = document.getElementById("containerMetodoPagoComplementario");
-    const metodoPagoComplementario = containerMetodoPagoComplementario.querySelector("select");
-    const montoMetodoPagoComplementario = containerMetodoPagoComplementario.querySelector("input");
+    // const containerMetodoPagoComplementario = document.getElementById("containerMetodoPagoComplementario");
+    // const metodoPagoComplementario = containerMetodoPagoComplementario.querySelector("select");
+    // const montoMetodoPagoComplementario = containerMetodoPagoComplementario.querySelector("input");
 
     const metodo1valido = containerMetodoPago && metodoPago && montoMetodoPago;
     const metodo2valido = containerMetodoPagoComplementario && metodoPagoComplementario && montoMetodoPagoComplementario;
@@ -1053,16 +1057,16 @@ function iniciarCarritoVenta(carritoVenta)
 function cargarCarritoVenta()
 {
     //  METODOS DE PAGO
-    const containerMetodoPago = document.getElementById("containerMetodoPago");
-    const metodoPago = containerMetodoPago.querySelector("select");
-    const montoMetodoPago = containerMetodoPago.querySelector("input");
+    // const containerMetodoPago = document.getElementById("containerMetodoPago");
+    // const metodoPago = containerMetodoPago.querySelector("select");
+    // const montoMetodoPago = containerMetodoPago.querySelector("input");
 
     carritoVenta.id_medio_pago = metodoPago.value;
     carritoVenta.monto_medio_pago = parseFloat(montoMetodoPago.value).toFixed(2);
 
-    const containerMetodoPagoComplementario = document.getElementById("containerMetodoPagoComplementario");
-    const metodoPagoComplementario = containerMetodoPagoComplementario.querySelector("select");
-    const montoMetodoPagoComplementario = containerMetodoPagoComplementario.querySelector("input");
+    // const containerMetodoPagoComplementario = document.getElementById("containerMetodoPagoComplementario");
+    // const metodoPagoComplementario = containerMetodoPagoComplementario.querySelector("select");
+    // const montoMetodoPagoComplementario = containerMetodoPagoComplementario.querySelector("input");
 
     carritoVenta.id_medio_pago_2 = metodoPagoComplementario.value;
 
