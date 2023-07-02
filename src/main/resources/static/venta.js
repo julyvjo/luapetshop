@@ -330,33 +330,6 @@ function ocultarResultadosBusqueda()
 
 // CARRITO VENTA FUNCTIONS
 
-//  Este objeto es el que se envía al finalizar la venta.
-let carritoVenta = {};
-carritoVenta = iniciarCarritoVenta(carritoVenta);
-
-function iniciarCarritoVenta(carritoVenta)
-{
-    carritoVenta = {
-        "id_medio_pago": "default",
-        "monto_medio_pago": 0.00,
-
-        "id_medio_pago_2": "default",
-        "monto_medio_pago_2": 0.00,
-
-        "total": 0.00,
-
-        "lineas_venta": []
-        // Contenido de cada objeto de lineas_venta
-        // {
-        //     "id_producto": 1,
-        //     "cantidad": 3,
-        //     "precio": 1000.0
-        // }
-    }
-
-    return carritoVenta;
-}
-
 function estaEnCarrito(id_producto) //  id_producto es el nombre de la propiedad en la DB
 {
     const listadoCarrito = document.querySelectorAll("tr");
@@ -703,32 +676,6 @@ function carritoEliminarFila(id_producto)
 
     console.log("ERROR: Somehow id_producto is not in the cart...");
 }
-
-function cargarCarritoVenta()
-{
-    const listadoCarrito = document.querySelectorAll("tr");
-
-    let dataIdProducto = 0;
-    let cantidad = 0;
-    let precio = 0;
-
-    //  index = 1 Para saltear el tr de <thead>
-    for (let index = 1; index < listadoCarrito.length; index++)
-    {
-        dataIdProducto = listadoCarrito[index].getAttribute("data-id-producto");
-        cantidad = document.getElementById(`cantidadInput${dataIdProducto}`).value;
-        precio = document.getElementById(`subtotalId${dataIdProducto}`).textContent;
-
-        carritoVenta.lineas_venta.push({
-            "id_producto": dataIdProducto,
-            "cantidad": cantidad,
-            "precio": precio
-        })
-    }
-
-    const totalVenta = document.getElementById("appVentaTotal");
-    carritoVenta.total = parseFloat(totalVenta.textContent).toFixed(2);
-}
 // **************************************************************
 
 // METODO DE PAGO
@@ -1008,6 +955,9 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
 
     carritoVenta = iniciarCarritoVenta(carritoVenta); 
 });
+// **************************************************************
+
+// FINALIZAR VENTA FUNCTIONS
 
 function validarMetodosPago()
 {
@@ -1048,3 +998,78 @@ function validarMetodosPago()
 
     return true;
 }
+
+//  Este objeto es el que se envía al finalizar la venta.
+let carritoVenta = {};
+carritoVenta = iniciarCarritoVenta(carritoVenta);
+
+function iniciarCarritoVenta(carritoVenta)
+{
+    carritoVenta = {
+        "id_medio_pago": "default",
+        "monto_medio_pago": 0.00,
+
+        "id_medio_pago_2": "default",
+        "monto_medio_pago_2": 0.00,
+
+        "total": 0.00,
+
+        "lineas_venta": []
+        // Contenido de cada objeto de lineas_venta
+        // {
+        //     "id_producto": 1,
+        //     "cantidad": 3,
+        //     "precio": 1000.0
+        // }
+    }
+
+    return carritoVenta;
+}
+
+function cargarCarritoVenta()
+{
+    //  METODOS DE PAGO
+    const containerMetodoPago = document.getElementById("containerMetodoPago");
+    const metodoPago = containerMetodoPago.querySelector("select");
+    const montoMetodoPago = containerMetodoPago.querySelector("input");
+
+    carritoVenta.id_medio_pago = metodoPago.value;
+    carritoVenta.monto_medio_pago = parseFloat(montoMetodoPago.value).toFixed(2);
+
+    const containerMetodoPagoComplementario = document.getElementById("containerMetodoPagoComplementario");
+    const metodoPagoComplementario = containerMetodoPagoComplementario.querySelector("select");
+    const montoMetodoPagoComplementario = containerMetodoPagoComplementario.querySelector("input");
+
+    carritoVenta.id_medio_pago_2 = metodoPagoComplementario.value;
+
+    if ( metodoPagoComplementario != "default" )
+        carritoVenta.monto_medio_pago_2 = parseFloat(montoMetodoPagoComplementario.value).toFixed(2);
+
+    //  TOTAL
+
+    const totalVenta = document.getElementById("appVentaTotal");
+    carritoVenta.total = parseFloat(totalVenta.textContent).toFixed(2);
+
+    //  LISTADO PRODUCTOS VENDIDOS
+
+    const listadoCarrito = document.querySelectorAll("tr");
+
+    let dataIdProducto = 0;
+    let cantidad = 0;
+    let precio = 0;
+
+    //  index = 1 Para saltear el tr de <thead>
+    for (let index = 1; index < listadoCarrito.length; index++)
+    {
+        dataIdProducto = listadoCarrito[index].getAttribute("data-id-producto");
+        cantidad = document.getElementById(`cantidadInput${dataIdProducto}`).value;
+        precio = document.getElementById(`subtotal${dataIdProducto}`).textContent;
+
+        carritoVenta.lineas_venta.push({
+            "id_producto": dataIdProducto,
+            "cantidad": cantidad,
+            "precio": precio
+        })
+    }
+}
+// **************************************************************
