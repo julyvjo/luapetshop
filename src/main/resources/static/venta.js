@@ -512,6 +512,20 @@ function carritoCrearFila(resultadoBusquedaProducto)
     actualizarMetodoPagoYTotal("aparte");
 }
 
+function carritoReiniciar()
+{
+    const carrito = document.getElementById("table");
+
+    const listadoCarrito = carrito.querySelectorAll("tr");
+
+    for (let actual = 0; actual < listadoCarrito.length; actual++)
+    {
+        carritoEliminarFila(listadoCarrito[actual].getAttribute("data-id-producto"));
+    }
+
+    //  NOTA: carritoEliminarFila() automáticamente inserta el placeholder al remover la última fila.
+}
+
 function carritoInsertarPlaceholder()
 {
     const carrito = document.getElementById("table");
@@ -948,12 +962,14 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
 
     //  IMPLEMENTACIÓN SIN CONFIRMACIÓN PARA AGILIZAR TESTING
     cargarCarritoVenta();
-    console.log("VENTA FINALIZADA");
+    window.alert("VENTA FINALIZADA");
 
-    // ACÁ ENVIAR carritoVenta a donde corresponda.
+    //  ACÁ ENVIAR carritoVenta a donde corresponda.
     console.log(carritoVenta);
 
-    carritoVenta = iniciarCarritoVenta(carritoVenta); 
+    //  REINICIAR CONTENIDOS DEL CARRITO
+    carritoVenta = iniciarCarritoVenta(carritoVenta);
+    carritoReiniciar();
 });
 // **************************************************************
 
