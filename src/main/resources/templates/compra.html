@@ -8,52 +8,38 @@
     <header th:replace="~{fragments/headernav.html :: headerNavFull (class5='actual')}"></header>
     <div id="app">
         <div id="formCompraContainer">
-            <form id="formCompra" method="post">
+            <div id="formCompra">
                 <h5>REGISTRAR NUEVA COMPRA</h5>
 
                 <div>
                     <label for="formCompraProveedor">PROVEEDOR</label>
                     <select id="formCompraProveedor" name="formCompraProveedor" required>
-                        <option>Proveedor 1</option>
-                        <option>Proveedor 2</option>
-                        <option>Proveedor 3</option>
-                        <option>Proveedor 4</option>
-                        <option>Proveedor 5</option>
+                        <option value="default" disabled selected>SELECCIONAR PROVEEDOR</option>
+                        <option value="1">Proveedor 1</option>
+                        <option value="2">Proveedor 2</option>
+                        <option value="3">Proveedor 3</option>
+                        <option value="4">Proveedor 4</option>
+                        <option value="5">Proveedor 5</option>
                     </select>
                 </div>
 
                 <div>
                     <div id="formCompraPaymentAmmount">
                         <label for="formCompraPaymentAmmount">MONTO ABONADO</label>
-                        <input type="number" step="0.01" min="0" name="formCompraPaymentAmmount" placeholder="0.00" required>
+                        <input min="0" name="formCompraPaymentAmmount" placeholder="$0.00" required>
                     </div>
-                    
-                    <!-- <div id="formCompraPaymentMethod">
-                        <label for="formCompraPaymentMethod">METODO DE PAGO</label>
-                        <select name="formCompraPaymentMethod" required>
-                            <option>Efectivo</option>
-                            <option>Mercado Pago CVU</option>
-                            <option>Mercado Pago QR</option>
-                            <option>Banco Provincia CVU</option>
-                            <option>Banco Provincia QR</option>
-                            <option>Banco Nación</option>
-                            <option>Modo</option>
-                            <option>Tarjeta débito</option>
-                            <option>Tarjeta crédito</option>
-                        </select>
-                    </div> -->
 
                     <div id="formCompraPaymentMethod">
                         <label for="formCompraPaymentMethod">METODO DE PAGO</label>
                         <select name="formCompraPaymentMethod" required>
-                            <option value="default" disabled selected>METODO DE PAGO</option>
+                            <option value="default" disabled selected>SELECCIONAR METODO DE PAGO</option>
                             <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}"></option>
                         </select>
                     </div>
                 </div>
 
-                <button id="formCompraButton" type="submit">Guardar</button>
-            </form>
+                <button id="formCompraButton">Guardar</button>
+            </div>
         </div>
     </div>
     <footer th:replace="~{fragments/general.html :: footer}"></footer>
