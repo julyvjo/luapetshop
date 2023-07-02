@@ -119,7 +119,28 @@ function finalizarCompra()
         return;
     }
 
-    cargarCompra();
-    console.log(compra);
-    window.alert("Compra registrada exitosamente!");
+    if ( !window.confirm("Estás por finalizar la compra...\n\n¿Estás seguro?") )
+        return;
+
+    // Insistir con la confirmación para evitar lo máximo posible finalizar la compra por accidente.
+    setTimeout(() =>
+    {
+        if ( !window.confirm("¿Realmente estás seguro?") )
+            return;
+
+        cargarCompra();
+        window.alert("Compra registrada exitosamente!");
+
+        //  ACÁ ENVIAR compra a donde corresponda.
+        console.log(compra);
+
+        //  REINICIAR TODO
+        compra = iniciarCompra(compra);
+        proveedor.value = "default";
+        metodoDePago.value = "default";
+        montoAbonado.value = "0.00";
+        
+        //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+        //  location.reload();
+    }, 250);
 }
