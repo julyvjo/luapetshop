@@ -241,6 +241,84 @@ header
     color: var(--primary);
 }
 
+
+
+/* || APP PRODUCTO  */
+
+/* MODAL NUEVO PRODUCTO */
+#modalNuevoProducto > div.modal-dialog
+{
+    max-width: 60vw;
+}
+
+#modalNuevoProducto > div.modal-dialog > div > div > h5
+{
+    color: var(--bearWhite);
+}
+
+#productoModalNuevoProducto
+{
+    margin: 0;
+    padding: 0;
+    /* background-color: black; */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vh;
+}
+
+#productoModalNuevoProducto > div
+{
+    margin: 0;
+    padding: 1vh 2vw;
+    /* background-color: red; */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#productoModalNuevoProducto > div:nth-child(3),
+#productoModalNuevoProducto > div:nth-child(4),
+#productoModalNuevoProducto > div:nth-child(5)
+{
+    /* background-color: yellow; */
+
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 2vw;
+}
+
+#productoModalNuevoProducto > div,
+#productoModalNuevoProducto > div > div
+{
+    margin: 0;
+    padding: 0;
+    color: var(--bearWhite);
+    text-align: center;
+}
+
+#productoModalNuevoProducto > button,
+#productoModalNuevoProducto > div > select,
+#productoModalNuevoProducto > div > input,
+#productoModalNuevoProducto > div > button,
+#productoModalNuevoProducto > div > div > input,
+#productoModalNuevoProducto > div > div > select
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    width: 100%;
+    border: 0;
+    border-radius: 1vw;
+    outline: none;
+}
+/* *********************************************** */
+
+
+
 /* || APP CAJA  */
 
 #appCajaContainer

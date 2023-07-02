@@ -13,7 +13,8 @@
     - [ ]   PREGUNTAR; Implementar estética del buscador en VENTA?
 
     - [ ]   NUEVO PROUDCTO; Revisar si se va a implementar de esta forma; ajustar formato.
-    - [ ]   METADATA PRODUCTO; Necesito que cada producto tenga un valor que determine COMO INTERPRETAR SU STOCK (Kg, cantidad, etc.) => para poder validar input de CANTIDAD en VENTA
+    - [ ]   NUEVO PROUDCTO; Ajustar formato.
+    - [ ]   METADATA PRODUCTO; Necesito que cada producto tenga un valor que determine COMO INTERPRETAR SU STOCK (Peso, Volumen, Paquetes, etc.) => para poder validar input de CANTIDAD en VENTA
 
 
 

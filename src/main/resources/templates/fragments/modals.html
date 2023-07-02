@@ -28,40 +28,61 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="post">
+                    <div id="productoModalNuevoProducto">
                         <div>
-                            <label for="nombreProducto">Nombre del Producto:</label>
+                            <label for="nombreProducto">Nombre del Producto</label>
                             <input type="text" id="nombreProducto" name="nombreProducto" required>
                         </div>
+
                         <div>
-                            <label for="descripcionProducto">Descripción del producto:</label>
+                            <label for="descripcionProducto">Descripción del producto</label>
                             <input type="text" id="descripcionProducto" name="descripcionProducto" required>
                         </div>
+
                         <div>
-                            <label for="precioCompra">Precio de Compra:</label>
-                            <input type="number" id="precioCompra" name="precioCompra" required>
+                            <div>
+                                <label for="precioCompra">Precio de Compra</label>
+                                <input id="precioCompra" name="precioCompra" required>
+                            </div>
+    
+                            <div>
+                                <label for="porcentajeGanancia">Porcentaje de Ganancia</label>
+                                <input id="porcentajeGanancia" name="porcentajeGanancia" required>
+                            </div>
+    
+                            <div>
+                                <label for="gananciaProducto">Ganancia</label>
+                                <input id="gananciaProducto" name="gananciaProducto" required>
+                                <!-- readonly si planeo usar JS para dinámicamente mostrar este valor -->
+                            </div>
                         </div>
+
                         <div>
-                            <label for="porcentajeGanancia">Porcentaje de Ganancia:</label>
-                            <input type="number" id="porcentajeGanancia" name="porcentajeGanancia" required>
+                            <div>
+                                <label for="tipoStock">Tipo de Stock</label>
+                                <select id="tipoStock" name="cantidadStock" required>
+                                    <option value="default">SELECCIONAR TIPO</option>
+                                    <option value="peso">Peso</option>
+                                    <option value="longitud">Longitud</option>
+                                    <option value="volumen">Volumen</option>
+                                    <option value="superficie">Superficie</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="cantidadStock">Cantidad de Stock</label>
+                                <input id="cantidadStock" name="cantidadStock" required>
+                            </div>
                         </div>
+
                         <div>
-                            <label for="gananciaProducto">Ganancia:</label>
-                            <input type="number" id="gananciaProducto" name="gananciaProducto" required>
-                            <!-- readonly si planeo usar JS para dinámicamente mostrar este valor -->
+                            <label for="imagenProducto">Imagen del Producto</label>
+                            <!-- <input type="file" id="imagenProducto" name="imagenProducto"> -->
+                            <button>SUBIR IMAGEN</button>
+                            <div>No se ha elegido ningún archivo</div>
                         </div>
-                        <div>
-                            <label for="cantidadStock">Cantidad de Stock:</label>
-                            <input type="number" id="cantidadStock" name="cantidadStock" required>
-                        </div>
-                        <div>
-                            <label for="imagenProducto">Imagen del Producto:</label>
-                            <input type="file" id="imagenProducto" name="imagenProducto">
-                        </div>
-                        <div>
-                            <input type="submit" value="Agregar Producto">
-                        </div>
-                    </form>
+
+                        <button>Agregar Producto</button>
+                    </div>
                 </div>
             </div>
         </div>
