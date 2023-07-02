@@ -931,7 +931,6 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
         return;
     }
 
-    /*
     if ( !window.confirm("Estás por finalizar la venta... ¿Estás seguro?") )
         return;
 
@@ -941,26 +940,34 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
         if ( !window.confirm("¿Realmente estás seguro?") )
             return;
 
-        cargarCarritoVenta();
-        console.log("VENTA FINALIZADA");
+        //  VALIDO METODOS DE PAGO
 
-        // ACÁ ENVIAR carritoVenta a donde corresponda.
+        if ( !validarMetodosPago() )
+            return;
+
+        //  IMPLEMENTACIÓN SIN CONFIRMACIÓN PARA AGILIZAR TESTING
+        cargarCarritoVenta();
+        window.alert("VENTA FINALIZADA");
+
+        //  ACÁ ENVIAR carritoVenta a donde corresponda.
         console.log(carritoVenta);
 
-        // Reiniciar carritoVenta
-        carritoVenta = iniciarCarritoVenta(carritoVenta); 
+        //  REINICIAR CONTENIDOS DEL CARRITO
+        carritoVenta = iniciarCarritoVenta(carritoVenta);
+        carritoReiniciar();
         
         //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
         //  location.reload();
     }, 250);
-    */
+
+    /*
+    //  IMPLEMENTACIÓN SIN CONFIRMACIÓN PARA AGILIZAR TESTING
 
     //  VALIDO METODOS DE PAGO
 
     if ( !validarMetodosPago() )
         return;
 
-    //  IMPLEMENTACIÓN SIN CONFIRMACIÓN PARA AGILIZAR TESTING
     cargarCarritoVenta();
     window.alert("VENTA FINALIZADA");
 
@@ -970,6 +977,7 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
     //  REINICIAR CONTENIDOS DEL CARRITO
     carritoVenta = iniciarCarritoVenta(carritoVenta);
     carritoReiniciar();
+    */
 });
 // **************************************************************
 
