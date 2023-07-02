@@ -16,6 +16,23 @@ let compra = {};    //  Este objeto es el que se envía al finalizar la Compra.
 
 
 
+montoAbonado.addEventListener("keydown", (e) =>
+{
+    if (e.key === "ArrowUp" || e.key === "ArrowRight")
+    {
+        e.preventDefault();
+
+        montoAbonado.value = (parseFloat(montoAbonado.value) + 0.01).toFixed(2);
+    }
+    else if (e.key === "ArrowDown" || e.key === "ArrowLeft")
+    {
+        e.preventDefault();
+
+        if (parseInt(montoAbonado.value) - 1 > 0)
+            montoAbonado.value = (parseFloat(montoAbonado.value) - 0.01).toFixed(2);
+    }
+});
+
 compraButton.addEventListener("click", (e) =>
 {
     finalizarCompra();
