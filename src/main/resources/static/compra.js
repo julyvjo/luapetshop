@@ -24,6 +24,8 @@ montoAbonado.addEventListener("change", (e) =>
         montoAbonado.value = "0.00";
         return;
     }
+
+    montoAbonado.value = parseFloat(montoAbonado.value).toFixed(2);
 });
 
 montoAbonado.addEventListener("keydown", (e) =>
@@ -63,6 +65,7 @@ compraButton.addEventListener("click", (e) =>
 {
     finalizarCompra();
 });
+
 
 
 // **************************************************************
