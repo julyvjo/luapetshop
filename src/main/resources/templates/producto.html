@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:insert="~{fragments/general.html :: headBoilerplate(pageName='producto')}"></head>
+<head th:insert="~{fragments/general.html :: headBoilerplate(@{\js\producto.js})}"></head>
 <body>
     <header th:insert="~{fragments/headernav.html :: headerNavFull (class1='actual')}"></header>
 

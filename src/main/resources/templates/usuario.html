@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/general.html :: headBoilerplate(pageName='usuario')}"></head>
+<head th:replace="~{fragments/general.html :: headBoilerplate(@{\js\usuario.js})}"></head>
 <body>
     <header th:replace="~{fragments/headernav.html :: headerNavFull (class6='actual')}"></header>
     <div id="app">APP USUARIO</div>
