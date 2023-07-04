@@ -1,13 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/general.html :: headBoilerplate(pageName='caja')}"></head>
-<head>
-    <!-- CSS ESPECÍFICO -->
-    <link rel="stylesheet" th:href="@{\css\caja.css}">
-
-    <!-- JS ESPECÍFICO -->
-    <script defer th:src="@{\js\caja.js}"></script>
-</head>
 <body>
     <header th:replace="~{fragments/headernav.html :: headerNavFull (class3='actual')}"></header>
 

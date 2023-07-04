@@ -1,13 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:insert="~{fragments/general.html :: headBoilerplate}"></head>
-<head>
-    <!-- CSS ESPECÍFICO -->
-    <link rel="stylesheet" th:href="@{\css\producto.css}">
-
-    <!-- JS ESPECÍFICO -->
-    <script defer th:src="@{\js\producto.js}"></script>
-</head>
+<head th:insert="~{fragments/general.html :: headBoilerplate(pageName='producto')}"></head>
 <body>
     <header th:insert="~{fragments/headernav.html :: headerNavFull (class1='actual')}"></header>
 

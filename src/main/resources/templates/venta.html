@@ -1,13 +1,7 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/general.html :: headBoilerplate}"></head>
-<head>
-    <!-- CSS ESPECÍFICO -->
-    <link rel="stylesheet" th:href="@{\css\venta.css}">
+<head th:replace="~{fragments/general.html :: headBoilerplate(@{\js\venta.js})}"></head>
 
-    <!-- JS ESPECÍFICO -->
-    <script defer th:src="@{\js\venta.js}"></script>
-</head>
 <body>
     <header th:replace="~{fragments/headernav.html :: headerNavFull (class2='actual')}"></header>
     <div id="app">

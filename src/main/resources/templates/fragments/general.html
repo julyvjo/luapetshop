@@ -1,26 +1,25 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="headBoilerplate">
+<head th:fragment="headBoilerplate (pageName)">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>LUA PETSHOP</title>
-    
     <!-- Favicon -->
     <link rel="shortcut icon" th:href="@{\img\Imagotipo-2.ico}" type="image/x-icon">
-
     <!-- Bootstrap -->
     <link th:href="@{\bootstrap\css\bootstrap.min.css}" rel="stylesheet">
     <script defer th:src="@{\bootstrap\js\bootstrap.min.js}"></script>
-
     <!-- CSS -->
     <link rel="stylesheet" th:href="@{\css\style.css}">
-
+    <!-- CSS Específico -->
+    <link rel="stylesheet" type="style/css" th:href="@{\css\${pageName}.css}">
     <!-- Script -->
     <script defer th:src="@{\js\general.js}"></script>
+    <!-- Script Epecífico -->
+    <script defer th:src="${pageName}"></script>
 </head>
 <body>
-    <footer th:fragment="footer">LUA PETSHOP by july & bear - v0.33.6</footer>
+    <footer th:fragment="footer">LUA PETSHOP by july & bear - v0.33.7</footer>
 </body>
 </html>

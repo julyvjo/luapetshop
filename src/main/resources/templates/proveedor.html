@@ -1,13 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/general.html :: headBoilerplate}"></head>
-<head>
-    <!-- CSS ESPECÍFICO -->
-    <link rel="stylesheet" th:href="@{\css\proveedor.css}">
-
-    <!-- JS ESPECÍFICO -->
-    <script defer th:src="@{\js\proveedor.js}"></script>
-</head>
+<head th:replace="~{fragments/general.html :: headBoilerplate(pageName='proveedor')}"></head>
 <body>
     <header th:replace="~{fragments/headernav.html :: headerNavFull (class4='actual')}"></header>
     <div id="app">
