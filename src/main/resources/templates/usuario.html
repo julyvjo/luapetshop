@@ -2,6 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/general.html :: headBoilerplate}"></head>
 <head>
+    <!-- CSS ESPECÍFICO -->
+    <link rel="stylesheet" th:href="@{\css\usuario.css}">
+
+    <!-- JS ESPECÍFICO -->
     <script defer th:src="@{\js\usuario.js}"></script>
 </head>
 <body>
