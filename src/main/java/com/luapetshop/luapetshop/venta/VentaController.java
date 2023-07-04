@@ -35,7 +35,7 @@ public class VentaController {
 		List<MedioPago> mediospago = medioPagoService.getMediosPago();
 		model.addAttribute("mediospago", mediospago);
 		
-		System.out.println(mediospago.get(0).getNombre());
+		// System.out.println(mediospago.get(0).getNombre());
 		
 		return "venta";
 	}
