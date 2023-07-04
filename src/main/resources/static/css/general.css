@@ -1,0 +1,257 @@
+/*
+    NOTE:   All sizes use VH and VW relative units 
+            in this case asuming a 16:9 resolution.
+*/
+
+:root
+{
+    /* BEAR COLORS */
+    --bearWhite: #f2f2f2;
+    --bearBlack: #121212;
+    --bearGrey: #7f7f7f;
+    --bearCyan: #04848b;
+
+    /* LUA PETSHOP COLORS */
+    --luaWhite: #c4dae0;
+    --luaBlack: #404f48;
+    --luaGrey: #a0afa0;
+    --luaCyan: #05c3d1;
+    --luaLightBlue: #5dc6ca;
+
+    /* SITE COLORS */
+    --primary: var(--luaWhite);
+    --alternative: var(--luaCyan);
+    --secondary: var(--bearBlack);
+    --accent: var(--bearCyan);
+}
+
+html
+{
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body
+{
+    margin: 1vh 0;
+    padding: 0;
+    height: 98vh;
+    max-width: 100vw;
+    /* background: url("../img/Imagotipo-2-cyan.jpg");
+    background-position: center;
+    background-repeat: no-repeat; */
+    background-color: var(--primary); /* If background is defined; this needs to be AFTER it. */
+    /* background-color: transparent; */
+    /* background-size: cover; */
+	color: var(--primary);
+	font-family: 'MadeTommy', Helvetica, sans-serif;
+    font-size: 3vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+/* ////////////// */
+/* /// HEADER /// */
+/* ////////////// */
+
+header
+{
+    margin: 0;
+    padding: 0;
+    height: 10vh;
+    /* border: 0.1vh solid var(--primary); */
+    /* background-color: var(--secondary); */
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#headerNav
+{
+    margin: 0;
+    padding: 0 0.25vw;
+    gap: 0.25vw;
+    height: 10vh;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    font-weight: bold;
+}
+
+#headerNav > div
+{
+    margin: 0;
+    padding: 2.5vh 0;
+    width: 14vw;
+    height: 7vh;
+    border: 0.1vh solid var(--primary);
+    border-radius: 1vw;
+    background-color: var(--alternative);
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+#headerNav > div.fixed
+{
+    background-color: var(--accent);
+}
+
+#headerNav > div.actual
+{
+    border-color: var(--secondary);
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+
+
+/* /////////////////////// */
+/* /// PAGE NAVIGATION /// */
+/* /////////////////////// */
+
+#pageNavigation > ul
+{
+    margin: 0;
+}
+
+#pageNavigation > ul > li > a
+{
+    margin: 1vh 0.5vw;
+    padding: 1vh 1vw;
+    width: 4vw;
+    border: 0.1vh solid var(--primary);
+    border-radius: 1vw;
+    background-color: var(--alternative);
+    color: var(--primary);
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+#pageNavigation > ul > li > a.fixed
+{
+    width: 10vw;
+    background-color: var(--accent);
+}
+
+#pageNavigation > ul > li.disabled > a
+{
+    background-color: var(--bearGrey);
+}
+
+#pageNavigation > ul > li.actual > a
+{
+    border-color: var(--secondary);
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+
+
+/* ////////////// */
+/* /// FOOTER /// */
+/* ////////////// */
+
+footer
+{
+    margin: 0;
+    padding: 2vh 0;
+    height: 5vh;
+    width: 33vw;
+    border: 0.5vh solid var(--accent);
+    border-radius: 1vw;
+    background-color: var(--primary);
+    color: var(--secondary);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    align-self: center;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+
+
+/* ///////////// */
+/* /// FONTS /// */
+/* ///////////// */
+
+@font-face
+{
+    font-family: 'MadeTommy';
+    src: url('../font/MADE TOMMY BLACK_PERSONAL USE.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family: 'MadeTommy';
+    src: url('../font/MADE TOMMY BOLD_PERSONAL USE.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family: 'MadeTommy';
+    src: url('../font/MADE TOMMY EXTRABOLD_PERSONAL USE.otf') format('opentype');
+    font-weight: 800; /* font-weight: bolder; */
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family: 'MadeTommy';
+    src: url('../font/MADE TOMMY LIGHT_PERSONAL USE.otf') format('opentype');
+    font-weight: 300; /* font-weight: lighter; */
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family: 'MadeTommy';
+    src: url('../font/MADE TOMMY MEDIUM_PERSONAL USE.otf') format('opentype');
+    font-weight: 600; /* font-weight: normal; */
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family: 'MadeTommy';
+    src: url('../font/MADE TOMMY REGULAR_PERSONAL USE.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family: 'MadeTommy';
+    src: url('../font/MADE TOMMY THIN_PERSONAL USE.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}

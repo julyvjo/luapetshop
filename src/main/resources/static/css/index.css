@@ -1,0 +1,85 @@
+/*
+    NOTE:   All sizes use VH and VW relative units 
+            in this case asuming a 16:9 resolution.
+*/
+
+:root
+{
+    /* BEAR COLORS */
+    --bearWhite: #f2f2f2;
+    --bearBlack: #121212;
+    --bearGrey: #7f7f7f;
+    --bearCyan: #04848b;
+
+    /* LUA PETSHOP COLORS */
+    --luaWhite: #c4dae0;
+    --luaBlack: #404f48;
+    --luaGrey: #a0afa0;
+    --luaCyan: #05c3d1;
+    --luaLightBlue: #5dc6ca;
+
+    /* SITE COLORS */
+    --primary: var(--luaWhite);
+    --alternative: var(--luaCyan);
+    --secondary: var(--bearBlack);
+    --accent: var(--bearCyan);
+}
+
+
+
+/* /////////// */
+/* /// NAV /// */
+/* /////////// */
+
+#nav
+{
+    margin: 0;
+    padding: 0.25vw;
+    gap: 0.25vw;
+    height: 80vh;
+    /* border: 0.1vh solid var(--primary); */
+
+    background-color: transparent;
+    color: var(--bearWhite);
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#nav > div
+{
+    margin: 0;
+    padding: 2.5vh 0;
+    /* border: 0.1vh solid var(--primary);
+    background-color: var(--accent); */
+    border-width: 1vh 1vw;
+    border-style: solid;
+    border-color: var(--accent);
+    border-radius: 1vw;
+    /* background-color: #f2f2f2F4; */
+    background-color: #05c3d1F4;
+    color: var(--secondary);
+    cursor: pointer;
+
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+}
+
+#nav > div > img
+{
+    width: auto;
+    height: 30vh;
+    filter: url(#color-change);
+}
+
+#nav > div > p
+{
+    color: var(--primary);
+    font-size: 8vh;
+    font-weight: bold;
+}
