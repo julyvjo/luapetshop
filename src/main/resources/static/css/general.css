@@ -122,6 +122,99 @@ header
 
 
 
+/* /////////// */
+/* /// APP /// */
+/* /////////// */
+
+#app
+{
+    margin: 0;
+    padding: 0;
+    height: 80vh;
+    width: calc(100vw - 0.2vh);
+    border-width: 1vh 1vw;
+    border-style: solid;
+    border-color: var(--accent);
+    border-radius: 1vw;
+    background-color: #121212A0;
+    color: var(--secondary);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+
+/* ///////////////// */
+/* /// APP TABLE /// */
+/* ///////////////// */
+
+.container /* Container of an individual app */
+{
+    margin: 0;
+    padding: 2vh 1vw 0 1vw;
+    height: 60vh;
+    max-width: none;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: scroll;
+}
+
+.table
+{
+    margin: 0;
+}
+
+.table-header /* .table-header should be the <theader> element of a table */
+{
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+.table-header > td:first-child
+{
+    border-radius: 1vw 0 0 0;
+}
+
+.table-header > td:last-child
+{
+    border-radius: 0 1vw 0 0;
+}
+
+#table > :nth-child(odd) /* #table should be the <tbody> element of a table */
+{
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+#table > :nth-child(even)
+{
+    background-color: var(--alternative);
+    color: var(--primary);
+}
+
+#table > :last-child > *
+{
+    border: none; /* Overwriting what Bootstrap does to borders :) */
+}
+
+#table > :last-child > :first-child
+{
+    border-radius: 0 0 0 1vw;
+}
+
+#table > :last-child > :last-child
+{
+    border-radius: 0 0 1vw 0;
+}
+
+
+
 /* /////////////////////// */
 /* /// PAGE NAVIGATION /// */
 /* /////////////////////// */

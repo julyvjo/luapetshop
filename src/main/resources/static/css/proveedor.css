@@ -1,0 +1,61 @@
+#extraApps
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    /* height: 20vh; */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#buscador
+{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1vw;
+}
+
+#inputBuscador
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    width: 45vw;
+    border: 0;
+    border-radius: 1vw;
+
+    outline: none;
+}
+
+#botonBuscador,
+#botonNuevoProducto,
+#botonNuevoProveedor
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    border-radius: 1vw;
+    border: 0;
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+
+
+/* ///////////// */
+/* /// MODAL /// */
+/* ///////////// */
+
+.modal /* Acts as a backdrop for the modal */
+{
+    background-color: #121212A0;
+}
+
+.modal > div > div
+{
+    border: 0.5vh solid var(--accent);
+    border-radius: 1vw;
+    background-color: var(--alternative);
+    color: var(--primary);
+}

@@ -1,0 +1,246 @@
+#botonEditorGeneral
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    border-radius: 1vw;
+    border: 0;
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+
+
+/* //////////////////// */
+/* /// || APP VENTA /// */
+/* //////////////////// */
+
+#appVentaContainer
+{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    /* background-color: var(--accent); */
+    background-color: transparent;
+    align-self: center;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#appVentaContainer > :first-child
+{
+    margin: 0;
+    padding: 1vh 1vw;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+#appVentaContainer > :first-child > :first-child
+/* #buscador */
+{
+    margin: 0;
+    padding: 0;
+    width: 50vw;
+    background-color: var(--primary);
+    border: 0;
+    border-radius: 1vw;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#appVentaContainer > :first-child > :first-child > :first-child
+/* #buscadorRow */
+{
+    margin: 0;
+    padding: 1vh 1vw;
+
+    display: flex;
+    align-items: center;
+    /* gap: 1vw; */
+}
+
+#appVentaContainer > :first-child > :first-child > :first-child > :first-child
+/* #buscadorInput */
+{
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    flex-grow: 1;
+    border: 0;
+
+    outline: none;
+}
+
+/* #appVentaContainer > :first-child > :first-child > :first-child > :last-child */
+/* #buscadorButton */
+/* {
+    margin: 0 0 0 1vw;
+    padding: 0 1vw;
+    background-color: transparent;
+    border: 0.1vw solid var(--secondary);
+    border-radius: 1vw;
+} */
+
+#appVentaContainer > :first-child > :first-child > :last-child
+/* RESULTADOS BUSCADOR */
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    width: 100%;
+    background-color: var(--primary);
+    color: var(--secondary);
+    border: 0.1vw solid #121212A0;
+    border-radius: 1vw;
+
+    top: 7vh;
+    position: absolute;
+    display: none;
+}
+
+#appVentaContainer > :nth-child(2)
+/* CARRITO COMPRA */
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    /* background-color: var(--alternative); */
+}
+
+input.py-2
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    border: 0.1vw solid var(--secondary);
+    border-radius: 1vw;
+    background-color: var(--primary);
+    color: var(--secondary);
+    line-height: normal;
+}
+
+#appVentaContainer > :last-child
+/* TOTAL Y FINALIZAR COMPRA */
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    /* background-color: var(--alternative); */
+
+    height: 20vh;
+
+    display: flex;
+    gap: 2vw;
+}
+
+#appVentaContainer > :last-child > :first-child
+{
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 3;
+}
+
+#appVentaContainer > :last-child > :first-child > div
+{
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: row;
+}
+
+#appVentaContainer > :last-child > :first-child > div > *
+/* #containerMetodoPago, */
+/* #containerMetodoPagoComplementario, */
+/* #appVentaTotal */
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    
+    background-color: var(--primary);
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#appVentaContainer > :last-child > :first-child > div :nth-child(odd)
+{
+    margin: 0;
+    padding: 0 1vw;
+    width: 50%;
+    background-color: var(--accent);
+    color: var(--primary);
+    border: 0;
+    /* border-right: 0.1vw solid var(--secondary); */
+    border-radius: 1vw 0 0 1vw;
+    line-height: normal;
+    outline: none;
+}
+
+#appVentaContainer > :last-child > :first-child > div :nth-child(odd) > option
+{
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+#appVentaContainer > :last-child > :first-child > div :nth-child(odd) > option:hover
+{
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+#appVentaContainer > :last-child > :first-child > div :nth-child(even)
+{
+    margin: 0;
+    padding: 0 1vw;
+    width: 50%;
+    border: 0;
+    /* border-left: 0.1vw solid var(--secondary); */
+    border-radius: 0 1vw 1vw 0;
+    outline: none;
+}
+
+/* #appVentaFinalizarVenta */
+#appVentaContainer > :last-child > :last-child
+{
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--accent);
+    color: var(--primary);
+    border: 0;
+    border-radius: 1vw;
+    cursor: pointer;
+    flex-grow: 1;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* *********************************************** */
+
+
+
+/* ///////////// */
+/* /// MODAL /// */
+/* ///////////// */
+
+.modal /* Acts as a backdrop for the modal */
+{
+    background-color: #121212A0;
+}
+
+.modal > div > div
+{
+    border: 0.5vh solid var(--accent);
+    border-radius: 1vw;
+    background-color: var(--alternative);
+    color: var(--primary);
+}

@@ -1,0 +1,86 @@
+/* ///////////// */
+/* /// FORMS /// */
+/* ///////////// */
+
+#formCompraContainer
+{
+    margin: 0;
+    padding: 2vh 1vw;
+    width: 80vw;
+    background-color: var(--alternative);
+    color: var(--primary);
+    border-width: 1vh 1vw;
+    border-style: solid;
+    border-color: var(--accent);
+    border-radius: 1vw;
+
+    align-self: center;
+}
+
+#formCompra
+{
+    display: flex;
+    flex-direction:  column;
+    justify-content: space-evenly;
+    gap: 2vh;
+}
+
+#formCompra > h5
+{
+    font-weight: 900;
+    line-height: normal;
+}
+
+#formCompra > :nth-child(2)
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#formCompra > :nth-child(3)
+{
+    display: flex;
+    justify-content: space-between;
+    gap: 2vw;
+}
+
+#formCompra > :nth-child(3) > *
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#formCompraProveedor,
+#formCompraPaymentMethod > select,
+#formCompraPaymentAmmount > input
+{
+    padding: 1vh 1vw;
+    border: 0;
+    border-radius: 1vw;
+    line-height: normal;
+}
+
+#formCompraPaymentAmmount
+{
+    width: 52vw;
+}
+
+#formCompraPaymentMethod,
+#formCompra > :nth-child(2) > *,
+#formCompraButton
+{
+    width: 26vw;
+}
+
+#formCompraButton
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    border: 0;
+    border-radius: 1vw;
+    line-height: normal;
+
+    align-self: center;
+}

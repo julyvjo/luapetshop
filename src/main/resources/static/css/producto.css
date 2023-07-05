@@ -1,0 +1,155 @@
+/* /////////////////////// */
+/* /// || APP PRODUCTO /// */
+/* /////////////////////// */
+
+#extraApps
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    /* height: 20vh; */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#buscador
+{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1vw;
+}
+
+#inputBuscador
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    width: 45vw;
+    border: 0;
+    border-radius: 1vw;
+
+    outline: none;
+}
+
+#botonBuscador,
+#botonNuevoProducto
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    border-radius: 1vw;
+    border: 0;
+    background-color: var(--accent);
+    color: var(--primary);
+}
+/* *********************************************** */
+
+
+
+/* /////////////////////////////// */
+/* /// || MODAL NUEVO PRODUCTO /// */
+/* /////////////////////////////// */
+
+#modalNuevoProducto > div.modal-dialog
+{
+    max-width: 60vw;
+}
+
+#modalNuevoProducto > div.modal-dialog > div > div > h5
+{
+    color: var(--bearWhite);
+}
+
+#productoModalNuevoProducto
+{
+    margin: 0;
+    padding: 0;
+    /* background-color: black; */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vh;
+}
+
+#productoModalNuevoProducto > div
+{
+    margin: 0;
+    padding: 1vh 2vw;
+    /* background-color: red; */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#productoModalNuevoProducto > div:nth-child(3),
+#productoModalNuevoProducto > div:nth-child(4),
+#productoModalNuevoProducto > div:nth-child(5)
+{
+    /* background-color: yellow; */
+
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 2vw;
+}
+
+#productoModalNuevoProducto > div,
+#productoModalNuevoProducto > div > div
+{
+    margin: 0;
+    padding: 0;
+    color: var(--bearWhite);
+    text-align: center;
+}
+
+#productoModalNuevoProducto > button,
+#productoModalNuevoProducto > div > select,
+#productoModalNuevoProducto > div > input,
+#productoModalNuevoProducto > div > button,
+#productoModalNuevoProducto > div > div > input,
+#productoModalNuevoProducto > div > div > select
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    width: 100%;
+    border: 0;
+    border-radius: 1vw;
+    outline: none;
+}
+/* *********************************************** */
+
+
+
+/* ///////////// */
+/* /// MODAL /// */
+/* ///////////// */
+
+.modal /* Acts as a backdrop for the modal */
+{
+    background-color: #121212A0;
+}
+
+.modal > div > div
+{
+    border: 0.5vh solid var(--accent);
+    border-radius: 1vw;
+    background-color: var(--alternative);
+    color: var(--primary);
+}
+
+.modal-title
+{
+    font-weight: bold;
+}
+
+.modal-photo
+{
+    border-radius: 1vw;
+    max-width: 100%;
+    height: auto;
+}
+/* *********************************************** */

@@ -1,32 +1,3 @@
-/*
-    NOTE:   All sizes use VH and VW relative units 
-            in this case asuming a 16:9 resolution.
-*/
-
-:root
-{
-    /* BEAR COLORS */
-    --bearWhite: #f2f2f2;
-    --bearBlack: #121212;
-    --bearGrey: #7f7f7f;
-    --bearCyan: #04848b;
-
-    /* LUA PETSHOP COLORS */
-    --luaWhite: #c4dae0;
-    --luaBlack: #404f48;
-    --luaGrey: #a0afa0;
-    --luaCyan: #05c3d1;
-    --luaLightBlue: #5dc6ca;
-
-    /* SITE COLORS */
-    --primary: var(--luaWhite);
-    --alternative: var(--luaCyan);
-    --secondary: var(--bearBlack);
-    --accent: var(--bearCyan);
-}
-
-
-
 /* /////////// */
 /* /// NAV /// */
 /* /////////// */

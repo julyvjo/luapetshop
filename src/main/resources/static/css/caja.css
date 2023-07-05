@@ -1,0 +1,115 @@
+#appCajaContainer
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+#appCajaFondos
+{
+    margin: 0;
+    padding: 0;
+    flex-grow: 3;
+
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+}
+
+#appCajaFondos > div
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    background-color: var(--accent);
+    color: var(--primary);
+    border-radius: 1vw;
+    width: 25%;
+}
+
+#appCajaContainer > :last-child
+{
+    margin: 0;
+    padding: 1vh 0;
+    height: 20vh;
+
+    display: flex;
+    gap: 18vw;
+}
+
+#appCajaContainer > :last-child > :first-child
+/* #appCajaGastoExcepcional, */
+/* #appCajaMetodoPagoExcepcional, */
+/* #appCajaSaldoTotal */
+{
+    margin: 0;
+    padding: 0;
+    flex-grow: 3;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#appCajaContainer > :last-child > :first-child > div
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+#appCajaContainer > :last-child > :first-child > div :nth-child(odd)
+{
+    padding: 0 1vw;
+    background-color: var(--accent);
+    color: var(--primary);
+    border-radius: 1vw 0 0 1vw;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#appCajaContainer > :last-child > :first-child > div :nth-child(even)
+{
+    padding: 0 1vw;
+    border-radius: 0 1vw 1vw 0;
+}
+
+#appCajaContainer > :last-child > :first-child > div > div
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    
+    background-color: var(--primary);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#botonCerrarCaja
+{
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--accent);
+    color: var(--primary);
+    border: 0;
+    border-radius: 1vw;
+    cursor: pointer;
+    flex-grow: 1;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
