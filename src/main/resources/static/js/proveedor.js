@@ -136,7 +136,8 @@ modalNuevoProveedorPrecioCompraButton.addEventListener("click", () =>
         return;
     }
 
-    cargarFormulario();
+    console.log("formulario válido");
+    // cargarFormulario();
 });
 
 let infoNuevoProveedor = {};
@@ -159,5 +160,42 @@ function iniciarInfoNuevoProveedor(infoNuevoProveedor)
         nombre_producto: "",
         precio_compra: "0.00"
     }
+}
+
+const nuevoProveedorIdProducto = document.getElementById("modalNuevoProveedorIdProducto");
+const nuevoProveedorNombreProveedor = document.getElementById("modalNuevoProveedorNombreProveedor");
+const nuevoProveedorNombreProducto = document.getElementById("modalNuevoProveedorNombreProducto");
+
+function validarFormulario()
+{
+    /*
+        En realidad no debería ser así esto, pero lo implemento de esta forma para que quede como plantilla para alguna versión futura.
+    */
+
+    if (nuevoProveedorIdProducto.value === "")
+    {
+        console.log("ERROR: ID del producto vacío!");
+        return false;
+    }
+
+    if (nuevoProveedorNombreProveedor.value === "")
+    {
+        console.log("ERROR: Nombre del proveedor vacío!");
+        return false;
+    }
+
+    if (nuevoProveedorNombreProducto.value === "")
+    {
+        console.log("ERROR: Nombre del producto vacío!");
+        return false;
+    }
+
+    if (nuevoProveedorPrecioCompra.value === "0.00")
+    {
+        console.log("ERROR: Precio de compra no asignado!");
+        return false;
+    }
+
+    return true;
 }
 // **************************************************************

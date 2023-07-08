@@ -106,17 +106,17 @@
                         </div>
                         <div>
                             <label for="modalNuevoProveedorNombreProveedor">nombre_proveedor</label>
-                            <input type="text" id="modalNuevoProveedorNombreProveedor" required>
+                            <input type="text" id="modalNuevoProveedorNombreProveedor" placeholder="Distribuidora..." required>
                         </div>
                         <div>
                             <label for="modalNuevoProveedorNombreProducto">nombre_producto</label>
-                            <input type="text" id="modalNuevoProveedorNombreProducto" required>
+                            <input type="text" id="modalNuevoProveedorNombreProducto" placeholder="Comida para perro..." required>
                         </div>
                         <div>
                             <label for="modalNuevoProveedorPrecioCompra">precio_compra</label>
                             <!-- <input type="number" id="modalNuevoProveedorPrecioCompra" required> -->
                             <!-- Puedo validar manualmente y agregar bindings para subir-bajar el precio -->
-                            <input id="modalNuevoProveedorPrecioCompra" required>
+                            <input id="modalNuevoProveedorPrecioCompra" min="0" value="0.00" required>
                         </div>
                         <button id="modalNuevoProveedorPrecioCompraButton">Agregar Proveedor</button>
                     </div>
