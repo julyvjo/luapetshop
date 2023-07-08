@@ -14,6 +14,45 @@ if (nuevoProveedor)
 }
 // **************************************************************
 
+// MODAL NUEVO PROVEEDOR FUNCTIONS
+
+const nuevoProveedorPrecioCompra = document.getElementById("modalNuevoProveedorPrecioCompra");
+
+nuevoProveedorPrecioCompra.addEventListener("change", () =>
+{
+    console.log("nuevoProveedorPrecioCompra cambió su valor");
+
+    if (validarPrecioCompra(nuevoProveedorPrecioCompra.value) === false)
+    {
+        console.log("ERROR: Expecting integer or float number! ");
+        nuevoProveedorPrecioCompra.value = "0.00";
+        return;
+    }
+
+    nuevoProveedorPrecioCompra.value = parseFloat(nuevoProveedorPrecioCompra.value).toFixed(2);
+});
+
+function validarPrecioCompra(string)
+{
+    //  Regular expression para validar que string represente un número float
+    //  const numberRegex = /^[0-9]+$/;  //  Por si solo quisiera validar un número entero.
+    const numberRegex = /^[0-9]+([.,][0-9]+)?$/;;
+
+    return numberRegex.test(string);
+
+    // Ejemplos:
+    console.log(validateNumber("12345"));   // true
+    console.log(validateNumber("12.345"));  // true
+    console.log(validateNumber("12,345"));  // true
+    console.log(validateNumber("12,34.56"));// false (múltiples separadores)
+    console.log(validateNumber("abc"));     // false (contiene caracteres no válidos como letras)
+}
+
+// **************************************************************
+
+
+
+
 // SEARCHBAR INPUT
 
 const inputBuscador = document.getElementById('inputBuscador');
