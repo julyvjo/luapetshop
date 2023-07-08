@@ -124,6 +124,86 @@
 
 
 
+/* ///////////////////////////// */
+/* /// || MODAL EDITOR LINEA /// */
+/* ///////////////////////////// */
+
+/*
+    Dupliqué todo lo de #modalNuevoProducto por si es necesario ajustar este en particular.
+*/
+
+#modalEditorLinea > div.modal-dialog
+{
+    max-width: 60vw;
+}
+
+#modalEditorLinea > div.modal-dialog > div > div > h5
+{
+    color: var(--bearWhite);
+}
+
+#productoModalEditorLinea
+{
+    margin: 0;
+    padding: 0;
+    /* background-color: black; */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vh;
+}
+
+#productoModalEditorLinea > div
+{
+    margin: 0;
+    padding: 1vh 2vw;
+    /* background-color: red; */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#productoModalEditorLinea > div:nth-child(3),
+#productoModalEditorLinea > div:nth-child(4),
+#productoModalEditorLinea > div:nth-child(5)
+{
+    /* background-color: yellow; */
+
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 2vw;
+}
+
+#productoModalEditorLinea > div,
+#productoModalEditorLinea > div > div
+{
+    margin: 0;
+    padding: 0;
+    color: var(--bearWhite);
+    text-align: center;
+}
+
+#productoModalEditorLinea > button,
+#productoModalEditorLinea > div > select,
+#productoModalEditorLinea > div > input,
+#productoModalEditorLinea > div > button,
+#productoModalEditorLinea > div > div > input,
+#productoModalEditorLinea > div > div > select
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    width: 100%;
+    border: 0;
+    border-radius: 1vw;
+    outline: none;
+}
+/* *********************************************** */
+
+
 /* ///////////// */
 /* /// MODAL /// */
 /* ///////////// */
