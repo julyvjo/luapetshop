@@ -1,3 +1,7 @@
+/* ////////////// */
+/* /// || APP /// */
+/* ////////////// */
+
 #appCajaContainer
 {
     margin: 0;
@@ -113,12 +117,13 @@
     justify-content: center;
     align-items: center;
 }
+/* *********************************************** */
 
 
 
-/* ///////////// */
-/* /// MODAL /// */
-/* ///////////// */
+/* //////////////// */
+/* /// || MODAL /// */
+/* //////////////// */
 
 .modal /* Acts as a backdrop for the modal */
 {
@@ -136,12 +141,5 @@
 .modal-title
 {
     font-weight: bold;
-}
-
-.modal-photo
-{
-    border-radius: 1vw;
-    max-width: 100%;
-    height: auto;
 }
 /* *********************************************** */
