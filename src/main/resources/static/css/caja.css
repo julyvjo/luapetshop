@@ -113,3 +113,35 @@
     justify-content: center;
     align-items: center;
 }
+
+
+
+/* ///////////// */
+/* /// MODAL /// */
+/* ///////////// */
+
+.modal /* Acts as a backdrop for the modal */
+{
+    background-color: #121212A0;
+}
+
+.modal > div > div
+{
+    border: 0.5vh solid var(--accent);
+    border-radius: 1vw;
+    background-color: var(--alternative);
+    color: var(--primary);
+}
+
+.modal-title
+{
+    font-weight: bold;
+}
+
+.modal-photo
+{
+    border-radius: 1vw;
+    max-width: 100%;
+    height: auto;
+}
+/* *********************************************** */
