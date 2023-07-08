@@ -1,3 +1,7 @@
+/* ////////////// */
+/* /// || APP /// */
+/* ////////////// */
+
 #extraApps
 {
     margin: 0;
@@ -40,12 +44,89 @@
     background-color: var(--accent);
     color: var(--primary);
 }
+/* *********************************************** */
 
 
 
-/* ///////////// */
-/* /// MODAL /// */
-/* ///////////// */
+/* //////////////////////////////// */
+/* /// || MODAL NUEVO PROVEEDOR /// */
+/* //////////////////////////////// */
+
+/*
+    Dupliqué todo lo de #modalNuevoProducto por si es necesario ajustar este en particular.
+*/
+
+#modalNuevoProveedor > div.modal-dialog
+{
+    max-width: 25vw;
+}
+
+#modalNuevoProveedor > div.modal-dialog > div > div > h5
+{
+    color: var(--bearWhite);
+    font-size: 4vh;
+}
+
+#formularioModalNuevoProveedor
+{
+    margin: 0;
+    padding: 0;
+    
+    height: 65vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2vh;
+}
+
+#formularioModalNuevoProveedor > div
+{
+    margin: 0;
+    padding: 1vh 2vw;
+    /* background-color: red; */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#formularioModalNuevoProveedor > div,
+#formularioModalNuevoProveedor > div > div
+{
+    margin: 0;
+    padding: 0;
+    color: var(--bearWhite);
+    text-align: center;
+}
+
+#formularioModalNuevoProveedor > button,
+#formularioModalNuevoProveedor > div > select,
+#formularioModalNuevoProveedor > div > input,
+#formularioModalNuevoProveedor > div > button,
+#formularioModalNuevoProveedor > div > div > input,
+#formularioModalNuevoProveedor > div > div > select
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    width: 100%;
+    border: 0;
+    border-radius: 1vw;
+    outline: none;
+}
+
+#formularioModalNuevoProveedor > button
+{
+    margin-top: auto;
+}
+/* *********************************************** */
+
+
+
+/* //////////////// */
+/* /// || MODAL /// */
+/* //////////////// */
 
 .modal /* Acts as a backdrop for the modal */
 {
@@ -59,3 +140,14 @@
     background-color: var(--alternative);
     color: var(--primary);
 }
+
+.modal-header
+{
+    height: 10vh;
+}
+
+.modal-body
+{
+    height: 70vh;
+}
+/* *********************************************** */

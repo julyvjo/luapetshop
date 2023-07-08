@@ -99,27 +99,27 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="post">
+                    <div id="formularioModalNuevoProveedor">
                         <div>
-                            <label for="idProducto">id_producto_proveedor</label>
+                            <label for="modalNuevoProveedorIdProducto">id_producto_proveedor</label>
                             <input type="text" id="modalNuevoProveedorIdProducto" required>
                         </div>
                         <div>
-                            <label for="nombreProveedor">nombre_proveedor</label>
+                            <label for="modalNuevoProveedorNombreProveedor">nombre_proveedor</label>
                             <input type="text" id="modalNuevoProveedorNombreProveedor" required>
                         </div>
                         <div>
-                            <label for="nombreProducto">nombre_producto</label>
+                            <label for="modalNuevoProveedorNombreProducto">nombre_producto</label>
                             <input type="text" id="modalNuevoProveedorNombreProducto" required>
                         </div>
                         <div>
-                            <label for="precioCompra">precio_compra</label>
-                            <input type="number" id="modalNuevoProveedorPrecioCompra" required>
+                            <label for="modalNuevoProveedorPrecioCompra">precio_compra</label>
+                            <!-- <input type="number" id="modalNuevoProveedorPrecioCompra" required> -->
+                            <!-- Puedo validar manualmente y agregar bindings para subir-bajar el precio -->
+                            <input id="modalNuevoProveedorPrecioCompra" required>
                         </div>
-                        <div>
-                            <input type="submit" value="Agregar Proveedor">
-                        </div>
-                    </form>
+                        <button>Agregar Proveedor</button>
+                    </div>
                 </div>
             </div>
         </div>
