@@ -14,6 +14,8 @@ if (nuevoProveedor)
 }
 // **************************************************************
 
+
+
 // MODAL NUEVO PROVEEDOR FUNCTIONS
 
 const nuevoProveedorPrecioCompra = document.getElementById("modalNuevoProveedorPrecioCompra");
@@ -28,6 +30,8 @@ nuevoProveedorPrecioCompra.addEventListener("change", () =>
         nuevoProveedorPrecioCompra.value = "0.00";
         return;
     }
+
+    nuevoProveedorPrecioCompra.value = nuevoProveedorPrecioCompra.value.replace(/,/g, ".");
 
     nuevoProveedorPrecioCompra.value = parseFloat(nuevoProveedorPrecioCompra.value).toFixed(2);
 });
@@ -47,7 +51,6 @@ function validarPrecioCompra(string)
     console.log(validateNumber("12,34.56"));// false (múltiples separadores)
     console.log(validateNumber("abc"));     // false (contiene caracteres no válidos como letras)
 }
-
 // **************************************************************
 
 
@@ -81,6 +84,8 @@ if (inputBuscador)
 }
 // **************************************************************
 
+
+
 // SEARCHBAR BUTTON
 
 const botonBuscador = document.getElementById('botonBuscador');
@@ -96,6 +101,8 @@ if (botonBuscador)
     // If in the future this changes, this needs to be implemented inside an Event Listener.
 }
 // **************************************************************
+
+
 
 // SEARCH FUNCTIONS
 
