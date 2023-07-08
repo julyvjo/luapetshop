@@ -138,4 +138,26 @@ modalNuevoProveedorPrecioCompraButton.addEventListener("click", () =>
 
     cargarFormulario();
 });
+
+let infoNuevoProveedor = {};
+infoNuevoProveedor = iniciarInfoNuevoProveedor(iniciarInfoNuevoProveedor);
+
+/*
+    FORMATO DEFAULT infoNuevoProveedor
+
+    id_producto_proveedor: [INT],
+    nombre_proveedor: [STRING],
+    nombre_producto: [STRING],
+    precio_compra: [STRING], -> lo manipulo y valido como FLOAT
+*/
+
+function iniciarInfoNuevoProveedor(infoNuevoProveedor)
+{
+    infoNuevoProveedor = {
+        id_producto_proveedor: 0,
+        nombre_proveedor: "",
+        nombre_producto: "",
+        precio_compra: "0.00"
+    }
+}
 // **************************************************************
