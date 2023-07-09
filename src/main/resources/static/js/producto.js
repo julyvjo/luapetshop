@@ -184,7 +184,7 @@ modalEditorLineaEnviar.addEventListener("click", () =>
     if(!validarEditorLinea())
         return;
 
-    // enviarEditorLinea();
+    enviarEditorLinea();
 });
 
 function validarEditorLinea()
@@ -249,7 +249,34 @@ function validarEditorLinea()
 
     return true;
 }
+
+function enviarEditorLinea()
+{
+    const editorLineaNombreProducto = document.getElementById("modalEditorLineaNombreProducto");
+    const editorLineaDescripcionProducto = document.getElementById("modalEditorLineaDescripcionProducto");
+    const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
+    const editorLineaPorcentajeGanancia = document.getElementById("modalEditorLineaPorcentajeGanancia");
+    const editorLineaGananciaProducto = document.getElementById("modalEditorLineaGananciaProducto");
+    const editorLineaCantidadStock = document.getElementById("modalEditorLineaCantidadStock");
+
+    datosProducto = {
+        //  ID Producto se lo asignaría el backend/DB ??
+        nombreProducto: editorLineaNombreProducto.value,
+        descripcionProducto: editorLineaDescripcionProducto.value,
+        precioCompra: editorLineaPrecioCompra.value,
+        porcentajeGanancia: editorLineaPorcentajeGanancia.value,
+        gananciaProducto: editorLineaGananciaProducto.value,
+        // tipoStock: "",
+        cantidadStock: editorLineaCantidadStock.value,
+        // rutaImagen: "",
+    }
+
+    // ENVIAR AL BACKEND
+    console.log("ENVIANDO datosProducto...", datosProducto);
+}
 // **************************************************************
+
+
 
 // || DATOS PRODUCTO
 
