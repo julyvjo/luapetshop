@@ -17,11 +17,74 @@ const nuevoProductoEnviar = document.getElementById("modalNuevoProductoEnviar");
 
 nuevoProductoEnviar.addEventListener("click", () =>
 {
-    // if(!validarNuevoProducto())
-    //     return;
-    
+    if(!validarNuevoProducto())
+        return;
+
     // enviarNuevoProducto();
 });
+
+function validarNuevoProducto()
+{
+    //  AÚN NO SE VALIDAR PARA EVITAR SQL INJECTION!
+
+    const nuevoProductoNombreProducto = document.getElementById("modalNuevoProductoNombreProducto");
+
+    if (nuevoProductoNombreProducto.value === "")
+    {
+        console.log("ERROR: Completar nombre del producto!");
+        return false;
+    }
+ 
+    const nuevoProductoDescripcionProducto = document.getElementById("modalNuevoProductoDescripcionProducto");
+    
+    if (nuevoProductoDescripcionProducto.value === "")
+    {
+        console.log("ERROR: Completar descripción del producto!");
+        return false;
+    }
+ 
+    const nuevoProductoPrecioCompra = document.getElementById("modalNuevoProductoPrecioCompra");
+    
+    if (parseFloat(nuevoProductoPrecioCompra.value) < 0.01)
+    {
+        //  Estoy asumiendo que nunca regalarían un producto!
+        console.log("ERROR: Insertar precio de compra válido!");
+        return false;
+    }
+ 
+    const nuevoProductoPorcentajeGanancia = document.getElementById("modalNuevoProductoPorcentajeGanancia");
+    
+    if (parseFloat(nuevoProductoPorcentajeGanancia.value) < 0.01)
+    {
+        //  Estoy asumiendo que nunca venderían un producto al costo!
+        console.log("ERROR: Insertar porcentaje de ganancia válido!");
+        return false;
+    }
+ 
+    const nuevoProductoGananciaProducto = document.getElementById("modalNuevoProductoGananciaProducto");
+    
+    if (parseFloat(nuevoProductoGananciaProducto.value) < 0.01)
+    {
+        //  Estoy asumiendo que nunca venderían un producto al costo!
+        console.log("ERROR: Insertar ganancia del producto válido!");
+        return false;
+    }
+    
+    // TIPO DE STOCK NO IMPLEMENTADO AÚN
+
+    const nuevoProductoCantidadStock = document.getElementById("modalNuevoProductoCantidadStock");
+    
+    if (parseFloat(nuevoProductoCantidadStock.value) < 1)
+    {
+        //  Estoy asumiendo que nunca agregarían un producto sin stock!
+        console.log("ERROR: Insertar cantidad de stock válido!");
+        return false;
+    }
+   
+    // IMAGEN EL PRODUCTO NO IMPLEMENTADO AÚN
+
+    return true;
+}
 // **************************************************************
 
 
