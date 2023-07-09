@@ -1,4 +1,4 @@
-// NUEVO PRODUCTO BUTTON
+// NUEVO PRODUCTO
 
 const nuevoProducto = document.getElementById('botonNuevoProducto');
 
@@ -16,7 +16,7 @@ if (nuevoProducto)
 
 
 
-// INDIVIDUAL EDIT BUTTON
+// INDIVIDUAL EDIT
 
 const arrayBotonEditar = document.querySelectorAll('.botonEditar');
 
@@ -94,7 +94,7 @@ let datosProducto = {
     // rutaImagen: "",
 }
 
-iniciarDatosProducto(datosProducto)
+function iniciarDatosProducto()
 {
     datosProducto = {
         //  ID Producto se lo asignaría el backend/DB ??
@@ -107,10 +107,48 @@ iniciarDatosProducto(datosProducto)
         cantidadStock: 0,
         // rutaImagen: "",
     }
-
-    return datosProducto;
 }
 
+function validarDatosProducto()
+{
+    if(datosProducto.nombreProducto === "")
+    {
+        console.log("ERROR: Completar nombre producto!");
+        return false;
+    }
+ 
+    if(datosProducto.descripcionProducto === "")
+    {
+        console.log("ERROR: Completar descripción producto!");
+        return false;
+    }
+ 
+    if(datosProducto.precioCompra < 0.01)
+    {
+        console.log("ERROR: Ingresar precio de compra válido!");
+        return false;
+    }
+ 
+    if(datosProducto.porcentajeGanancia < 0.01)
+    {
+        console.log("ERROR: Ingresar porcentaje de ganancia válido!");
+        return false;
+    }
+ 
+    if(datosProducto.gananciaProducto < 0.01)
+    {
+        console.log("ERROR: Ingresar ganancia del producto válido!");
+        return false;
+    }
+ 
+    if(datosProducto.cantidadStock < 0.01)
+    {
+        console.log("ERROR: Ingresar cantidad de stock válido!");
+        return false;
+    }
+ 
+    return true;
+}
 // **************************************************************
 
 
