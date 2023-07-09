@@ -7,6 +7,8 @@ if (nuevoProducto)
     nuevoProducto.addEventListener("click", (e) =>
     {
         mostrarModal("modalNuevoProducto");
+
+        window.onclick = null;
     });
 
     // I implemented it like this because script.js has "defer" attribute.
@@ -126,6 +128,7 @@ if (arrayBotonEditar.length !== 0)
         {
             mostrarModal("modalEditorLinea");
             cargarEditor(fila);
+            window.onclick = null;
         });    
     });
 

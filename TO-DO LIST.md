@@ -18,7 +18,7 @@
 
 - [ ] NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; Ajustar validación para volver a valores default si por ejemplo los inputs quedaron vacíos.
 - [ ] NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; Agregar alguna forma de establecer ID del producto editado al enviar el formulario.
-- [ ] NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; Evitar cerrar el modal haciendo click fuera del formulario, incluso si se apreta ESCAPE
+- [x] ~~NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; Evitar cerrar el modal haciendo click fuera del formulario, incluso si se apreta ESCAPE~~
 
 - [ ] NUEVO PROUDCTO; Revisar si se va a implementar de esta forma; ajustar formato.
 - [ ] NUEVO PROUDCTO; Ajustar formato.

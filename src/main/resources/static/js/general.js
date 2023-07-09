@@ -87,15 +87,20 @@ function mostrarModal(buttonId)
         }
     }
 
-    // When the user presses the escape key, close the modal
-    modalQueQuieroMostrar.addEventListener("keydown", (e) =>
-    {
-        if (e.key === "Escape")
-        {
-          e.preventDefault();
-          ocultarModal(buttonId);
-        }
-    });
+    /*
+        When the user presses "escape" button, close the modal.
+
+        NOTA: Dejé comentado esto hasta encontrar una mejor forma de implementarlo, ya que algunos modales necesitan NO tener esta funcionalidad particularmente.
+    */
+
+    // modalQueQuieroMostrar.addEventListener("keydown", (e) =>
+    // {
+    //     if (e.key === "Escape")
+    //     {
+    //       e.preventDefault();
+    //       ocultarModal(buttonId);
+    //     }
+    // });
 }
 
 function ocultarModal(buttonId)
