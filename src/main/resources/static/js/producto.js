@@ -156,11 +156,74 @@ const modalEditorLineaEnviar = document.getElementById("modalEditorLineaEnviar")
 
 modalEditorLineaEnviar.addEventListener("click", () => 
 {
-    // if(!validarEditorLinea())
-    //     return;
-    
+    if(!validarEditorLinea())
+        return;
+
     // enviarEditorLinea();
 });
+
+function validarEditorLinea()
+{
+    //  AÚN NO SE VALIDAR PARA EVITAR SQL INJECTION!
+
+    const editorLineaNombreProducto = document.getElementById("modalEditorLineaNombreProducto");
+
+    if (editorLineaNombreProducto.value === "")
+    {
+        console.log("ERROR: Completar nombre del producto!");
+        return false;
+    }
+ 
+    const editorLineaDescripcionProducto = document.getElementById("modalEditorLineaDescripcionProducto");
+    
+    if (editorLineaDescripcionProducto.value === "")
+    {
+        console.log("ERROR: Completar descripción del producto!");
+        return false;
+    }
+ 
+    const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
+    
+    if (parseFloat(editorLineaPrecioCompra.value) < 0.01)
+    {
+        //  Estoy asumiendo que nunca regalarían un producto!
+        console.log("ERROR: Insertar precio de compra válido!");
+        return false;
+    }
+ 
+    const editorLineaPorcentajeGanancia = document.getElementById("modalEditorLineaPorcentajeGanancia");
+    
+    if (parseFloat(editorLineaPorcentajeGanancia.value) < 0.01)
+    {
+        //  Estoy asumiendo que nunca venderían un producto al costo!
+        console.log("ERROR: Insertar porcentaje de ganancia válido!");
+        return false;
+    }
+ 
+    const editorLineaGananciaProducto = document.getElementById("modalEditorLineaGananciaProducto");
+    
+    if (parseFloat(editorLineaGananciaProducto.value) < 0.01)
+    {
+        //  Estoy asumiendo que nunca venderían un producto al costo!
+        console.log("ERROR: Insertar ganancia del producto válido!");
+        return false;
+    }
+    
+    // TIPO DE STOCK NO IMPLEMENTADO AÚN
+
+    const editorLineaCantidadStock = document.getElementById("modalEditorLineaCantidadStock");
+    
+    if (parseFloat(editorLineaCantidadStock.value) < 1)
+    {
+        //  Estoy asumiendo que nunca agregarían un producto sin stock!
+        console.log("ERROR: Insertar cantidad de stock válido!");
+        return false;
+    }
+   
+    // IMAGEN EL PRODUCTO NO IMPLEMENTADO AÚN
+
+    return true;
+}
 // **************************************************************
 
 // || DATOS PRODUCTO
