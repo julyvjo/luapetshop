@@ -20,7 +20,7 @@ nuevoProductoEnviar.addEventListener("click", () =>
     if(!validarNuevoProducto())
         return;
 
-    // enviarNuevoProducto();
+    enviarNuevoProducto();
 });
 
 function validarNuevoProducto()
@@ -84,6 +84,31 @@ function validarNuevoProducto()
     // IMAGEN EL PRODUCTO NO IMPLEMENTADO AÚN
 
     return true;
+}
+
+function enviarNuevoProducto()
+{
+    const nuevoProductoNombreProducto = document.getElementById("modalNuevoProductoNombreProducto");
+    const nuevoProductoDescripcionProducto = document.getElementById("modalNuevoProductoDescripcionProducto");
+    const nuevoProductoPrecioCompra = document.getElementById("modalNuevoProductoPrecioCompra");
+    const nuevoProductoPorcentajeGanancia = document.getElementById("modalNuevoProductoPorcentajeGanancia");
+    const nuevoProductoGananciaProducto = document.getElementById("modalNuevoProductoGananciaProducto");
+    const nuevoProductoCantidadStock = document.getElementById("modalNuevoProductoCantidadStock");
+
+    datosProducto = {
+        //  ID Producto se lo asignaría el backend/DB ??
+        nombreProducto: nuevoProductoNombreProducto.value,
+        descripcionProducto: nuevoProductoDescripcionProducto.value,
+        precioCompra: nuevoProductoPrecioCompra.value,
+        porcentajeGanancia: nuevoProductoPorcentajeGanancia.value,
+        gananciaProducto: nuevoProductoGananciaProducto.value,
+        // tipoStock: "",
+        cantidadStock: nuevoProductoCantidadStock.value,
+        // rutaImagen: "",
+    }
+
+    // ENVIAR AL BACKEND
+    console.log("ENVIANDO datosProducto...", datosProducto);
 }
 // **************************************************************
 
