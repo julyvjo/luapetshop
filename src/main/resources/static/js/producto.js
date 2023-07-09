@@ -12,6 +12,16 @@ if (nuevoProducto)
     // I implemented it like this because script.js has "defer" attribute.
     // If in the future this changes, this needs to be implemented inside an Event Listener.
 }
+
+const nuevoProductoEnviar = document.getElementById("modalNuevoProductoEnviar");
+
+nuevoProductoEnviar.addEventListener("click", () =>
+{
+    // if(!validarNuevoProducto())
+    //     return;
+    
+    // enviarNuevoProducto();
+});
 // **************************************************************
 
 
@@ -78,6 +88,16 @@ function cargarEditor(fila)
     //  Aún queda pendiente ver cómo implementar las imágenes de cada producto.
     //  const imagenProducto = document.getElementById("modalEditorLineaNombreProducto");
 }
+
+const modalEditorLineaEnviar = document.getElementById("modalEditorLineaEnviar");
+
+modalEditorLineaEnviar.addEventListener("click", () => 
+{
+    // if(!validarEditorLinea())
+    //     return;
+    
+    // enviarEditorLinea();
+});
 // **************************************************************
 
 // || DATOS PRODUCTO
@@ -107,47 +127,6 @@ function iniciarDatosProducto()
         cantidadStock: 0,
         // rutaImagen: "",
     }
-}
-
-function validarDatosProducto()
-{
-    if(datosProducto.nombreProducto === "")
-    {
-        console.log("ERROR: Completar nombre producto!");
-        return false;
-    }
- 
-    if(datosProducto.descripcionProducto === "")
-    {
-        console.log("ERROR: Completar descripción producto!");
-        return false;
-    }
- 
-    if(datosProducto.precioCompra < 0.01)
-    {
-        console.log("ERROR: Ingresar precio de compra válido!");
-        return false;
-    }
- 
-    if(datosProducto.porcentajeGanancia < 0.01)
-    {
-        console.log("ERROR: Ingresar porcentaje de ganancia válido!");
-        return false;
-    }
- 
-    if(datosProducto.gananciaProducto < 0.01)
-    {
-        console.log("ERROR: Ingresar ganancia del producto válido!");
-        return false;
-    }
- 
-    if(datosProducto.cantidadStock < 0.01)
-    {
-        console.log("ERROR: Ingresar cantidad de stock válido!");
-        return false;
-    }
- 
-    return true;
 }
 // **************************************************************
 
