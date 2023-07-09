@@ -1,3 +1,21 @@
+// NUEVO PRODUCTO BUTTON
+
+const nuevoProducto = document.getElementById('botonNuevoProducto');
+
+if (nuevoProducto)
+{
+    nuevoProducto.addEventListener("click", (e) =>
+    {
+        mostrarModal("modalNuevoProducto");
+    });
+
+    // I implemented it like this because script.js has "defer" attribute.
+    // If in the future this changes, this needs to be implemented inside an Event Listener.
+}
+// **************************************************************
+
+
+
 // INDIVIDUAL EDIT BUTTON
 
 const arrayBotonEditar = document.querySelectorAll('.botonEditar');
@@ -62,6 +80,41 @@ function cargarEditor(fila)
 }
 // **************************************************************
 
+// || DATOS PRODUCTO
+
+let datosProducto = {
+    //  ID Producto se lo asignaría el backend/DB ??
+    nombreProducto: "",
+    descripcionProducto: "",
+    precioCompra: 0.00,
+    porcentajeGanancia: 0.0,
+    gananciaProducto: 0.0,
+    // tipoStock: "",
+    cantidadStock: 0,
+    // rutaImagen: "",
+}
+
+iniciarDatosProducto(datosProducto)
+{
+    datosProducto = {
+        //  ID Producto se lo asignaría el backend/DB ??
+        nombreProducto: "",
+        descripcionProducto: "",
+        precioCompra: 0.00,
+        porcentajeGanancia: 0.0,
+        gananciaProducto: 0.0,
+        // tipoStock: "",
+        cantidadStock: 0,
+        // rutaImagen: "",
+    }
+
+    return datosProducto;
+}
+
+// **************************************************************
+
+
+
 // PRODUCT PHOTO BUTTON
 
 const arrayBotonFoto = document.querySelectorAll('.botonFoto');
@@ -81,21 +134,7 @@ if (arrayBotonFoto.length !== 0)
 }
 // **************************************************************
 
-// NUEVO PRODUCTO BUTTON
 
-const nuevoProducto = document.getElementById('botonNuevoProducto');
-
-if (nuevoProducto)
-{
-    nuevoProducto.addEventListener("click", (e) =>
-    {
-        mostrarModal("modalNuevoProducto");
-    });
-
-    // I implemented it like this because script.js has "defer" attribute.
-    // If in the future this changes, this needs to be implemented inside an Event Listener.
-}
-// **************************************************************
 
 // SEARCHBAR INPUT
 
@@ -125,6 +164,8 @@ if (inputBuscador)
 }
 // **************************************************************
 
+
+
 // SEARCHBAR BUTTON
 
 const botonBuscador = document.getElementById('botonBuscador');
@@ -140,6 +181,8 @@ if (botonBuscador)
     // If in the future this changes, this needs to be implemented inside an Event Listener.
 }
 // **************************************************************
+
+
 
 // SEARCH FUNCTIONS
 
