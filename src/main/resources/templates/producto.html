@@ -38,7 +38,7 @@
                             </tr>
                         </thead>
                         <tbody id="table" class="table-borderless" style="border-top: none !important;">
-                            <tr th:each="item :${productos}">
+                            <tr th:each="item :${productos}" th:id="${item.id_producto}">
                                 <td><h5 class="py-2"><button class="botonFoto">&#128247;</button></h5></td>
                                 <td><h5 class="py-2" th:text="${item.nombre}"></h5></td>
                                 <td><h5 class="py-2" th:text="${item.descripcion}"></h5></td>
