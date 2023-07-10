@@ -52,7 +52,7 @@
     
                             <div>
                                 <label for="gananciaProducto">Ganancia</label>
-                                <input id="modalNuevoProductoGananciaProducto" name="gananciaProducto" value="0.00" required>
+                                <input id="modalNuevoProductoGananciaProducto" name="gananciaProducto" value="0.00" disabled required>
                                 <!-- readonly si planeo usar JS para dinámicamente mostrar este valor -->
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                         <div>
                             <div>
                                 <label for="tipoStock">Tipo de Stock</label>
-                                <select id="modalNuevoProductoTipoStock" name="cantidadStock" required>
+                                <select id="modalNuevoProductoTipoStock" name="cantidadStock" disabled required>
                                     <option value="default">SELECCIONAR TIPO</option>
                                     <option value="peso">Peso</option>
                                     <option value="longitud">Longitud</option>
@@ -77,7 +77,7 @@
                         <div>
                             <label for="imagenProducto">Imagen del Producto</label>
                             <!-- <input type="file" id="modalNuevoProductoImagenProducto" name="imagenProducto"> -->
-                            <button>SUBIR IMAGEN</button>
+                            <button disabled>SUBIR IMAGEN</button>
                             <div>No se ha elegido ningún archivo</div>
                         </div>
 
@@ -177,7 +177,7 @@
     
                             <div>
                                 <label for="gananciaProducto">Ganancia</label>
-                                <input id="modalEditorLineaGananciaProducto" required>
+                                <input id="modalEditorLineaGananciaProducto" disabled required>
                                 <!-- readonly si planeo usar JS para dinámicamente mostrar este valor -->
                             </div>
                         </div>
@@ -185,7 +185,7 @@
                         <div>
                             <div>
                                 <label for="tipoStock">Tipo de Stock</label>
-                                <select id="modalEditorLineaTipoStock" required>
+                                <select id="modalEditorLineaTipoStock" disabled required>
                                     <option value="default">SELECCIONAR TIPO</option>
                                     <option value="peso">Peso</option>
                                     <option value="longitud">Longitud</option>
@@ -202,7 +202,7 @@
                         <div>
                             <label for="imagenProducto">Imagen del Producto</label>
                             <!-- <input type="file" id="modalEditorLineaImagenProducto"> -->
-                            <button>SUBIR IMAGEN</button>
+                            <button disabled>SUBIR IMAGEN</button>
                             <div>No se ha elegido ningún archivo</div>
                         </div>
 

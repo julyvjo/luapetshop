@@ -94,23 +94,25 @@ function enviarNuevoProducto()
     const nuevoProductoDescripcionProducto = document.getElementById("modalNuevoProductoDescripcionProducto");
     const nuevoProductoPrecioCompra = document.getElementById("modalNuevoProductoPrecioCompra");
     const nuevoProductoPorcentajeGanancia = document.getElementById("modalNuevoProductoPorcentajeGanancia");
-    const nuevoProductoGananciaProducto = document.getElementById("modalNuevoProductoGananciaProducto");
+    // const nuevoProductoGananciaProducto = document.getElementById("modalNuevoProductoGananciaProducto");
+    // const nuevoProductoTipoStock = document.getElementById("modalNuevoProductoTipoStock");
     const nuevoProductoCantidadStock = document.getElementById("modalNuevoProductoCantidadStock");
+    // const nuevoProductoImagen = document.getElementById("modalNuevoProductoImagen");
 
     datosProducto = {
-        //  ID Producto se lo asignaría el backend/DB ??
-        nombreProducto: nuevoProductoNombreProducto.value,
-        descripcionProducto: nuevoProductoDescripcionProducto.value,
-        precioCompra: nuevoProductoPrecioCompra.value,
-        porcentajeGanancia: nuevoProductoPorcentajeGanancia.value,
-        gananciaProducto: nuevoProductoGananciaProducto.value,
-        // tipoStock: "",
-        cantidadStock: nuevoProductoCantidadStock.value,
-        // rutaImagen: "",
+        id_producto: 0,
+        nombre: nuevoProductoNombreProducto.value,
+        descripcion: nuevoProductoDescripcionProducto.value,
+        precio_compra: nuevoProductoPrecioCompra.value,
+        rentabilidad: nuevoProductoPorcentajeGanancia.value,
+        // ganancia: nuevoProductoGananciaProducto.value,
+        // tipo_stock: nuevoProductoTipoStock.value,
+        stock: nuevoProductoCantidadStock.value,
+        // imagen: nuevoProductoImagen.value,
     }
 
     // ENVIAR AL BACKEND
-    console.log("ENVIANDO datosProducto...", datosProducto);
+    console.log("ENVIANDO datosProducto desde NUEVO PRODUCTO...", datosProducto);
 }
 // **************************************************************
 
@@ -143,6 +145,7 @@ function cargarEditor(fila)
     */
 
     const tr = fila.parentNode.parentNode.parentNode;
+    const filaId = tr.id;
     const h5 = tr.querySelectorAll("h5");
 
     // h5[0] = imagen; h5[h5.length - 1] = botón editar.
@@ -176,8 +179,11 @@ function cargarEditor(fila)
     const cantidadStock = document.getElementById("modalEditorLineaCantidadStock");
     cantidadStock.value = h5[6].textContent;
 
-    //  Aún queda pendiente ver cómo implementar las imágenes de cada producto.
+    //  Imagen aún está pendiente.
     //  const imagenProducto = document.getElementById("modalEditorLineaNombreProducto");
+
+    const editorLineaID = document.getElementById("modalEditorLineaId");
+    editorLineaID.value = filaId;
 }
 
 const modalEditorLineaEnviar = document.getElementById("modalEditorLineaEnviar");
@@ -259,23 +265,26 @@ function enviarEditorLinea()
     const editorLineaDescripcionProducto = document.getElementById("modalEditorLineaDescripcionProducto");
     const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
     const editorLineaPorcentajeGanancia = document.getElementById("modalEditorLineaPorcentajeGanancia");
-    const editorLineaGananciaProducto = document.getElementById("modalEditorLineaGananciaProducto");
+    // const editorLineaGananciaProducto = document.getElementById("modalEditorLineaGananciaProducto");
+    // const editorLineaTipoStock = document.getElementById("modalEditorLineaTipoStock");
     const editorLineaCantidadStock = document.getElementById("modalEditorLineaCantidadStock");
+    // const editorLineaImagen = document.getElementById("modalEditorLineaImagen");
+    const editorLineaID = document.getElementById("modalEditorLineaId");
 
     datosProducto = {
-        //  ID Producto se lo asignaría el backend/DB ??
-        nombreProducto: editorLineaNombreProducto.value,
-        descripcionProducto: editorLineaDescripcionProducto.value,
-        precioCompra: editorLineaPrecioCompra.value,
-        porcentajeGanancia: editorLineaPorcentajeGanancia.value,
-        gananciaProducto: editorLineaGananciaProducto.value,
-        // tipoStock: "",
-        cantidadStock: editorLineaCantidadStock.value,
-        // rutaImagen: "",
+        id_producto: editorLineaID.value,
+        nombre: editorLineaNombreProducto.value,
+        descripcion: editorLineaDescripcionProducto.value,
+        precio_compra: editorLineaPrecioCompra.value,
+        rentabilidad: editorLineaPorcentajeGanancia.value,
+        // ganancia: editorLineaGananciaProducto.value,
+        // tipo_stock: editorLineaTipoStock.value,
+        stock: editorLineaCantidadStock.value,
+        // imagen: editorLineaImagen.value,
     }
 
     // ENVIAR AL BACKEND
-    console.log("ENVIANDO datosProducto...", datosProducto);
+    console.log("ENVIANDO datosProducto desde EDITOR LINEA...", datosProducto);
 }
 // **************************************************************
 
@@ -284,29 +293,29 @@ function enviarEditorLinea()
 // || DATOS PRODUCTO
 
 let datosProducto = {
-    //  ID Producto se lo asignaría el backend/DB ??
-    nombreProducto: "",
-    descripcionProducto: "",
-    precioCompra: 0.00,
-    porcentajeGanancia: 0.0,
-    gananciaProducto: 0.0,
-    // tipoStock: "",
-    cantidadStock: 0,
-    // rutaImagen: "",
+    id_producto: 0,     // 0 si es nuevo; se le asignaría uno desde backend
+    nombre: "",
+    descripcion: "",
+    precio_compra: 0.00,
+    rentabilidad: 0.0,
+    // ganancia: 0.0,   // <-- está en duda aún
+    // tipo_stock: "",  // <-- está en duda aún
+    stock: 0,
+    // imagen: "base64",
 }
 
 function iniciarDatosProducto()
 {
     datosProducto = {
-        //  ID Producto se lo asignaría el backend/DB ??
-        nombreProducto: "",
-        descripcionProducto: "",
-        precioCompra: 0.00,
-        porcentajeGanancia: 0.0,
-        gananciaProducto: 0.0,
-        // tipoStock: "",
-        cantidadStock: 0,
-        // rutaImagen: "",
+        id_producto: 0,     // 0 si es nuevo; se le asignaría uno desde backend
+        nombre: "",
+        descripcion: "",
+        precio_compra: 0.00,
+        rentabilidad: 0.0,
+        // ganancia: 0.0,   // <-- está en duda aún
+        // tipo_stock: "",  // <-- está en duda aún
+        stock: 0,
+        // imagen: "base64",
     }
 }
 // **************************************************************
