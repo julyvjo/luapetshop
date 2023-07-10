@@ -65,7 +65,7 @@
 
 ##  COMPRA
 
-- ~~[x] PREGUNTAR; Chequear si sería válido implementar "agregarProveedor" de PROVEEDOR también acá.~~ **(Esto por ahora la verdad que no, los proveedores no cambian casi nunca, si hay que dar de alta/baja algo se hace directo desde la DB sin usar una GUI)**
+- [x] ~~PREGUNTAR; Chequear si sería válido implementar "agregarProveedor" de PROVEEDOR también acá.~~ **(Esto por ahora la verdad que no, los proveedores no cambian casi nunca, si hay que dar de alta/baja algo se hace directo desde la DB sin usar una GUI)**
 - [ ] PREGUNTAR; Chequear si esta página no debería permitir registrar COMPRAS EXCEPCIONALES. (Ejemplo, usaron la plata de alguno de los fondos para insumos propios del petshop, o sacaron para uso personal)
 
 - [ ] SELECT PROVEEDOR; Hay que hacer que traiga la lista de proveedores de la DB en lugar de tenerlos manualmente en el HTML
