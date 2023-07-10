@@ -140,47 +140,33 @@ if (arrayBotonEditar.length !== 0)
 
 function cargarEditor(fila)
 {
-    /*
-        No es muy prolijo, pero con esto evito agregar atributos al html o llamar a la DB.
-    */
-
     const tr = fila.parentNode.parentNode.parentNode;
     const filaId = tr.id;
     const h5 = tr.querySelectorAll("h5");
 
-    // h5[0] = imagen; h5[h5.length - 1] = botón editar.
-    
-    // h5.forEach((element, index) =>
-    // {
-    //     if (index === 0 || index === h5.length - 1)
-    //         return;
+    const editorLineaNombre = document.getElementById("modalEditorLineaNombre");
+    editorLineaNombre.value = h5[1].textContent;
 
-    //     console.log(element.textContent);
-    // });
+    const editorLineaDescripcion = document.getElementById("modalEditorLineaDescripcion");
+    editorLineaDescripcion.value = h5[2].textContent;
 
-    const nombreProducto = document.getElementById("modalEditorLineaNombreProducto");
-    nombreProducto.value = h5[1].textContent;
+    const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
+    editorLineaPrecioCompra.value = h5[3].textContent;
 
-    const descripcionProducto = document.getElementById("modalEditorLineaDescripcionProducto");
-    descripcionProducto.value = h5[2].textContent;
+    const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
+    editorLineaRentabilidad.value = h5[4].textContent;
 
-    const precioCompra = document.getElementById("modalEditorLineaPrecioCompra");
-    precioCompra.value = h5[3].textContent;
-
-    const porcentajeGanancia = document.getElementById("modalEditorLineaPorcentajeGanancia");
-    porcentajeGanancia.value = h5[4].textContent;
-
-    const gananciaProducto = document.getElementById("modalEditorLineaGananciaProducto");
-    gananciaProducto.value = h5[5].textContent;
+    const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
+    editorLineaGanancia.value = h5[5].textContent;
 
     //  Tipo de stock aún está pendiente saber cómo se va a implementar.
     // const tipoStock = document.getElementById("modalEditorLineaNombreProducto");
 
-    const cantidadStock = document.getElementById("modalEditorLineaCantidadStock");
-    cantidadStock.value = h5[6].textContent;
+    const editorLineaStock = document.getElementById("modalEditorLineaStock");
+    editorLineaStock.value = h5[6].textContent;
 
     //  Imagen aún está pendiente.
-    //  const imagenProducto = document.getElementById("modalEditorLineaNombreProducto");
+    //  const imagen = document.getElementById("modalEditorLineaImagen");
 
     const editorLineaID = document.getElementById("modalEditorLineaId");
     editorLineaID.value = filaId;
@@ -200,17 +186,17 @@ function validarEditorLinea()
 {
     //  AÚN NO SE VALIDAR PARA EVITAR SQL INJECTION!
 
-    const editorLineaNombreProducto = document.getElementById("modalEditorLineaNombreProducto");
+    const editorLineaNombre = document.getElementById("modalEditorLineaNombre");
 
-    if (editorLineaNombreProducto.value === "")
+    if (editorLineaNombre.value === "")
     {
         console.log("ERROR: Completar nombre del producto!");
         return false;
     }
  
-    const editorLineaDescripcionProducto = document.getElementById("modalEditorLineaDescripcionProducto");
+    const editorLineaDescripcion = document.getElementById("modalEditorLineaDescripcion");
     
-    if (editorLineaDescripcionProducto.value === "")
+    if (editorLineaDescripcion.value === "")
     {
         console.log("ERROR: Completar descripción del producto!");
         return false;
@@ -225,29 +211,29 @@ function validarEditorLinea()
         return false;
     }
  
-    const editorLineaPorcentajeGanancia = document.getElementById("modalEditorLineaPorcentajeGanancia");
+    const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
     
-    if (parseFloat(editorLineaPorcentajeGanancia.value) < 0.01)
+    if (parseFloat(editorLineaRentabilidad.value) < 0.01)
     {
         //  Estoy asumiendo que nunca venderían un producto al costo!
         console.log("ERROR: Insertar porcentaje de ganancia válido!");
         return false;
     }
  
-    const editorLineaGananciaProducto = document.getElementById("modalEditorLineaGananciaProducto");
+    // const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
     
-    if (parseFloat(editorLineaGananciaProducto.value) < 0.01)
-    {
-        //  Estoy asumiendo que nunca venderían un producto al costo!
-        console.log("ERROR: Insertar ganancia del producto válido!");
-        return false;
-    }
+    // if (parseFloat(editorLineaGanancia.value) < 0.01)
+    // {
+    //     //  Estoy asumiendo que nunca venderían un producto al costo!
+    //     console.log("ERROR: Insertar ganancia del producto válido!");
+    //     return false;
+    // }
     
     // TIPO DE STOCK NO IMPLEMENTADO AÚN
 
-    const editorLineaCantidadStock = document.getElementById("modalEditorLineaCantidadStock");
+    const editorLineaStock = document.getElementById("modalEditorLineaStock");
     
-    if (parseFloat(editorLineaCantidadStock.value) < 1)
+    if (parseFloat(editorLineaStock.value) < 1)
     {
         //  Estoy asumiendo que nunca agregarían un producto sin stock!
         console.log("ERROR: Insertar cantidad de stock válido!");
@@ -261,25 +247,25 @@ function validarEditorLinea()
 
 function enviarEditorLinea()
 {
-    const editorLineaNombreProducto = document.getElementById("modalEditorLineaNombreProducto");
-    const editorLineaDescripcionProducto = document.getElementById("modalEditorLineaDescripcionProducto");
+    const editorLineaNombre = document.getElementById("modalEditorLineaNombre");
+    const editorLineaDescripcion = document.getElementById("modalEditorLineaDescripcion");
     const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
-    const editorLineaPorcentajeGanancia = document.getElementById("modalEditorLineaPorcentajeGanancia");
-    // const editorLineaGananciaProducto = document.getElementById("modalEditorLineaGananciaProducto");
+    const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
+    // const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
     // const editorLineaTipoStock = document.getElementById("modalEditorLineaTipoStock");
-    const editorLineaCantidadStock = document.getElementById("modalEditorLineaCantidadStock");
+    const editorLineaStock = document.getElementById("modalEditorLineaStock");
     // const editorLineaImagen = document.getElementById("modalEditorLineaImagen");
     const editorLineaID = document.getElementById("modalEditorLineaId");
 
     datosProducto = {
         id_producto: editorLineaID.value,
-        nombre: editorLineaNombreProducto.value,
-        descripcion: editorLineaDescripcionProducto.value,
+        nombre: editorLineaNombre.value,
+        descripcion: editorLineaDescripcion.value,
         precio_compra: editorLineaPrecioCompra.value,
-        rentabilidad: editorLineaPorcentajeGanancia.value,
-        // ganancia: editorLineaGananciaProducto.value,
+        rentabilidad: editorLineaRentabilidad.value,
+        // ganancia: editorLineaGanancia.value,
         // tipo_stock: editorLineaTipoStock.value,
-        stock: editorLineaCantidadStock.value,
+        stock: editorLineaStock.value,
         // imagen: editorLineaImagen.value,
     }
 

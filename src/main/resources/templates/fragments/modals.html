@@ -153,54 +153,52 @@
                 <div class="modal-body">
                     <div id="productoModalEditorLinea">
                         <div>
-                            <label for="nombreProducto">Nombre del Producto</label>
-                            <input type="text" id="modalEditorLineaNombreProducto" required>
+                            <label for="editorLineaNombre">Nombre del Producto</label>
+                            <input type="text" id="modalEditorLineaNombre" name="editorLineaNombre" required>
                         </div>
 
                         <div>
-                            <label for="descripcionProducto">Descripción del producto</label>
-                            <input type="text" id="modalEditorLineaDescripcionProducto" required>
+                            <label for="editorLineaDescripcion">Descripción del producto</label>
+                            <input type="text" id="modalEditorLineaDescripcion" name="editorLineaDescripcion" required>
                         </div>
 
                         <div>
                             <div>
-                                <label for="precioCompra">Precio de Compra</label>
-                                <input id="modalEditorLineaPrecioCompra" required>
+                                <label for="editorLineaPrecioCompra">Precio de Compra</label>
+                                <input id="modalEditorLineaPrecioCompra" name="editorLineaPrecioCompra" required>
                             </div>
     
                             <div>
-                                <label for="porcentajeGanancia">Porcentaje de Ganancia</label>
-                                <input id="modalEditorLineaPorcentajeGanancia" required>
+                                <label for="editorLineaRentabilidad">Rentabilidad (%)</label>
+                                <input id="modalEditorLineaRentabilidad" name="editorLineaRentabilidad" required>
                             </div>
     
                             <div>
-                                <label for="gananciaProducto">Ganancia</label>
-                                <input id="modalEditorLineaGananciaProducto" disabled required>
+                                <label for="editorLineaGanancia">Ganancia</label>
+                                <input id="modalEditorLineaGanancia" name="editorLineaGanancia" disabled required>
                                 <!-- readonly si planeo usar JS para dinámicamente mostrar este valor -->
                             </div>
                         </div>
 
                         <div>
                             <div>
-                                <label for="tipoStock">Tipo de Stock</label>
-                                <select id="modalEditorLineaTipoStock" disabled required>
+                                <label for="editorLineaTipoStock">Tipo de Stock</label>
+                                <select id="modalEditorLineaTipoStock" name="editorLineaTipoStock" disabled required>
                                     <option value="default">SELECCIONAR TIPO</option>
                                     <option value="peso">Peso</option>
-                                    <option value="longitud">Longitud</option>
-                                    <option value="volumen">Volumen</option>
-                                    <option value="superficie">Superficie</option>
+                                    <option value="unidad">Unidad</option>
                                 </select>
                             </div>
                             <div>
-                                <label for="cantidadStock">Cantidad de Stock</label>
-                                <input id="modalEditorLineaCantidadStock" required>
+                                <label for="editorLineaStock">Cantidad de Stock</label>
+                                <input id="modalEditorLineaStock" name="editorLineaStock" required>
                             </div>
                         </div>
 
                         <div>
-                            <label for="imagenProducto">Imagen del Producto</label>
+                            <label for="editorLineaImagen">Imagen del Producto</label>
                             <!-- <input type="file" id="modalEditorLineaImagenProducto"> -->
-                            <button disabled>SUBIR IMAGEN</button>
+                            <button name="editorLineaImagen" disabled>SUBIR IMAGEN</button>
                             <div>No se ha elegido ningún archivo</div>
                         </div>
 
