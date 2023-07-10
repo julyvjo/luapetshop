@@ -30,54 +30,52 @@
                 <div class="modal-body">
                     <div id="productoModalNuevoProducto">
                         <div>
-                            <label for="nombreProducto">Nombre del Producto</label>
-                            <input type="text" id="modalNuevoProductoNombreProducto" name="nombreProducto" placeholder="Dog Chow 15 Kg..." required>
+                            <label for="nuevoProductoNombre">Nombre del Producto</label>
+                            <input type="text" id="modalNuevoProductoNombre" name="nuevoProductoNombre" placeholder="Dog Chow 15 Kg..." required>
                         </div>
 
                         <div>
-                            <label for="descripcionProducto">Descripción del producto</label>
-                            <input type="text" id="modalNuevoProductoDescripcionProducto" name="descripcionProducto" placeholder="Comida para perro..." required>
+                            <label for="nuevoProductoDescripcion">Descripción del producto</label>
+                            <input type="text" id="modalNuevoProductoDescripcion" name="nuevoProductoDescripcion" placeholder="Comida para perro..." required>
                         </div>
 
                         <div>
                             <div>
-                                <label for="precioCompra">Precio de Compra</label>
-                                <input id="modalNuevoProductoPrecioCompra" name="precioCompra" value="0.00" required>
+                                <label for="nuevoProductoPrecioCompra">Precio de Compra</label>
+                                <input id="modalNuevoProductoPrecioCompra" name="nuevoProductoPrecioCompra" value="0.00" required>
                             </div>
     
                             <div>
-                                <label for="porcentajeGanancia">Porcentaje de Ganancia</label>
-                                <input id="modalNuevoProductoPorcentajeGanancia" name="porcentajeGanancia" value="0.00" required>
+                                <label for="nuevoProductoRentabilidad">Rentabilidad (%)</label>
+                                <input id="modalNuevoProductoRentabilidad" name="nuevoProductoRentabilidad" value="0.00" required>
                             </div>
     
                             <div>
-                                <label for="gananciaProducto">Ganancia</label>
-                                <input id="modalNuevoProductoGananciaProducto" name="gananciaProducto" value="0.00" disabled required>
+                                <label for="nuevoProductoGanancia">Ganancia</label>
+                                <input id="modalNuevoProductoGanancia" name="nuevoProductoGanancia" value="0.00" disabled required>
                                 <!-- readonly si planeo usar JS para dinámicamente mostrar este valor -->
                             </div>
                         </div>
 
                         <div>
                             <div>
-                                <label for="tipoStock">Tipo de Stock</label>
-                                <select id="modalNuevoProductoTipoStock" name="cantidadStock" disabled required>
+                                <label for="nuevoProductoTipoStock">Tipo de Stock</label>
+                                <select id="modalNuevoProductoTipoStock" name="nuevoProductoTipoStock" disabled required>
                                     <option value="default">SELECCIONAR TIPO</option>
                                     <option value="peso">Peso</option>
-                                    <option value="longitud">Longitud</option>
-                                    <option value="volumen">Volumen</option>
-                                    <option value="superficie">Superficie</option>
+                                    <option value="unidad">Unidad</option>
                                 </select>
                             </div>
                             <div>
-                                <label for="cantidadStock">Cantidad de Stock</label>
-                                <input id="modalNuevoProductoCantidadStock" name="cantidadStock" value="0" required>
+                                <label for="nuevoProductoStock">Cantidad de Stock</label>
+                                <input id="modalNuevoProductoStock" name="nuevoProductoStock" value="0" required>
                             </div>
                         </div>
 
                         <div>
-                            <label for="imagenProducto">Imagen del Producto</label>
-                            <!-- <input type="file" id="modalNuevoProductoImagenProducto" name="imagenProducto"> -->
-                            <button disabled>SUBIR IMAGEN</button>
+                            <label for="nuevoProductoImagen">Imagen del Producto</label>
+                            <!-- <input type="file" id="modalNuevoProductoImagen" name="nuevoProductoImagen"> -->
+                            <button id="modalNuevoProductoImagen" disabled>SUBIR IMAGEN</button>
                             <div>No se ha elegido ningún archivo</div>
                         </div>
 

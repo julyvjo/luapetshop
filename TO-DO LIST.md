@@ -13,11 +13,15 @@
 ##  PRODUCTO
 
 - [ ] PREGUNTAR EMMIK; La tabla producto debería mostrar el precio al que se vendería? Lo mismo para el formulario de agregar y modificar producto; debería mostrar precio venta?
+
 - [x] ~~PREGUNTAR; Implementar estética del buscador en VENTA?~~ **(no hace falta, al menos por ahora que quede asi)**
 - [x] ~~PREGUNTAR; Cómo debería levantar la foto desde el DB (usando thymeleaf para "pre-cargarlo"?)~~ **(el atributo de imagen trae la ruta a la img, asi que se usa un th:src=${atributo} (la sintaxis puede variar))**
 
 - [ ] NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; Ajustar validación para volver a valores default si por ejemplo los inputs quedaron vacíos.
-- [ ] NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; Agregar alguna forma de establecer ID del producto editado al enviar el formulario.
+
+- [ ] NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; IMPLEMENTAR IMAGEN DE CADA PRODUCTO.
+
+- [x] ~~NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; Agregar alguna forma de establecer ID del producto editado al enviar el formulario.~~
 - [x] ~~NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; Evitar cerrar el modal haciendo click fuera del formulario, incluso si se apreta ESCAPE~~
 
 - [ ] NUEVO PROUDCTO; Revisar si se va a implementar de esta forma; ajustar formato.

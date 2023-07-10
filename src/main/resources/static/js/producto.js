@@ -29,17 +29,17 @@ function validarNuevoProducto()
 {
     //  AÚN NO SE VALIDAR PARA EVITAR SQL INJECTION!
 
-    const nuevoProductoNombreProducto = document.getElementById("modalNuevoProductoNombreProducto");
+    const nuevoProductoNombre = document.getElementById("modalNuevoProductoNombre");
 
-    if (nuevoProductoNombreProducto.value === "")
+    if (nuevoProductoNombre.value === "")
     {
         console.log("ERROR: Completar nombre del producto!");
         return false;
     }
 
-    const nuevoProductoDescripcionProducto = document.getElementById("modalNuevoProductoDescripcionProducto");
+    const nuevoProductoDescripcion = document.getElementById("modalNuevoProductoDescripcion");
 
-    if (nuevoProductoDescripcionProducto.value === "")
+    if (nuevoProductoDescripcion.value === "")
     {
         console.log("ERROR: Completar descripción del producto!");
         return false;
@@ -54,29 +54,29 @@ function validarNuevoProducto()
         return false;
     }
 
-    const nuevoProductoPorcentajeGanancia = document.getElementById("modalNuevoProductoPorcentajeGanancia");
+    const nuevoProductoRentabilidad = document.getElementById("modalNuevoProductoRentabilidad");
 
-    if (parseFloat(nuevoProductoPorcentajeGanancia.value) < 0.01)
+    if (parseFloat(nuevoProductoRentabilidad.value) < 0.01)
     {
         //  Estoy asumiendo que nunca venderían un producto al costo!
         console.log("ERROR: Insertar porcentaje de ganancia válido!");
         return false;
     }
 
-    const nuevoProductoGananciaProducto = document.getElementById("modalNuevoProductoGananciaProducto");
+    // const nuevoProductoGanancia = document.getElementById("modalNuevoProductoGanancia");
 
-    if (parseFloat(nuevoProductoGananciaProducto.value) < 0.01)
-    {
-        //  Estoy asumiendo que nunca venderían un producto al costo!
-        console.log("ERROR: Insertar ganancia del producto válido!");
-        return false;
-    }
+    // if (parseFloat(nuevoProductoGanancia.value) < 0.01)
+    // {
+    //     //  Estoy asumiendo que nunca venderían un producto al costo!
+    //     console.log("ERROR: Insertar ganancia del producto válido!");
+    //     return false;
+    // }
 
     // TIPO DE STOCK NO IMPLEMENTADO AÚN
 
-    const nuevoProductoCantidadStock = document.getElementById("modalNuevoProductoCantidadStock");
+    const nuevoProductoStock = document.getElementById("modalNuevoProductoStock");
 
-    if (parseFloat(nuevoProductoCantidadStock.value) < 1)
+    if (parseFloat(nuevoProductoStock.value) < 1)
     {
         //  Estoy asumiendo que nunca agregarían un producto sin stock!
         console.log("ERROR: Insertar cantidad de stock válido!");
@@ -90,24 +90,24 @@ function validarNuevoProducto()
 
 function enviarNuevoProducto()
 {
-    const nuevoProductoNombreProducto = document.getElementById("modalNuevoProductoNombreProducto");
-    const nuevoProductoDescripcionProducto = document.getElementById("modalNuevoProductoDescripcionProducto");
+    const nuevoProductoNombre = document.getElementById("modalNuevoProductoNombre");
+    const nuevoProductoDescripcion = document.getElementById("modalNuevoProductoDescripcion");
     const nuevoProductoPrecioCompra = document.getElementById("modalNuevoProductoPrecioCompra");
-    const nuevoProductoPorcentajeGanancia = document.getElementById("modalNuevoProductoPorcentajeGanancia");
-    // const nuevoProductoGananciaProducto = document.getElementById("modalNuevoProductoGananciaProducto");
+    const nuevoProductoRentabilidad = document.getElementById("modalNuevoProductoRentabilidad");
+    // const nuevoProductoGanancia = document.getElementById("modalNuevoProductoGanancia");
     // const nuevoProductoTipoStock = document.getElementById("modalNuevoProductoTipoStock");
-    const nuevoProductoCantidadStock = document.getElementById("modalNuevoProductoCantidadStock");
+    const nuevoProductoStock = document.getElementById("modalNuevoProductoStock");
     // const nuevoProductoImagen = document.getElementById("modalNuevoProductoImagen");
 
     datosProducto = {
         id_producto: 0,
-        nombre: nuevoProductoNombreProducto.value,
-        descripcion: nuevoProductoDescripcionProducto.value,
+        nombre: nuevoProductoNombre.value,
+        descripcion: nuevoProductoDescripcion.value,
         precio_compra: nuevoProductoPrecioCompra.value,
-        rentabilidad: nuevoProductoPorcentajeGanancia.value,
-        // ganancia: nuevoProductoGananciaProducto.value,
+        rentabilidad: nuevoProductoRentabilidad.value,
+        // ganancia: nuevoProductoGanancia.value,
         // tipo_stock: nuevoProductoTipoStock.value,
-        stock: nuevoProductoCantidadStock.value,
+        stock: nuevoProductoStock.value,
         // imagen: nuevoProductoImagen.value,
     }
 
