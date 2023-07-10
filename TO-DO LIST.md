@@ -34,6 +34,8 @@
 - [x] ~~PREGUNTAR; El objeto carritoVenta, cómo debería indicar que NO se usó un método de pago complementario?~~ **(aun no tengo resuelto lo de los metodos de pago complementarios la verdad, asi que en estos dias lo deberiamos resolver)**
 - [x] ~~PREGUNTAR; En el carrito de venta, el scrollbar debería ser solamente para < tbody > para dejar siempre a la vista el header?~~ **(No se si entiendo del todo la pregunta pero si es algo puramente visual dejalo de la forma mas sencilla para vos o la que te haga mas sentido, np)**
 
+- [ ] CHEQUEAR; Asegurarme que el JSON para el endpoint tenga realmente las unidades correctas...
+
 - [ ] CSS GENERAL; Estaría bueno si todos los valroes tuviesen unidades ($ por ejemplo, ideal considerar también los de cantidad)
 - [ ] CSS GENERAL; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y reducir el ancho de esas columnas que solamente van a mostrar un número o incluso un valor fijo.
 - [ ] BUSCADOR; Considerar mostrar un TOAST indicando errores (input repetido, búsqueda vacía, sin resultados, etc).
