@@ -613,7 +613,8 @@ function carritoEliminarFila(id_producto)
             if (listadoCarrito.length === 2)    //  Este valor no se actualiza luego de borrar,   
                 carritoInsertarPlaceholder();   //  ergo indica que el carrito está vacío
 
-            actualizarMetodoPagoYTotal();
+            //  Lo dejo comentado en lugar de elimnar porque no se qué función cumplía invocar esta función desde acá.
+            // actualizarMetodoPagoYTotal();
 
             return;
         }
@@ -647,7 +648,6 @@ metodoPago.addEventListener("change", () =>
     const optionParaBloquear = buscarOpcionMetodoPago("containerMetodoPagoComplementario", metodoPago.value);
     optionParaBloquear.disabled = true;
 
-
     metodoPago.setAttribute("data-valor-previo", metodoPago.value);
 
     actualizarMetodoPagoYTotal("aparte");
@@ -665,6 +665,7 @@ montoMetodoPago.addEventListener("change", () =>
     }
 
     montoMetodoPago.value = montoMetodoPago.value.replace(/,/g, ".");
+    montoMetodoPago.value = parseFloat(montoMetodoPago.value).toFixed(2);
     
     actualizarMetodoPagoYTotal("metodoPago");
 });
@@ -721,6 +722,7 @@ montoMetodoPagoComplementario.addEventListener("change", () =>
     }
 
     montoMetodoPagoComplementario.value = montoMetodoPagoComplementario.value.replace(/,/g, ".");
+    montoMetodoPagoComplementario.value = parseFloat(montoMetodoPagoComplementario.value).toFixed(2);
 
     actualizarMetodoPagoYTotal("metodoPagoComplementario");
 });
@@ -775,7 +777,7 @@ function actualizarMetodoPagoYTotal()
     if (!arguments[0])
     {
         console.log("ERROR: Expected 1 argument to handle multiple metodo de pago. Asuming default case.");
-        montoMetodoPago.value = parseFloat(totalVenta.textContent);
+        montoMetodoPago.value = parseFloat(totalVenta.textContent).toFixed(2);
         montoMetodoPagoComplementario.value = "0.00";
         return;
     }
@@ -790,7 +792,7 @@ function actualizarMetodoPagoYTotal()
         {
             console.log("ERROR: Values for both metodos de pago no longer valid. Resetting to default case.");
     
-            montoMetodoPago.value = parseFloat(totalVenta.textContent);
+            montoMetodoPago.value = parseFloat(totalVenta.textContent).toFixed(2);
             montoMetodoPagoComplementario.value = "0.00";
             return;
         }
@@ -805,7 +807,7 @@ function actualizarMetodoPagoYTotal()
         {
             console.log("ERROR: Values for both metodos de pago no longer valid. Resetting to default case.");
     
-            montoMetodoPago.value = parseFloat(totalVenta.textContent);
+            montoMetodoPago.value = parseFloat(totalVenta.textContent).toFixed(2);
             montoMetodoPagoComplementario.value = "0.00";
             return;
         }
@@ -815,7 +817,7 @@ function actualizarMetodoPagoYTotal()
     else
     {
         console.log("ERROR: Argument not recognized. Asuming default case.");
-        montoMetodoPago.value = parseFloat(totalVenta.textContent);
+        montoMetodoPago.value = parseFloat(totalVenta.textContent).toFixed(2);
         montoMetodoPagoComplementario.value = "0.00";
         return;
     }
