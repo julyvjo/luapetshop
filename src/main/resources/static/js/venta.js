@@ -947,12 +947,16 @@ function cargarCarritoVenta()
 {
     //  METODOS DE PAGO
 
-    carritoVenta.id_medio_pago = metodoPago.value;
+    /*
+        id_medio_pago es asignado buscando directamente el valor de un atributo arbitrario DE LA OPCIÓN SELECCIONADA. Gracias a esto evito agregar atributos al <select> y complicar más aún la validación, ya que solamente se hace esto cuando ya se va a cargar al endpoint (o sea, todo debería estar validado previamente)
+    */
+
+    carritoVenta.id_medio_pago = parseInt( metodoPago.selectedOptions[0].getAttribute("data-id-metodo-pago") );
     carritoVenta.monto_medio_pago = parseFloat( parseFloat(montoMetodoPago.value).toFixed(2) );
 
-    carritoVenta.id_medio_pago_2 = metodoPagoComplementario.value;
+    carritoVenta.id_medio_pago_2 = parseInt( metodoPagoComplementario.selectedOptions[0].getAttribute("data-id-metodo-pago") );
 
-    if ( metodoPagoComplementario != "default" )
+    if ( metodoPagoComplementario.value != "default" )
         carritoVenta.monto_medio_pago_2 = parseFloat( parseFloat(montoMetodoPagoComplementario.value).toFixed(2) );
 
     //  TOTAL
