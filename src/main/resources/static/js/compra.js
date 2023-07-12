@@ -1,7 +1,7 @@
 const proveedor = document.getElementById("formCompraProveedor");
 
-const containerMontoAbonado = document.getElementById("formCompraPaymentAmmount");
-const montoAbonado = containerMontoAbonado.querySelector("input");
+const containerMonto = document.getElementById("formCompraPaymentAmmount");
+const monto = containerMonto.querySelector("input");
 
 const containerMetodoDePago = document.getElementById("formCompraPaymentMethod");
 const metodoDePago = containerMetodoDePago.querySelector("select");
@@ -16,33 +16,17 @@ let compra = {};    //  Este objeto es el que se envía al finalizar la Compra.
 
 
 
-montoAbonado.addEventListener("change", (e) =>
+monto.addEventListener("change", (e) =>
 {
-    if ( validarInputMonto(montoAbonado.value) === false )
+    if ( validarInputMonto(monto.value) === false )
     {
         window.alert("ERROR: El monto abonado es inválido!\n\nSe va a reiniciar el valor a 0.");
-        montoAbonado.value = "0.00";
+        monto.value = "0.00";
         return;
     }
 
-    montoAbonado.value = parseFloat(montoAbonado.value).toFixed(2);
-});
-
-montoAbonado.addEventListener("keydown", (e) =>
-{
-    if (e.key === "ArrowUp" || e.key === "ArrowRight")
-    {
-        e.preventDefault();
-
-        montoAbonado.value = (parseFloat(montoAbonado.value) + 0.01).toFixed(2);
-    }
-    else if (e.key === "ArrowDown" || e.key === "ArrowLeft")
-    {
-        e.preventDefault();
-
-        if (parseInt(montoAbonado.value) - 1 > 0)
-            montoAbonado.value = (parseFloat(montoAbonado.value) - 0.01).toFixed(2);
-    }
+    monto.value = monto.value.replace(/,/g, ".");
+    monto.value = parseFloat(monto.value).toFixed(2);
 });
 
 function validarInputMonto(string)
@@ -81,7 +65,7 @@ function iniciarCompra(compra)
         
         "id_medio_pago": 0,
 
-        "total": 0.00,
+        "monto": 0.00,
     }
 
     return compra;
@@ -93,7 +77,7 @@ function cargarCompra()
 
     compra.id_medio_pago = parseInt( metodoDePago.selectedOptions[0].getAttribute("data-id-metodo-pago") );
 
-    compra.total = parseFloat(montoAbonado.value).toFixed(2);
+    compra.monto = parseFloat( parseFloat(monto.value).toFixed(2) );
 }
 
 function finalizarCompra()
@@ -106,9 +90,9 @@ function finalizarCompra()
     }
 
     //  VALIDAR MONTO ABONADO
-    if (montoAbonado.value === 0)
+    if (parseFloat( monto.value ) === 0.00 )
     {
-        window.alert("ERROR: Tiene que haber un proveedor seleccionado!");
+        window.alert("ERROR: Tiene que haber un monto válido!");
         return;
     }
 
@@ -138,7 +122,7 @@ function finalizarCompra()
         compra = iniciarCompra(compra);
         proveedor.value = "default";
         metodoDePago.value = "default";
-        montoAbonado.value = "0.00";
+        monto.value = "0.00";
         
         //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
         //  location.reload();
