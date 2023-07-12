@@ -79,7 +79,7 @@ function iniciarCompra(compra)
     compra = {
         "id_proveedor": "default",
         
-        "id_medio_pago": "default",
+        "id_medio_pago": 0,
 
         "total": 0.00,
     }
@@ -91,7 +91,7 @@ function cargarCompra()
 {
     compra.id_proveedor = proveedor.value;
 
-    compra.id_medio_pago = metodoDePago.value;
+    compra.id_medio_pago = parseInt( metodoDePago.selectedOptions[0].getAttribute("data-id-metodo-pago") );
 
     compra.total = parseFloat(montoAbonado.value).toFixed(2);
 }
@@ -113,7 +113,7 @@ function finalizarCompra()
     }
 
     //  VALIDAR METODO DE PAGO
-    if (metodoDePago.value === "default")
+    if (parseInt( metodoDePago.selectedOptions[0].getAttribute("data-id-metodo-pago") ) === 0)
     {
         window.alert("ERROR: Tiene que haber un método de pago seleccionado!");
         return;
