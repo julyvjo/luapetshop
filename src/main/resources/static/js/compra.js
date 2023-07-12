@@ -61,11 +61,11 @@ compra = iniciarCompra(compra);
 function iniciarCompra(compra)
 {
     compra = {
-        "id_proveedor": "default",
+        "id_proveedor": 0,  //  INT
         
-        "id_medio_pago": 0,
+        "id_medio_pago": 0, //  INT
 
-        "monto": 0.00,
+        "monto": 0.00,      //  FLOAT
     }
 
     return compra;
@@ -73,7 +73,7 @@ function iniciarCompra(compra)
 
 function cargarCompra()
 {
-    compra.id_proveedor = proveedor.value;
+    compra.id_proveedor = parseInt(proveedor.value);
 
     compra.id_medio_pago = parseInt( metodoDePago.selectedOptions[0].getAttribute("data-id-metodo-pago") );
 
@@ -83,7 +83,7 @@ function cargarCompra()
 function finalizarCompra()
 {
     //  VALIDAR PROVEEDOR
-    if (proveedor.value === "default")
+    if (parseInt(proveedor.value) === 0)
     {
         window.alert("ERROR: Tiene que haber un proveedor seleccionado!");
         return;
@@ -120,7 +120,7 @@ function finalizarCompra()
 
         //  REINICIAR TODO
         compra = iniciarCompra(compra);
-        proveedor.value = "default";
+        proveedor.value = 0;
         metodoDePago.value = "default";
         monto.value = "0.00";
         
