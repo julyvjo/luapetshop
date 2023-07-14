@@ -6,7 +6,8 @@ if (historialVenta)
 {
     historialVenta.addEventListener("click", (e) =>
     {
-        mostrarModal("historialVenta");
+        // mostrarModal("historialVenta");  // AÚN NO IMPLEMENTADO!
+        mostrarModal("modalGeneral");       // POR ESO LLAMO AL MODAL DEFAULT.
     });
 
     // I implemented it like this because script.js has "defer" attribute.

@@ -1,4 +1,4 @@
-#botonEditorGeneral
+#botonHistorialVenta
 {
     margin: 0;
     padding: 1vh 1vw;
@@ -74,16 +74,6 @@
 
     outline: none;
 }
-
-/* #appVentaContainer > :first-child > :first-child > :first-child > :last-child */
-/* #buscadorButton */
-/* {
-    margin: 0 0 0 1vw;
-    padding: 0 1vw;
-    background-color: transparent;
-    border: 0.1vw solid var(--secondary);
-    border-radius: 1vw;
-} */
 
 #appVentaContainer > :first-child > :first-child > :last-child
 /* RESULTADOS BUSCADOR */
