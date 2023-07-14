@@ -2,10 +2,15 @@ package com.luapetshop.luapetshop.compra;
 
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.luapetshop.luapetshop.model.MedioPago;
@@ -39,4 +44,21 @@ public class CompraController {
 		
 		return "compra";
 	}
+	
+	@PostMapping("/new/compra")
+    public ResponseEntity<String> procesarDatos(@RequestBody Map<String, Object> datos) {
+        
+		System.out.println(datos.toString());
+		
+		
+		try {
+			
+			compraService.createNewCompra(datos);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(datos.toString());
+        //return ResponseEntity.status(HttpStatus.CREATED).body("Compra guardada");
+    }
 }

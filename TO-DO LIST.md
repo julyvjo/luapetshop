@@ -94,3 +94,15 @@
 
 - [ ] Setear comentarios separadores de bloques de reglas CSS para navegarlo más fácilmente ( https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Organizing )
 - [ ] Troubleshooting de cómo en algunos navegadores se rompen las dimensiones (e.g. thinkpad)
+
+## DATABASE
+
+- [ ] Rework de estructura de la base de datos
+
+*   Eliminar producto_proveedor
+*   Asociar proveedores a productos (Rel. 1 a 1)
+
+## PDF2CSV
+
+- [ ] Consultar a proveedores si se puede conseguir un formato distinto al pdf normal, el disenyo hace dificil parsear los precios y nombres de los productos
+- [ ] Review con emmik sobre posibilidad de hacer un parsing manual o semi-automatico en caso de no conseguir csv de proveedores
