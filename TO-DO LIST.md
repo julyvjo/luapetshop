@@ -42,9 +42,9 @@
 
 ##  VENTA
 
-- [ ] **PREGUNTAR; (endpoint) El objeto carritoVenta, cómo debería indicar que NO se usó un método de pago complementario?**
+- [x] ~~PREGUNTAR; (endpoint) El objeto carritoVenta, cómo debería indicar que NO se usó un método de pago complementario?~~ **Se usaría el valor id_medio_pago "0"**
 
-- [ ] ENDPOINT; Asegurarme que el JSON para el endpoint tenga realmente las unidades correctas
+- [x] ~~ENDPOINT; Asegurarme que el JSON para el endpoint tenga realmente las unidades correctas~~
 - [ ] HISTORIAL; Implementar *una vez que CAJA esté completo* (ya que debería almacenar todas las ventas de ese mismo día)
 - [ ] CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.
 
