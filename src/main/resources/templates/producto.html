@@ -22,7 +22,6 @@
         <!-- TABLA -->
         <div class="container">
             <div class="row">
-                <div class="tableMargin"></div>
                 <div class="tableContainer">
                     <table class="table">
                         <thead class="table-borderless">
@@ -40,45 +39,44 @@
                         </thead>
                         <tbody id="table" class="table-borderless" style="border-top: none !important;">
                             <tr th:each="item :${productos}" th:id="${item.id_producto}">
-                                <td><h5 class="py-2"><button class="botonFoto">&#128247;</button></h5></td>
-                                <td><h5 class="py-2" th:text="${item.nombre}"></h5></td>
-                                <!-- <td><h5 class="py-2" th:text="${item.descripcion}"></h5></td> -->
-                                <td><h5 class="py-2" th:text="${item.stock}"></h5></td>
-                                <td><h5 class="py-2" th:text="${item.precio_compra}"></h5></td>
-                                <td><h5 class="py-2" th:text="${item.rentabilidad}"></h5></td>
-                                <td><h5 class="py-2" th:text="${item.ganancia}"></h5></td>
-                                <td><h5 class="py-2" >$ V</h5></td>
-                                <td><h5 class="py-2"><button class="botonEditar">&#9998;</button></h5></td>
+                                <td><h5 class=""><button class="botonFoto">&#128247;</button></h5></td>
+                                <td><h5 class="" th:text="${item.nombre}"></h5></td>
+                                <!-- <td><h5 class="" th:text="${item.descripcion}"></h5></td> -->
+                                <td><h5 class="" th:text="${item.stock}"></h5></td>
+                                <td><h5 class="" th:text="${item.precio_compra}"></h5></td>
+                                <td><h5 class="" th:text="${item.rentabilidad}"></h5></td>
+                                <td><h5 class="" th:text="${item.ganancia}"></h5></td>
+                                <td><h5 class="" >$ V</h5></td>
+                                <td><h5 class=""><button class="botonEditar">&#9998;</button></h5></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="tableMargin"></div>
             </div>
         </div>
     </div>
 
     
-        <!--Pagination-->
+    <!--Pagination-->
 
-        <nav id="pageNavigation" aria-label="Page navigation">
-            <ul class="pagination justify-content-center">  
-                <li class="page-item" th:classappend="${prev == 0? 'disabled':''}">
-                    <!--a class="page-link" th:href="@{/producto(page=${prev})}">Anterior</a-->
-                    <a class="fixed page-link" th:href="@{/producto(page=${prev}, nombre=${nombre})}">Anterior</a>
-                </li>
-                
-                <li class="page-item" th:each="page : ${pages}" th:classappend="${current == page? 'actual':''}">
-                    <a class="page-link" th:href="@{/producto(page=${page}, nombre=${nombre})}" th:text="${page}"></a>
-                </li>
-                
-                <li class="page-item" th:classappend="${current == last? 'disabled':''}">
-                    <a class="fixed page-link" th:href="@{/producto(page=${next}, nombre=${nombre})}">Siguiente</a>
-                </li>
-            </ul>
-        </nav>
+    <nav id="pageNavigation" aria-label="Page navigation">
+        <ul class="pagination justify-content-center">  
+            <li class="page-item" th:classappend="${prev == 0? 'disabled':''}">
+                <!--a class="page-link" th:href="@{/producto(page=${prev})}">Anterior</a-->
+                <a class="fixed page-link" th:href="@{/producto(page=${prev}, nombre=${nombre})}">Anterior</a>
+            </li>
+            
+            <li class="page-item" th:each="page : ${pages}" th:classappend="${current == page? 'actual':''}">
+                <a class="page-link" th:href="@{/producto(page=${page}, nombre=${nombre})}" th:text="${page}"></a>
+            </li>
+            
+            <li class="page-item" th:classappend="${current == last? 'disabled':''}">
+                <a class="fixed page-link" th:href="@{/producto(page=${next}, nombre=${nombre})}">Siguiente</a>
+            </li>
+        </ul>
+    </nav>
 
-    <footer th:replace="~{fragments/general.html :: footer}"></footer>
+    <!-- <footer th:replace="~{fragments/general.html :: footer}"></footer> -->
 
     <!-- MODAL NUEVO PRODUCTO -->
     <div th:replace="~{fragments/modals.html :: modalNuevoProducto}"></div>

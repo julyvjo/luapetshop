@@ -4,6 +4,8 @@
 
 - [ ] **PREGUNTAR; Chequear si es correcto implementar los JS de la forma que hice esto (no se si es necesario usar "import" o algo así en los otros archivos para que usen las funciones que defina acá)**
 
+- [ ] HEADER; Minimizar márgenes inferior y superior para maximizar espacio de trabajo
+- [ ] FOOTER; Reemplazar por PageNavigation en las páginas donde aparezca para maximizar espacio de trabajo
 - [ ] MEDIOS DE PAGO; IMPLEMENTAR COMISIONES de cada método (Falta que Emmik nos pase esa info también)
 - [ ] CSS TABLAS; El scrollbar vertical solamente debería afectar a `<tbody>`
 - [ ] CSS TABLAS; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y reducir el ancho de esas columnas que solamente van a mostrar un número o incluso un valor fijo.
@@ -18,6 +20,7 @@
 
 - [ ] **PREGUNTAR EMMIK; (metadata producto) Necesito que cada producto tenga un valor que determine COMO INTERPRETAR SU STOCK (Peso, Volumen, Paquetes, etc.) => para poder validar input de CANTIDAD en VENTA**
 
+- [ ] EDITAR LINEA INDIVIDUAL; Ajustar pre-carga a nuevo orden de columnas;
 - [ ] RENOMBRAR y REORDENAR columnas (ver listado en Notion)
 - [ ] OCULTAR columna DESCRIPCION (Emmik no tiene planeado usarlo, pero es metadata útil)
 - [ ] AGREGAR columna PRECIO VENTA (técnicamente se puede calcular)
@@ -46,6 +49,7 @@
 
 - [x] ~~ENDPOINT; Asegurarme que el JSON para el endpoint tenga realmente las unidades correctas~~
 - [ ] HISTORIAL; Implementar *una vez que CAJA esté completo* (ya que debería almacenar todas las ventas de ese mismo día)
+- [ ] HISTORIAL; Ajustar JS para que vuelva a agregar el eventListener. (#botonEditorGeneral)
 - [ ] CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.
 
 * CSS GENERAL; Estaría bueno si todos los valroes tuviesen unidades ($ por ejemplo, ideal considerar también los de cantidad)
@@ -95,12 +99,16 @@
 - [ ] Setear comentarios separadores de bloques de reglas CSS para navegarlo más fácilmente ( https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Organizing )
 - [ ] Troubleshooting de cómo en algunos navegadores se rompen las dimensiones (e.g. thinkpad)
 
+---
+
 ## DATABASE
 
 - [ ] Rework de estructura de la base de datos
 
 *   Eliminar producto_proveedor
 *   Asociar proveedores a productos (Rel. 1 a 1)
+
+---
 
 ## PDF2CSV
 
