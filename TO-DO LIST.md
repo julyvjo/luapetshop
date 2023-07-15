@@ -2,13 +2,15 @@
 
 ##  GENERAL
 
+- [ ] **PREGUNTAR; Para PRODUCTO es necesario agregar la columna PROVEEDOR ???**
 - [ ] **PREGUNTAR; Chequear si es correcto implementar los JS de la forma que hice esto (no se si es necesario usar "import" o algo así en los otros archivos para que usen las funciones que defina acá)**
 
-- [ ] HEADER; Minimizar márgenes inferior y superior para maximizar espacio de trabajo
-- [ ] FOOTER; Reemplazar por PageNavigation en las páginas donde aparezca para maximizar espacio de trabajo
 - [ ] MEDIOS DE PAGO; IMPLEMENTAR COMISIONES de cada método (Falta que Emmik nos pase esa info también)
 - [ ] CSS TABLAS; El scrollbar vertical solamente debería afectar a `<tbody>`
 - [ ] CSS TABLAS; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y reducir el ancho de esas columnas que solamente van a mostrar un número o incluso un valor fijo.
+
+- [x] ~~HEADER; Minimizar márgenes inferior y superior para maximizar espacio de trabajo~~
+- [x] ~~FOOTER; Reemplazar por PageNavigation en las páginas donde aparezca para maximizar espacio de trabajo~~
 
 * CSS; Evitar scroll horizontal lo máximo posible.
 * CSS; Considerar usar sombras para mejorar el formato.
@@ -21,15 +23,16 @@
 - [ ] **PREGUNTAR EMMIK; (metadata producto) Necesito que cada producto tenga un valor que determine COMO INTERPRETAR SU STOCK (Peso, Volumen, Paquetes, etc.) => para poder validar input de CANTIDAD en VENTA**
 
 - [ ] EDITAR LINEA INDIVIDUAL; Ajustar pre-carga a nuevo orden de columnas;
-- [ ] RENOMBRAR y REORDENAR columnas (ver listado en Notion)
-- [ ] OCULTAR columna DESCRIPCION (Emmik no tiene planeado usarlo, pero es metadata útil)
-- [ ] AGREGAR columna PRECIO VENTA (técnicamente se puede calcular)
 - [ ] AGREGAR columna PROVEEDOR (un mismo producto puede diferir solamente en esto)
 - [ ] IMPLEMENTAR rutas a la imagen del producto (th:src=${atributo})
 - [ ] CAMBIAR tipo de stock por CATEGORIA
 
 - [ ] NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; Ajustar validación para volver a valores default si por ejemplo los inputs quedaron vacíos.
 - [ ] NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; IMPLEMENTAR IMAGEN DE CADA PRODUCTO.
+
+- [x] ~~RENOMBRAR y REORDENAR columnas (ver listado en Notion)~~
+- [x] ~~OCULTAR columna DESCRIPCION (Emmik no tiene planeado usarlo, pero es metadata útil)~~
+- [x] ~~AGREGAR columna PRECIO VENTA (técnicamente se puede calcular)~~
 
 * NOTA NOMBRES DE LAS COLUMNAS:
     -   (Foto)
@@ -49,7 +52,6 @@
 
 - [x] ~~ENDPOINT; Asegurarme que el JSON para el endpoint tenga realmente las unidades correctas~~
 - [ ] HISTORIAL; Implementar *una vez que CAJA esté completo* (ya que debería almacenar todas las ventas de ese mismo día)
-- [ ] HISTORIAL; Ajustar JS para que vuelva a agregar el eventListener. (#botonEditorGeneral)
 - [ ] CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.
 
 * CSS GENERAL; Estaría bueno si todos los valroes tuviesen unidades ($ por ejemplo, ideal considerar también los de cantidad)
