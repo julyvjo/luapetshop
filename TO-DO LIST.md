@@ -5,6 +5,9 @@
 - [ ] **PREGUNTAR; Para PRODUCTO es necesario agregar la columna PROVEEDOR ???**
 - [ ] **PREGUNTAR; Chequear si es correcto implementar los JS de la forma que hice esto (no se si es necesario usar "import" o algo así en los otros archivos para que usen las funciones que defina acá)**
 
+- [ ] EMMIK; Analizar propuesta de implementar códigos de barras
+- [ ] EMMIK; Analizar propuesta de permitir setear total de venta arbitrario (e.g. para redondear)
+
 - [ ] MEDIOS DE PAGO; IMPLEMENTAR COMISIONES de cada método (Falta que Emmik nos pase esa info también)
 - [ ] CSS TABLAS; El scrollbar vertical solamente debería afectar a `<tbody>`
 - [ ] CSS TABLAS; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y reducir el ancho de esas columnas que solamente van a mostrar un número o incluso un valor fijo.
@@ -48,13 +51,12 @@
 
 ##  VENTA
 
-- [x] ~~PREGUNTAR; (endpoint) El objeto carritoVenta, cómo debería indicar que NO se usó un método de pago complementario?~~ **Se usaría el valor id_medio_pago "0"**
+- [ ] **PREGUNTAR; ¿Cómo deberíamos chequear que una venta no afecta más stock del que supuestamente existe?**
 
-- [x] ~~ENDPOINT; Asegurarme que el JSON para el endpoint tenga realmente las unidades correctas~~
 - [ ] HISTORIAL; Implementar *una vez que CAJA esté completo* (ya que debería almacenar todas las ventas de ese mismo día)
 - [ ] CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.
 
-* CSS GENERAL; Estaría bueno si todos los valroes tuviesen unidades ($ por ejemplo, ideal considerar también los de cantidad)
+* CSS GENERAL; Estaría bueno si todos los valores tuviesen unidades ($ por ejemplo, ideal considerar también los de cantidad)
 * BUSCADOR; Considerar mostrar un TOAST indicando errores (input repetido, búsqueda vacía, sin resultados, etc)
 * CARRITO; Estaría bueno si CANTIDAD tuviese 2 botones para aumentar/disminuir con clicks (deshabilitando los propios del `<input>`)
 

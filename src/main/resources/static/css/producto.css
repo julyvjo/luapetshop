@@ -253,7 +253,12 @@
     width: 6vw;
 }
 
-#table > tr > td:nth-child(2)
+#table > tr > td:nth-child(2)   /* NOMBRE */
 {
-    width: auto;
+    width: 53.3vw;
+}
+
+#table > tr > td:nth-child(3)   /* STOCK */
+{
+    width: 6.5vw;
 }

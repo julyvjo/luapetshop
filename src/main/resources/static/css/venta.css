@@ -1,22 +1,3 @@
-/* ANCHO TOTAL DISPONIBLE: 95.8vw */
-
-#table > tr > td
-{
-    width: 6vw;
-}
-
-#table > tr > td:nth-child(4) > input
-{
-    width: 6vw;
-}
-
-#table > tr > td:nth-child(2)   /* PRODUCTO SELECCIONADO */
-{
-    width: auto;
-}
-
-
-
 /* //////////////////// */
 /* /// || APP VENTA /// */
 /* //////////////////// */
@@ -112,7 +93,8 @@
 /* CARRITO COMPRA */
 {
     margin: 0;
-    padding: 1vh 1vw;
+    padding: 0 1vw;
+    /* padding: 1vh 1vw; */
     /* background-color: var(--alternative); */
 }
 
@@ -235,6 +217,40 @@ input.py-2
 
 
 
+/* //////////////////// */
+/* /// || APP TABLE /// */
+/* //////////////////// */
+
+/* ANCHO TOTAL DISPONIBLE: 95.8vw */
+
+#table > tr > td
+{
+    width: 12vw;
+}
+
+#table > tr > td:first-child
+{
+    width: 6vw;
+}
+
+#table > tr > td:nth-child(2)   /* NOMBRE */
+{
+    width: 53.3vw;  /* Idéntico al ancho de nombre en tabla PRODUCTO */
+}
+
+#table > tr > td:nth-child(4)   /* CANTIDAD */
+{
+    width: 12.5vw;
+}
+
+#table > tr > td:nth-child(4) > input
+{
+    width: 5vw;
+}
+/* *********************************************** */
+
+
+
 /* ///////////// */
 /* /// MODAL /// */
 /* ///////////// */
@@ -251,3 +267,4 @@ input.py-2
     background-color: var(--alternative);
     color: var(--primary);
 }
+/* *********************************************** */

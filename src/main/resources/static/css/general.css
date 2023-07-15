@@ -236,6 +236,12 @@ header
     padding: 0;
 }
 
+.py-2
+{
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+}
+
 
 
 /* /////////////////////// */
