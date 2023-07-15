@@ -1,14 +1,19 @@
 /* ANCHO TOTAL DISPONIBLE: 95.8vw */
 
-/* #table > tr > td
+#table > tr > td
 {
-    width: 19vw;
-} */
+    width: 6vw;
+}
 
-/* #table > tr > td:nth-child(2)
+#table > tr > td:nth-child(4) > input
+{
+    width: 6vw;
+}
+
+#table > tr > td:nth-child(2)   /* PRODUCTO SELECCIONADO */
 {
     width: auto;
-} */
+}
 
 
 
