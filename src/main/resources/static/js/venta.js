@@ -924,11 +924,11 @@ carritoVenta = iniciarCarritoVenta(carritoVenta);
 function iniciarCarritoVenta(carritoVenta)
 {
     carritoVenta = {
-        "id_medio_pago": "default",
-        "monto_medio_pago": 0.00,
+        "id_medio_pago1": "default",
+        "parcial1": 0.00,
 
-        "id_medio_pago_2": "default",
-        "monto_medio_pago_2": 0.00,
+        "id_medio_pago2": "default",    //  0 si no se usa
+        "parcial2": 0.00,
 
         "total": 0.00,
 
@@ -937,7 +937,7 @@ function iniciarCarritoVenta(carritoVenta)
         // {
         //     "id_producto": 1,
         //     "cantidad": 3,
-        //     "precio": 1000.0
+        //     "precio_venta": 1000.0
         // }
     }
 
@@ -952,13 +952,13 @@ function cargarCarritoVenta()
         id_medio_pago es asignado buscando directamente el valor de un atributo arbitrario DE LA OPCIÓN SELECCIONADA. Gracias a esto evito agregar atributos al <select> y complicar más aún la validación, ya que solamente se hace esto cuando ya se va a cargar al endpoint (o sea, todo debería estar validado previamente)
     */
 
-    carritoVenta.id_medio_pago = parseInt( metodoPago.selectedOptions[0].getAttribute("data-id-metodo-pago") );
-    carritoVenta.monto_medio_pago = parseFloat( parseFloat(montoMetodoPago.value).toFixed(2) );
+    carritoVenta.id_medio_pago1 = parseInt( metodoPago.selectedOptions[0].getAttribute("data-id-metodo-pago") );
+    carritoVenta.parcial1 = parseFloat( parseFloat(montoMetodoPago.value).toFixed(2) );
 
-    carritoVenta.id_medio_pago_2 = parseInt( metodoPagoComplementario.selectedOptions[0].getAttribute("data-id-metodo-pago") );
+    carritoVenta.id_medio_pago2 = parseInt( metodoPagoComplementario.selectedOptions[0].getAttribute("data-id-metodo-pago") );
 
     if ( metodoPagoComplementario.value != "default" )
-        carritoVenta.monto_medio_pago_2 = parseFloat( parseFloat(montoMetodoPagoComplementario.value).toFixed(2) );
+        carritoVenta.parcial2 = parseFloat( parseFloat(montoMetodoPagoComplementario.value).toFixed(2) );
 
     //  TOTAL
 
@@ -971,19 +971,19 @@ function cargarCarritoVenta()
 
     let dataIdProducto = 0;
     let cantidad = 0;
-    let precio = 0;
+    let precio_venta = 0;
 
     //  index = 1 Para saltear el tr de <thead>
     for (let index = 1; index < listadoCarrito.length; index++)
     {
         dataIdProducto = parseInt( listadoCarrito[index].getAttribute("data-id-producto") );
         cantidad = parseInt( document.getElementById(`cantidadInput${dataIdProducto}`).value );
-        precio = parseFloat( document.getElementById(`subtotal${dataIdProducto}`).textContent );
+        precio_venta = parseFloat( document.getElementById(`subtotal${dataIdProducto}`).textContent );
 
         carritoVenta.lineas_venta.push({
             "id_producto": dataIdProducto,
             "cantidad": cantidad,
-            "precio": precio
+            "precio_venta": precio_venta
         })
     }
 }
