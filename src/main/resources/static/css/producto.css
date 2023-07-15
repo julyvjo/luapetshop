@@ -243,6 +243,7 @@
 .container
 {
     height: 73vh;
+    overflow-y: auto;
 }
 
 /* ANCHO TOTAL DISPONIBLE: 95.8vw */

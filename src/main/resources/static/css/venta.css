@@ -1,15 +1,3 @@
-#botonHistorialVenta
-{
-    margin: 0;
-    padding: 1vh 1vw;
-    border-radius: 1vw;
-    border: 0;
-    background-color: var(--accent);
-    color: var(--primary);
-}
-
-
-
 /* //////////////////// */
 /* /// || APP VENTA /// */
 /* //////////////////// */
@@ -89,6 +77,16 @@
     top: 7vh;
     position: absolute;
     display: none;
+}
+
+#botonHistorialVenta
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    border-radius: 1vw;
+    border: 0;
+    background-color: var(--accent);
+    color: var(--primary);
 }
 
 #appVentaContainer > :nth-child(2)

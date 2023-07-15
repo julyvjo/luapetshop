@@ -187,6 +187,11 @@ header
     border-radius: 0 1vw 0 0;
 }
 
+.table-header-text-mini
+{
+    margin: 0;
+}
+
 #table > :nth-child(odd) /* #table should be the <tbody> element of a table */
 {
     background-color: var(--primary);
