@@ -6,7 +6,7 @@
 {
     margin: 0;
     padding: 1vh 1vw;
-    /* height: 20vh; */
+    height: 8vh;
 
     display: flex;
     flex-direction: row;
@@ -233,3 +233,40 @@
     height: auto;
 }
 /* *********************************************** */
+
+
+
+/* ///////////////// */
+/* /// APP TABLE /// */
+/* ///////////////// */
+
+.container
+{
+    height: 73vh;
+}
+
+/* ANCHO TOTAL DISPONIBLE: 95.8vw */
+
+#table > tr > td
+{
+    border: 0;
+    padding: 0.5vh 0.5vw;
+    width: 6vw;
+}
+
+#table > tr > td:first-child,
+#table > tr > td:last-child
+{
+    padding: 0.5vh 0;
+}
+
+#table > tr > td:nth-child(2)
+{
+    width: auto;
+}
+
+#table > tr > td > h5
+{
+    margin: 0;
+    padding: 0;
+}

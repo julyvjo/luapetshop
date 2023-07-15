@@ -39,15 +39,15 @@
                         </thead>
                         <tbody id="table" class="table-borderless" style="border-top: none !important;">
                             <tr th:each="item :${productos}" th:id="${item.id_producto}">
-                                <td><h5 class=""><button class="botonFoto">&#128247;</button></h5></td>
-                                <td><h5 class="" th:text="${item.nombre}"></h5></td>
+                                <td><h5><button class="botonFoto">&#128247;</button></h5></td>
+                                <td><h5 th:text="${item.nombre}"></h5></td>
                                 <!-- <td><h5 class="" th:text="${item.descripcion}"></h5></td> -->
-                                <td><h5 class="" th:text="${item.stock}"></h5></td>
-                                <td><h5 class="" th:text="${item.precio_compra}"></h5></td>
-                                <td><h5 class="" th:text="${item.rentabilidad}"></h5></td>
-                                <td><h5 class="" th:text="${item.ganancia}"></h5></td>
-                                <td><h5 class="" >$ V</h5></td>
-                                <td><h5 class=""><button class="botonEditar">&#9998;</button></h5></td>
+                                <td><h5 th:text="${item.stock}"></h5></td>
+                                <td><h5 th:text="${item.precio_compra}"></h5></td>
+                                <td><h5 th:text="${item.rentabilidad}"></h5></td>
+                                <td><h5 th:text="${item.ganancia}"></h5></td>
+                                <td><h5>$ V</h5></td>
+                                <td><h5><button class="botonEditar">&#9998;</button></h5></td>
                             </tr>
                         </tbody>
                     </table>
