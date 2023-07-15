@@ -15,6 +15,7 @@ CREATE TABLE producto (
     precio_compra DECIMAL(12, 2),
     rentabilidad DECIMAL(5, 2),
     ganancia DECIMAL(12, 2),
+    precio_venta DECIMAL(12, 2),
     stock INT,
     FOREIGN KEY (id_categoria) REFERENCES categoria (id_categoria)
 );
@@ -105,23 +106,23 @@ INSERT INTO categoria (nombre) values
 
 -- INSERT Producto
 INSERT INTO producto 
-    (id_categoria, nombre, imagen, descripcion, precio_compra, rentabilidad, ganancia, stock)
+    (id_categoria, nombre, imagen, descripcion, precio_compra, rentabilidad, ganancia, precio_venta, stock)
 VALUES 
-    (1, 'Producto 1', 'imagen1.png', 'Descripción del producto 1', 10.99, 0.5, 0, 100),
-    (2, 'Producto 2', 'imagen2.png', 'Descripción del producto 2', 15.99, 0.3, 0, 50),
-    (3, 'Producto 3', 'imagen3.png', 'Descripción del producto 3', 20.99, 0.4, 0, 80),
-    (4, 'Producto 4', 'imagen4.png', 'Descripción del producto 4', 12.99, 0.6, 0, 70),
-    (5, 'Producto 5', 'imagen5.png', 'Descripción del producto 5', 18.99, 0.2, 0, 90),
-    (1, 'Producto 6', 'imagen6.png', 'Descripción del producto 6', 11.99, 0.7, 0, 120),
-    (3, 'Producto 7', 'imagen7.png', 'Descripción del producto 7', 14.99, 0.4, 0, 60),
-    (2, 'Producto 8', 'imagen8.png', 'Descripción del producto 8', 16.99, 0.5, 0, 110),
-    (4, 'Producto 9', 'imagen9.png', 'Descripción del producto 9', 19.99, 0.3, 0, 80),
-    (5, 'Producto 10', 'imagen10.png', 'Descripción del producto 10', 22.99, 0.6, 0, 95),
-    (3, 'Producto 11', 'imagen11.png', 'Descripción del producto 11', 13.99, 0.2, 0, 65),
-    (1, 'Producto 12', 'imagen12.png', 'Descripción del producto 12', 17.99, 0.4, 0, 105),
-    (2, 'Producto 13', 'imagen13.png', 'Descripción del producto 13', 21.99, 0.5, 0, 85),
-    (4, 'Producto 14', 'imagen14.png', 'Descripción del producto 14', 24.99, 0.3, 0, 75),
-    (5, 'Producto 15', 'imagen15.png', 'Descripción del producto 15', 27.99, 0.6, 0, 100);
+    (1, 'Producto 1', 'imagen1.png', 'Descripción del producto 1', 10.99, 0.5, 0, 15.0, 100),
+    (2, 'Producto 2', 'imagen2.png', 'Descripción del producto 2', 15.99, 0.3, 0, 20.0, 50),
+    (3, 'Producto 3', 'imagen3.png', 'Descripción del producto 3', 20.99, 0.4, 0, 100.0, 80),
+    (4, 'Producto 4', 'imagen4.png', 'Descripción del producto 4', 12.99, 0.6, 0, 120.0, 70),
+    (5, 'Producto 5', 'imagen5.png', 'Descripción del producto 5', 18.99, 0.2, 0, 67.0, 90),
+    (1, 'Producto 6', 'imagen6.png', 'Descripción del producto 6', 11.99, 0.7, 0, 10.0, 120),
+    (3, 'Producto 7', 'imagen7.png', 'Descripción del producto 7', 14.99, 0.4, 0, 20.0, 60),
+    (2, 'Producto 8', 'imagen8.png', 'Descripción del producto 8', 16.99, 0.5, 0, 32.0, 110),
+    (4, 'Producto 9', 'imagen9.png', 'Descripción del producto 9', 19.99, 0.3, 0, 100.0, 80),
+    (5, 'Producto 10', 'imagen10.png', 'Descripción del producto 10', 22.99, 0.6, 0, 120.0, 95),
+    (3, 'Producto 11', 'imagen11.png', 'Descripción del producto 11', 13.99, 0.2, 0, 50.0, 65),
+    (1, 'Producto 12', 'imagen12.png', 'Descripción del producto 12', 17.99, 0.4, 0, 77.0, 105),
+    (2, 'Producto 13', 'imagen13.png', 'Descripción del producto 13', 21.99, 0.5, 0, 85.0, 85),
+    (4, 'Producto 14', 'imagen14.png', 'Descripción del producto 14', 24.99, 0.3, 0, 44.0, 75),
+    (5, 'Producto 15', 'imagen15.png', 'Descripción del producto 15', 27.99, 0.6, 0, 30.0, 100);
 
 -- INSERT Proveedor
 INSERT INTO proveedor
@@ -245,4 +246,15 @@ VALUES
    (username, password)
    values
    ('admin','$2a$10$BoJ47v3ebE/vnLMVQ1EvdOFunxxJZOCqVtmdVNEdg6aR1Gq9lBqS.');
+
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
 

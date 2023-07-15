@@ -1,5 +1,7 @@
 package com.luapetshop.luapetshop.cuenta;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,22 +16,31 @@ public class Cuenta {
 	private int id_cuenta;
 	private String nombre;
 	private double saldo;
+	private double saldo_inicial;
+	private LocalDateTime fecha_apertura;
+	
 	
 	public Cuenta() {
 		super();
 	}
 
-	public Cuenta(String nombre, double saldo) {
+	public Cuenta(String nombre, double saldo, double saldo_inicial,
+			LocalDateTime fecha_apertura) {
 		super();
 		this.nombre = nombre;
 		this.saldo = saldo;
+		this.saldo_inicial = saldo_inicial;
+		this.fecha_apertura = fecha_apertura;
 	}
-	
-	public Cuenta(int id_cuenta, String nombre, double saldo) {
+
+	public Cuenta(int id_cuenta, String nombre, double saldo, double saldo_inicial,
+			LocalDateTime fecha_apertura) {
 		super();
 		this.id_cuenta = id_cuenta;
 		this.nombre = nombre;
 		this.saldo = saldo;
+		this.saldo_inicial = saldo_inicial;
+		this.fecha_apertura = fecha_apertura;
 	}
 
 	public int getId_cuenta() {
@@ -55,6 +66,21 @@ public class Cuenta {
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
-	
+
+	public double getSaldo_inicial() {
+		return saldo_inicial;
+	}
+
+	public void setSaldo_inicial(double saldo_inicial) {
+		this.saldo_inicial = saldo_inicial;
+	}
+
+	public LocalDateTime getFecha_apertura() {
+		return fecha_apertura;
+	}
+
+	public void setFecha_apertura(LocalDateTime fecha_apertura) {
+		this.fecha_apertura = fecha_apertura;
+	}
   
 }

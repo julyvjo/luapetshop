@@ -48,13 +48,13 @@ public class VentaService {
 		System.out.println("map2venta");
 		
 		//setear fyh
-		venta.setFyh(LocalDateTime.now());
+		//venta.setFyh(LocalDateTime.now());
 		
 		//setear medio de pago a partir de id
 		int id_medio_pago = (int) datos.get("id_medio_pago");
 		Optional<MedioPago> optional_mp = medioPagoService.getMedioPago(id_medio_pago);
 		MedioPago mp = optional_mp.get();
-		venta.setMedio_pago(mp);
+		//venta.setMedio_pago(mp);
 		
 		//setear total en venta 
         venta.setTotal((Double)datos.get("total"));

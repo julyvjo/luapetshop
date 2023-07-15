@@ -23,14 +23,29 @@ public class Producto {
 	private double precio_compra;
 	private double rentabilidad;
 	private double ganancia;
+	private double precio_venta;
 	private int stock;
 	
 	public Producto() {
 		super();
 	}
 
+	public Producto(Categoria categoria, String nombre, String imagen, String descripcion, double precio_compra,
+			double rentabilidad, double ganancia, double precio_venta, int stock) {
+		super();
+		this.categoria = categoria;
+		this.nombre = nombre;
+		this.imagen = imagen;
+		this.descripcion = descripcion;
+		this.precio_compra = precio_compra;
+		this.rentabilidad = rentabilidad;
+		this.ganancia = ganancia;
+		this.precio_venta = precio_venta;
+		this.stock = stock;
+	}
+
 	public Producto(int id_producto, Categoria categoria, String nombre, String imagen, String descripcion,
-			double precio_compra, double rentabilidad, double ganancia, int stock) {
+			double precio_compra, double rentabilidad, double ganancia, double precio_venta, int stock) {
 		super();
 		this.id_producto = id_producto;
 		this.categoria = categoria;
@@ -40,23 +55,17 @@ public class Producto {
 		this.precio_compra = precio_compra;
 		this.rentabilidad = rentabilidad;
 		this.ganancia = ganancia;
+		this.precio_venta = precio_venta;
 		this.stock = stock;
 	}
 
-	public Producto(Categoria categoria, String nombre, String imagen, String descripcion, double precio_compra,
-			double rentabilidad, double ganancia, int stock) {
-		super();
-		this.categoria = categoria;
-		this.nombre = nombre;
-		this.imagen = imagen;
-		this.descripcion = descripcion;
-		this.precio_compra = precio_compra;
-		this.rentabilidad = rentabilidad;
-		this.ganancia = ganancia;
-		this.stock = stock;
+	public double getPrecio_venta() {
+		return precio_venta;
 	}
 
-
+	public void setPrecio_venta(double precio_venta) {
+		this.precio_venta = precio_venta;
+	}
 
 	public int getId_producto() {
 		return id_producto;

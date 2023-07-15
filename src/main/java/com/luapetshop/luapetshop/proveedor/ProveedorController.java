@@ -16,21 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ProveedorController {
-	private ProductoProveedorService productoProveedorService;
 	
-	@Autowired
-	public ProveedorController(ProductoProveedorService productoProveedorService) {
-		this.productoProveedorService = productoProveedorService;
+	
+	@GetMapping("/proveedor")
+	public String proveedor() {
+		
+		return "index";
 	}
-	
-//	@GetMapping("/proveedor")
-//	public String proveedor(Model model) {
-//		List<ProductoProveedor> productosProveedores = productoProveedorService.getProductosProveedores();
-//		
-//		model.addAttribute("proveedores", productosProveedores);
-//		return "proveedor";
-//	}
-	
+	/*
 	@GetMapping("/proveedor")
 	public String proveedor(
 			Model model, 
@@ -73,5 +66,7 @@ public class ProveedorController {
 		model.addAttribute("last", totalpages);
 		
 		return "proveedor";
-	}
+	}*/
+	
+	
 }
