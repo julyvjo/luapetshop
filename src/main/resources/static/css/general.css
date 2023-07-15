@@ -219,6 +219,23 @@ header
     border-radius: 0 0 1vw 0;
 }
 
+#table > tr > td
+{
+    padding: 0.5vh 0.5vw;
+}
+
+#table > tr > td:first-child,
+#table > tr > td:last-child
+{
+    padding: 0.5vh 0;
+}
+
+#table > tr > td > h5
+{
+    margin: 0;
+    padding: 0;
+}
+
 
 
 /* /////////////////////// */
