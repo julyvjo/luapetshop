@@ -72,7 +72,9 @@ function validarNuevoProducto()
     //     return false;
     // }
 
-    // TIPO DE STOCK NO IMPLEMENTADO AÚN
+    // IMPLEMENTAR PRECIO DE VENTA
+
+    // IMPLEMENTAR CATEGORIA
 
     const nuevoProductoStock = document.getElementById("modalNuevoProductoStock");
 
@@ -97,8 +99,8 @@ function enviarNuevoProducto()
     
     const nuevoProductoPrecioCompra = document.getElementById("modalNuevoProductoPrecioCompra");
     const nuevoProductoRentabilidad = document.getElementById("modalNuevoProductoRentabilidad");
-    const nuevoProductoGanancia = document.getElementById("modalNuevoProductoGanancia");
-    const nuevoProductoPrecioVenta = document.getElementById("modalNuevoProductoPrecioVenta");
+    // const nuevoProductoGanancia = document.getElementById("modalNuevoProductoGanancia");
+    // const nuevoProductoPrecioVenta = document.getElementById("modalNuevoProductoPrecioVenta");
     // const nuevoProductoCategoria = document.getElementById("modalNuevoProductoCategoria");
     const nuevoProductoStock = document.getElementById("modalNuevoProductoStock");
     // const nuevoProductoImagen = document.getElementById("modalNuevoProductoImagen");
@@ -106,7 +108,9 @@ function enviarNuevoProducto()
     datosProducto = {
         id_producto: 0,
         nombre: nuevoProductoNombre.value,
+
         // descripcion: nuevoProductoDescripcion.value,
+
         precio_compra: nuevoProductoPrecioCompra.value,
         rentabilidad: nuevoProductoRentabilidad.value,
         // ganancia: nuevoProductoGanancia.value,
@@ -168,10 +172,11 @@ function cargarEditor(fila)
     const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
     editorLineaRentabilidad.value = h5[4].textContent;
 
-    const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
-    editorLineaGanancia.value = h5[5].textContent;
+    // const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
+    // editorLineaGanancia.value = h5[5].textContent;
+    
+    // const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
 
-    //  Categoría aún está pendiente saber cómo se va a implementar.
     // const editorLineaCategoria = document.getElementById("modalEditorLineaCategoria");
 
     const editorLineaID = document.getElementById("modalEditorLineaId");
@@ -235,6 +240,8 @@ function validarEditorLinea()
     //     console.log("ERROR: Insertar ganancia del producto válido!");
     //     return false;
     // }
+
+    // IMPLEMENTAR PRECIO_VENTA
     
     // IMPLEMENTAR CATEGORIA
 
@@ -261,7 +268,8 @@ function enviarEditorLinea()
     
     const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
     const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
-    const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
+    // const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
+    // const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
     // const editorLineaCategoria = document.getElementById("modalEditorLineaCategoria");
     const editorLineaStock = document.getElementById("modalEditorLineaStock");
     // const editorLineaImagen = document.getElementById("modalEditorLineaImagen");
@@ -270,10 +278,13 @@ function enviarEditorLinea()
     datosProducto = {
         id_producto: editorLineaID.value,
         nombre: editorLineaNombre.value,
+
         // descripcion: editorLineaDescripcion.value,
+
         precio_compra: editorLineaPrecioCompra.value,
         rentabilidad: editorLineaRentabilidad.value,
         // ganancia: editorLineaGanancia.value,
+        // precio_venta: editorLineaPrecioVenta.value,
         // id_categoria: editorLineaCategoria.value,
         stock: editorLineaStock.value,
         // imagen: editorLineaImagen.value,
@@ -289,29 +300,35 @@ function enviarEditorLinea()
 // || DATOS PRODUCTO
 
 let datosProducto = {
-    id_producto: 0,     // 0 si es nuevo; se le asignaría uno desde backend
+    id_producto: 0,     // 0 si es nuevo
     nombre: "",
-    // descripcion: "",
+
+    // descripcion: "", //  De momento no implementado.
+
     precio_compra: 0.00,
     rentabilidad: 0.0,
-    // ganancia: 0.0,   // <-- está en duda aún
-    // tipo_stock: "",  // <-- está en duda aún
+    // ganancia: 0.0,
+    // precio_venta: 0.0,
+    // id_categoria: 0, // 0 si no tiene categoría asiganda
     stock: 0,
-    // imagen: "base64",
+    // imagen: "base64"
 }
 
 function iniciarDatosProducto()
 {
     datosProducto = {
-        id_producto: 0,     // 0 si es nuevo; se le asignaría uno desde backend
+        id_producto: 0,     // 0 si es nuevo
         nombre: "",
-        // descripcion: "",
+
+        // descripcion: "", //  De momento no implementado.
+        
         precio_compra: 0.00,
         rentabilidad: 0.0,
-        // ganancia: 0.0,   // <-- está en duda aún
-        // tipo_stock: "",  // <-- está en duda aún
+        // ganancia: 0.0,
+        // precio_venta: 0.0,
+        // id_categoria: 0,
         stock: 0,
-        // imagen: "base64",
+        // imagen: "base64"
     }
 }
 // **************************************************************
