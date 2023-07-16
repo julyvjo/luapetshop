@@ -37,13 +37,13 @@ function validarNuevoProducto()
         return false;
     }
 
-    const nuevoProductoDescripcion = document.getElementById("modalNuevoProductoDescripcion");
+    // const nuevoProductoDescripcion = document.getElementById("modalNuevoProductoDescripcion");
 
-    if (nuevoProductoDescripcion.value === "")
-    {
-        console.log("ERROR: Completar descripción del producto!");
-        return false;
-    }
+    // if (nuevoProductoDescripcion.value === "")
+    // {
+    //     console.log("ERROR: Completar descripción del producto!");
+    //     return false;
+    // }
 
     const nuevoProductoPrecioCompra = document.getElementById("modalNuevoProductoPrecioCompra");
 
@@ -91,22 +91,27 @@ function validarNuevoProducto()
 function enviarNuevoProducto()
 {
     const nuevoProductoNombre = document.getElementById("modalNuevoProductoNombre");
-    const nuevoProductoDescripcion = document.getElementById("modalNuevoProductoDescripcion");
+    
+    //  Descripción por ahora no va a ser implementado.
+    // const nuevoProductoDescripcion = document.getElementById("modalNuevoProductoDescripcion");
+    
     const nuevoProductoPrecioCompra = document.getElementById("modalNuevoProductoPrecioCompra");
     const nuevoProductoRentabilidad = document.getElementById("modalNuevoProductoRentabilidad");
-    // const nuevoProductoGanancia = document.getElementById("modalNuevoProductoGanancia");
-    // const nuevoProductoTipoStock = document.getElementById("modalNuevoProductoTipoStock");
+    const nuevoProductoGanancia = document.getElementById("modalNuevoProductoGanancia");
+    const nuevoProductoPrecioVenta = document.getElementById("modalNuevoProductoPrecioVenta");
+    // const nuevoProductoCategoria = document.getElementById("modalNuevoProductoCategoria");
     const nuevoProductoStock = document.getElementById("modalNuevoProductoStock");
     // const nuevoProductoImagen = document.getElementById("modalNuevoProductoImagen");
 
     datosProducto = {
         id_producto: 0,
         nombre: nuevoProductoNombre.value,
-        descripcion: nuevoProductoDescripcion.value,
+        // descripcion: nuevoProductoDescripcion.value,
         precio_compra: nuevoProductoPrecioCompra.value,
         rentabilidad: nuevoProductoRentabilidad.value,
         // ganancia: nuevoProductoGanancia.value,
-        // tipo_stock: nuevoProductoTipoStock.value,
+        // precio_venta: nuevoProductoPrecioVenta.value,
+        // categoria: nuevoProductoCategoria.value,
         stock: nuevoProductoStock.value,
         // imagen: nuevoProductoImagen.value,
     }
@@ -144,11 +149,18 @@ function cargarEditor(fila)
     const filaId = tr.id;
     const h5 = tr.querySelectorAll("h5");
 
+    //  Imagen aún está pendiente.
+    //  const imagen = document.getElementById("modalEditorLineaImagen");
+
     const editorLineaNombre = document.getElementById("modalEditorLineaNombre");
     editorLineaNombre.value = h5[1].textContent;
 
-    const editorLineaDescripcion = document.getElementById("modalEditorLineaDescripcion");
-    editorLineaDescripcion.value = h5[2].textContent;
+    //  Descripción actualmente no se va a usar.
+    // const editorLineaDescripcion = document.getElementById("modalEditorLineaDescripcion");
+    // editorLineaDescripcion.value = h5[2].textContent;
+
+    const editorLineaStock = document.getElementById("modalEditorLineaStock");
+    editorLineaStock.value = h5[2].textContent;
 
     const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
     editorLineaPrecioCompra.value = h5[3].textContent;
@@ -159,14 +171,8 @@ function cargarEditor(fila)
     const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
     editorLineaGanancia.value = h5[5].textContent;
 
-    //  Tipo de stock aún está pendiente saber cómo se va a implementar.
-    // const tipoStock = document.getElementById("modalEditorLineaNombreProducto");
-
-    const editorLineaStock = document.getElementById("modalEditorLineaStock");
-    editorLineaStock.value = h5[6].textContent;
-
-    //  Imagen aún está pendiente.
-    //  const imagen = document.getElementById("modalEditorLineaImagen");
+    //  Categoría aún está pendiente saber cómo se va a implementar.
+    // const editorLineaCategoria = document.getElementById("modalEditorLineaCategoria");
 
     const editorLineaID = document.getElementById("modalEditorLineaId");
     editorLineaID.value = filaId;
@@ -193,14 +199,15 @@ function validarEditorLinea()
         console.log("ERROR: Completar nombre del producto!");
         return false;
     }
- 
-    const editorLineaDescripcion = document.getElementById("modalEditorLineaDescripcion");
     
-    if (editorLineaDescripcion.value === "")
-    {
-        console.log("ERROR: Completar descripción del producto!");
-        return false;
-    }
+    //  Descripción por ahora no se va a implementar.
+    // const editorLineaDescripcion = document.getElementById("modalEditorLineaDescripcion");
+    
+    // if (editorLineaDescripcion.value === "")
+    // {
+    //     console.log("ERROR: Completar descripción del producto!");
+    //     return false;
+    // }
  
     const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
     
@@ -229,7 +236,7 @@ function validarEditorLinea()
     //     return false;
     // }
     
-    // TIPO DE STOCK NO IMPLEMENTADO AÚN
+    // IMPLEMENTAR CATEGORIA
 
     const editorLineaStock = document.getElementById("modalEditorLineaStock");
     
@@ -248,11 +255,14 @@ function validarEditorLinea()
 function enviarEditorLinea()
 {
     const editorLineaNombre = document.getElementById("modalEditorLineaNombre");
-    const editorLineaDescripcion = document.getElementById("modalEditorLineaDescripcion");
+    
+    //  Descripción no va a implementarse por ahora.
+    // const editorLineaDescripcion = document.getElementById("modalEditorLineaDescripcion");
+    
     const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
     const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
-    // const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
-    // const editorLineaTipoStock = document.getElementById("modalEditorLineaTipoStock");
+    const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
+    // const editorLineaCategoria = document.getElementById("modalEditorLineaCategoria");
     const editorLineaStock = document.getElementById("modalEditorLineaStock");
     // const editorLineaImagen = document.getElementById("modalEditorLineaImagen");
     const editorLineaID = document.getElementById("modalEditorLineaId");
@@ -260,11 +270,11 @@ function enviarEditorLinea()
     datosProducto = {
         id_producto: editorLineaID.value,
         nombre: editorLineaNombre.value,
-        descripcion: editorLineaDescripcion.value,
+        // descripcion: editorLineaDescripcion.value,
         precio_compra: editorLineaPrecioCompra.value,
         rentabilidad: editorLineaRentabilidad.value,
         // ganancia: editorLineaGanancia.value,
-        // tipo_stock: editorLineaTipoStock.value,
+        // id_categoria: editorLineaCategoria.value,
         stock: editorLineaStock.value,
         // imagen: editorLineaImagen.value,
     }
@@ -281,7 +291,7 @@ function enviarEditorLinea()
 let datosProducto = {
     id_producto: 0,     // 0 si es nuevo; se le asignaría uno desde backend
     nombre: "",
-    descripcion: "",
+    // descripcion: "",
     precio_compra: 0.00,
     rentabilidad: 0.0,
     // ganancia: 0.0,   // <-- está en duda aún
@@ -295,7 +305,7 @@ function iniciarDatosProducto()
     datosProducto = {
         id_producto: 0,     // 0 si es nuevo; se le asignaría uno desde backend
         nombre: "",
-        descripcion: "",
+        // descripcion: "",
         precio_compra: 0.00,
         rentabilidad: 0.0,
         // ganancia: 0.0,   // <-- está en duda aún
