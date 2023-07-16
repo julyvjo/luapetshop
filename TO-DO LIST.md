@@ -5,13 +5,13 @@
 - [ ] **PREGUNTAR; Para PRODUCTO es necesario agregar la columna PROVEEDOR ???**
 - [ ] **PREGUNTAR; Chequear si es correcto implementar los JS de la forma que hice esto (no se si es necesario usar "import" o algo así en los otros archivos para que usen las funciones que defina acá)**
 
-- [ ] EMMIK; Analizar propuesta de implementar códigos de barras
-- [ ] EMMIK; Analizar propuesta de permitir setear total de venta arbitrario (e.g. para redondear)
+- [ ] **EMMIK; Analizar propuesta de implementar códigos de barras**
+- [ ] **EMMIK; Analizar propuesta de permitir setear total de venta arbitrario (e.g. para redondear)**
+- [ ] MEDIOS DE PAGO; IMPLEMENTAR COMISIONES de cada método **(Falta que Emmik nos pase esa info también)**
 
-- [ ] MEDIOS DE PAGO; IMPLEMENTAR COMISIONES de cada método (Falta que Emmik nos pase esa info también)
 - [ ] CSS TABLAS; El scrollbar vertical solamente debería afectar a `<tbody>`
-- [ ] CSS TABLAS; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y reducir el ancho de esas columnas que solamente van a mostrar un número o incluso un valor fijo.
 
+- [x] ~~CSS TABLAS; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y reducir el ancho de esas columnas que solamente van a mostrar un número o incluso un valor fijo.~~
 - [x] ~~HEADER; Minimizar márgenes inferior y superior para maximizar espacio de trabajo~~
 - [x] ~~FOOTER; Reemplazar por PageNavigation en las páginas donde aparezca para maximizar espacio de trabajo~~
 
@@ -23,29 +23,13 @@
 
 ##  PRODUCTO
 
-- [ ] **PREGUNTAR EMMIK; (metadata producto) Necesito que cada producto tenga un valor que determine COMO INTERPRETAR SU STOCK (Peso, Volumen, Paquetes, etc.) => para poder validar input de CANTIDAD en VENTA**
-
 - [ ] EDITAR LINEA INDIVIDUAL; Ajustar pre-carga a nuevo orden de columnas;
-- [ ] AGREGAR columna PROVEEDOR (un mismo producto puede diferir solamente en esto)
 - [ ] IMPLEMENTAR rutas a la imagen del producto (th:src=${atributo})
 - [ ] CAMBIAR tipo de stock por CATEGORIA
+- [ ] NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; Implementar CATEGORIA de productos (si o si tiene que tener una id_categoría asignada)
 
 - [ ] NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; Ajustar validación para volver a valores default si por ejemplo los inputs quedaron vacíos.
 - [ ] NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; IMPLEMENTAR IMAGEN DE CADA PRODUCTO.
-
-- [x] ~~RENOMBRAR y REORDENAR columnas (ver listado en Notion)~~
-- [x] ~~OCULTAR columna DESCRIPCION (Emmik no tiene planeado usarlo, pero es metadata útil)~~
-- [x] ~~AGREGAR columna PRECIO VENTA (técnicamente se puede calcular)~~
-
-* NOTA NOMBRES DE LAS COLUMNAS:
-    -   (Foto)
-    -   Nombre
-    -   Stock
-    -   $c (precio_compra)
-    -   $r (rentabilidad)
-    -   $g (ganancia)
-    -   $v (precio_venta)
-    -   (Editar línea)
 
 ---
 
