@@ -36,6 +36,9 @@ public class ProductoController {
 		
 		int PAGE_SIZE = 20;
 		
+		List<Categoria> categorias = productoService.getCategorias();
+		model.addAttribute("categorias", categorias);
+		
 		int page = params.get("page") != null ? 
 				(Integer.valueOf(params.get("page").toString())-1):0;
 		

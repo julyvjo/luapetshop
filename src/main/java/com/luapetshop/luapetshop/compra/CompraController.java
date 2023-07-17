@@ -47,18 +47,14 @@ public class CompraController {
 	
 	@PostMapping("/new/compra")
     public ResponseEntity<String> procesarDatos(@RequestBody Map<String, Object> datos) {
-        
-		System.out.println(datos.toString());
-		
 		
 		try {
-			
-			compraService.createNewCompra(datos);
+			//compraService.createNewCompra(datos);
+			System.out.println(datos);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(datos.toString());
-        //return ResponseEntity.status(HttpStatus.CREATED).body("Compra guardada");
     }
 }

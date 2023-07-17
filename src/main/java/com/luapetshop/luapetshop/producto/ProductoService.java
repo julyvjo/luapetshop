@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.luapetshop.luapetshop.repository.ICategoriaRepository;
 import com.luapetshop.luapetshop.repository.IProductoRepository;
 
 import jakarta.transaction.Transactional;
@@ -16,12 +17,15 @@ import jakarta.transaction.Transactional;
 @Service
 public class ProductoService {
 	private IProductoRepository productoRepository;
+	private ICategoriaRepository categoriaRepository;
 	
 	@Autowired
-	public ProductoService(IProductoRepository productoRepository) {
+	public ProductoService(IProductoRepository productoRepository, ICategoriaRepository categoriaRepository) {
+		super();
 		this.productoRepository = productoRepository;
+		this.categoriaRepository = categoriaRepository;
 	}
-	
+
 	public List<Producto> getProductos(String nombre) {
 		
 		List<Producto> productos = nombre == null? 
@@ -73,11 +77,37 @@ public class ProductoService {
 		producto.setDescripcion((String) datos.get("descripcion"));
 		producto.setPrecio_compra((double) datos.get("precio_compra"));
 		producto.setRentabilidad((double) datos.get("rentabilidad"));
-		//producto.setCategoria(null);
-		//producto.setGanancia(null);
+		
+		Optional<Categoria> optionalCategoria = categoriaRepository.findById( (int) datos.get("id_categoria") );
+		producto.setCategoria( optionalCategoria.get() );
+		
+		producto.setGanancia( (double) datos.get("ganancia") );
+		producto.setPrecio_venta((double) datos.get("precio_venta") );
 		producto.setStock((int) datos.get("stock"));
-        //imagen (almacenar imagen, guardar ruta en producto.imagen
+		
+		//imagen (almacenar imagen, guardar ruta en producto.imagen
 		
 		return producto;
 	}
+	
+	public List<Categoria> getCategorias() {
+		return categoriaRepository.findAll();
+	}
+	
+	/*
+	 * 
+	 * {
+		"id_producto": 1, (0 si es nuevo, otro si es modif)
+        "nombre": "nombre",
+		"descripcion":"descripcion",
+        "precio_compra": 0.00,
+        "rentabilidad": 0.2, (porcentaje de ganancia)
+		"ganancia": 0.00, ####### estaba en duda -> queda
+		"precio_venta": 0.00 ####### Nuevo
+				//
+		"stock": 0,
+		"imagen": "base64",
+}
+	 * 
+	 * */
 }
