@@ -63,7 +63,8 @@ CREATE TABLE medio_pago (
 
 CREATE TABLE venta (
     id_venta INT AUTO_INCREMENT PRIMARY KEY,
-    id_movimiento INT,
+    id_movimiento1 INT,
+    id_movimiento2 INT,
     id_medio_pago1 INT,
     id_medio_pago2 INT,
     parcial1 DECIMAL(12, 2),
@@ -71,7 +72,8 @@ CREATE TABLE venta (
     fecha DATETIME,
     total DECIMAL(12, 2),
     estado char,
-    FOREIGN KEY (id_movimiento) REFERENCES movimiento (id_movimiento),
+    FOREIGN KEY (id_movimiento1) REFERENCES movimiento (id_movimiento),
+    FOREIGN KEY (id_movimiento2) REFERENCES movimiento (id_movimiento),
     FOREIGN KEY (id_medio_pago1) REFERENCES medio_pago (id_medio_pago),
     FOREIGN KEY (id_medio_pago2) REFERENCES medio_pago (id_medio_pago)
 );
@@ -246,15 +248,4 @@ VALUES
    (username, password)
    values
    ('admin','$2a$10$BoJ47v3ebE/vnLMVQ1EvdOFunxxJZOCqVtmdVNEdg6aR1Gq9lBqS.');
-
-  
- 
- 
- 
- 
- 
- 
- 
- 
-
 

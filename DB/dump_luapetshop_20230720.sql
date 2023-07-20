@@ -278,7 +278,8 @@ DROP TABLE IF EXISTS `venta`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `venta` (
   `id_venta` int NOT NULL AUTO_INCREMENT,
-  `id_movimiento` int DEFAULT NULL,
+  `id_movimiento1` int DEFAULT NULL,
+  `id_movimiento2` int DEFAULT NULL,
   `id_medio_pago1` int DEFAULT NULL,
   `id_medio_pago2` int DEFAULT NULL,
   `parcial1` decimal(12,2) DEFAULT NULL,
@@ -287,12 +288,14 @@ CREATE TABLE `venta` (
   `total` decimal(12,2) DEFAULT NULL,
   `estado` char(1) DEFAULT NULL,
   PRIMARY KEY (`id_venta`),
-  KEY `id_movimiento` (`id_movimiento`),
+  KEY `id_movimiento1` (`id_movimiento1`),
+  KEY `id_movimiento2` (`id_movimiento2`),
   KEY `id_medio_pago1` (`id_medio_pago1`),
   KEY `id_medio_pago2` (`id_medio_pago2`),
-  CONSTRAINT `venta_ibfk_1` FOREIGN KEY (`id_movimiento`) REFERENCES `movimiento` (`id_movimiento`),
-  CONSTRAINT `venta_ibfk_2` FOREIGN KEY (`id_medio_pago1`) REFERENCES `medio_pago` (`id_medio_pago`),
-  CONSTRAINT `venta_ibfk_3` FOREIGN KEY (`id_medio_pago2`) REFERENCES `medio_pago` (`id_medio_pago`)
+  CONSTRAINT `venta_ibfk_1` FOREIGN KEY (`id_movimiento1`) REFERENCES `movimiento` (`id_movimiento`),
+  CONSTRAINT `venta_ibfk_2` FOREIGN KEY (`id_movimiento2`) REFERENCES `movimiento` (`id_movimiento`),
+  CONSTRAINT `venta_ibfk_3` FOREIGN KEY (`id_medio_pago1`) REFERENCES `medio_pago` (`id_medio_pago`),
+  CONSTRAINT `venta_ibfk_4` FOREIGN KEY (`id_medio_pago2`) REFERENCES `medio_pago` (`id_medio_pago`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -302,7 +305,7 @@ CREATE TABLE `venta` (
 
 LOCK TABLES `venta` WRITE;
 /*!40000 ALTER TABLE `venta` DISABLE KEYS */;
-INSERT INTO `venta` VALUES (1,NULL,1,NULL,NULL,NULL,'2023-07-14 18:01:31',150.50,'C'),(2,NULL,2,NULL,NULL,NULL,'2023-07-14 18:01:31',200.75,'C'),(3,NULL,3,NULL,NULL,NULL,'2023-07-14 18:01:31',250.25,'C'),(4,NULL,1,NULL,NULL,NULL,'2023-07-14 18:01:31',180.80,'C'),(5,NULL,2,NULL,NULL,NULL,'2023-07-14 18:01:31',220.10,'A'),(6,NULL,3,NULL,NULL,NULL,'2023-07-14 18:01:31',190.45,'C'),(7,NULL,1,NULL,NULL,NULL,'2023-07-14 18:01:31',210.60,'C'),(8,NULL,2,NULL,NULL,NULL,'2023-07-14 18:01:31',170.35,'A'),(9,NULL,3,NULL,NULL,NULL,'2023-07-14 18:01:31',230.90,'C'),(10,NULL,1,NULL,NULL,NULL,'2023-07-14 18:01:31',270.70,'C'),(11,NULL,2,NULL,NULL,NULL,'2023-07-14 18:01:31',160.65,'C'),(12,NULL,3,NULL,NULL,NULL,'2023-07-14 18:01:31',240.95,'A'),(13,NULL,1,NULL,NULL,NULL,'2023-07-14 18:01:31',260.55,'C'),(14,NULL,2,NULL,NULL,NULL,'2023-07-14 18:01:31',280.40,'C'),(15,NULL,3,NULL,NULL,NULL,'2023-07-14 18:01:31',210.30,'C');
+INSERT INTO `venta` VALUES (1,NULL,NULL,1,NULL,NULL,NULL,'2023-07-19 21:56:54',150.50,'C'),(2,NULL,NULL,2,NULL,NULL,NULL,'2023-07-19 21:56:54',200.75,'C'),(3,NULL,NULL,3,NULL,NULL,NULL,'2023-07-19 21:56:54',250.25,'C'),(4,NULL,NULL,1,NULL,NULL,NULL,'2023-07-19 21:56:54',180.80,'C'),(5,NULL,NULL,2,NULL,NULL,NULL,'2023-07-19 21:56:54',220.10,'A'),(6,NULL,NULL,3,NULL,NULL,NULL,'2023-07-19 21:56:54',190.45,'C'),(7,NULL,NULL,1,NULL,NULL,NULL,'2023-07-19 21:56:54',210.60,'C'),(8,NULL,NULL,2,NULL,NULL,NULL,'2023-07-19 21:56:54',170.35,'A'),(9,NULL,NULL,3,NULL,NULL,NULL,'2023-07-19 21:56:54',230.90,'C'),(10,NULL,NULL,1,NULL,NULL,NULL,'2023-07-19 21:56:54',270.70,'C'),(11,NULL,NULL,2,NULL,NULL,NULL,'2023-07-19 21:56:54',160.65,'C'),(12,NULL,NULL,3,NULL,NULL,NULL,'2023-07-19 21:56:54',240.95,'A'),(13,NULL,NULL,1,NULL,NULL,NULL,'2023-07-19 21:56:54',260.55,'C'),(14,NULL,NULL,2,NULL,NULL,NULL,'2023-07-19 21:56:54',280.40,'C'),(15,NULL,NULL,3,NULL,NULL,NULL,'2023-07-19 21:56:54',210.30,'C');
 /*!40000 ALTER TABLE `venta` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -315,4 +318,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-15  0:16:19
+-- Dump completed on 2023-07-20  1:43:50

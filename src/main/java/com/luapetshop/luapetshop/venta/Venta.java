@@ -7,6 +7,7 @@ import java.util.List;
 import com.luapetshop.luapetshop.cuenta.Movimiento;
 import com.luapetshop.luapetshop.model.MedioPago;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -35,9 +36,12 @@ public class Venta {
 	private double total;
 	private char estado;
 	@OneToOne
-	@JoinColumn(name = "id_movimiento")
-	private Movimiento movimiento;
-	@OneToMany(mappedBy = "venta")
+	@JoinColumn(name = "id_movimiento1")
+	private Movimiento movimiento1;
+	@OneToOne
+	@JoinColumn(name = "id_movimiento2")
+	private Movimiento movimiento2;
+	@OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<LineaVenta> lineasVenta = new ArrayList<LineaVenta>();
 	
 	public Venta() {
@@ -45,7 +49,7 @@ public class Venta {
 	}
 
 	public Venta(MedioPago medio_pago1, MedioPago medio_pago2, LocalDateTime fecha, double parcial1, double parcial2,
-			double total, char estado, Movimiento movimiento, List<LineaVenta> lineasVenta) {
+			double total, char estado, Movimiento movimiento1, Movimiento movimiento2, List<LineaVenta> lineasVenta) {
 		super();
 		this.medio_pago1 = medio_pago1;
 		this.medio_pago2 = medio_pago2;
@@ -54,12 +58,14 @@ public class Venta {
 		this.parcial2 = parcial2;
 		this.total = total;
 		this.estado = estado;
-		this.movimiento = movimiento;
+		this.movimiento1 = movimiento1;
+		this.movimiento2 = movimiento2;
 		this.lineasVenta = lineasVenta;
 	}
 
 	public Venta(int id_venta, MedioPago medio_pago1, MedioPago medio_pago2, LocalDateTime fecha, double parcial1,
-			double parcial2, double total, char estado, Movimiento movimiento, List<LineaVenta> lineasVenta) {
+			double parcial2, double total, char estado, Movimiento movimiento1, Movimiento movimiento2,
+			List<LineaVenta> lineasVenta) {
 		super();
 		this.id_venta = id_venta;
 		this.medio_pago1 = medio_pago1;
@@ -69,17 +75,31 @@ public class Venta {
 		this.parcial2 = parcial2;
 		this.total = total;
 		this.estado = estado;
-		this.movimiento = movimiento;
+		this.movimiento1 = movimiento1;
+		this.movimiento2 = movimiento2;
 		this.lineasVenta = lineasVenta;
 	}
-
 
 
 	public List<LineaVenta> getLineasVenta() {
 		return lineasVenta;
 	}
 
+	public Movimiento getMovimiento1() {
+		return movimiento1;
+	}
 
+	public void setMovimiento1(Movimiento movimiento1) {
+		this.movimiento1 = movimiento1;
+	}
+
+	public Movimiento getMovimiento2() {
+		return movimiento2;
+	}
+
+	public void setMovimiento2(Movimiento movimiento2) {
+		this.movimiento2 = movimiento2;
+	}
 
 	public void setLineasVenta(List<LineaVenta> lineasVenta) {
 		this.lineasVenta = lineasVenta;
@@ -141,13 +161,6 @@ public class Venta {
 		this.parcial2 = parcial2;
 	}
 
-	public Movimiento getMovimiento() {
-		return movimiento;
-	}
-
-	public void setMovimiento(Movimiento movimiento) {
-		this.movimiento = movimiento;
-	}
 
 	public void setFecha(LocalDateTime fecha) {
 		this.fecha = fecha;
