@@ -18,30 +18,35 @@ public class Cuenta {
 	private double saldo;
 	private double saldo_inicial;
 	private LocalDateTime fecha_apertura;
+	private LocalDateTime actualizado;
 	
 	
 	public Cuenta() {
 		super();
 	}
 
-	public Cuenta(String nombre, double saldo, double saldo_inicial,
-			LocalDateTime fecha_apertura) {
-		super();
-		this.nombre = nombre;
-		this.saldo = saldo;
-		this.saldo_inicial = saldo_inicial;
-		this.fecha_apertura = fecha_apertura;
-	}
-
-	public Cuenta(int id_cuenta, String nombre, double saldo, double saldo_inicial,
-			LocalDateTime fecha_apertura) {
+	public Cuenta(int id_cuenta, String nombre, double saldo, double saldo_inicial, LocalDateTime fecha_apertura,
+			LocalDateTime actualizado) {
 		super();
 		this.id_cuenta = id_cuenta;
 		this.nombre = nombre;
 		this.saldo = saldo;
 		this.saldo_inicial = saldo_inicial;
 		this.fecha_apertura = fecha_apertura;
+		this.actualizado = actualizado;
 	}
+
+	public Cuenta(String nombre, double saldo, double saldo_inicial, LocalDateTime fecha_apertura,
+			LocalDateTime actualizado) {
+		super();
+		this.nombre = nombre;
+		this.saldo = saldo;
+		this.saldo_inicial = saldo_inicial;
+		this.fecha_apertura = fecha_apertura;
+		this.actualizado = actualizado;
+	}
+
+
 
 	public int getId_cuenta() {
 		return id_cuenta;
@@ -81,6 +86,14 @@ public class Cuenta {
 
 	public void setFecha_apertura(LocalDateTime fecha_apertura) {
 		this.fecha_apertura = fecha_apertura;
+	}
+
+	public LocalDateTime getActualizado() {
+		return actualizado;
+	}
+
+	public void setActualizado(LocalDateTime actualizado) {
+		this.actualizado = actualizado;
 	}
   
 }

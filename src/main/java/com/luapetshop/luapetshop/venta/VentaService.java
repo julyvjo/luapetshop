@@ -124,11 +124,16 @@ public class VentaService {
 			venta.setTotal(total);			
 		    //estado (C completo, A anulado?)
 			venta.setEstado('C');
+			//SAVE preventivo para agregar lineas de venta
+			ventaRepository.save(venta);
 			
 	        //setear las lineas de venta
 	        List<Map<String, Object>> lines = (List<Map<String, Object>>) datos.get("lineas_venta");
 	        for( Map<String, Object> line : lines ) {
 	        	LineaVenta linea_venta = new LineaVenta();
+	        	
+	        	//setear venta
+	        	linea_venta.setVenta(venta);
 	        	
 	        	//setear producto
 	        	Producto prod = productoService.getProducto((int)line.get("id_producto")).get();
@@ -139,7 +144,7 @@ public class VentaService {
 	        	linea_venta.setCantidad(cantidad);
 	        	
 	        	//setear precio
-	        	linea_venta.setPrecio_venta((double)line.get("precio"));
+	        	linea_venta.setPrecio_venta((double)line.get("precio_venta"));
 	        	
 	        	venta.getLineasVenta().add(linea_venta);
 	        	
@@ -156,12 +161,14 @@ public class VentaService {
         //modificar saldo de cuenta1
         double saldo1 = cuenta1.getSaldo();
         cuenta1.setSaldo(saldo1 + parcial1);
+        cuenta1.setActualizado(fecha);
         cuentaRepository.save(cuenta1);
         
         //modificar saldo de cuenta2
         if(id_medio_pago2 != 0) {
         	double saldo2 = cuenta2.getSaldo();
 	        cuenta2.setSaldo(saldo2 + parcial2);
+	        cuenta2.setActualizado(fecha);
         	cuentaRepository.save(cuenta2);
         }
 	}
