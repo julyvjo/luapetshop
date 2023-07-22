@@ -1,6 +1,7 @@
 package com.luapetshop.luapetshop.cuenta;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,5 +19,9 @@ public class CuentaService {
 	
 	public List<Cuenta> getCuentas() {
 		return cuentaRepository.findAll();
+	}
+	
+	public Optional<Cuenta> getCuenta(int id){
+		return cuentaRepository.findById(id);
 	}
 }

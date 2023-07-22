@@ -3,6 +3,8 @@ package com.luapetshop.luapetshop.venta;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,7 @@ import com.luapetshop.luapetshop.model.MedioPagoService;
 public class VentaController {
 	private VentaService ventaService;
 	private MedioPagoService medioPagoService;
+	private static final Logger LOGGER = LoggerFactory.getLogger(VentaController.class);
 	
 	@Autowired
 	public VentaController(VentaService ventaService, MedioPagoService medioPagoService) {
@@ -35,27 +38,23 @@ public class VentaController {
 		List<MedioPago> mediospago = medioPagoService.getMediosPago();
 		model.addAttribute("mediospago", mediospago);
 		
-		// System.out.println(mediospago.get(0).getNombre());
-		
 		return "venta";
 	}
 	
 	@PostMapping("/new/venta")
     public ResponseEntity<String> procesarDatos(@RequestBody Map<String, Object> datos) {
         
-		System.out.println(datos.toString());
+		LOGGER.info("recibido POST en /new/venta: " + datos.toString());
 		
-		
-		try {
-			
+		try {			
 			ventaService.createNewVenta(datos);
+			return ResponseEntity.status(HttpStatus.ACCEPTED).body("Venta creada exitosamente");
 		} catch (Exception e) {
-			
+			LOGGER.error("Error al procesar nueva venta");
+			LOGGER.error(e.getMessage());
 			e.printStackTrace();
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al procesar venta");
 		}
-
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(datos.toString());
-        //return ResponseEntity.status(HttpStatus.CREATED).body("Venta guardada");
     }
 	
 	

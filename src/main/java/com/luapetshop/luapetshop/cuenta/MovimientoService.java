@@ -17,4 +17,8 @@ public class MovimientoService {
 		this.movimientoRepository = movimientoRepository;
 	}
 	
+	public List<Movimiento> getMovimientosOfCuenta(int id){
+		return movimientoRepository.findAllByCuentaAndDate(id);
+	}
+	
 }
