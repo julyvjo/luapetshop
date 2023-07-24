@@ -25,9 +25,9 @@ nuevoProductoEnviar.addEventListener("click", () =>
     enviarNuevoProducto();
 });
 
-function validarNuevoProducto()
+function validarNuevoProducto()     // AÚN NO SE VALIDAR PARA EVITAR SQL INJECTION!
 {
-    //  AÚN NO SE VALIDAR PARA EVITAR SQL INJECTION!
+    // IMPLEMENTAR CODIGO DE BARRAS
 
     const nuevoProductoNombre = document.getElementById("modalNuevoProductoNombre");
 
@@ -44,6 +44,8 @@ function validarNuevoProducto()
     //     console.log("ERROR: Completar descripción del producto!");
     //     return false;
     // }
+
+    // IMPLEMENTAR PROVEEDOR
 
     const nuevoProductoPrecioCompra = document.getElementById("modalNuevoProductoPrecioCompra");
 
@@ -92,11 +94,13 @@ function validarNuevoProducto()
 
 function enviarNuevoProducto()
 {
+    // const nuevoProductoCodigo = document.getElementById("modalNuevoProductoCodigo");
     const nuevoProductoNombre = document.getElementById("modalNuevoProductoNombre");
     
     //  Descripción por ahora no va a ser implementado.
     // const nuevoProductoDescripcion = document.getElementById("modalNuevoProductoDescripcion");
-    
+
+    // const nuevoProductoProveedor = document.getElementById("modalNuevoProductoProveedor");
     const nuevoProductoPrecioCompra = document.getElementById("modalNuevoProductoPrecioCompra");
     const nuevoProductoRentabilidad = document.getElementById("modalNuevoProductoRentabilidad");
     // const nuevoProductoGanancia = document.getElementById("modalNuevoProductoGanancia");
@@ -106,11 +110,13 @@ function enviarNuevoProducto()
     // const nuevoProductoImagen = document.getElementById("modalNuevoProductoImagen");
 
     datosProducto = {
+        // codigo_producto: 0,
         id_producto: 0,
         nombre: nuevoProductoNombre.value,
 
         // descripcion: nuevoProductoDescripcion.value,
 
+        // id_proveedor: nuevoProductoProveedor.value,
         precio_compra: nuevoProductoPrecioCompra.value,
         rentabilidad: nuevoProductoRentabilidad.value,
         // ganancia: nuevoProductoGanancia.value,
@@ -153,8 +159,26 @@ function cargarEditor(fila)
     const filaId = tr.id;
     const h5 = tr.querySelectorAll("h5");
 
+    /*
+        h5[0] - Imagen
+        //  CODIGO BARRAS?
+        h5[1] - Nombre
+        //  DESCRIPCION?
+        //  PROVEEDOR?
+        //  CATEGORIA?
+        h5[2] - Stock
+        h5[3] - Precio compra
+        h5[4] - Rentabilidad
+        h5[5] - Ganancia
+        h5[6] - Precio venta
+        h5[7] - Editor Linea
+    */
+
     //  Imagen aún está pendiente.
     //  const imagen = document.getElementById("modalEditorLineaImagen");
+
+    // const editorLineaCodigo = document.getElementById("modalEditorLineaCodigo");
+    // editorLineaCodigo.value = h5[1].textContent;
 
     const editorLineaNombre = document.getElementById("modalEditorLineaNombre");
     editorLineaNombre.value = h5[1].textContent;
@@ -162,6 +186,9 @@ function cargarEditor(fila)
     //  Descripción actualmente no se va a usar.
     // const editorLineaDescripcion = document.getElementById("modalEditorLineaDescripcion");
     // editorLineaDescripcion.value = h5[2].textContent;
+
+    // const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
+    // editorLineaProveedor.value = h5[2].textContent;
 
     const editorLineaStock = document.getElementById("modalEditorLineaStock");
     editorLineaStock.value = h5[2].textContent;
@@ -193,9 +220,9 @@ modalEditorLineaEnviar.addEventListener("click", () =>
     enviarEditorLinea();
 });
 
-function validarEditorLinea()
+function validarEditorLinea()       //  AÚN NO SE VALIDAR PARA EVITAR SQL INJECTION!
 {
-    //  AÚN NO SE VALIDAR PARA EVITAR SQL INJECTION!
+    // IMPLEMENTAR CODIGO DE BARRAS
 
     const editorLineaNombre = document.getElementById("modalEditorLineaNombre");
 
@@ -213,6 +240,8 @@ function validarEditorLinea()
     //     console.log("ERROR: Completar descripción del producto!");
     //     return false;
     // }
+
+    // IMPLEMENTAR PROVEEDOR
  
     const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
     
@@ -261,11 +290,13 @@ function validarEditorLinea()
 
 function enviarEditorLinea()
 {
+    // const editorLineaCodigo = document.getElementById("modalEditorLineaCodigo");
     const editorLineaNombre = document.getElementById("modalEditorLineaNombre");
     
     //  Descripción no va a implementarse por ahora.
     // const editorLineaDescripcion = document.getElementById("modalEditorLineaDescripcion");
     
+    // const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
     const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
     const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
     // const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
@@ -276,11 +307,13 @@ function enviarEditorLinea()
     const editorLineaID = document.getElementById("modalEditorLineaId");
 
     datosProducto = {
+        // codigo_producto: editorLineaCodigo.value,
         id_producto: editorLineaID.value,
         nombre: editorLineaNombre.value,
 
         // descripcion: editorLineaDescripcion.value,
 
+        // id_proveedor: editorLineaProveedor.value,
         precio_compra: editorLineaPrecioCompra.value,
         rentabilidad: editorLineaRentabilidad.value,
         // ganancia: editorLineaGanancia.value,
@@ -300,16 +333,18 @@ function enviarEditorLinea()
 // || DATOS PRODUCTO
 
 let datosProducto = {
-    id_producto: 0,     // 0 si es nuevo
+    // codigo_producto: 0,     // 0 si no tiene código de barras asignado.
+    id_producto: 0,         // 0 si es nuevo.
     nombre: "",
 
-    // descripcion: "", //  De momento no implementado.
+    // descripcion: "",     //  De momento no implementado.
 
+    // id_proveedor: 0,     // 0 si no tiene proveedor asignado.
     precio_compra: 0.00,
     rentabilidad: 0.0,
     // ganancia: 0.0,
     // precio_venta: 0.0,
-    // id_categoria: 0, // 0 si no tiene categoría asiganda
+    // id_categoria: 0,     // 0 si no tiene categoría asiganda.
     stock: 0,
     // imagen: "base64"
 }
@@ -317,16 +352,18 @@ let datosProducto = {
 function iniciarDatosProducto()
 {
     datosProducto = {
-        id_producto: 0,     // 0 si es nuevo
+        // codigo_producto: 0,
+        id_producto: 0,
         nombre: "",
 
-        // descripcion: "", //  De momento no implementado.
+        // descripcion: "",
         
+        // id_proveedor: 0,
         precio_compra: 0.00,
         rentabilidad: 0.0,
         // ganancia: 0.0,
         // precio_venta: 0.0,
-        // id_categoria: 0,
+        // id_categoria: 0,     
         stock: 0,
         // imagen: "base64"
     }
