@@ -181,6 +181,11 @@
                 </div>
                 <div class="modal-body">
                     <div id="productoModalEditorLinea">
+                        <!-- <div>
+                            <label for="editorLineaCodigo">Codigo de barras del producto</label>
+                            <input type="text" id="modalEditorLineaCodigo" name="editorLineaCodigo" required>
+                        </div> -->
+                        
                         <div>
                             <label for="editorLineaNombre">Nombre del Producto</label>
                             <input type="text" id="modalEditorLineaNombre" name="editorLineaNombre" required>
@@ -191,7 +196,18 @@
                             <input type="text" id="modalEditorLineaDescripcion" name="editorLineaDescripcion" required>
                         </div>
 
+                        <!-- <div>
+                            <label for="editorLineaProveedor">Proveedor</label>
+                            <select id="modalEditorLineaProveedor" name="editorLineaProveedor" required>
+                                <option value="0">SELECCIONAR PROVEEDOR</option>
+                                <option value="1">La Sin-rival</option>
+                                <option value="2">Per-ros</option>
+                            </select>
+                        </div> -->
+
                         <div>
+                            <!-- Usar atributo readonly si planeo usar JS para dinámicamente mostrar este valor -->
+
                             <div>
                                 <label for="editorLineaPrecioCompra">Precio de Compra</label>
                                 <input id="modalEditorLineaPrecioCompra" name="editorLineaPrecioCompra" required>
@@ -204,10 +220,23 @@
     
                             <div>
                                 <label for="editorLineaGanancia">Ganancia</label>
-                                <input id="modalEditorLineaGanancia" name="editorLineaGanancia" disabled required>
-                                <!-- readonly si planeo usar JS para dinámicamente mostrar este valor -->
+                                <input id="modalEditorLineaGanancia" name="editorLineaGanancia" required>
                             </div>
+
+                            <!-- <div>
+                                <label for="editorLineaPrecioVenta">Codigo de barras del producto</label>
+                                <input id="modalEditorLineaPrecioVenta" name="editorLineaPrecioVenta" value="0.00" required>
+                            </div> -->
                         </div>
+
+                        <!-- <div>
+                            <label for="editorLineaCategoria">Categoría</label>
+                            <select id="modalEditorLineaCategoria" name="editorLineaCategoria" required>
+                                <option value="0">SELECCIONAR CATEGORIA</option>
+                                <option value="1">Perros</option>
+                                <option value="2">Gatos</option>
+                            </select>
+                        </div> -->
 
                         <div>
                             <div>
