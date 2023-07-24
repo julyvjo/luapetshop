@@ -29,6 +29,11 @@
                 </div>
                 <div class="modal-body">
                     <div id="productoModalNuevoProducto">
+                        <!-- <div>
+                            <label for="nuevoProductoCodigo">Codigo de barras del producto</label>
+                            <input type="text" id="modalNuevoProductoCodigo" name="nuevoProductoCodigo" required>
+                        </div> -->
+
                         <div>
                             <label for="nuevoProductoNombre">Nombre del Producto</label>
                             <input type="text" id="modalNuevoProductoNombre" name="nuevoProductoNombre" placeholder="Dog Chow 15 Kg..." required>
@@ -39,7 +44,18 @@
                             <input type="text" id="modalNuevoProductoDescripcion" name="nuevoProductoDescripcion" placeholder="Comida para perro..." required>
                         </div>
 
+                        <!-- <div>
+                            <label for="nuevoProductoProveedor">Proveedor</label>
+                            <select id="modalNuevoProductoProveedor" name="nuevoProductoProveedor" required>
+                                <option value="0">SELECCIONAR PROVEEDOR</option>
+                                <option value="1">La Sin-rival</option>
+                                <option value="2">Per-ros</option>
+                            </select>
+                        </div> -->
+
                         <div>
+                            <!-- Usar atributo readonly si planeo usar JS para dinámicamente mostrar este valor -->
+
                             <div>
                                 <label for="nuevoProductoPrecioCompra">Precio de Compra</label>
                                 <input id="modalNuevoProductoPrecioCompra" name="nuevoProductoPrecioCompra" value="0.00" required>
@@ -52,10 +68,23 @@
     
                             <div>
                                 <label for="nuevoProductoGanancia">Ganancia</label>
-                                <input id="modalNuevoProductoGanancia" name="nuevoProductoGanancia" value="0.00" disabled required>
-                                <!-- readonly si planeo usar JS para dinámicamente mostrar este valor -->
+                                <input id="modalNuevoProductoGanancia" name="nuevoProductoGanancia" value="0.00" required>
                             </div>
+
+                            <!-- <div>
+                                <label for="nuevoProductoPrecioVenta">Codigo de barras del producto</label>
+                                <input id="modalNuevoProductoPrecioVenta" name="nuevoProductoPrecioVenta" value="0.00" required>
+                            </div> -->
                         </div>
+
+                        <!-- <div>
+                            <label for="nuevoProductoCategoria">Categoría</label>
+                            <select id="modalNuevoProductoCategoria" name="nuevoProductoCategoria" required>
+                                <option value="0">SELECCIONAR CATEGORIA</option>
+                                <option value="1">Perros</option>
+                                <option value="2">Gatos</option>
+                            </select>
+                        </div> -->
 
                         <div>
                             <div>
