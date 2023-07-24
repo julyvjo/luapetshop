@@ -2,18 +2,20 @@
 
 ##  GENERAL
 
-- [ ] **PREGUNTAR; Chequear si es correcto implementar los JS de la forma que hice esto (no se si es necesario usar "import" o algo así en los otros archivos para que usen las funciones que defina acá)**
+- [ ] **PREGUNTAR; Para el listado de proveedores... ¿Cómo se modificaría? (Agregar, editar, eliminar proveedores)**
+
+- [ ] PREGUNTAR; Chequear si es correcto implementar los JS de la forma que hice esto (no se si es necesario usar "import" o algo así en los otros archivos para que usen las funciones que defina acá)
 
 - [ ] NAVBAR; Fixear redirección a otras URL (por ej desde o hacia /caja/[id_caja])
 - [ ] MEDIOS DE PAGO; IMPLEMENTAR COMISIONES de cada método **(Falta que Emmik nos pase esa info también)**
 - [ ] CSS TABLAS; El scrollbar vertical solamente debería afectar a `<tbody>`
 - [ ] CSS TABLAS; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y reducir el ancho de esas columnas que solamente van a mostrar un número o incluso un valor fijo. (De nuevo agregado por nueva columna PROVEEDOR)
+- [ ] CSS; Modificar variables de color de TEXTOS para que usen su propia variable (fix para múltiples páginas con el cambio de bgcolor)
 
-- [x] ~~EMMIK; Analizar propuesta de implementar códigos de barras~~ **DE MOMENTO NO SE VA A IMPLEMENTAR**
+- [x] ~~EMMIK; Analizar propuesta de implementar códigos de barras~~ **DE MOMENTO HAY QUE CONFIRMAR IMPLEMENTACIÓN**
 - [x] ~~EMMIK; Analizar propuesta de permitir setear total de venta arbitrario (e.g. para redondear)~~ **RECOMENDACIÓN PERSONAL DADA A EMMIK; NOSOTROS NO DEBERÍAMOS MODIFICAR NADA**
-- [x] ~~HEADER; Minimizar márgenes inferior y superior para maximizar espacio de trabajo~~
-- [x] ~~FOOTER; Reemplazar por PageNavigation en las páginas donde aparezca para maximizar espacio de trabajo~~
 
+* CSS; Maximizar espacio para listado de productos.
 * CSS; Evitar scroll horizontal lo máximo posible.
 * CSS; Considerar usar sombras para mejorar el formato.
 * UX; Considerar cambiar TODOS los window.confirm() por opciones para hacer UNDO por un tiempo (similar a cómo funciona Gmail por ejemplo). Esto podría aplicarse a todo proceso que pueda perderse como un formulario dentro de un modal...
@@ -21,6 +23,8 @@
 ---
 
 ##  PRODUCTO
+
+- [ ] **PREGUNTAR EMMIK; FEEDBACK para nombres de columnas CODIGO DE BARRAS, PROVEEDOR y CATEGORIA**
 
 - [ ] TABLA + EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Agregar e implementar columna PROVEEDOR
 - [ ] EDITAR LINEA INDIVIDUAL; Ajustar pre-carga a nuevo orden de columnas;
@@ -91,6 +95,8 @@
 ## DATABASE
 
 - [ ] Rework de estructura de la base de datos
+- [ ] PRODUCTO; Agregar id_proveedor
+- [ ] PRODUCTO; Agregar codigo_producto (código de barras)
 
 *   Eliminar producto_proveedor
 *   Asociar proveedores a productos (Rel. 1 a 1)
