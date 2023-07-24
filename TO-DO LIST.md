@@ -2,16 +2,15 @@
 
 ##  GENERAL
 
-- [ ] **PREGUNTAR; Para PRODUCTO es necesario agregar la columna PROVEEDOR ???**
 - [ ] **PREGUNTAR; Chequear si es correcto implementar los JS de la forma que hice esto (no se si es necesario usar "import" o algo así en los otros archivos para que usen las funciones que defina acá)**
 
-- [ ] **EMMIK; Analizar propuesta de implementar códigos de barras**
-- [ ] **EMMIK; Analizar propuesta de permitir setear total de venta arbitrario (e.g. para redondear)**
+- [ ] NAVBAR; Fixear redirección a otras URL (por ej desde o hacia /caja/[id_caja])
 - [ ] MEDIOS DE PAGO; IMPLEMENTAR COMISIONES de cada método **(Falta que Emmik nos pase esa info también)**
-
 - [ ] CSS TABLAS; El scrollbar vertical solamente debería afectar a `<tbody>`
+- [ ] CSS TABLAS; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y reducir el ancho de esas columnas que solamente van a mostrar un número o incluso un valor fijo. (De nuevo agregado por nueva columna PROVEEDOR)
 
-- [x] ~~CSS TABLAS; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y reducir el ancho de esas columnas que solamente van a mostrar un número o incluso un valor fijo.~~
+- [x] ~~EMMIK; Analizar propuesta de implementar códigos de barras~~ **DE MOMENTO NO SE VA A IMPLEMENTAR**
+- [x] ~~EMMIK; Analizar propuesta de permitir setear total de venta arbitrario (e.g. para redondear)~~ **RECOMENDACIÓN PERSONAL DADA A EMMIK; NOSOTROS NO DEBERÍAMOS MODIFICAR NADA**
 - [x] ~~HEADER; Minimizar márgenes inferior y superior para maximizar espacio de trabajo~~
 - [x] ~~FOOTER; Reemplazar por PageNavigation en las páginas donde aparezca para maximizar espacio de trabajo~~
 
@@ -23,11 +22,11 @@
 
 ##  PRODUCTO
 
+- [ ] TABLA + EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Agregar e implementar columna PROVEEDOR
 - [ ] EDITAR LINEA INDIVIDUAL; Ajustar pre-carga a nuevo orden de columnas;
 - [ ] IMPLEMENTAR rutas a la imagen del producto (th:src=${atributo})
 - [ ] CAMBIAR tipo de stock por CATEGORIA
 - [ ] NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; Implementar CATEGORIA de productos (si o si tiene que tener una id_categoría asignada)
-
 - [ ] NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; Ajustar validación para volver a valores default si por ejemplo los inputs quedaron vacíos.
 - [ ] NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; IMPLEMENTAR IMAGEN DE CADA PRODUCTO.
 
@@ -35,11 +34,12 @@
 
 ##  VENTA
 
-- [ ] **PREGUNTAR; ¿Cómo deberíamos chequear que una venta no afecta más stock del que supuestamente existe?**
-
+- [ ] FINALIZAR VENTA; Implementar fetch para disparar el proceso de crear venta.
 - [ ] HISTORIAL; Implementar *una vez que CAJA esté completo* (ya que debería almacenar todas las ventas de ese mismo día)
 - [ ] CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.
 
+
+- [x] ~~PREGUNTAR; ¿Cómo deberíamos chequear que una venta no afecta más stock del que supuestamente existe?~~ **ASUMIMOS QUE LA VENTA CHEQUEA IRL EL STOCK ACTUAL, ERGO STOCK EN BD PUEDE NO SER REALMENTE LA CANTIDAD (entonces el stock simplemente se resetea a cero sin volverse negativo)**
 * CSS GENERAL; Estaría bueno si todos los valores tuviesen unidades ($ por ejemplo, ideal considerar también los de cantidad)
 * BUSCADOR; Considerar mostrar un TOAST indicando errores (input repetido, búsqueda vacía, sin resultados, etc)
 * CARRITO; Estaría bueno si CANTIDAD tuviese 2 botones para aumentar/disminuir con clicks (deshabilitando los propios del `<input>`)
@@ -48,14 +48,12 @@
 
 ##  CAJA
 
-- [x] ~~PREGUNTAR; Qué información tiene que mostrarse en cada fondo? (ideal: sin overflow)~~ **(para cada cuenta debería haber un resumen de lo hecho durante el día si no me equivoco, los movimientos en si yo los pondria en otro lugar a parte la verdad, pero creo que tenemos que pensar en algun input para hacerle "cargas" o "descargas" de saldo arbitrariamente y mostrar cuanta $$ hay actualmente en cada caja y no se bien que más, este hay que ir diseñandolo aun)**
-
 - [ ] FONDOS; Cada fondo debería tener CAJA INICIAL + VARIACIÓN DEL DÍA + TOTAL
+- [ ] IMPLEMENTAR botón "Detalles" para llevar a caja/[id_caja] donde estarían todos los detalles del fondo.
 - [ ] CREAR formulario/modal para registrar COMPRAS EXCEPCIONALES (tranquilamente podría necesitarse hacer más de 1; incluso esto puede moverse a COMPRA)
-- [ ] IMPLEMENTAR botón "Detalles" para abrir un modal con la información completa, en cada fondo.
 
 * Considerar implementar ALGUNA FORMA DE REVERTIR COMPRAS Y VENTAS
-* Debería generarse un scroll horizontal en caso de agregar otro fondo
+* DEBERÍA GENERARSE un scroll horizontal en caso de agregar otro fondo
 
 ---
 
@@ -70,6 +68,7 @@
 
 ##  COMPRA
 
+- [ ] GUARDAR COMPRA; Implementar fetch para disparar el proceso de crear compra.
 - [ ] **PREGUNTAR; Chequear si esta página no debería permitir registrar COMPRAS EXCEPCIONALES. (Ejemplo, usaron la plata de alguno de los fondos para insumos propios del petshop, o sacaron para uso personal)**
 
 ---
