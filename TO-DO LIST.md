@@ -26,13 +26,14 @@
 
 - [ ] **PREGUNTAR EMMIK; FEEDBACK para nombres de columnas CODIGO DE BARRAS, PROVEEDOR y CATEGORIA**
 
+- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Validar decimales en `$C, %R, $G y $V` onChange()
 - [ ] TABLA + EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Agregar e implementar columna PROVEEDOR
-- [ ] EDITAR LINEA INDIVIDUAL; Ajustar pre-carga a nuevo orden de columnas;
+- [ ] EDITAR LINEA INDIVIDUAL; Ajustar pre-carga a nuevo orden de columnas
 - [ ] IMPLEMENTAR rutas a la imagen del producto (th:src=${atributo})
 - [ ] CAMBIAR tipo de stock por CATEGORIA
-- [ ] NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; Implementar CATEGORIA de productos (si o si tiene que tener una id_categoría asignada)
-- [ ] NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; Ajustar validación para volver a valores default si por ejemplo los inputs quedaron vacíos.
-- [ ] NUEVO PRODUCTO + EDITAR LINEA INDIVIDUAL; IMPLEMENTAR IMAGEN DE CADA PRODUCTO.
+- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar CATEGORIA de productos (si o si tiene que tener una id_categoría asignada)
+- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Ajustar validación para volver a valores default si por ejemplo los inputs quedaron vacíos.
+- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; IMPLEMENTAR IMAGEN DE CADA PRODUCTO.
 
 ---
 
