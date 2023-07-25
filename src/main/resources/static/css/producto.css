@@ -97,6 +97,11 @@
     gap: 2vw;
 }
 
+/* #productoModalNuevoProducto > div:nth-child(3)
+{
+    width: ;
+} */
+
 #productoModalNuevoProducto > div,
 #productoModalNuevoProducto > div > div
 {
@@ -221,9 +226,16 @@
     color: var(--primary);
 }
 
+.modal-body,
+.modal-header
+{
+    padding: 1vh 1vw;
+}
+
 .modal-title
 {
     font-weight: bold;
+    font-size: 3vh;
 }
 
 .modal-photo
