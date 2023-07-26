@@ -29,8 +29,8 @@
                     <div id="formCompraPaymentMethod">
                         <label for="formCompraPaymentMethod">METODO DE PAGO</label>
                         <select name="formCompraPaymentMethod" required>
-                            <option value="default" data-id-metodo-pago="0" disabled selected>SELECCIONAR METODO DE PAGO</option>
-                            <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}" th:data-id-metodo-pago="${item.id_medio_pago}"></option>
+                            <option value="default" data-id-metodo-pago="0" data-modificador-metodo-pago="1" disabled selected>SELECCIONAR METODO DE PAGO</option>
+                            <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}" th:data-id-metodo-pago="${item.id_medio_pago}" th:data-modificador-metodo-pago="${item.modificador}"></option>
                         </select>
                     </div>
                 </div>
