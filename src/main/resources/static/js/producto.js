@@ -14,6 +14,22 @@ function validarNumeroInteger(string)
     // console.log(validateNumber("12,34.56"));// false (múltiples separadores)
     // console.log(validateNumber("abc"));     // false (contiene caracteres no válidos como letras)
 }
+
+function agregarEventListenerInteger(nombre)
+{
+    const ID = nombre;
+
+    const elemento = document.getElementById(ID);
+    elemento.addEventListener("change", (e) =>
+    {
+        if (validarNumeroInteger(elemento.value) === false)
+        {
+            console.log("ERROR: No es un número integer! Reiniciando a valor default.");
+            elemento.value = "1";
+            return;
+        }
+    });
+}
 // **************************************************************
 
 
@@ -73,6 +89,8 @@ if (nuevoProducto)
         agregarEventListenerFloat("modalNuevoProductoRentabilidad");
         agregarEventListenerFloat("modalNuevoProductoGanancia");
         agregarEventListenerFloat("modalNuevoProductoPrecioVenta");
+
+        agregarEventListenerInteger("modalNuevoProductoStock");
 
         window.onclick = null;
     });
@@ -236,6 +254,8 @@ if (arrayBotonEditar.length !== 0)
             agregarEventListenerFloat("modalEditorLineaRentabilidad");
             agregarEventListenerFloat("modalEditorLineaGanancia");
             agregarEventListenerFloat("modalEditorLineaPrecioVenta");
+
+            agregarEventListenerInteger("modalNuevoProductoStock");
 
             window.onclick = null;
         });    
