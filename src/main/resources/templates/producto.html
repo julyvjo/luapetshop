@@ -31,7 +31,7 @@
                                 <td><h2 class="table-header-text-mini">Nombre</h2></td>
                                 <!-- <td><h2 class="table-header-text-mini">Descripcion</h2></td> -->
                                 <!-- <td><h2 class="table-header-text-mini">Proveedor</h2></td> -->
-                                <!-- <td><h2 class="table-header-text-mini">Categoria</h2></td> -->
+                                <td><h2 class="table-header-text-mini">Categoria</h2></td>
                                 <td><h2 class="table-header-text-mini">Stock</h2></td>
                                 <td><h2 class="table-header-text-mini">$ C</h2></td>
                                 <td><h2 class="table-header-text-mini">% R</h2></td>
@@ -47,7 +47,7 @@
                                 <td><h5 th:text="${item.nombre}"></h5></td>
                                 <!-- <td><h5 class="" th:text="${item.descripcion}"></h5></td> -->
                                 <!-- <td><h5 class="" th:text="${item.proveedor}"></h5></td> -->
-                                <!-- <td><h5 class="" th:text="${item.categoria}"></h5></td> -->
+                                <td><h5 class="" th:text="${item.categoria.nombre}"></h5></td>
                                 <td><h5 th:text="${item.stock}"></h5></td>
                                 <td><h5 th:text="${item.precio_compra}"></h5></td>
                                 <td><h5 th:text="${item.rentabilidad}"></h5></td>
