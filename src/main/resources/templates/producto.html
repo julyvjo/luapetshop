@@ -41,13 +41,13 @@
                             </tr>
                         </thead>
                         <tbody id="table" class="table-borderless" style="border-top: none !important;">
-                            <tr th:each="item :${productos}" th:id="${item.id_producto}">
+                            <tr th:each="item :${productos}" th:data-id-producto="${item.id_producto}" th:data-id-categoria="${item.categoria.id_categoria}">
                                 <td><h5><button class="botonFoto">&#128247;</button></h5></td>
                                 <!-- <td><h5 class="" th:text="${item.codigo}"></h5></td> -->
                                 <td><h5 th:text="${item.nombre}"></h5></td>
                                 <!-- <td><h5 class="" th:text="${item.descripcion}"></h5></td> -->
                                 <!-- <td><h5 class="" th:text="${item.proveedor}"></h5></td> -->
-                                <td><h5 class="" th:text="${item.categoria.nombre}"></h5></td>
+                                <td><h5 th:text="${item.categoria.nombre}"></h5></td>
                                 <td><h5 th:text="${item.stock}"></h5></td>
                                 <td><h5 th:text="${item.precio_compra}"></h5></td>
                                 <td><h5 th:text="${item.rentabilidad}"></h5></td>

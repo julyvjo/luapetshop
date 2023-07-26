@@ -221,7 +221,8 @@ if (arrayBotonEditar.length !== 0)
 function cargarEditor(fila)
 {
     const tr = fila.parentNode.parentNode.parentNode;
-    const filaId = tr.id;
+    const filaIdProducto = tr.getAttribute("data-id-producto");
+    const filaIdCategoria = tr.getAttribute("data-id-categoria");
     const h5 = tr.querySelectorAll("h5");
 
     /*
@@ -230,13 +231,13 @@ function cargarEditor(fila)
         h5[1] - Nombre
         //  DESCRIPCION?
         //  PROVEEDOR?
-        //  CATEGORIA?
-        h5[2] - Stock
-        h5[3] - Precio compra
-        h5[4] - Rentabilidad
-        h5[5] - Ganancia
-        h5[6] - Precio venta
-        h5[7] - Editor Linea
+        h5[2]  CATEGORIA?
+        h5[3] - Stock
+        h5[4] - Precio compra
+        h5[5] - Rentabilidad
+        h5[6] - Ganancia
+        h5[7] - Precio venta
+        h5[8] - Editor Linea
     */
 
     //  Imagen aún está pendiente.
@@ -255,25 +256,26 @@ function cargarEditor(fila)
     // const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
     // editorLineaProveedor.value = h5[2].textContent;
 
+    const editorLineaCategoria = document.getElementById("modalEditorLineaCategoria");
+    editorLineaCategoria.value = filaIdCategoria;
+
     const editorLineaStock = document.getElementById("modalEditorLineaStock");
-    editorLineaStock.value = h5[2].textContent;
+    editorLineaStock.value = h5[3].textContent;
 
     const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
-    editorLineaPrecioCompra.value = h5[3].textContent;
+    editorLineaPrecioCompra.value = h5[4].textContent;
 
     const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
-    editorLineaRentabilidad.value = h5[4].textContent;
+    editorLineaRentabilidad.value = h5[5].textContent;
 
     const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
-    editorLineaGanancia.value = h5[5].textContent;
+    editorLineaGanancia.value = h5[6].textContent;
     
     const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
-    editorLineaPrecioVenta.value = h5[6].textContent;
-
-    // const editorLineaCategoria = document.getElementById("modalEditorLineaCategoria");
+    editorLineaPrecioVenta.value = h5[7].textContent;
 
     const editorLineaID = document.getElementById("modalEditorLineaId");
-    editorLineaID.value = filaId;
+    editorLineaID.value = filaIdProducto;
 }
 
 const modalEditorLineaEnviar = document.getElementById("modalEditorLineaEnviar");
