@@ -4,6 +4,8 @@
 
 - [ ] **PREGUNTAR; Para el listado de proveedores... ¿Cómo se modificaría? (Agregar, editar, eliminar proveedores)**
 
+- [ ] JULY; Preguntar por conceptos TRY/CATCH y EXCEPTIONS.
+
 - [ ] PREGUNTAR; Chequear si es correcto implementar los JS de la forma que hice esto (no se si es necesario usar "import" o algo así en los otros archivos para que usen las funciones que defina acá)
 
 - [ ] NAVBAR; Fixear redirección a otras URL (por ej desde o hacia /caja/[id_caja])
