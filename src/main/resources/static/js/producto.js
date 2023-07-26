@@ -91,7 +91,14 @@ function validarNuevoProducto()     // AÚN NO SE VALIDAR PARA EVITAR SQL INJECT
     //     return false;
     // }
 
-    // IMPLEMENTAR PROVEEDOR
+    //  Proveedor por ahora no puede implementarse
+    // const nuevoProductoProveedor = document.getElementById("modalNuevoProductoProveedor");
+
+    // if (nuevoProductoProveedor.value === "0")
+    // {
+    //     console.log("ERROR: El producto tiene que tener algún proveedor!");
+    //     return false;
+    // }
 
     const nuevoProductoPrecioCompra = document.getElementById("modalNuevoProductoPrecioCompra");
 
@@ -309,7 +316,14 @@ function validarEditorLinea()       //  AÚN NO SE VALIDAR PARA EVITAR SQL INJEC
     //     return false;
     // }
 
-    // IMPLEMENTAR PROVEEDOR
+    //  Proveedor por ahora no puede implementarse
+    // const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
+
+    // if (editorLineaProveedor.value === "0")
+    // {
+    //     console.log("ERROR: El producto tiene que tener algún proveedor!");
+    //     return false;
+    // }
  
     const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
     
