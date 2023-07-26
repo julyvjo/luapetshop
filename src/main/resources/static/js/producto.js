@@ -5,7 +5,7 @@ function agregarEventListenerFloat(nombre)
     const ID = nombre;
 
     const elemento = document.getElementById(ID);
-    elemento.addEventListener(change, (e) =>
+    elemento.addEventListener("change", (e) =>
     {
         if (validarNumeroFloat(elemento.value) === false)
         {
@@ -37,6 +37,8 @@ function validarNumeroFloat(string)
 }
 // **************************************************************
 
+
+
 // NUEVO PRODUCTO
 
 const nuevoProducto = document.getElementById('botonNuevoProducto');
@@ -46,6 +48,11 @@ if (nuevoProducto)
     nuevoProducto.addEventListener("click", (e) =>
     {
         mostrarModal("modalNuevoProducto");
+
+        agregarEventListenerFloat("modalNuevoProductoPrecioCompra");
+        agregarEventListenerFloat("modalNuevoProductoRentabilidad");
+        agregarEventListenerFloat("modalNuevoProductoGanancia");
+        agregarEventListenerFloat("modalNuevoProductoPrecioVenta");
 
         window.onclick = null;
     });
@@ -191,6 +198,12 @@ if (arrayBotonEditar.length !== 0)
         {
             mostrarModal("modalEditorLinea");
             cargarEditor(fila);
+
+            agregarEventListenerFloat("modalEditorLineaPrecioCompra");
+            agregarEventListenerFloat("modalEditorLineaRentabilidad");
+            agregarEventListenerFloat("modalEditorLineaGanancia");
+            agregarEventListenerFloat("modalEditorLineaPrecioVenta");
+
             window.onclick = null;
         });    
     });
