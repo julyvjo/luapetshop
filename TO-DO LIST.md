@@ -4,7 +4,7 @@
 
 - [ ] **PREGUNTAR; Para el listado de proveedores... ¿Cómo se modificaría? (Agregar, editar, eliminar proveedores)**
 
-- [ ] JULY; Preguntar por conceptos TRY/CATCH y EXCEPTIONS.
+- [ ] JULY; Preguntar por conceptos TRY/CATCH, EXCEPTIONS y otros conceptos de POO.
 
 - [ ] PREGUNTAR; Chequear si es correcto implementar los JS de la forma que hice esto (no se si es necesario usar "import" o algo así en los otros archivos para que usen las funciones que defina acá)
 
@@ -28,14 +28,15 @@
 
 - [ ] **PREGUNTAR EMMIK; FEEDBACK para nombres de columnas CODIGO DE BARRAS, PROVEEDOR y CATEGORIA**
 
-- [x] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Validar decimales en `$C, %R, $G y $V` onChange()
 - [ ] TABLA + EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Agregar e implementar columna PROVEEDOR
-- [x] EDITAR LINEA INDIVIDUAL; Ajustar pre-carga a nuevo orden de columnas
 - [ ] IMPLEMENTAR rutas a la imagen del producto (th:src=${atributo})
-- [x] CAMBIAR tipo de stock por CATEGORIA
-- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar CATEGORIA de productos (si o si tiene que tener una id_categoría asignada)
 - [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Ajustar validación para volver a valores default si por ejemplo los inputs quedaron vacíos.
 - [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; IMPLEMENTAR IMAGEN DE CADA PRODUCTO.
+
+- [x] CAMBIAR tipo de stock por CATEGORIA
+- [x] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar CATEGORIA de productos (si o si tiene que tener una id_categoría asignada)
+- [x] EDITAR LINEA INDIVIDUAL; Ajustar pre-carga a nuevo orden de columnas
+- [x] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Validar decimales en `$C, %R, $G y $V` onChange()
 
 ---
 
