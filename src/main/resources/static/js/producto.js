@@ -129,7 +129,13 @@ function validarNuevoProducto()     // AÚN NO SE VALIDAR PARA EVITAR SQL INJECT
         return false;
     }
 
-    // IMPLEMENTAR CATEGORIA
+    const nuevoProductoCategoria = document.getElementById("modalNuevoProductoCategoria");
+
+    if (nuevoProductoCategoria.value === "0")
+    {
+        console.log("ERROR: El producto necesita pertenecer a alguna categoría!");
+        return false;
+    }
 
     const nuevoProductoStock = document.getElementById("modalNuevoProductoStock");
 
@@ -158,7 +164,7 @@ function enviarNuevoProducto()
     const nuevoProductoRentabilidad = document.getElementById("modalNuevoProductoRentabilidad");
     const nuevoProductoGanancia = document.getElementById("modalNuevoProductoGanancia");
     const nuevoProductoPrecioVenta = document.getElementById("modalNuevoProductoPrecioVenta");
-    // const nuevoProductoCategoria = document.getElementById("modalNuevoProductoCategoria");
+    const nuevoProductoCategoria = document.getElementById("modalNuevoProductoCategoria");
     const nuevoProductoStock = document.getElementById("modalNuevoProductoStock");
     // const nuevoProductoImagen = document.getElementById("modalNuevoProductoImagen");
 
@@ -174,7 +180,7 @@ function enviarNuevoProducto()
         rentabilidad: nuevoProductoRentabilidad.value,
         ganancia: nuevoProductoGanancia.value,
         precio_venta: nuevoProductoPrecioVenta.value,
-        // categoria: nuevoProductoCategoria.value,
+        id_categoria: nuevoProductoCategoria.value,
         stock: nuevoProductoStock.value,
         // imagen: nuevoProductoImagen.value,
     }
@@ -339,7 +345,13 @@ function validarEditorLinea()       //  AÚN NO SE VALIDAR PARA EVITAR SQL INJEC
         return false;
     }
     
-    // IMPLEMENTAR CATEGORIA
+    const editorLineaCategoria = document.getElementById("modalEditorLineaCategoria");
+
+    if (editorLineaCategoria.value === "0")
+    {
+        console.log("ERROR: El producto necesita pertenecer a alguna categoría!");
+        return false;
+    }
 
     const editorLineaStock = document.getElementById("modalEditorLineaStock");
     
@@ -368,7 +380,7 @@ function enviarEditorLinea()
     const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
     const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
     const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
-    // const editorLineaCategoria = document.getElementById("modalEditorLineaCategoria");
+    const editorLineaCategoria = document.getElementById("modalEditorLineaCategoria");
     const editorLineaStock = document.getElementById("modalEditorLineaStock");
     // const editorLineaImagen = document.getElementById("modalEditorLineaImagen");
     const editorLineaID = document.getElementById("modalEditorLineaId");
@@ -385,7 +397,7 @@ function enviarEditorLinea()
         rentabilidad: editorLineaRentabilidad.value,
         ganancia: editorLineaGanancia.value,
         precio_venta: editorLineaPrecioVenta.value,
-        // id_categoria: editorLineaCategoria.value,
+        id_categoria: editorLineaCategoria.value,
         stock: editorLineaStock.value,
         // imagen: editorLineaImagen.value,
     }
@@ -411,7 +423,7 @@ let datosProducto = {
     rentabilidad: 0.0,
     ganancia: 0.0,
     precio_venta: 0.0,
-    // id_categoria: 0,     // 0 si no tiene categoría asiganda.
+    id_categoria: 0,     // 0 si no tiene categoría asiganda.
     stock: 0,
     // imagen: "base64"
 }
@@ -430,7 +442,7 @@ function iniciarDatosProducto()
         rentabilidad: 0.0,
         ganancia: 0.0,
         precio_venta: 0.0,
-        // id_categoria: 0,     
+        id_categoria: 0,     
         stock: 0,
         // imagen: "base64"
     }
