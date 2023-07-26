@@ -90,8 +90,7 @@
                                 <label for="nuevoProductoCategoria">Categoría</label>
                                 <select id="modalNuevoProductoCategoria" name="nuevoProductoCategoria" required>
                                     <option value="0">SELECCIONAR CATEGORIA</option>
-                                    <option value="1">Perros</option>
-                                    <option value="2">Gatos</option>
+                                    <option th:each="item: ${categorias}" th:value="${item.id_categoria}" th:text="${item.nombre}"></option>
                                 </select>
                             </div>
                             <div>
@@ -241,8 +240,7 @@
                                 <label for="editorLineaCategoria">Categoría</label>
                                 <select id="modalEditorLineaCategoria" name="editorLineaCategoria" required>
                                     <option value="0">SELECCIONAR CATEGORIA</option>
-                                    <option value="1">Perros</option>
-                                    <option value="2">Gatos</option>
+                                    <option th:each="item: ${categorias}" th:value="${item.id_categoria}" th:text="${item.nombre}"></option>
                                 </select>
                             </div>
                             <div>
