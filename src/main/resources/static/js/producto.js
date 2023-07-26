@@ -1,5 +1,25 @@
 // VALIDAR NUMEROS FLOAT
 
+function agregarEventListenerFloat(nombre)
+{
+    const ID = nombre;
+
+    const elemento = document.getElementById(ID);
+    elemento.addEventListener(change, (e) =>
+    {
+        if (validarNumeroFloat(elemento.value) === false)
+        {
+            console.log("ERROR: No es un número float! Reiniciando a valor default.");
+            elemento.value = "0.00";
+            return;
+        }
+        
+        //  Fuerzo redondeo a 2 decimales.
+        elemento.value = elemento.value.replace(/,/g, ".");
+        elemento.value = parseFloat(elemento.value).toFixed(2);
+    });
+}
+
 function validarNumeroFloat(string)
 {
     //  Regular expression para validar que string represente un número float
