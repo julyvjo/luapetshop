@@ -66,7 +66,7 @@
                 <!-- METODOS DE PAGO Y TOTAL -->
                 <div>
                     <div id="containerMetodoPago">
-                        <select name="itemSelected">
+                        <select name="itemSelected" data-valor-previo="default">
                             <option value="default" data-id-metodo-pago="0" data-modificador-metodo-pago="1" disabled selected>METODO DE PAGO</option>
                             <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}" th:data-id-metodo-pago="${item.id_medio_pago}" th:data-modificador-metodo-pago="${item.modificador}"></option>
                         </select>
@@ -74,7 +74,7 @@
                     </div>
 
                     <div id="containerMetodoPagoComplementario">
-                        <select disabled name="itemSelected">
+                        <select name="itemSelected" data-valor-previo="default" disabled>
                             <option value="default" data-id-metodo-pago="0" selected>METODO DE PAGO COMPLEMENTARIO</option>
                             <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}" th:data-id-metodo-pago="${item.id_medio_pago}"></option>
                         </select>
