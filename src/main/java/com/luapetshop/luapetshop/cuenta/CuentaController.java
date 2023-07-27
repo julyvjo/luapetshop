@@ -31,7 +31,7 @@ public class CuentaController {
 	}
 	
 	
-	@GetMapping("/cuenta/{id}")
+	@GetMapping("/caja/{id}")
 	public String cuenta(@PathVariable int id, Model model) {
 		
 		Optional<Cuenta> optionalCuenta = cuentaService.getCuenta(id);

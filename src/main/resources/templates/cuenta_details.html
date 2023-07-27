@@ -29,7 +29,16 @@
                             <tr th:each="item :${movimientos}" th:id="${item.id_movimiento}">
                                 <td><h5 th:text="${item.fecha}"></h5></td>
                                 <td><h5 th:text="${item.monto}"></h5></td>
-                                <td><h5 th:text="${item.tipo}"></h5></td>
+                                <!--td><h5 th:text="${item.tipo}"></h5></td-->
+                                <td>
+                                    <h5 th:switch="${item.tipo}">
+                                        <h5 th:case="'C'">Compra</h5>
+                                        <h5 th:case="'V'">Venta</h5>
+                                        <h5 th:case="'I'">Ingreso</h5>
+                                        <h5 th:case="'E'">Egreso</h5>
+                                        <h5 th:case="*">Desconocido</h5>
+                                    </h5>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

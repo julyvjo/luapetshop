@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/general.html :: headBoilerplate(@{\js\proveedor.js}, @{\css\proveedor.css})}"></head>
+<body>
+    <header th:replace="~{fragments/headernav.html :: headerNavFull (class4='actual')}"></header>
+    <div id="app">
+        <div id="extraApps">
+        
+        </div>
+        
+        <!-- <h2>Subir archivo PDF</h2>
+        <form action="/upload_pdf" method="post" enctype="multipart/form-data">
+            <input type="file" name="pdfFile" accept=".pdf">
+            <button type="submit">Subir PDF</button>
+        </form> -->
+
+
+        <script>
+            // Función para realizar el POST request al servidor
+            function enviarArchivoPDF() {
+              // Crea un objeto FormData y agrega el archivo PDF que deseas enviar
+              var formData = new FormData();
+              formData.append("pdfFile", document.getElementById("pdfFileInput").files[0]);
+          
+              // Realiza el POST request al servidor utilizando fetch
+              fetch("/upload_pdf", {
+                method: "POST",
+                body: formData
+              })
+              .then(response => response.blob())
+              .then(blob => {
+                // Genera un enlace para descargar el archivo CSV
+                var url = URL.createObjectURL(blob);
+                var a = document.createElement("a");
+                a.href = url;
+                a.download = "datos.csv";
+                a.click();
+                // Libera el objeto URL creado para evitar pérdidas de memoria
+                URL.revokeObjectURL(url);
+              })
+              .catch(error => {
+                // Manejo de errores en caso de que ocurra un problema con el fetch
+                console.error(error);
+              });
+            }
+          </script>
+          
+          <!-- Formulario para enviar el archivo PDF -->
+          <form>
+            <input type="file" id="pdfFileInput" accept=".pdf" />
+            <button type="button" onclick="enviarArchivoPDF()">Enviar PDF</button>
+          </form>
+          
+
+
+
+
+
+    </div>
+
+
+    <footer th:replace="~{fragments/general.html :: footer}"></footer>
+
+</body>
+</html>
