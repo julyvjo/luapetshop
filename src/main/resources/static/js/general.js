@@ -15,37 +15,49 @@ headerNavDivChildren.forEach(element =>
 // PAGE REDIRECTION FUNCTION
 
 function goToPage(buttonId)
-{
+{   
+    let ID_PAGINA = "";
+
     switch (buttonId)
     {
         case "VOLVER":
-            window.location.href = "./";
+            // window.location.href = "./";
+            ID_PAGINA = "";
             break;
         case "CAJA":
-            window.location.href = "./caja";
+            // window.location.href = "./caja";
+            ID_PAGINA = "caja";
             break;
         case "VENTAS":
-            window.location.href = "./venta";
+            // window.location.href = "./venta";
+            ID_PAGINA = "venta";
             break;
         case "PRODUCTOS":
-            window.location.href = "./producto";
+            // window.location.href = "./producto";
+            ID_PAGINA = "producto";
             break;
         case "PROVEEDORES":
-            window.location.href = "./proveedor";
+            // window.location.href = "./proveedor";
+            ID_PAGINA = "proveedor";
             break;
         case "COMPRAS":
-            window.location.href = "./compra";
+            // window.location.href = "./compra";
+            ID_PAGINA = "compra";
             break;
         case "USUARIOS":
-            window.location.href = "./usuario";
+            // window.location.href = "./usuario";
+            ID_PAGINA = "usuario";
             break;
     
         default:
             console.log(`ERROR: ${buttonId} seems to not be a valid page!`);
-            break;
+            return;
     }
 
-    window.location.href = url;
+    const LINK = new URL(`/${ID_PAGINA}`, window.location.origin);
+    
+    // window.location.href = url;
+    window.location.href = LINK;
 }
 // **************************************************************
 
