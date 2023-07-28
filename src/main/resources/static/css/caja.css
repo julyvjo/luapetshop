@@ -15,6 +15,10 @@
     gap: 2vh;
 }
 
+
+
+/* || FONDOS */
+
 #appCajaFondos
 {
     margin: 0;
@@ -29,12 +33,68 @@
 #appCajaFondos > div
 {
     margin: 0;
-    padding: 1vh 1vw;
+    padding: 2vh 0.5vw;
+    /* background-color: var(--accent); */
+    background-color: transparent;
+    color: var(--primary);
+    /* border-color: var(--accent); */
+    border-color: var(--primary);
+    border-width: 0.5vh 0.5vw;
+    border-style: solid;
+    border-radius: 1vw;
+    width: 33%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1vh;
+}
+
+#appCajaFondos > div > div
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+#appCajaFondos > div > div > div
+{
+    margin: 0;
+    padding: 0 1vw;
+    width: 50%;
+
+    background-color: var(--primary);
+    color: var(--secondary);
+
+    border-radius: 0 1vw 1vw 0;
+    border: 0;
+
+    text-align: left;
+}
+
+#appCajaFondos > div > div > h2
+{
+    font-size: 5vh;
+    font-weight: bold;
+    text-align: center;
+}
+
+#appCajaFondos > div > div > div:first-child
+{
     background-color: var(--accent);
     color: var(--primary);
-    border-radius: 1vw;
-    width: 25%;
+
+    border-radius: 1vw 0 0 1vw;
+
+    text-align: right;
 }
+
+
+
+/* || CONTAINER TOTALES Y CERRAR CAJA */
 
 #appCajaContainer > :last-child
 {
@@ -43,7 +103,7 @@
     height: 20vh;
 
     display: flex;
-    gap: 18vw;
+    gap: 11vw;
 }
 
 #appCajaContainer > :last-child > :first-child
@@ -100,6 +160,10 @@
     justify-content: center;
     align-items: center;
 }
+
+
+
+/* || CERRAR CAJA */
 
 #botonCerrarCaja
 {
