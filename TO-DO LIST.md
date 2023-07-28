@@ -59,7 +59,8 @@
 - [ ] **PREGUNTAR EMMIK; CERRAR CAJA individualmente o todas al mismo tiempo? también preguntar si necesita una fecha de último cierre de caja para tener referencia de cuánto tiempo llevan registrando todo sin chequear.**
 
 - [ ] CERRAR CAJA; CONSIDERAR agregar fecha de último cierre de caja.
-- [ ] FONDOS; ajustar correctamente formato de información de cada fondo ACORDE A FEEDBACK.
+- [ ] FONDOS; Implementar lógica para botones DETALLES (tienen que redireccionar a `/caja/<id_cuenta>`)
+- [ ] FONDOS; Ajustar correctamente formato de información de cada fondo ACORDE A FEEDBACK.
 - [ ] IMPLEMENTAR botón "Detalles" para llevar a caja/[id_caja] donde estarían todos los detalles del fondo.
 - [ ] CREAR formulario/modal para registrar COMPRAS EXCEPCIONALES (tranquilamente podría necesitarse hacer más de 1; incluso esto puede moverse a COMPRA)
 
