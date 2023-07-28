@@ -6,20 +6,22 @@
 
     <div id="app">
         <div id="appCajaContainer">
-            <!-- <div id="appCajaFondos">
+            <div id="appCajaFondos">
                 <div th:each="item : ${cuentas}">
-                    <h2 th:text="${item.nombre}"></h2>
-                    <h3 th:text="'Saldo actual: ' + ${item.saldo}"></h3>
-                    <h3 th:text="'Saldo inicial: ' + ${item.saldo_inicial}"></h3>
-                    <h3 th:text="'Ultima actualizacion: ' + ${item.actualizado}"></h3>
+                    <div th:text="${item.nombre}"></div>
+                    <div>
+                        <div>Saldo ACTUAL</div>
+                        <div th:text="${item.saldo}"></div>
+                    </div>
+                    <div>
+                        <div>Saldo INICIAL</div>
+                        <div th:text="${item.saldo_inicial}"></div>
+                    </div>
+                    <div>
+                        <div>ULTIMA ACTUALIZACION</div>
+                        <div th:text="${item.actualizado}"></div>
                     </div>
                 </div>
-            </div> -->
-            <div id="appCajaFondos">
-                <div>CAJA EFECTIVO</div>
-                <div>CAJA MERCADO PAGO</div>
-                <div>CAJA BANCO PROVINCIA</div>
-                <div>CAJA BANCO NACIÓN / BBVA FRANCES</div>
             </div>
             <div>
                 <div>
