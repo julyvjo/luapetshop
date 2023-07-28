@@ -22,12 +22,12 @@ public class CuentaController {
 		this.movimientoService = movimientoService;
 	}
 	
-	@GetMapping("/cuenta")
+	@GetMapping("/caja")
 	public String cuenta(Model model) {
 		List<Cuenta> cuentas = cuentaService.getCuentas();
 		
 		model.addAttribute("cuentas", cuentas);
-		return "cuenta";
+		return "caja";
 	}
 	
 	

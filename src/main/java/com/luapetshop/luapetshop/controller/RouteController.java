@@ -10,11 +10,6 @@ public class RouteController {
 	public String index() {
 		return "index";
 	}
-	
-	@GetMapping("/caja")
-	public String caja() {
-		return "caja";
-	}
 
 	@GetMapping("/usuario")
 	public String usuario() {
