@@ -24,7 +24,7 @@
                         <div th:text="${#temporals.format(item.actualizado, 'dd-MM-yyyy HH:mm')}"></div>
                     </div>
                     <div>
-                        <button>DETALLES</button>
+                        <button class="appCajaDetalles" th:data-id-cuenta="${item.id_cuenta}">DETALLES</button>
                     </div>
                 </div>
             </div>
