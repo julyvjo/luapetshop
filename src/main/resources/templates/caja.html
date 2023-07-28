@@ -21,8 +21,7 @@
                     </div>
                     <div>
                         <div>ACTUALIZADO</div>
-                        <!-- <div th:text="{#dates.formatISO(${item.actualizado})}"></div> -->
-                        <div th:text="${item.actualizado}"></div>
+                        <div th:text="${#temporals.format(item.actualizado, 'dd-MM-yyyy HH:mm')}"></div>
                     </div>
                 </div>
             </div>
