@@ -56,9 +56,14 @@
 
 ##  CAJA
 
-- [ ] FONDOS; Cada fondo debería tener CAJA INICIAL + VARIACIÓN DEL DÍA + TOTAL
+- [ ] **PREGUNTAR EMMIK; CERRAR CAJA individualmente o todas al mismo tiempo? también preguntar si necesita una fecha de último cierre de caja para tener referencia de cuánto tiempo llevan registrando todo sin chequear.**
+
+- [ ] CERRAR CAJA; CONSIDERAR agregar fecha de último cierre de caja.
+- [ ] FONDOS; ajustar correctamente formato de información de cada fondo ACORDE A FEEDBACK.
 - [ ] IMPLEMENTAR botón "Detalles" para llevar a caja/[id_caja] donde estarían todos los detalles del fondo.
 - [ ] CREAR formulario/modal para registrar COMPRAS EXCEPCIONALES (tranquilamente podría necesitarse hacer más de 1; incluso esto puede moverse a COMPRA)
+
+- [x] ~~FONDOS; Cada fondo debería tener CAJA INICIAL + VARIACIÓN DEL DÍA + TOTAL~~
 
 * Considerar implementar ALGUNA FORMA DE REVERTIR COMPRAS Y VENTAS
 * DEBERÍA GENERARSE un scroll horizontal en caso de agregar otro fondo
