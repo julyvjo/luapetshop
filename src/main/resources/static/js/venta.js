@@ -402,7 +402,8 @@ function carritoCrearFila(resultadoBusquedaProducto)
         fila.appendChild(data);
 
         const totalVenta = document.getElementById("appVentaTotal");
-        let totalVentaConvertido = parseFloat(totalVenta.textContent);
+        // let totalVentaConvertido = parseFloat(totalVenta.textContent);
+        totalVentaConvertido = parseFloat(totalVenta.textContent);
 
         totalVentaConvertido += parseFloat(h5.textContent);
 
@@ -558,7 +559,8 @@ function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId)
     let subtotalConvertido = parseFloat(subtotal.textContent);
 
     const totalVenta = document.getElementById("appVentaTotal");
-    let totalVentaConvertido = parseFloat(totalVenta.textContent);
+    // let totalVentaConvertido = parseFloat(totalVenta.textContent);
+    totalVentaConvertido = parseFloat(totalVenta.textContent);
 
     //  Quito el valor del subtotal previo a totalVenta
     if (totalVenta.textContent != "0.00")
@@ -601,7 +603,8 @@ function carritoEliminarFila(id_producto)
             let subtotalConvertido = parseFloat(subtotal.textContent).toFixed(2);
 
             const totalVenta = document.getElementById("appVentaTotal");
-            let totalVentaConvertido = parseFloat(totalVenta.textContent).toFixed(2);
+            // let totalVentaConvertido = parseFloat(totalVenta.textContent).toFixed(2);
+            totalVentaConvertido = parseFloat(totalVenta.textContent).toFixed(2);
 
             //  Quito el valor del subtotal a totalVenta
             totalVenta.textContent = (totalVentaConvertido - subtotalConvertido).toFixed(2);
@@ -988,3 +991,5 @@ function cargarCarritoVenta()
     }
 }
 // **************************************************************
+
+let totalVentaConvertido = 0;
