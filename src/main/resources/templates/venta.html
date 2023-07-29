@@ -76,7 +76,7 @@
                     <div id="containerMetodoPagoComplementario">
                         <select name="itemSelected" data-valor-previo="default" data-modificador-metodo-pago="1" disabled>
                             <option value="default" data-id-metodo-pago="0" data-modificador-metodo-pago="1" selected>METODO DE PAGO COMPLEMENTARIO</option>
-                            <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}" th:data-id-metodo-pago="${item.id_medio_pago}"></option>
+                            <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}" th:data-id-metodo-pago="${item.id_medio_pago}" th:data-modificador-metodo-pago="${item.modificador}"></option>
                         </select>
                         <input disabled autocomplete="off" value="NO USADO">
                     </div>

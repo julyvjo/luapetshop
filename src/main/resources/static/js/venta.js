@@ -653,6 +653,7 @@ metodoPago.addEventListener("change", () =>
     optionParaBloquear.disabled = true;
 
     metodoPago.setAttribute("data-valor-previo", metodoPago.value);
+    metodoPago.setAttribute("data-modificador-metodo-pago", metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago"));
 
     actualizarMetodoPagoYTotal("aparte");
 });
@@ -710,6 +711,7 @@ metodoPagoComplementario.addEventListener("change", () =>
     optionParaBloquear.disabled = true;
 
     metodoPagoComplementario.setAttribute("data-valor-previo", metodoPagoComplementario.value);
+    metodoPagoComplementario.setAttribute("data-modificador-metodo-pago", metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago"));
 
     actualizarMetodoPagoYTotal("aparte");
 });
