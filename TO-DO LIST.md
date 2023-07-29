@@ -8,7 +8,6 @@
 
 - [ ] PREGUNTAR; Chequear si es correcto implementar los JS de la forma que hice esto (no se si es necesario usar "import" o algo así en los otros archivos para que usen las funciones que defina acá)
 
-- [ ] NAVBAR; Fixear redirección a otras URL (por ej desde o hacia /caja/[id_caja])
 - [ ] MEDIOS DE PAGO; IMPLEMENTAR COMISIONES de cada método **(Falta que Emmik nos pase esa info también)**
 - [ ] CSS TABLAS; El scrollbar vertical solamente debería afectar a `<tbody>`
 - [ ] CSS TABLAS; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y reducir el ancho de esas columnas que solamente van a mostrar un número o incluso un valor fijo. (De nuevo agregado por nueva columna PROVEEDOR)
@@ -16,6 +15,7 @@
 
 - [x] ~~EMMIK; Analizar propuesta de implementar códigos de barras~~ **DE MOMENTO HAY QUE CONFIRMAR IMPLEMENTACIÓN**
 - [x] ~~EMMIK; Analizar propuesta de permitir setear total de venta arbitrario (e.g. para redondear)~~ **RECOMENDACIÓN PERSONAL DADA A EMMIK; NOSOTROS NO DEBERÍAMOS MODIFICAR NADA**
+- [x] ~~NAVBAR; Fixear redirección a otras URL (por ej desde o hacia /caja/[id_caja])~~
 
 * CSS; Maximizar espacio para listado de productos.
 * CSS; Evitar scroll horizontal lo máximo posible.
@@ -46,8 +46,8 @@
 - [ ] HISTORIAL; Implementar *una vez que CAJA esté completo* (ya que debería almacenar todas las ventas de ese mismo día)
 - [ ] CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.
 
-
 - [x] ~~PREGUNTAR; ¿Cómo deberíamos chequear que una venta no afecta más stock del que supuestamente existe?~~ **ASUMIMOS QUE LA VENTA CHEQUEA IRL EL STOCK ACTUAL, ERGO STOCK EN BD PUEDE NO SER REALMENTE LA CANTIDAD (entonces el stock simplemente se resetea a cero sin volverse negativo)**
+
 * CSS GENERAL; Estaría bueno si todos los valores tuviesen unidades ($ por ejemplo, ideal considerar también los de cantidad)
 * BUSCADOR; Considerar mostrar un TOAST indicando errores (input repetido, búsqueda vacía, sin resultados, etc)
 * CARRITO; Estaría bueno si CANTIDAD tuviese 2 botones para aumentar/disminuir con clicks (deshabilitando los propios del `<input>`)
@@ -59,11 +59,11 @@
 - [ ] **PREGUNTAR EMMIK; CERRAR CAJA individualmente o todas al mismo tiempo? también preguntar si necesita una fecha de último cierre de caja para tener referencia de cuánto tiempo llevan registrando todo sin chequear.**
 
 - [ ] CERRAR CAJA; CONSIDERAR agregar fecha de último cierre de caja.
-- [ ] FONDOS; Implementar lógica para botones DETALLES (tienen que redireccionar a `/caja/<id_cuenta>`)
 - [ ] FONDOS; Ajustar correctamente formato de información de cada fondo ACORDE A FEEDBACK.
-- [ ] IMPLEMENTAR botón "Detalles" para llevar a caja/[id_caja] donde estarían todos los detalles del fondo.
 - [ ] CREAR formulario/modal para registrar COMPRAS EXCEPCIONALES (tranquilamente podría necesitarse hacer más de 1; incluso esto puede moverse a COMPRA)
 
+- [x] ~~IMPLEMENTAR botón "Detalles" para llevar a caja/[id_caja] donde estarían todos los detalles del fondo.~~
+- [x] ~~FONDOS; Implementar lógica para botones DETALLES (tienen que redireccionar a `/caja/<id_cuenta>`)~~
 - [x] ~~FONDOS; Cada fondo debería tener CAJA INICIAL + VARIACIÓN DEL DÍA + TOTAL~~
 
 * Considerar implementar ALGUNA FORMA DE REVERTIR COMPRAS Y VENTAS
