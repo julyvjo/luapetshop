@@ -12,6 +12,7 @@
 - [ ] CSS TABLAS; El scrollbar vertical solamente debería afectar a `<tbody>`
 - [ ] CSS TABLAS; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y reducir el ancho de esas columnas que solamente van a mostrar un número o incluso un valor fijo. (De nuevo agregado por nueva columna PROVEEDOR)
 - [ ] CSS; Modificar variables de color de TEXTOS para que usen su propia variable (fix para múltiples páginas con el cambio de bgcolor)
+- [ ] ERROR LOGS; Traducir al español!!
 
 - [x] ~~EMMIK; Analizar propuesta de implementar códigos de barras~~ **DE MOMENTO HAY QUE CONFIRMAR IMPLEMENTACIÓN**
 - [x] ~~EMMIK; Analizar propuesta de permitir setear total de venta arbitrario (e.g. para redondear)~~ **RECOMENDACIÓN PERSONAL DADA A EMMIK; NOSOTROS NO DEBERÍAMOS MODIFICAR NADA**
@@ -41,6 +42,8 @@
 ---
 
 ##  VENTA
+
+- [ ] **PREGUNTAR EMMIK; FEEDBACK columnas del carrito venta (nombres; qué columnas hay, etc.)**
 
 - [ ] FINALIZAR VENTA; Implementar fetch para disparar el proceso de crear venta.
 - [ ] HISTORIAL; Implementar *una vez que CAJA esté completo* (ya que debería almacenar todas las ventas de ese mismo día)
