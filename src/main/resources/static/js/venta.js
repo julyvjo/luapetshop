@@ -653,7 +653,10 @@ metodoPago.addEventListener("change", () =>
     optionParaBloquear.disabled = true;
 
     metodoPago.setAttribute("data-valor-previo", metodoPago.value);
-    metodoPago.setAttribute("data-modificador-metodo-pago", metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago"));
+
+    const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
+    metodoPago.setAttribute("data-modificador-metodo-pago", MODIFICADOR);
+    montoMetodoPagoModificado *= MODIFICADOR;
 
     actualizarMetodoPagoYTotal("aparte");
 });
@@ -711,7 +714,10 @@ metodoPagoComplementario.addEventListener("change", () =>
     optionParaBloquear.disabled = true;
 
     metodoPagoComplementario.setAttribute("data-valor-previo", metodoPagoComplementario.value);
-    metodoPagoComplementario.setAttribute("data-modificador-metodo-pago", metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago"));
+
+    const MODIFICADOR = metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
+    metodoPagoComplementario.setAttribute("data-modificador-metodo-pago", MODIFICADOR);
+    montoMetodoPagoComplementarioModificado *= MODIFICADOR;
 
     actualizarMetodoPagoYTotal("aparte");
 });
@@ -995,3 +1001,5 @@ function cargarCarritoVenta()
 // **************************************************************
 
 let totalVentaConvertido = 0;
+let montoMetodoPagoModificado = 0;
+let montoMetodoPagoComplementarioModificado = 0;
