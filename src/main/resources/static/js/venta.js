@@ -421,7 +421,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
             carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
 
-            // actualizarMetodoPagoYTotal("aparte");
+            actualizarMetodoPagoYTotal("aparte");
         });
 
         cantidadInput.addEventListener("keydown", (e) =>
@@ -432,7 +432,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
                 cantidadInput.value = parseInt(cantidadInput.value) + 1;
                 carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
-                // actualizarMetodoPagoYTotal("aparte");
+                actualizarMetodoPagoYTotal("aparte");
             }
             else if (e.key === "ArrowDown" || e.key === "ArrowLeft")
             {
@@ -442,7 +442,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
                 {
                     cantidadInput.value = parseInt(cantidadInput.value) - 1;
                     carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
-                    // actualizarMetodoPagoYTotal("aparte");
+                    actualizarMetodoPagoYTotal("aparte");
                 }
             }
         });
@@ -453,7 +453,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
     // ACTUALIZAR TABLA DE VALORES
 
-    // actualizarMetodoPagoYTotal("aparte");
+    actualizarMetodoPagoYTotal("aparte");
 }
 
 function carritoReiniciar()
@@ -630,7 +630,7 @@ metodoPago.addEventListener("change", () =>
     const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
     metodoPago.setAttribute("data-modificador-metodo-pago", MODIFICADOR);
     
-    // actualizarMetodoPagoYTotal("aparte");
+    actualizarMetodoPagoYTotal("aparte");
     
     montoMetodoPagoModificado *= MODIFICADOR;
 });
@@ -649,7 +649,7 @@ montoMetodoPago.addEventListener("change", () =>
     montoMetodoPago.value = montoMetodoPago.value.replace(/,/g, ".");
     montoMetodoPago.value = parseFloat(montoMetodoPago.value).toFixed(2);
     
-    // actualizarMetodoPagoYTotal("metodoPago");
+    actualizarMetodoPagoYTotal("metodoPago");
 });
 // **************************************************************
 
@@ -692,7 +692,7 @@ metodoPagoComplementario.addEventListener("change", () =>
     const MODIFICADOR = metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
     metodoPagoComplementario.setAttribute("data-modificador-metodo-pago", MODIFICADOR);
     
-    // actualizarMetodoPagoYTotal("aparte");
+    actualizarMetodoPagoYTotal("aparte");
     
     montoMetodoPagoComplementarioModificado *= MODIFICADOR;
 });
@@ -711,7 +711,7 @@ montoMetodoPagoComplementario.addEventListener("change", () =>
     montoMetodoPagoComplementario.value = montoMetodoPagoComplementario.value.replace(/,/g, ".");
     montoMetodoPagoComplementario.value = parseFloat(montoMetodoPagoComplementario.value).toFixed(2);
 
-    // actualizarMetodoPagoYTotal("metodoPagoComplementario");
+    actualizarMetodoPagoYTotal("metodoPagoComplementario");
 });
 // **************************************************************
 
@@ -939,4 +939,62 @@ function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId)
 
     //  Finalmente actualizo el valor de totalVenta con el nuevo subtotal
     totalVentaConvertido += subtotalConvertido;
+}
+
+function actualizarMetodoPagoYTotal()   // Actualizar MONTO metodos de pago y total VENTA CONVERTIDO
+{
+    if (metodoPagoComplementario.value === "default")
+    {
+        montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
+        montoMetodoPagoComplementario.value = "0.00";
+        return;
+    }
+
+    if (!arguments[0])
+    {
+        console.log("ERROR: Expected 1 argument to handle multiple metodo de pago. Asuming default case.");
+        montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
+        montoMetodoPagoComplementario.value = "0.00";
+        return;
+    }
+
+    //  El if (valorActual < 0) lo repito en los 3 casos válidos porque hay 2 posibilidades del "else" distintas.
+    
+    if (arguments[0] === "metodoPago")
+    {
+        const VALOR_ACTUAL = (parseFloat(totalVentaConvertido) - montoMetodoPago.value).toFixed(2);
+
+        if (VALOR_ACTUAL < 0)
+        {
+            console.log("ERROR: Values for both metodos de pago no longer valid. Resetting to default case.");
+    
+            montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
+            montoMetodoPagoComplementario.value = "0.00";
+            return;
+        }
+        
+        montoMetodoPagoComplementario.value = VALOR_ACTUAL;
+    }
+    else if (arguments[0] === "metodoPagoComplementario" || arguments[0] === "aparte")
+    {
+        const VALOR_ACTUAL = (parseFloat(totalVentaConvertido) - montoMetodoPagoComplementario.value).toFixed(2);
+
+        if (VALOR_ACTUAL < 0)
+        {
+            console.log("ERROR: Values for both metodos de pago no longer valid. Resetting to default case.");
+    
+            montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
+            montoMetodoPagoComplementario.value = "0.00";
+            return;
+        }
+        
+        montoMetodoPago.value = VALOR_ACTUAL;
+    }
+    else
+    {
+        console.log("ERROR: Argument not recognized. Asuming default case.");
+        montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
+        montoMetodoPagoComplementario.value = "0.00";
+        return;
+    }
 }
