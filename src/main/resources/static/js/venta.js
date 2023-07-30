@@ -656,9 +656,10 @@ metodoPago.addEventListener("change", () =>
 
     const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
     metodoPago.setAttribute("data-modificador-metodo-pago", MODIFICADOR);
-    montoMetodoPagoModificado *= MODIFICADOR;
-
+    
     actualizarMetodoPagoYTotal("aparte");
+    
+    montoMetodoPagoModificado *= MODIFICADOR;
 });
 
 const montoMetodoPago = containerMetodoPago.querySelector("input");
@@ -717,9 +718,10 @@ metodoPagoComplementario.addEventListener("change", () =>
 
     const MODIFICADOR = metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
     metodoPagoComplementario.setAttribute("data-modificador-metodo-pago", MODIFICADOR);
-    montoMetodoPagoComplementarioModificado *= MODIFICADOR;
-
+    
     actualizarMetodoPagoYTotal("aparte");
+    
+    montoMetodoPagoComplementarioModificado *= MODIFICADOR;
 });
 
 const montoMetodoPagoComplementario = containerMetodoPagoComplementario.querySelector("input");
