@@ -419,7 +419,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
                 return;
             }
 
-            // carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
+            carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
 
             // actualizarMetodoPagoYTotal("aparte");
         });
@@ -431,7 +431,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
                 e.preventDefault();
 
                 cantidadInput.value = parseInt(cantidadInput.value) + 1;
-                // carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
+                carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
                 // actualizarMetodoPagoYTotal("aparte");
             }
             else if (e.key === "ArrowDown" || e.key === "ArrowLeft")
@@ -441,7 +441,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
                 if (parseInt(cantidadInput.value) - 1 > 0)
                 {
                     cantidadInput.value = parseInt(cantidadInput.value) - 1;
-                    // carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
+                    carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
                     // actualizarMetodoPagoYTotal("aparte");
                 }
             }
@@ -918,3 +918,25 @@ function cargarCarritoVenta()
 let totalVentaConvertido = 0;
 let montoMetodoPagoModificado = 0;
 let montoMetodoPagoComplementarioModificado = 0;
+
+function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId)
+{    
+    //  Convierto valores de subtotal y totalVenta a flotantes
+    const subtotal = document.getElementById(`${subtotalId}`);
+    let subtotalConvertido = parseFloat(subtotal.textContent);
+
+    //  Quito el valor del subtotal previo a totalVenta
+    if (totalVentaConvertido != "0.00")
+    {
+        totalVentaConvertido -= subtotalConvertido;
+    }
+
+    //  Actualizo valores de subtotal y totalVenta
+    subtotal.textContent = (precioUnitario * cantidadInput).toFixed(2);
+
+    // totalVentaConvertido = parseFloat(totalVenta.textContent);
+    subtotalConvertido = parseFloat(subtotal.textContent);
+
+    //  Finalmente actualizo el valor de totalVenta con el nuevo subtotal
+    totalVentaConvertido += subtotalConvertido;
+}
