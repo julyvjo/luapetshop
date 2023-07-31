@@ -20,7 +20,7 @@ function goToPage(buttonId)
 
     switch (buttonId)
     {
-        case "VOLVER":
+        case "INICIO":
             // window.location.href = "./";
             ID_PAGINA = "";
             break;
