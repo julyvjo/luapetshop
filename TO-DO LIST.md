@@ -4,7 +4,7 @@
 
 - [ ] **PREGUNTAR; Para el listado de proveedores... ¿Cómo se modificaría? (Agregar, editar, eliminar proveedores)**
 
-- [ ] JULY; Preguntar por conceptos TRY/CATCH, EXCEPTIONS y otros conceptos de POO.
+- [ ] PREGUNTAR JULY; Preguntar por conceptos TRY/CATCH, EXCEPTIONS y otros conceptos de POO.
 
 - [ ] PREGUNTAR; Chequear si es correcto implementar los JS de la forma que hice esto (no se si es necesario usar "import" o algo así en los otros archivos para que usen las funciones que defina acá)
 
@@ -14,9 +14,8 @@
 - [ ] CSS; Modificar variables de color de TEXTOS para que usen su propia variable (fix para múltiples páginas con el cambio de bgcolor)
 - [ ] ERROR LOGS; Traducir al español!!
 
-- [x] ~~EMMIK; Analizar propuesta de implementar códigos de barras~~ **DE MOMENTO HAY QUE CONFIRMAR IMPLEMENTACIÓN**
-- [x] ~~EMMIK; Analizar propuesta de permitir setear total de venta arbitrario (e.g. para redondear)~~ **RECOMENDACIÓN PERSONAL DADA A EMMIK; NOSOTROS NO DEBERÍAMOS MODIFICAR NADA**
-- [x] ~~NAVBAR; Fixear redirección a otras URL (por ej desde o hacia /caja/[id_caja])~~
+- [x] <sup>~~EMMIK; Analizar propuesta de implementar códigos de barras~~</sup> **DE MOMENTO HAY QUE CONFIRMAR IMPLEMENTACIÓN**
+- [x] <sup>~~EMMIK; Analizar propuesta de permitir setear total de venta arbitrario (e.g. para redondear)~~</sup> **RECOMENDACIÓN PERSONAL DADA A EMMIK; NOSOTROS NO DEBERÍAMOS MODIFICAR NADA**
 
 * CSS; Maximizar espacio para listado de productos.
 * CSS; Evitar scroll horizontal lo máximo posible.
@@ -34,22 +33,19 @@
 - [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Ajustar validación para volver a valores default si por ejemplo los inputs quedaron vacíos.
 - [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; IMPLEMENTAR IMAGEN DE CADA PRODUCTO.
 
-- [x] CAMBIAR tipo de stock por CATEGORIA
-- [x] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar CATEGORIA de productos (si o si tiene que tener una id_categoría asignada)
-- [x] EDITAR LINEA INDIVIDUAL; Ajustar pre-carga a nuevo orden de columnas
-- [x] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Validar decimales en `$C, %R, $G y $V` onChange()
-
 ---
 
 ##  VENTA
 
 - [ ] **PREGUNTAR EMMIK; FEEDBACK columnas del carrito venta (nombres; qué columnas hay, etc.)**
+- [ ] PREGUNTAR; Debería blanquear TOTAL SIN recargos/modificadores de los métodos de pago? (o sea, mostrar este total en conjunto con los montos de cada método de pago y el total con recargos incluidos)
 
+- [ ] METODOS DE PAGO; Testear y fixear bugs de la nueva implementación de los modificadores/recargos.
 - [ ] FINALIZAR VENTA; Implementar fetch para disparar el proceso de crear venta.
 - [ ] HISTORIAL; Implementar *una vez que CAJA esté completo* (ya que debería almacenar todas las ventas de ese mismo día)
 - [ ] CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.
 
-- [x] ~~PREGUNTAR; ¿Cómo deberíamos chequear que una venta no afecta más stock del que supuestamente existe?~~ **ASUMIMOS QUE LA VENTA CHEQUEA IRL EL STOCK ACTUAL, ERGO STOCK EN BD PUEDE NO SER REALMENTE LA CANTIDAD (entonces el stock simplemente se resetea a cero sin volverse negativo)**
+- [x] <sup>~~PREGUNTAR; ¿Cómo deberíamos chequear que una venta no afecta más stock del que supuestamente existe?~~</sup> **ASUMIMOS QUE LA VENTA CHEQUEA IRL EL STOCK ACTUAL, ERGO STOCK EN BD PUEDE NO SER REALMENTE LA CANTIDAD (entonces el stock simplemente se resetea a cero sin volverse negativo)**
 
 * CSS GENERAL; Estaría bueno si todos los valores tuviesen unidades ($ por ejemplo, ideal considerar también los de cantidad)
 * BUSCADOR; Considerar mostrar un TOAST indicando errores (input repetido, búsqueda vacía, sin resultados, etc)
@@ -61,13 +57,13 @@
 
 - [ ] **PREGUNTAR EMMIK; CERRAR CAJA individualmente o todas al mismo tiempo? también preguntar si necesita una fecha de último cierre de caja para tener referencia de cuánto tiempo llevan registrando todo sin chequear.**
 
+- [ ] FONDOS; Cada fondo debería tener CAJA INICIAL + VARIACIÓN DEL DÍA + TOTAL
 - [ ] CERRAR CAJA; CONSIDERAR agregar fecha de último cierre de caja.
 - [ ] FONDOS; Ajustar correctamente formato de información de cada fondo ACORDE A FEEDBACK.
 - [ ] CREAR formulario/modal para registrar COMPRAS EXCEPCIONALES (tranquilamente podría necesitarse hacer más de 1; incluso esto puede moverse a COMPRA)
 
-- [x] ~~IMPLEMENTAR botón "Detalles" para llevar a caja/[id_caja] donde estarían todos los detalles del fondo.~~
-- [x] ~~FONDOS; Implementar lógica para botones DETALLES (tienen que redireccionar a `/caja/<id_cuenta>`)~~
-- [x] ~~FONDOS; Cada fondo debería tener CAJA INICIAL + VARIACIÓN DEL DÍA + TOTAL~~
+- [x] <sup>~~IMPLEMENTAR botón "Detalles" para llevar a caja/[id_caja] donde estarían todos los detalles del fondo.~~</sup>
+- [x] <sup>~~FONDOS; Implementar lógica para botones DETALLES (tienen que redireccionar a `/caja/<id_cuenta>`)~~</sup>
 
 * Considerar implementar ALGUNA FORMA DE REVERTIR COMPRAS Y VENTAS
 * DEBERÍA GENERARSE un scroll horizontal en caso de agregar otro fondo
