@@ -5,6 +5,7 @@
 - [ ] **EMMIK; FEEDBACK para nombres de columnas CODIGO DE BARRAS, PROVEEDOR y CATEGORIA**
 - [ ] **EMMIK; CERRAR CAJA individualmente o todas al mismo tiempo? también preguntar si necesita una fecha de último cierre de caja para tener referencia de cuánto tiempo llevan registrando todo sin chequear.**
 - [ ] **EMMIK; FEEDBACK columnas del carrito venta (nombres; qué columnas hay, etc.)**
+- [ ] **EMMIK; METODOS DE PAGO, necesitamos los modificadores/comisiones/recargos reales para actualizar**
 
 - [ ] JULY; Para el listado de proveedores... ¿Cómo se modificaría? (Agregar, editar, eliminar proveedores)
 - [ ] JULY; Preguntar por conceptos TRY/CATCH, EXCEPTIONS y otros conceptos de POO.
@@ -19,7 +20,7 @@
 
 ##  GENERAL
 
-- [ ] MEDIOS DE PAGO; IMPLEMENTAR COMISIONES de cada método **(Falta que Emmik nos pase esa info también)**
+- [ ] MEDIOS DE PAGO; ACTUALIZAR COMISIONES de cada método acorde a feedback (para que sean valores reales)
 - [ ] CSS TABLAS; El scrollbar vertical solamente debería afectar a `<tbody>`
 - [ ] CSS TABLAS; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y reducir el ancho de esas columnas que solamente van a mostrar un número o incluso un valor fijo. (De nuevo agregado por nueva columna PROVEEDOR)
 - [ ] CSS; Modificar variables de color de TEXTOS para que usen su propia variable (fix para múltiples páginas con el cambio de bgcolor)
@@ -63,14 +64,14 @@
 
 ##  CAJA
 
-- [ ] CUENTA_DETAILS; Agregar placeholder a la tabla (o considerar fijar anchos para evitar romper la UI si no hay registros)
-- [ ] CUENTA_DETAILS; Rediseñar CSS
-- [ ] CUENTA_DETAILS; Implementar botón VOLVER usando el método mejorado
-- [ ] FONDOS; Cada fondo debería tener CAJA INICIAL + VARIACIÓN DEL DÍA + TOTAL
 - [ ] CERRAR CAJA; CONSIDERAR agregar fecha de último cierre de caja.
-- [ ] FONDOS; Ajustar correctamente formato de información de cada fondo ACORDE A FEEDBACK.
 - [ ] CREAR formulario/modal para registrar COMPRAS EXCEPCIONALES (tranquilamente podría necesitarse hacer más de 1; incluso esto puede moverse a COMPRA)
 
+- [x] <sup>~~CUENTA_DETAILS; Agregar placeholder a la tabla (o considerar fijar anchos para evitar romper la UI si no hay registros)~~</sup>
+- [x] <sup>~~CUENTA_DETAILS; Rediseñar CSS~~</sup>
+- [x] <sup>~~CUENTA_DETAILS; Implementar botón VOLVER usando el método mejorado~~</sup>
+- [x] <sup>~~FONDOS; Cada fondo debería tener CAJA INICIAL + VARIACIÓN DEL DÍA + TOTAL~~</sup>
+- [x] <sup>~~FONDOS; Ajustar correctamente formato de información de cada fondo ACORDE A FEEDBACK.~~</sup>
 - [x] <sup>~~IMPLEMENTAR botón "Detalles" para llevar a caja/[id_caja] donde estarían todos los detalles del fondo.~~</sup>
 - [x] <sup>~~FONDOS; Implementar lógica para botones DETALLES (tienen que redireccionar a `/caja/<id_cuenta>`)~~</sup>
 
