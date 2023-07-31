@@ -1,16 +1,18 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:insert="~{fragments/general.html :: headBoilerplate(@{\js\producto.js}, @{\css\producto.css})}"></head>
+<head th:insert="~{fragments/general.html :: headBoilerplate(@{\js\cuenta_details.js}, @{\css\cuenta_details.css})}"></head>
 <body>
-    <header th:replace="~{fragments/headernav.html :: headerNavFull (class1='actual')}"></header>
+    <header th:replace="~{fragments/headernav.html :: headerNavFull (class3='actual')}"></header>
 
     <div id="app">
-        <!-- APPBAR -->
-        <div id="extraApps">
+        <!-- APP HEADER -->
+        <div id="appHeader">
+            <!-- VOLVER -->
+            <div>VOLVER</div>
             <!-- CUENTA -->
-            <div class="h3" id="cuenta" th:text="${cuenta.nombre}"></div>
+            <div th:text="${cuenta.nombre}"></div>
             <!-- SALDO -->
-            <div class="h3" id="saldo" th:text="'$ ' + ${cuenta.saldo}"></div>
+            <div th:text="'$ ' + ${cuenta.saldo}"></div>
         </div>
 
         <!-- TABLA -->
@@ -47,5 +49,6 @@
         </div>
     </div>
 
+    <footer th:replace="~{fragments/general.html :: footer}"></footer>
 </body>
 </html>
