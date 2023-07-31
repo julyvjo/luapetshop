@@ -17,6 +17,7 @@
 - [x] <sup>~~EMMIK; Analizar propuesta de implementar códigos de barras~~</sup> **DE MOMENTO HAY QUE CONFIRMAR IMPLEMENTACIÓN**
 - [x] <sup>~~EMMIK; Analizar propuesta de permitir setear total de venta arbitrario (e.g. para redondear)~~</sup> **RECOMENDACIÓN PERSONAL DADA A EMMIK; NOSOTROS NO DEBERÍAMOS MODIFICAR NADA**
 
+* Considerar agregar unidad de valores en los outputs (por ejemplo $)
 * CSS; Maximizar espacio para listado de productos.
 * CSS; Evitar scroll horizontal lo máximo posible.
 * CSS; Considerar usar sombras para mejorar el formato.
@@ -61,6 +62,9 @@
 
 - [ ] **PREGUNTAR EMMIK; CERRAR CAJA individualmente o todas al mismo tiempo? también preguntar si necesita una fecha de último cierre de caja para tener referencia de cuánto tiempo llevan registrando todo sin chequear.**
 
+- [ ] CUENTA_DETAILS; Agregar placeholder a la tabla (o considerar fijar anchos para evitar romper la UI si no hay registros)
+- [ ] CUENTA_DETAILS; Rediseñar CSS
+- [ ] CUENTA_DETAILS; Implementar botón VOLVER usando el método mejorado
 - [ ] FONDOS; Cada fondo debería tener CAJA INICIAL + VARIACIÓN DEL DÍA + TOTAL
 - [ ] CERRAR CAJA; CONSIDERAR agregar fecha de último cierre de caja.
 - [ ] FONDOS; Ajustar correctamente formato de información de cada fondo ACORDE A FEEDBACK.
