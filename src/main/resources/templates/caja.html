@@ -13,11 +13,11 @@
                     </div>
                     <div>
                         <div>Saldo ACTUAL</div>
-                        <div th:text="${item.saldo}"></div>
+                        <div th:text="${#numbers.formatDecimal(item.saldo, 1, 2)}"></div>
                     </div>
                     <div>
                         <div>Saldo INICIAL</div>
-                        <div th:text="${item.saldo_inicial}"></div>
+                        <div th:text="${#numbers.formatDecimal(item.saldo_inicial, 1, 2)}"></div>
                     </div>
                     <div>
                         <div>VARIACIÓN Saldo</div>
