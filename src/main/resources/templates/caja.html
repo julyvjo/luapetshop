@@ -20,6 +20,10 @@
                         <div th:text="${item.saldo_inicial}"></div>
                     </div>
                     <div>
+                        <div>VARIACIÓN Saldo</div>
+                        <div th:text="${#numbers.formatDecimal(item.saldo_inicial - item.saldo, 1, 2)}"></div>
+                    </div>
+                    <div>
                         <div>ACTUALIZADO</div>
                         <div th:text="${#temporals.format(item.actualizado, 'dd-MM-yyyy HH:mm')}"></div>
                     </div>
