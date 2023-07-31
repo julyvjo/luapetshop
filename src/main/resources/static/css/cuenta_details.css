@@ -21,9 +21,11 @@
 
 #appHeader > div:first-child
 {
+    /* #appVolver */
     background-color: var(--alternative);
     color: white;
     font-weight: bold;
+    cursor: pointer;
 }
 
 thead > tr,

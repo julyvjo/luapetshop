@@ -8,7 +8,7 @@
         <!-- APP HEADER -->
         <div id="appHeader">
             <!-- VOLVER -->
-            <div>VOLVER</div>
+            <div id="appVolver">VOLVER</div>
             <!-- CUENTA -->
             <div th:text="'&#128181; ' + ${cuenta.nombre}"></div>
             <!-- SALDO -->
@@ -45,7 +45,7 @@
                                 <td><h5>TIPO 2</h5></td>
                             </tr>
                             <!-- *********** -->
-                            
+
                             <tr th:each="item :${movimientos}" th:id="${item.id_movimiento}">
                                 <td><h5 th:text="${item.fecha}"></h5></td>
                                 <td><h5 th:text="${item.monto}"></h5></td>
