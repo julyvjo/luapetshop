@@ -28,6 +28,11 @@
     cursor: pointer;
 }
 
+.container
+{
+    height: 72vh;
+}
+
 thead > tr,
 thead > tr > td,
 thead > tr > td > h5,
