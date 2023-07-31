@@ -40,6 +40,10 @@
 - [ ] **PREGUNTAR EMMIK; FEEDBACK columnas del carrito venta (nombres; qué columnas hay, etc.)**
 - [ ] PREGUNTAR; Debería blanquear TOTAL SIN recargos/modificadores de los métodos de pago? (o sea, mostrar este total en conjunto con los montos de cada método de pago y el total con recargos incluidos)
 
+- [ ] PREGUNTAR POR BUG; Al cambiar TOTAL SIN recargos (por ej. modificando cantidad de algún producto) la diferencia SIEMPRE recae en el monto del método de pago principal... Es necesario en caso de agregar un método de pago complementario, que pase a modificarse el monto de este último?
+- [ ] PREGUNTAR POR BUG; Los montos de los métodos de pago deberían SIEMPRE mostrarse con los recargos incluidos?
+- [ ] BUG; Al cambiar método de pago COMPLEMENTARIO, el monto de este se reinicia a 0
+
 - [ ] METODOS DE PAGO; Testear y fixear bugs de la nueva implementación de los modificadores/recargos.
 - [ ] FINALIZAR VENTA; Implementar fetch para disparar el proceso de crear venta.
 - [ ] HISTORIAL; Implementar *una vez que CAJA esté completo* (ya que debería almacenar todas las ventas de ese mismo día)
