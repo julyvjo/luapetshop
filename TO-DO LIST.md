@@ -1,12 +1,23 @@
 # TO-DO LIST
 
+##  PREGUNTAS
+
+- [ ] **EMMIK; FEEDBACK para nombres de columnas CODIGO DE BARRAS, PROVEEDOR y CATEGORIA**
+- [ ] **EMMIK; CERRAR CAJA individualmente o todas al mismo tiempo? también preguntar si necesita una fecha de último cierre de caja para tener referencia de cuánto tiempo llevan registrando todo sin chequear.**
+- [ ] **EMMIK; FEEDBACK columnas del carrito venta (nombres; qué columnas hay, etc.)**
+
+- [ ] JULY; Para el listado de proveedores... ¿Cómo se modificaría? (Agregar, editar, eliminar proveedores)
+- [ ] JULY; Preguntar por conceptos TRY/CATCH, EXCEPTIONS y otros conceptos de POO.
+
+- [ ] VENTA; Debería blanquear TOTAL SIN recargos/modificadores de los métodos de pago? (o sea, mostrar este total en conjunto con los montos de cada método de pago y el total con recargos incluidos)
+- [ ] VENTA; (Posible bug) Al cambiar TOTAL SIN recargos (por ej. modificando cantidad de algún producto) la diferencia SIEMPRE recae en el monto del método de pago principal... Es necesario en caso de agregar un método de pago complementario, que pase a modificarse el monto de este último?
+- [ ] VENTA; (Posible bug) Los montos de los métodos de pago deberían SIEMPRE mostrarse con los recargos incluidos?
+
+- [ ] OFF-TOPIC; Chequear si es correcto implementar los JS de la forma que hice esto (no se si es necesario usar "import" o algo así en los otros archivos para que usen las funciones que defina acá)
+
+---
+
 ##  GENERAL
-
-- [ ] **PREGUNTAR; Para el listado de proveedores... ¿Cómo se modificaría? (Agregar, editar, eliminar proveedores)**
-
-- [ ] PREGUNTAR JULY; Preguntar por conceptos TRY/CATCH, EXCEPTIONS y otros conceptos de POO.
-
-- [ ] PREGUNTAR; Chequear si es correcto implementar los JS de la forma que hice esto (no se si es necesario usar "import" o algo así en los otros archivos para que usen las funciones que defina acá)
 
 - [ ] MEDIOS DE PAGO; IMPLEMENTAR COMISIONES de cada método **(Falta que Emmik nos pase esa info también)**
 - [ ] CSS TABLAS; El scrollbar vertical solamente debería afectar a `<tbody>`
@@ -27,8 +38,6 @@
 
 ##  PRODUCTO
 
-- [ ] **PREGUNTAR EMMIK; FEEDBACK para nombres de columnas CODIGO DE BARRAS, PROVEEDOR y CATEGORIA**
-
 - [ ] TABLA + EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Agregar e implementar columna PROVEEDOR
 - [ ] IMPLEMENTAR rutas a la imagen del producto (th:src=${atributo})
 - [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Ajustar validación para volver a valores default si por ejemplo los inputs quedaron vacíos.
@@ -37,12 +46,6 @@
 ---
 
 ##  VENTA
-
-- [ ] **PREGUNTAR EMMIK; FEEDBACK columnas del carrito venta (nombres; qué columnas hay, etc.)**
-- [ ] PREGUNTAR; Debería blanquear TOTAL SIN recargos/modificadores de los métodos de pago? (o sea, mostrar este total en conjunto con los montos de cada método de pago y el total con recargos incluidos)
-
-- [ ] PREGUNTAR POR BUG; Al cambiar TOTAL SIN recargos (por ej. modificando cantidad de algún producto) la diferencia SIEMPRE recae en el monto del método de pago principal... Es necesario en caso de agregar un método de pago complementario, que pase a modificarse el monto de este último?
-- [ ] PREGUNTAR POR BUG; Los montos de los métodos de pago deberían SIEMPRE mostrarse con los recargos incluidos?
 
 - [ ] METODOS DE PAGO; Testear y fixear bugs de la nueva implementación de los modificadores/recargos.
 - [ ] FINALIZAR VENTA; Implementar fetch para disparar el proceso de crear venta.
@@ -59,8 +62,6 @@
 ---
 
 ##  CAJA
-
-- [ ] **PREGUNTAR EMMIK; CERRAR CAJA individualmente o todas al mismo tiempo? también preguntar si necesita una fecha de último cierre de caja para tener referencia de cuánto tiempo llevan registrando todo sin chequear.**
 
 - [ ] CUENTA_DETAILS; Agregar placeholder a la tabla (o considerar fijar anchos para evitar romper la UI si no hay registros)
 - [ ] CUENTA_DETAILS; Rediseñar CSS
