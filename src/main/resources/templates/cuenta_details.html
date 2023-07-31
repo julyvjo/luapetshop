@@ -10,9 +10,9 @@
             <!-- VOLVER -->
             <div>VOLVER</div>
             <!-- CUENTA -->
-            <div th:text="${cuenta.nombre}"></div>
+            <div th:text="'&#128181; ' + ${cuenta.nombre}"></div>
             <!-- SALDO -->
-            <div th:text="'$ ' + ${cuenta.saldo}"></div>
+            <div th:text="'Saldo ACTUAL: $ ' + ${cuenta.saldo}"></div>
         </div>
 
         <!-- TABLA -->
@@ -28,6 +28,24 @@
                             </tr>
                         </thead>
                         <tbody id="table" class="table-borderless" style="border-top: none !important;">
+                            <!-- PLACEHOLDER -->
+                            <tr>
+                                <td><h5>FECHA 1</h5></td>
+                                <td><h5>MONTO 1</h5></td>
+                                <td><h5>TIPO 1</h5></td>
+                            </tr>
+                            <tr>
+                                <td><h5>FECHA 2</h5></td>
+                                <td><h5>MONTO 2</h5></td>
+                                <td><h5>TIPO 2</h5></td>
+                            </tr>
+                            <tr>
+                                <td><h5>FECHA 2</h5></td>
+                                <td><h5>MONTO 2</h5></td>
+                                <td><h5>TIPO 2</h5></td>
+                            </tr>
+                            <!-- *********** -->
+                            
                             <tr th:each="item :${movimientos}" th:id="${item.id_movimiento}">
                                 <td><h5 th:text="${item.fecha}"></h5></td>
                                 <td><h5 th:text="${item.monto}"></h5></td>
