@@ -955,7 +955,6 @@ function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId)
 
 function actualizarMetodoPagoYTotal()   // Actualizar MONTO metodos de pago y total VENTA CONVERTIDO
 {
-    console.log(arguments[0]);
     const totalVenta = document.getElementById("appVentaTotal");
     
     if (metodoPagoComplementario.value === "default")
