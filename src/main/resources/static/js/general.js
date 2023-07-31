@@ -36,9 +36,9 @@ function goToPage(buttonId)
             // window.location.href = "./producto";
             ID_PAGINA = "producto";
             break;
-        case "PROVEEDORES":
+        case "IMPORTACION":
             // window.location.href = "./proveedor";
-            ID_PAGINA = "proveedor";
+            ID_PAGINA = "importacion";
             break;
         case "COMPRAS":
             // window.location.href = "./compra";
