@@ -518,11 +518,15 @@ if (arrayBotonFoto.length !== 0)
         element.addEventListener("click", (e) =>
         {
             mostrarModal("modalFoto");
+
+            const IMAGEN = element.getAttribute("data-imagen");
+            // const IMAGEN = "Imagotipo-2-cyan.jpg";
+
+            const MODAL_FOTO_IMAGEN = document.getElementById("modalFotoImagen");
+            // MODAL_FOTO_IMAGEN.setAttribute("src", `../img/${IMAGEN}`);
+            MODAL_FOTO_IMAGEN.setAttribute("src", `${window.location.origin}/img/${IMAGEN}`);
         });    
     });
-
-    // I implemented it like this because script.js has "defer" attribute.
-    // If in the future this changes, this needs to be implemented inside an Event Listener.
 }
 // **************************************************************
 
