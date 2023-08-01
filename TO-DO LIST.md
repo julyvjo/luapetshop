@@ -8,6 +8,8 @@
 - [ ] **EMMIK; METODOS DE PAGO, necesitamos los modificadores/comisiones/recargos reales para actualizar**
 - [ ] **EMMIK; CUENTA_DETAILS, FEEDBACK + Saber si es necesario agregar/quitar columnas (o qué información debería mostrar)**
 
+- [ ] JULY; GUARDAR COMPRA, no se cómo hacer troubleshooting con el SyntaxError que devuelve...
+- [ ] JULY; GUARDAR VENTA, no se cómo hacer troubleshooting con el SyntaxError que devuelve...
 - [ ] JULY; Para el listado de proveedores... ¿Cómo se modificaría? (Agregar, editar, eliminar proveedores)
 - [ ] JULY; Preguntar por conceptos TRY/CATCH, EXCEPTIONS y otros conceptos de POO.
 
@@ -49,8 +51,8 @@
 
 ##  VENTA
 
+- [x] FINALIZAR VENTA; Implementar fetch para disparar el proceso de crear venta.
 - [ ] METODOS DE PAGO; Testear y fixear bugs de la nueva implementación de los modificadores/recargos.
-- [ ] FINALIZAR VENTA; Implementar fetch para disparar el proceso de crear venta.
 - [ ] HISTORIAL; Implementar *una vez que CAJA esté completo* (ya que debería almacenar todas las ventas de ese mismo día)
 
 - [x] <sup>~~CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.~~</sup>
@@ -92,7 +94,7 @@
 
 ##  COMPRA
 
-- [ ] GUARDAR COMPRA; Implementar fetch para disparar el proceso de crear compra.
+- [x] GUARDAR COMPRA; Implementar fetch para disparar el proceso de crear compra.
 - [ ] **PREGUNTAR; Chequear si esta página no debería permitir registrar COMPRAS EXCEPCIONALES. (Ejemplo, usaron la plata de alguno de los fondos para insumos propios del petshop, o sacaron para uso personal)**
 
 ---
