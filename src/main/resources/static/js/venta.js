@@ -763,6 +763,154 @@ function validarInputMontos(string)
 }
 // **************************************************************
 
+// MODIFICADORES METODO DE PAGO
+
+let totalVentaConvertido = 0;
+let montoMetodoPagoModificado = 0;
+let montoMetodoPagoComplementarioModificado = 0;
+
+function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId)
+{    
+    //  Convierto valores de subtotal y totalVenta a flotantes
+    const subtotal = document.getElementById(`${subtotalId}`);
+    let subtotalConvertido = parseFloat(subtotal.textContent);
+
+    //  Quito el valor del subtotal previo a totalVenta
+    if (totalVentaConvertido != "0.00")
+    {
+        totalVentaConvertido -= subtotalConvertido;
+    }
+
+    //  Actualizo valores de subtotal y totalVenta
+    subtotal.textContent = (precioUnitario * cantidadInput).toFixed(2);
+
+    // totalVentaConvertido = parseFloat(totalVenta.textContent);
+    subtotalConvertido = parseFloat(subtotal.textContent);
+
+    //  Finalmente actualizo el valor de totalVenta con el nuevo subtotal
+    totalVentaConvertido += subtotalConvertido;
+}
+
+function actualizarMetodoPagoYTotal()   // Actualizar MONTO metodos de pago y total VENTA CONVERTIDO
+{
+    const totalVenta = document.getElementById("appVentaTotal");
+    
+    if (metodoPagoComplementario.value === "default")
+    {
+        montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
+        montoMetodoPagoComplementario.value = "0.00";
+
+        const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
+        montoMetodoPagoModificado = montoMetodoPago.value;
+        montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
+        
+        const MODIFICADOR_COMPLEMENTARIO = metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
+        montoMetodoPagoComplementarioModificado = montoMetodoPagoComplementario.value;
+        montoMetodoPagoComplementarioModificado = parseFloat( (montoMetodoPagoComplementarioModificado * MODIFICADOR_COMPLEMENTARIO).toFixed(2) );
+
+        totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
+        
+        return;
+    }
+
+    if (!arguments[0])
+    {
+        console.log("ERROR: Expected 1 argument to handle multiple metodo de pago. Asuming default case.");
+        montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
+        montoMetodoPagoComplementario.value = "0.00";
+
+        const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
+        montoMetodoPagoModificado = montoMetodoPago.value;
+        montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
+
+        totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
+
+        return;
+    }
+
+    //  El if (valorActual < 0) lo repito en los 3 casos válidos porque hay 2 posibilidades del "else" distintas.
+    
+    if (arguments[0] === "metodoPago")
+    {
+        const VALOR_ACTUAL = (parseFloat(totalVentaConvertido) - parseFloat(montoMetodoPago.value)).toFixed(2);
+
+        if (VALOR_ACTUAL < 0)
+        {
+            console.log("ERROR: Values for both metodos de pago no longer valid. Resetting to default case.");
+    
+            montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
+            montoMetodoPagoComplementario.value = "0.00";
+
+            const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
+            montoMetodoPagoModificado = montoMetodoPago.value;
+            montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
+
+            totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
+
+            return;
+        }
+        
+        montoMetodoPagoComplementario.value = VALOR_ACTUAL;
+
+        const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
+        montoMetodoPagoModificado = montoMetodoPago.value;
+        montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
+
+        const MODIFICADOR_COMPLEMENTARIO = metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
+        montoMetodoPagoComplementarioModificado = montoMetodoPagoComplementario.value;
+        montoMetodoPagoComplementarioModificado = parseFloat( (montoMetodoPagoComplementarioModificado * MODIFICADOR_COMPLEMENTARIO).toFixed(2) );
+
+        totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
+    }
+    else if (arguments[0] === "metodoPagoComplementario" || arguments[0] === "aparte")
+    {
+        const VALOR_ACTUAL = (parseFloat(totalVentaConvertido) - parseFloat(montoMetodoPagoComplementario.value)).toFixed(2);
+
+        if (VALOR_ACTUAL < 0)
+        {
+            console.log("ERROR: Values for both metodos de pago no longer valid. Resetting to default case.");
+    
+            montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
+            montoMetodoPagoComplementario.value = "0.00";
+
+            const MODIFICADOR_COMPLEMENTARIO = metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
+            montoMetodoPagoComplementarioModificado = montoMetodoPagoComplementario.value;
+            montoMetodoPagoComplementarioModificado = parseFloat( (montoMetodoPagoComplementarioModificado * MODIFICADOR_COMPLEMENTARIO).toFixed(2) );
+
+            totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
+
+            return;
+        }
+        
+        montoMetodoPago.value = VALOR_ACTUAL;
+
+        const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
+        montoMetodoPagoModificado = montoMetodoPago.value;
+        montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
+
+        const MODIFICADOR_COMPLEMENTARIO = metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
+        montoMetodoPagoComplementarioModificado = montoMetodoPagoComplementario.value;
+        montoMetodoPagoComplementarioModificado = parseFloat( (montoMetodoPagoComplementarioModificado * MODIFICADOR_COMPLEMENTARIO).toFixed(2) );
+
+        totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
+    }
+    else
+    {
+        console.log("ERROR: Argument not recognized. Asuming default case.");
+        montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
+        montoMetodoPagoComplementario.value = "0.00";
+
+        const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
+        montoMetodoPagoModificado = montoMetodoPago.value;
+        montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
+
+        totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
+        
+        return;
+    }
+}
+// **************************************************************
+
 // FINALIZAR COMPRA
 
 const appVentaFinalizarVenta = document.getElementById("appVentaFinalizarVenta");
@@ -926,157 +1074,6 @@ function cargarCarritoVenta()
         })
     }
 }
-// **************************************************************
-
-
-
-// MODIFICADORES METODO DE PAGO
-
-let totalVentaConvertido = 0;
-let montoMetodoPagoModificado = 0;
-let montoMetodoPagoComplementarioModificado = 0;
-
-function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId)
-{    
-    //  Convierto valores de subtotal y totalVenta a flotantes
-    const subtotal = document.getElementById(`${subtotalId}`);
-    let subtotalConvertido = parseFloat(subtotal.textContent);
-
-    //  Quito el valor del subtotal previo a totalVenta
-    if (totalVentaConvertido != "0.00")
-    {
-        totalVentaConvertido -= subtotalConvertido;
-    }
-
-    //  Actualizo valores de subtotal y totalVenta
-    subtotal.textContent = (precioUnitario * cantidadInput).toFixed(2);
-
-    // totalVentaConvertido = parseFloat(totalVenta.textContent);
-    subtotalConvertido = parseFloat(subtotal.textContent);
-
-    //  Finalmente actualizo el valor de totalVenta con el nuevo subtotal
-    totalVentaConvertido += subtotalConvertido;
-}
-
-function actualizarMetodoPagoYTotal()   // Actualizar MONTO metodos de pago y total VENTA CONVERTIDO
-{
-    const totalVenta = document.getElementById("appVentaTotal");
-    
-    if (metodoPagoComplementario.value === "default")
-    {
-        montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
-        montoMetodoPagoComplementario.value = "0.00";
-
-        const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-        montoMetodoPagoModificado = montoMetodoPago.value;
-        montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
-        
-        const MODIFICADOR_COMPLEMENTARIO = metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-        montoMetodoPagoComplementarioModificado = montoMetodoPagoComplementario.value;
-        montoMetodoPagoComplementarioModificado = parseFloat( (montoMetodoPagoComplementarioModificado * MODIFICADOR_COMPLEMENTARIO).toFixed(2) );
-
-        totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
-        
-        return;
-    }
-
-    if (!arguments[0])
-    {
-        console.log("ERROR: Expected 1 argument to handle multiple metodo de pago. Asuming default case.");
-        montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
-        montoMetodoPagoComplementario.value = "0.00";
-
-        const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-        montoMetodoPagoModificado = montoMetodoPago.value;
-        montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
-
-        totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
-
-        return;
-    }
-
-    //  El if (valorActual < 0) lo repito en los 3 casos válidos porque hay 2 posibilidades del "else" distintas.
-    
-    if (arguments[0] === "metodoPago")
-    {
-        const VALOR_ACTUAL = (parseFloat(totalVentaConvertido) - parseFloat(montoMetodoPago.value)).toFixed(2);
-
-        if (VALOR_ACTUAL < 0)
-        {
-            console.log("ERROR: Values for both metodos de pago no longer valid. Resetting to default case.");
-    
-            montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
-            montoMetodoPagoComplementario.value = "0.00";
-
-            const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-            montoMetodoPagoModificado = montoMetodoPago.value;
-            montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
-
-            totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
-
-            return;
-        }
-        
-        montoMetodoPagoComplementario.value = VALOR_ACTUAL;
-
-        const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-        montoMetodoPagoModificado = montoMetodoPago.value;
-        montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
-
-        const MODIFICADOR_COMPLEMENTARIO = metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-        montoMetodoPagoComplementarioModificado = montoMetodoPagoComplementario.value;
-        montoMetodoPagoComplementarioModificado = parseFloat( (montoMetodoPagoComplementarioModificado * MODIFICADOR_COMPLEMENTARIO).toFixed(2) );
-
-        totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
-    }
-    else if (arguments[0] === "metodoPagoComplementario" || arguments[0] === "aparte")
-    {
-        const VALOR_ACTUAL = (parseFloat(totalVentaConvertido) - parseFloat(montoMetodoPagoComplementario.value)).toFixed(2);
-
-        if (VALOR_ACTUAL < 0)
-        {
-            console.log("ERROR: Values for both metodos de pago no longer valid. Resetting to default case.");
-    
-            montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
-            montoMetodoPagoComplementario.value = "0.00";
-
-            const MODIFICADOR_COMPLEMENTARIO = metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-            montoMetodoPagoComplementarioModificado = montoMetodoPagoComplementario.value;
-            montoMetodoPagoComplementarioModificado = parseFloat( (montoMetodoPagoComplementarioModificado * MODIFICADOR_COMPLEMENTARIO).toFixed(2) );
-
-            totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
-
-            return;
-        }
-        
-        montoMetodoPago.value = VALOR_ACTUAL;
-
-        const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-        montoMetodoPagoModificado = montoMetodoPago.value;
-        montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
-
-        const MODIFICADOR_COMPLEMENTARIO = metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-        montoMetodoPagoComplementarioModificado = montoMetodoPagoComplementario.value;
-        montoMetodoPagoComplementarioModificado = parseFloat( (montoMetodoPagoComplementarioModificado * MODIFICADOR_COMPLEMENTARIO).toFixed(2) );
-
-        totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
-    }
-    else
-    {
-        console.log("ERROR: Argument not recognized. Asuming default case.");
-        montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
-        montoMetodoPagoComplementario.value = "0.00";
-
-        const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-        montoMetodoPagoModificado = montoMetodoPago.value;
-        montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
-
-        totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
-        
-        return;
-    }
-}
-// **************************************************************
 
 function entregarVenta()
 {
@@ -1111,3 +1108,4 @@ function entregarVenta()
 
     */
 }
+// **************************************************************
