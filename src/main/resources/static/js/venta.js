@@ -805,7 +805,8 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
         window.alert("VENTA FINALIZADA");
 
         //  ACÁ ENVIAR carritoVenta a donde corresponda.
-        console.log(carritoVenta);
+        entregarVenta();
+        // console.log(carritoVenta);
 
         //  REINICIAR TODO
         carritoReiniciar();
@@ -926,6 +927,10 @@ function cargarCarritoVenta()
     }
 }
 // **************************************************************
+
+
+
+// MODIFICADORES METODO DE PAGO
 
 let totalVentaConvertido = 0;
 let montoMetodoPagoModificado = 0;
@@ -1070,4 +1075,39 @@ function actualizarMetodoPagoYTotal()   // Actualizar MONTO metodos de pago y to
         
         return;
     }
+}
+// **************************************************************
+
+function entregarVenta()
+{
+    const JSON_DATA = JSON.stringify(carritoVenta);
+
+    const HEADERS = new Headers();
+    HEADERS.append('Content-Type', 'application/json');
+
+    console.log(JSON_DATA);
+
+    /* COMENTADO HASTA QUE SE PUEDA TESTEAR BIEN EL SYNTAXERROR QUE DEVUELVE
+
+    const API_URL = "/new/venta";
+
+    const LINK = new URL(API_URL, window.location.origin);
+
+    fetch(LINK, {
+        method: 'POST',
+        headers: HEADERS,
+        body: JSON_DATA
+    })
+
+    .then(response => response.json())
+    
+    .then(responseData => {
+        console.log(responseData);  // Resultado de enviar el json.
+    })
+    
+    .catch(error => {
+        console.log("ERROR: ", error);  // Errores que puedan haber.
+    })
+
+    */
 }
