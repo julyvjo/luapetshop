@@ -6,6 +6,7 @@
 - [ ] **EMMIK; CERRAR CAJA individualmente o todas al mismo tiempo? también preguntar si necesita una fecha de último cierre de caja para tener referencia de cuánto tiempo llevan registrando todo sin chequear.**
 - [ ] **EMMIK; FEEDBACK columnas del carrito venta (nombres; qué columnas hay, etc.)**
 - [ ] **EMMIK; METODOS DE PAGO, necesitamos los modificadores/comisiones/recargos reales para actualizar**
+- [ ] **EMMIK; CUENTA_DETAILS, FEEDBACK + Saber si es necesario agregar/quitar columnas (o qué información debería mostrar)**
 
 - [ ] JULY; Para el listado de proveedores... ¿Cómo se modificaría? (Agregar, editar, eliminar proveedores)
 - [ ] JULY; Preguntar por conceptos TRY/CATCH, EXCEPTIONS y otros conceptos de POO.
@@ -51,8 +52,8 @@
 - [ ] METODOS DE PAGO; Testear y fixear bugs de la nueva implementación de los modificadores/recargos.
 - [ ] FINALIZAR VENTA; Implementar fetch para disparar el proceso de crear venta.
 - [ ] HISTORIAL; Implementar *una vez que CAJA esté completo* (ya que debería almacenar todas las ventas de ese mismo día)
-- [ ] CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.
 
+- [x] <sup>~~CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.~~</sup>
 - [x] <sup>~~BUG; Al cambiar método de pago COMPLEMENTARIO, el monto de este se reinicia a 0.~~</sup>
 - [x] <sup>~~PREGUNTAR; ¿Cómo deberíamos chequear que una venta no afecta más stock del que supuestamente existe?~~</sup> **ASUMIMOS QUE LA VENTA CHEQUEA IRL EL STOCK ACTUAL, ERGO STOCK EN BD PUEDE NO SER REALMENTE LA CANTIDAD (entonces el stock simplemente se resetea a cero sin volverse negativo)**
 
