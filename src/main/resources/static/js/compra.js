@@ -116,7 +116,8 @@ function finalizarCompra()
         window.alert("Compra registrada exitosamente!");
 
         //  ACÁ ENVIAR compra a donde corresponda.
-        console.log(compra);
+        
+         entregarCompra();
 
         //  REINICIAR TODO
         compra = iniciarCompra(compra);
@@ -127,4 +128,38 @@ function finalizarCompra()
         //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
         //  location.reload();
     }, 250);
+}
+
+function entregarCompra()
+{
+    const JSON_DATA = JSON.stringify(compra);
+
+    const HEADERS = new Headers();
+    HEADERS.append('Content-Type', 'application/json');
+
+    console.log(JSON_DATA);
+
+    /* COMENTADO HASTA QUE SE PUEDA TESTEAR BIEN EL SYNTAXERROR QUE DEVUELVE
+
+    const API_URL = "/new/compra";
+
+    const LINK = new URL(API_URL, window.location.origin);
+
+    fetch(LINK, {
+        method: 'POST',
+        headers: HEADERS,
+        body: JSON_DATA
+    })
+
+    .then(response => response.json())
+    
+    .then(responseData => {
+        console.log(responseData);  // Resultado de enviar el json.
+    })
+    
+    .catch(error => {
+        console.log("ERROR: ", error);  // Errores que puedan haber.
+    })
+
+    */
 }
