@@ -288,7 +288,8 @@ function cargarEditor(fila)
     */
 
     //  Imagen aún está pendiente.
-    //  const imagen = document.getElementById("modalEditorLineaImagen");
+    // const imagen = document.getElementById("editorLineaRutaImagen");
+    // imagen.textContent = h5[0].getAttribute("data-imagen");
 
     // const editorLineaCodigo = document.getElementById("modalEditorLineaCodigo");
     // editorLineaCodigo.value = h5[1].textContent;
