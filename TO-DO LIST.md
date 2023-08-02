@@ -8,8 +8,10 @@
 - [ ] **EMMIK; METODOS DE PAGO, necesitamos los modificadores/comisiones/recargos reales para actualizar**
 - [ ] **EMMIK; CUENTA_DETAILS, FEEDBACK + Saber si es necesario agregar/quitar columnas (o qué información debería mostrar)**
 
-- [ ] JULY; GUARDAR COMPRA, no se cómo hacer troubleshooting con el SyntaxError que devuelve...
-- [ ] JULY; GUARDAR VENTA, no se cómo hacer troubleshooting con el SyntaxError que devuelve...
+- [x] JULY; GUARDAR COMPRA, no se cómo hacer troubleshooting con el SyntaxError que devuelve...
+- [x] JULY; GUARDAR VENTA, no se cómo hacer troubleshooting con el SyntaxError que devuelve...
+- [ ] JULY; NUEVO PRODUCTO, testear posibles errores al enviar/recibir JSON...
+- [ ] JULY; EDITAR LINEA, testear posibles errores al enviar/recibir JSON...
 - [ ] JULY; Para el listado de proveedores... ¿Cómo se modificaría? (Agregar, editar, eliminar proveedores)
 - [ ] JULY; Preguntar por conceptos TRY/CATCH, EXCEPTIONS y otros conceptos de POO.
 
@@ -46,6 +48,9 @@
 - [ ] IMPLEMENTAR rutas a la imagen del producto (th:src=${atributo})
 - [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Ajustar validación para volver a valores default si por ejemplo los inputs quedaron vacíos.
 - [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; IMPLEMENTAR IMAGEN DE CADA PRODUCTO.
+
+- [x] <sup>~~GUARDAR NUEVO PRODUCTO; Implementar fetch para disparar el proceso de crear un nuevo producto.~~</sup>
+- [x] <sup>~~GUARDAR EDITAR LINEA; Implementar fetch para disparar el proceso de crear una nueva modificación.~~</sup>
 
 ---
 
@@ -94,9 +99,9 @@
 
 ##  COMPRA
 
-- [x] GUARDAR COMPRA; Implementar fetch para disparar el proceso de crear compra.
 - [ ] **PREGUNTAR; Chequear si esta página no debería permitir registrar COMPRAS EXCEPCIONALES. (Ejemplo, usaron la plata de alguno de los fondos para insumos propios del petshop, o sacaron para uso personal)**
 
+- [x] <sup>~~GUARDAR COMPRA; Implementar fetch para disparar el proceso de crear compra.~~</sup>
 ---
     
 ##  USUARIO (DEJAR PARA VERSIÓN FUTURA)
@@ -116,6 +121,7 @@
 
 ## DATABASE
 
+- [ ] Chequear posibles problemas con números float pasados como string en el JSON de todos los endpoint.
 - [ ] Rework de estructura de la base de datos
 - [ ] PRODUCTO; Agregar id_proveedor
 - [ ] PRODUCTO; Agregar codigo_producto (código de barras)
