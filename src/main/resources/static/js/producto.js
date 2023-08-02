@@ -446,18 +446,18 @@ function enviarEditorLinea()
 
     datosProducto = {
         // codigo_producto: editorLineaCodigo.value,
-        id_producto: editorLineaID.value,
+        id_producto: parseInt(editorLineaID.value),
         nombre: editorLineaNombre.value,
 
         // descripcion: editorLineaDescripcion.value,
 
-        // id_proveedor: editorLineaProveedor.value,
-        precio_compra: editorLineaPrecioCompra.value,
-        rentabilidad: editorLineaRentabilidad.value,
-        ganancia: editorLineaGanancia.value,
-        precio_venta: editorLineaPrecioVenta.value,
-        id_categoria: editorLineaCategoria.value,
-        stock: editorLineaStock.value,
+        // id_proveedor: parseInt(editorLineaProveedor.value),
+        precio_compra: parseFloat(editorLineaPrecioCompra.value).toFixed(2),
+        rentabilidad: parseFloat(editorLineaRentabilidad.value).toFixed(2),
+        ganancia: parseFloat(editorLineaGanancia.value).toFixed(2),
+        precio_venta: parseFloat(editorLineaPrecioVenta.value).toFixed(2),
+        id_categoria: parseInt(editorLineaCategoria.value),
+        stock: parseInt(editorLineaStock.value),
         // imagen: editorLineaImagen.value,
     }
 
