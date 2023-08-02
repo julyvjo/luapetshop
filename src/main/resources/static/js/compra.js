@@ -77,7 +77,7 @@ function cargarCompra()
 
     compra.id_medio_pago = parseInt( metodoDePago.selectedOptions[0].getAttribute("data-id-metodo-pago") );
 
-    compra.monto = parseFloat( parseFloat(monto.value).toFixed(2) );
+    compra.monto = parseFloat(monto.value).toFixed(2);
 }
 
 function finalizarCompra()
