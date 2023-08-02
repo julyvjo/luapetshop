@@ -38,11 +38,11 @@ function validarInputMonto(string)
     return numberRegex.test(string);
 
     // Ejemplos:
-    console.log(validateNumber("12345"));   // true
-    console.log(validateNumber("12.345"));  // true
-    console.log(validateNumber("12,345"));  // true
-    console.log(validateNumber("12,34.56"));// false (múltiples separadores)
-    console.log(validateNumber("abc"));     // false (contiene caracteres no válidos como letras)
+    // console.log(validateNumber("12345"));   // true
+    // console.log(validateNumber("12.345"));  // true
+    // console.log(validateNumber("12,345"));  // true
+    // console.log(validateNumber("12,34.56"));// false (múltiples separadores)
+    // console.log(validateNumber("abc"));     // false (contiene caracteres no válidos como letras)
 }
 
 compraButton.addEventListener("click", (e) =>
