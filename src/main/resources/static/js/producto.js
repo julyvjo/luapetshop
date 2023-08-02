@@ -505,6 +505,40 @@ function iniciarDatosProducto()
         // imagen: "base64"
     }
 }
+
+function entregarProducto()
+{
+    const JSON_DATA = JSON.stringify(datosProducto);
+
+    const HEADERS = new Headers();
+    HEADERS.append('Content-Type', 'application/json');
+
+    console.log(JSON_DATA);
+
+    /* COMENTADO HASTA QUE SE PUEDA TESTEAR BIEN
+
+    const API_URL = "/new/producto";
+
+    const LINK = new URL(API_URL, window.location.origin);
+
+    fetch(LINK, {
+        method: 'POST',
+        headers: HEADERS,
+        body: JSON_DATA
+    })
+
+    .then(response => response.json())
+    
+    .then(responseData => {
+        console.log(responseData);  // Resultado de enviar el json.
+    })
+    
+    .catch(error => {
+        console.log("ERROR: ", error);  // Errores que puedan haber.
+    })
+
+    */
+}
 // **************************************************************
 
 
