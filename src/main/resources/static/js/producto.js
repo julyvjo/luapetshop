@@ -301,6 +301,7 @@ function cargarEditor(fila)
     // const editorLineaDescripcion = document.getElementById("modalEditorLineaDescripcion");
     // editorLineaDescripcion.value = h5[2].textContent;
 
+    //  Proveedor actualmente no se puede implementar completamente.
     // const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
     // editorLineaProveedor.value = h5[2].textContent;
 
