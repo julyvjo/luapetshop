@@ -220,13 +220,13 @@ function enviarNuevoProducto()
 
         // descripcion: nuevoProductoDescripcion.value,
 
-        // id_proveedor: nuevoProductoProveedor.value,
-        precio_compra: nuevoProductoPrecioCompra.value,
-        rentabilidad: nuevoProductoRentabilidad.value,
-        ganancia: nuevoProductoGanancia.value,
-        precio_venta: nuevoProductoPrecioVenta.value,
-        id_categoria: nuevoProductoCategoria.value,
-        stock: nuevoProductoStock.value,
+        // id_proveedor: parseInt(nuevoProductoProveedor.value),
+        precio_compra: parseFloat(nuevoProductoPrecioCompra.value).toFixed(2),
+        rentabilidad: parseFloat(nuevoProductoRentabilidad.value).toFixed(2),
+        ganancia: parseFloat(nuevoProductoGanancia.value).toFixed(2),
+        precio_venta: parseFloat(nuevoProductoPrecioVenta.value).toFixed(2),
+        id_categoria: parseInt(nuevoProductoCategoria.value),
+        stock: parseInt(nuevoProductoStock.value),
         // imagen: nuevoProductoImagen.value,
     }
 
