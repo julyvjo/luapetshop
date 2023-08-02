@@ -231,7 +231,8 @@ function enviarNuevoProducto()
     }
 
     // ENVIAR AL BACKEND
-    console.log("ENVIANDO datosProducto desde NUEVO PRODUCTO...", datosProducto);
+    // console.log("ENVIANDO datosProducto desde NUEVO PRODUCTO...", datosProducto);
+    entregarProducto();
 }
 // **************************************************************
 
@@ -461,7 +462,8 @@ function enviarEditorLinea()
     }
 
     // ENVIAR AL BACKEND
-    console.log("ENVIANDO datosProducto desde EDITOR LINEA...", datosProducto);
+    // console.log("ENVIANDO datosProducto desde EDITOR LINEA...", datosProducto);
+    entregarProducto();
 }
 // **************************************************************
 
