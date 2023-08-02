@@ -1040,17 +1040,17 @@ function cargarCarritoVenta()
     */
 
     carritoVenta.id_medio_pago1 = parseInt( metodoPago.selectedOptions[0].getAttribute("data-id-metodo-pago") );
-    carritoVenta.parcial1 = parseFloat( parseFloat(montoMetodoPago.value).toFixed(2) );
+    carritoVenta.parcial1 = parseFloat(montoMetodoPago.value).toFixed(2);
 
     carritoVenta.id_medio_pago2 = parseInt( metodoPagoComplementario.selectedOptions[0].getAttribute("data-id-metodo-pago") );
 
     if ( metodoPagoComplementario.value != "default" )
-        carritoVenta.parcial2 = parseFloat( parseFloat(montoMetodoPagoComplementario.value).toFixed(2) );
+        carritoVenta.parcial2 = parseFloat(montoMetodoPagoComplementario.value).toFixed(2);
 
     //  TOTAL
 
     const totalVenta = document.getElementById("appVentaTotal");
-    carritoVenta.total = parseFloat( parseFloat(totalVenta.textContent).toFixed(2) );
+    carritoVenta.total = parseFloat(totalVenta.textContent).toFixed(2);
 
     //  LISTADO PRODUCTOS VENDIDOS
 
@@ -1063,14 +1063,14 @@ function cargarCarritoVenta()
     //  index = 1 Para saltear el tr de <thead>
     for (let index = 1; index < listadoCarrito.length; index++)
     {
-        dataIdProducto = parseInt( listadoCarrito[index].getAttribute("data-id-producto") );
-        cantidad = parseInt( document.getElementById(`cantidadInput${dataIdProducto}`).value );
-        precio_venta = parseFloat( document.getElementById(`subtotal${dataIdProducto}`).textContent );
+        dataIdProducto = listadoCarrito[index].getAttribute("data-id-producto");
+        cantidad = document.getElementById(`cantidadInput${dataIdProducto}`).value;
+        precio_venta = document.getElementById(`subtotal${dataIdProducto}`).textContent;
 
         carritoVenta.lineas_venta.push({
-            "id_producto": dataIdProducto,
-            "cantidad": cantidad,
-            "precio_venta": precio_venta
+            "id_producto": parseInt(dataIdProducto),
+            "cantidad": parseInt(cantidad),
+            "precio_venta": parseFloat(precio_venta).toFixed(2),
         })
     }
 }
