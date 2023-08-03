@@ -9,7 +9,9 @@ CREATE TABLE categoria (
 CREATE TABLE producto (
     id_producto INT AUTO_INCREMENT PRIMARY KEY,
     id_categoria INT,
+    id_proveedor INT,
     nombre VARCHAR(255),
+    codigo VARCHAR(255),
     imagen VARCHAR(255),
     descripcion VARCHAR(1024),
     precio_compra DECIMAL(12, 2),
@@ -17,7 +19,8 @@ CREATE TABLE producto (
     ganancia DECIMAL(12, 2),
     precio_venta DECIMAL(12, 2),
     stock INT,
-    FOREIGN KEY (id_categoria) REFERENCES categoria (id_categoria)
+    FOREIGN KEY (id_categoria) REFERENCES categoria (id_categoria),
+    FOREIGN KEY (id_proveedor) REFERENCES proveedor (id_proveedor)
 );
 
 CREATE TABLE proveedor (
@@ -47,10 +50,12 @@ CREATE TABLE compra (
     id_compra INT AUTO_INCREMENT PRIMARY KEY,
     id_movimiento INT,
     id_proveedor INT,
+    id_medio_pago INT,
     fecha DATETIME,
     total DECIMAL(12, 2),
     FOREIGN KEY (id_proveedor) REFERENCES proveedor (id_proveedor),
-    FOREIGN KEY (id_movimiento) REFERENCES movimiento (id_movimiento)
+    FOREIGN KEY (id_movimiento) REFERENCES movimiento (id_movimiento),
+    FOREIGN KEY (id_medio_pago) REFERENCES medio_pago (id_medio_pago)
 );
 
 CREATE TABLE medio_pago (
@@ -248,4 +253,10 @@ VALUES
    (username, password)
    values
    ('admin','$2a$10$BoJ47v3ebE/vnLMVQ1EvdOFunxxJZOCqVtmdVNEdg6aR1Gq9lBqS.');
+
+  
+ 
+ 
+ -- Querys propias para testing
+
 

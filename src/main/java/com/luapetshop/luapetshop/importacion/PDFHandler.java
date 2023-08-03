@@ -2,6 +2,7 @@ package com.luapetshop.luapetshop.importacion;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
@@ -9,10 +10,20 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class PDFHandler {
 	
-	
-	public String processFile(MultipartFile file) {
+	public String processFile(MultipartFile file, String pages) {
+		StringBuilder sb = new StringBuilder();
+		ArrayList<Integer> parsedPages = parsePages(pages);
 		
-		int targetPageNumber = 1;
+		for(Integer page : parsedPages) {
+			sb.append(procesarPagina(file, page) + "\n");
+		}
+		
+		return sb.toString();
+	}
+	
+	
+	protected String procesarPagina(MultipartFile file, int targetPageNumber) {
+		
 		StringBuilder sb = new StringBuilder();
 		
 		try (InputStream inputStream = file.getInputStream()) {
@@ -46,6 +57,8 @@ public class PDFHandler {
         	e.printStackTrace();
         }
 		return sb.toString();
+		
+		
 	}
 	
 	
@@ -72,6 +85,32 @@ public class PDFHandler {
         
         return lineaCSV;
 		
+	}
+	
+	protected ArrayList<Integer> parsePages(String pages){
+		ArrayList<Integer> parsedPages = new ArrayList<Integer>();
+		
+		//separamos por comas
+		String[] rangos =  pages.split(",");
+		
+		for( String rango : rangos ) {
+			//si no contiene - entonces lo agrego como numero simple
+			if(!rango.contains("-")) {
+				parsedPages.add(Integer.parseInt(rango));
+				continue;
+			}
+			
+			//si contiene - obtengo el rango completo
+			String[] fromTo = rango.split("-");
+			Integer from = Integer.parseInt(fromTo[0]);
+			Integer to = Integer.parseInt(fromTo[1]);
+			while(from <= to) {
+				parsedPages.add(from);
+				from++;
+			}
+		}
+		
+		return parsedPages;
 	}
 	
 }

@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: luapetshop
 -- ------------------------------------------------------
--- Server version	8.0.33-0ubuntu0.22.04.2
+-- Server version	8.0.33-0ubuntu0.22.04.4
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -50,14 +50,17 @@ CREATE TABLE `compra` (
   `id_compra` int NOT NULL AUTO_INCREMENT,
   `id_movimiento` int DEFAULT NULL,
   `id_proveedor` int DEFAULT NULL,
+  `id_medio_pago` int DEFAULT NULL,
   `fecha` datetime DEFAULT NULL,
   `total` decimal(12,2) DEFAULT NULL,
   PRIMARY KEY (`id_compra`),
   KEY `id_proveedor` (`id_proveedor`),
   KEY `id_movimiento` (`id_movimiento`),
+  KEY `id_medio_pago` (`id_medio_pago`),
   CONSTRAINT `compra_ibfk_1` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedor` (`id_proveedor`),
-  CONSTRAINT `compra_ibfk_2` FOREIGN KEY (`id_movimiento`) REFERENCES `movimiento` (`id_movimiento`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `compra_ibfk_2` FOREIGN KEY (`id_movimiento`) REFERENCES `movimiento` (`id_movimiento`),
+  CONSTRAINT `compra_ibfk_3` FOREIGN KEY (`id_medio_pago`) REFERENCES `medio_pago` (`id_medio_pago`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +69,7 @@ CREATE TABLE `compra` (
 
 LOCK TABLES `compra` WRITE;
 /*!40000 ALTER TABLE `compra` DISABLE KEYS */;
-INSERT INTO `compra` VALUES (1,NULL,1,NULL,15000.00),(2,NULL,2,NULL,20000.00),(3,NULL,3,NULL,25000.00),(4,NULL,4,NULL,18000.00),(5,NULL,5,NULL,22000.00),(6,NULL,6,NULL,19000.00),(7,NULL,7,NULL,21000.00),(8,NULL,1,NULL,17000.00),(9,NULL,2,NULL,23000.00),(10,NULL,3,NULL,27000.00),(11,NULL,4,NULL,16000.00),(12,NULL,5,NULL,24000.00),(13,NULL,6,NULL,26000.00),(14,NULL,7,NULL,28000.00),(15,NULL,1,NULL,21000.00),(16,NULL,2,NULL,29000.00),(17,NULL,3,NULL,31000.00),(18,NULL,4,NULL,33000.00);
+INSERT INTO `compra` VALUES (1,NULL,1,NULL,NULL,15000.00),(2,NULL,2,NULL,NULL,20000.00),(3,NULL,3,NULL,NULL,25000.00),(4,NULL,4,NULL,NULL,18000.00),(5,NULL,5,NULL,NULL,22000.00),(6,NULL,6,NULL,NULL,19000.00),(7,NULL,7,NULL,NULL,21000.00),(8,NULL,1,NULL,NULL,17000.00),(9,NULL,2,NULL,NULL,23000.00),(10,NULL,3,NULL,NULL,27000.00),(11,NULL,4,NULL,NULL,16000.00),(12,NULL,5,NULL,NULL,24000.00),(13,NULL,6,NULL,NULL,26000.00),(14,NULL,7,NULL,NULL,28000.00),(15,NULL,1,NULL,NULL,21000.00),(16,NULL,2,NULL,NULL,29000.00),(17,NULL,3,NULL,NULL,31000.00),(18,NULL,4,NULL,NULL,33000.00),(19,NULL,1,4,'2023-08-01 23:10:40',345.50),(20,25,1,4,'2023-08-01 23:13:27',345.70);
 /*!40000 ALTER TABLE `compra` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +97,7 @@ CREATE TABLE `cuenta` (
 
 LOCK TABLES `cuenta` WRITE;
 /*!40000 ALTER TABLE `cuenta` DISABLE KEYS */;
-INSERT INTO `cuenta` VALUES (1,'Banco Provincia','2023-07-14 00:00:00','2023-07-14 00:00:00',0.00,50000.00),(2,'Mercado Pago','2023-07-14 00:00:00','2023-07-14 00:00:00',0.00,33000.00),(3,'Efectivo','2023-07-14 00:00:00','2023-07-14 00:00:00',0.00,30000.00);
+INSERT INTO `cuenta` VALUES (1,'Banco Provincia','2023-07-22 18:19:19','2023-07-14 00:00:00',0.00,51200.00),(2,'Mercado Pago','2023-07-22 18:19:19','2023-07-14 00:00:00',0.00,33400.00),(3,'Efectivo','2023-07-14 00:00:00','2023-07-14 00:00:00',0.00,29308.80);
 /*!40000 ALTER TABLE `cuenta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,7 +176,7 @@ CREATE TABLE `movimiento` (
   PRIMARY KEY (`id_movimiento`),
   KEY `id_cuenta` (`id_cuenta`),
   CONSTRAINT `movimiento_ibfk_1` FOREIGN KEY (`id_cuenta`) REFERENCES `cuenta` (`id_cuenta`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,7 +185,7 @@ CREATE TABLE `movimiento` (
 
 LOCK TABLES `movimiento` WRITE;
 /*!40000 ALTER TABLE `movimiento` DISABLE KEYS */;
-INSERT INTO `movimiento` VALUES (1,1,NULL,2000.00,'V'),(2,2,NULL,1500.00,'C'),(3,3,NULL,3000.00,'I'),(4,2,NULL,7000.00,'E'),(5,3,NULL,5000.00,'V'),(6,1,NULL,3000.00,'C');
+INSERT INTO `movimiento` VALUES (1,1,NULL,2000.00,'V'),(2,2,NULL,1500.00,'C'),(3,3,NULL,3000.00,'I'),(4,2,NULL,7000.00,'E'),(5,3,NULL,5000.00,'V'),(6,1,NULL,3000.00,'C'),(10,1,'2023-07-21 19:49:39',100.00,'V'),(11,1,'2023-07-21 19:54:24',100.00,'V'),(12,1,'2023-07-21 19:58:19',100.00,'V'),(13,1,'2023-07-21 19:59:42',100.00,'V'),(14,1,'2023-07-21 20:01:20',100.00,'V'),(15,1,'2023-07-21 20:01:20',200.00,'V'),(16,1,'2023-07-21 20:03:44',100.00,'V'),(17,1,'2023-07-21 20:03:44',200.00,'V'),(18,1,'2023-07-21 20:04:46',100.00,'V'),(19,2,'2023-07-21 20:04:46',200.00,'V'),(20,1,'2023-07-22 18:19:19',100.00,'V'),(21,2,'2023-07-22 18:19:19',200.00,'V'),(24,3,'2023-08-01 23:10:40',345.50,'C'),(25,3,'2023-08-01 23:13:27',345.70,'C');
 /*!40000 ALTER TABLE `movimiento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,7 +199,9 @@ DROP TABLE IF EXISTS `producto`;
 CREATE TABLE `producto` (
   `id_producto` int NOT NULL AUTO_INCREMENT,
   `id_categoria` int DEFAULT NULL,
+  `id_proveedor` int DEFAULT NULL,
   `nombre` varchar(255) DEFAULT NULL,
+  `codigo` varchar(255) DEFAULT NULL,
   `imagen` varchar(255) DEFAULT NULL,
   `descripcion` varchar(1024) DEFAULT NULL,
   `precio_compra` decimal(12,2) DEFAULT NULL,
@@ -206,7 +211,9 @@ CREATE TABLE `producto` (
   `stock` int DEFAULT NULL,
   PRIMARY KEY (`id_producto`),
   KEY `id_categoria` (`id_categoria`),
-  CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`)
+  KEY `id_proveedor` (`id_proveedor`),
+  CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`),
+  CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedor` (`id_proveedor`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -216,7 +223,7 @@ CREATE TABLE `producto` (
 
 LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (1,1,'Producto 1','imagen1.png','Descripción del producto 1',10.99,0.50,0.00,15.00,100),(2,2,'Producto 2','imagen2.png','Descripción del producto 2',15.99,0.30,0.00,20.00,50),(3,3,'Producto 3','imagen3.png','Descripción del producto 3',20.99,0.40,0.00,100.00,80),(4,4,'Producto 4','imagen4.png','Descripción del producto 4',12.99,0.60,0.00,120.00,70),(5,5,'Producto 5','imagen5.png','Descripción del producto 5',18.99,0.20,0.00,67.00,90),(6,1,'Producto 6','imagen6.png','Descripción del producto 6',11.99,0.70,0.00,10.00,120),(7,3,'Producto 7','imagen7.png','Descripción del producto 7',14.99,0.40,0.00,20.00,60),(8,2,'Producto 8','imagen8.png','Descripción del producto 8',16.99,0.50,0.00,32.00,110),(9,4,'Producto 9','imagen9.png','Descripción del producto 9',19.99,0.30,0.00,100.00,80),(10,5,'Producto 10','imagen10.png','Descripción del producto 10',22.99,0.60,0.00,120.00,95),(11,3,'Producto 11','imagen11.png','Descripción del producto 11',13.99,0.20,0.00,50.00,65),(12,1,'Producto 12','imagen12.png','Descripción del producto 12',17.99,0.40,0.00,77.00,105),(13,2,'Producto 13','imagen13.png','Descripción del producto 13',21.99,0.50,0.00,85.00,85),(14,4,'Producto 14','imagen14.png','Descripción del producto 14',24.99,0.30,0.00,44.00,75),(15,5,'Producto 15','imagen15.png','Descripción del producto 15',27.99,0.60,0.00,30.00,100);
+INSERT INTO `producto` VALUES (1,1,1,'Producto 1','code123','imagen1.png','Descripción del producto 1',10.99,0.50,0.00,15.00,100),(2,2,1,'Producto 2','code123','imagen2.png','Descripción del producto 2',15.99,0.30,0.00,20.00,50),(3,3,1,'Producto 3','code123','imagen3.png','Descripción del producto 3',20.99,0.40,0.00,100.00,80),(4,4,1,'Producto 4','code123','imagen4.png','Descripción del producto 4',12.99,0.60,0.00,120.00,70),(5,5,1,'Producto 5','code123','imagen5.png','Descripción del producto 5',18.99,0.20,0.00,67.00,90),(6,1,1,'Producto 6','code123','imagen6.png','Descripción del producto 6',11.99,0.70,0.00,10.00,120),(7,3,1,'Producto 7','code123','imagen7.png','Descripción del producto 7',14.99,0.40,0.00,20.00,60),(8,2,1,'Producto 8','code123','imagen8.png','Descripción del producto 8',16.99,0.50,0.00,32.00,110),(9,4,1,'Producto 9','code123','imagen9.png','Descripción del producto 9',19.99,0.30,0.00,100.00,80),(10,5,1,'Producto 10','code123','imagen10.png','Descripción del producto 10',22.99,0.60,0.00,120.00,95),(11,3,1,'Producto 11','code123','imagen11.png','Descripción del producto 11',13.99,0.20,0.00,50.00,65),(12,1,1,'Producto 12','code123','imagen12.png','Descripción del producto 12',17.99,0.40,0.00,77.00,105),(13,2,1,'Producto 13','code123','imagen13.png','Descripción del producto 13',21.99,0.50,0.00,85.00,85),(14,4,1,'Producto 14','code123','imagen14.png','Descripción del producto 14',24.99,0.30,0.00,44.00,75),(15,5,1,'Producto 15','code123','imagen15.png','Descripción del producto 15',27.99,0.60,0.00,30.00,100);
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -296,7 +303,7 @@ CREATE TABLE `venta` (
   CONSTRAINT `venta_ibfk_2` FOREIGN KEY (`id_movimiento2`) REFERENCES `movimiento` (`id_movimiento`),
   CONSTRAINT `venta_ibfk_3` FOREIGN KEY (`id_medio_pago1`) REFERENCES `medio_pago` (`id_medio_pago`),
   CONSTRAINT `venta_ibfk_4` FOREIGN KEY (`id_medio_pago2`) REFERENCES `medio_pago` (`id_medio_pago`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -305,7 +312,7 @@ CREATE TABLE `venta` (
 
 LOCK TABLES `venta` WRITE;
 /*!40000 ALTER TABLE `venta` DISABLE KEYS */;
-INSERT INTO `venta` VALUES (1,NULL,NULL,1,NULL,NULL,NULL,'2023-07-19 21:56:54',150.50,'C'),(2,NULL,NULL,2,NULL,NULL,NULL,'2023-07-19 21:56:54',200.75,'C'),(3,NULL,NULL,3,NULL,NULL,NULL,'2023-07-19 21:56:54',250.25,'C'),(4,NULL,NULL,1,NULL,NULL,NULL,'2023-07-19 21:56:54',180.80,'C'),(5,NULL,NULL,2,NULL,NULL,NULL,'2023-07-19 21:56:54',220.10,'A'),(6,NULL,NULL,3,NULL,NULL,NULL,'2023-07-19 21:56:54',190.45,'C'),(7,NULL,NULL,1,NULL,NULL,NULL,'2023-07-19 21:56:54',210.60,'C'),(8,NULL,NULL,2,NULL,NULL,NULL,'2023-07-19 21:56:54',170.35,'A'),(9,NULL,NULL,3,NULL,NULL,NULL,'2023-07-19 21:56:54',230.90,'C'),(10,NULL,NULL,1,NULL,NULL,NULL,'2023-07-19 21:56:54',270.70,'C'),(11,NULL,NULL,2,NULL,NULL,NULL,'2023-07-19 21:56:54',160.65,'C'),(12,NULL,NULL,3,NULL,NULL,NULL,'2023-07-19 21:56:54',240.95,'A'),(13,NULL,NULL,1,NULL,NULL,NULL,'2023-07-19 21:56:54',260.55,'C'),(14,NULL,NULL,2,NULL,NULL,NULL,'2023-07-19 21:56:54',280.40,'C'),(15,NULL,NULL,3,NULL,NULL,NULL,'2023-07-19 21:56:54',210.30,'C');
+INSERT INTO `venta` VALUES (1,NULL,NULL,1,NULL,NULL,NULL,'2023-07-19 21:56:54',150.50,'C'),(2,NULL,NULL,2,NULL,NULL,NULL,'2023-07-19 21:56:54',200.75,'C'),(3,NULL,NULL,3,NULL,NULL,NULL,'2023-07-19 21:56:54',250.25,'C'),(4,NULL,NULL,1,NULL,NULL,NULL,'2023-07-19 21:56:54',180.80,'C'),(5,NULL,NULL,2,NULL,NULL,NULL,'2023-07-19 21:56:54',220.10,'A'),(6,NULL,NULL,3,NULL,NULL,NULL,'2023-07-19 21:56:54',190.45,'C'),(7,NULL,NULL,1,NULL,NULL,NULL,'2023-07-19 21:56:54',210.60,'C'),(8,NULL,NULL,2,NULL,NULL,NULL,'2023-07-19 21:56:54',170.35,'A'),(9,NULL,NULL,3,NULL,NULL,NULL,'2023-07-19 21:56:54',230.90,'C'),(10,NULL,NULL,1,NULL,NULL,NULL,'2023-07-19 21:56:54',270.70,'C'),(11,NULL,NULL,2,NULL,NULL,NULL,'2023-07-19 21:56:54',160.65,'C'),(12,NULL,NULL,3,NULL,NULL,NULL,'2023-07-19 21:56:54',240.95,'A'),(13,NULL,NULL,1,NULL,NULL,NULL,'2023-07-19 21:56:54',260.55,'C'),(14,NULL,NULL,2,NULL,NULL,NULL,'2023-07-19 21:56:54',280.40,'C'),(15,NULL,NULL,3,NULL,NULL,NULL,'2023-07-19 21:56:54',210.30,'C'),(16,10,NULL,1,NULL,100.00,0.00,'2023-07-21 19:49:39',100.00,'C'),(17,11,NULL,1,NULL,100.00,0.00,'2023-07-21 19:54:24',100.00,'C'),(18,12,NULL,1,NULL,100.00,0.00,'2023-07-21 19:58:19',100.00,'C'),(19,13,NULL,1,NULL,100.00,0.00,'2023-07-21 19:59:42',100.00,'C'),(20,14,15,1,2,100.00,200.00,'2023-07-21 20:01:20',300.00,'C'),(21,16,17,1,2,100.00,200.00,'2023-07-21 20:03:44',300.00,'C'),(22,18,19,1,3,100.00,200.00,'2023-07-21 20:04:46',300.00,'C'),(23,20,21,1,3,100.00,200.00,'2023-07-22 18:19:19',300.00,'C');
 /*!40000 ALTER TABLE `venta` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -318,4 +325,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-20  1:43:50
+-- Dump completed on 2023-08-03  1:40:38

@@ -1,5 +1,6 @@
 package com.luapetshop.luapetshop.compra;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -46,15 +47,19 @@ public class CompraController {
 	}
 	
 	@PostMapping("/new/compra")
-    public ResponseEntity<String> procesarDatos(@RequestBody Map<String, Object> datos) {
+    public ResponseEntity<Object> procesarDatos(@RequestBody Map<String, Object> datos) {
 		
 		try {
-			//compraService.createNewCompra(datos);
+			compraService.createNewCompra(datos);
 			System.out.println(datos);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(datos.toString());
+		
+		Map<String, Object> res = new HashMap<String, Object>();
+		res.put("status", "ok");
+		
+		return ResponseEntity.ok(res);
+		//return ResponseEntity.status(HttpStatus.CREATED).body("Compra guardada con exito");
     }
 }

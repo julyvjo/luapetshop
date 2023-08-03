@@ -81,6 +81,8 @@ public class CompraService {
 			compra.setTotal(monto);
 			//medio_pago
 			compra.setMedio_pago(mp);
+			//movimiento
+			compra.setMovimiento(movimiento);
 		
 		//impactar en cuenta
 		double saldoActual = cuenta.getSaldo();

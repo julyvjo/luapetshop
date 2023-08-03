@@ -21,6 +21,7 @@
               // Crea un objeto FormData y agrega el archivo PDF que deseas enviar
               var formData = new FormData();
               formData.append("pdfFile", document.getElementById("pdfFileInput").files[0]);
+              formData.append("pages", document.getElementById("pages").value);
           
               // Realiza el POST request al servidor utilizando fetch
               fetch("/upload_pdf", {
@@ -48,6 +49,7 @@
           <!-- Formulario para enviar el archivo PDF -->
           <form>
             <input type="file" id="pdfFileInput" accept=".pdf" />
+            <input type="text" id="pages" placeholder="Ingrese paginas a tomar" />
             <button type="button" onclick="enviarArchivoPDF()">Enviar PDF</button>
           </form>
           

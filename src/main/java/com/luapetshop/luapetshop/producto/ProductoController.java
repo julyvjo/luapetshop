@@ -28,7 +28,6 @@ public class ProductoController {
 		this.productoService = productoService;
 	}
 	
-	
 	@GetMapping("/producto")
 	public String producto(
 			Model model, 
