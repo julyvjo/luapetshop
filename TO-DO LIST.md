@@ -44,11 +44,11 @@
 
 ##  PRODUCTO
 
-- [ ] TABLA + EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Agregar e implementar columna PROVEEDOR
-- [ ] IMPLEMENTAR rutas a la imagen del producto (th:src=${atributo})
 - [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Ajustar validación para volver a valores default si por ejemplo los inputs quedaron vacíos.
-- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; IMPLEMENTAR IMAGEN DE CADA PRODUCTO.
 
+- [x] TABLA + EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Agregar e implementar columna PROVEEDOR
+- [x] IMPLEMENTAR rutas a la imagen del producto (th:src=${atributo})
+- [x] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; IMPLEMENTAR IMAGEN DE CADA PRODUCTO.
 - [x] <sup>~~GUARDAR NUEVO PRODUCTO; Implementar fetch para disparar el proceso de crear un nuevo producto.~~</sup>
 - [x] <sup>~~GUARDAR EDITAR LINEA; Implementar fetch para disparar el proceso de crear una nueva modificación.~~</sup>
 
@@ -56,10 +56,10 @@
 
 ##  VENTA
 
-- [x] FINALIZAR VENTA; Implementar fetch para disparar el proceso de crear venta.
-- [ ] METODOS DE PAGO; Testear y fixear bugs de la nueva implementación de los modificadores/recargos.
 - [ ] HISTORIAL; Implementar *una vez que CAJA esté completo* (ya que debería almacenar todas las ventas de ese mismo día)
 
+- [x] METODOS DE PAGO; Testear y fixear bugs de la nueva implementación de los modificadores/recargos.
+- [x] FINALIZAR VENTA; Implementar fetch para disparar el proceso de crear venta.
 - [x] <sup>~~CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.~~</sup>
 - [x] <sup>~~BUG; Al cambiar método de pago COMPLEMENTARIO, el monto de este se reinicia a 0.~~</sup>
 - [x] <sup>~~PREGUNTAR; ¿Cómo deberíamos chequear que una venta no afecta más stock del que supuestamente existe?~~</sup> **ASUMIMOS QUE LA VENTA CHEQUEA IRL EL STOCK ACTUAL, ERGO STOCK EN BD PUEDE NO SER REALMENTE LA CANTIDAD (entonces el stock simplemente se resetea a cero sin volverse negativo)**
