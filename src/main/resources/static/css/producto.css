@@ -267,10 +267,12 @@
 
 #table > tr > td:nth-child(2)   /* NOMBRE */
 {
-    width: 53.3vw;
+    /* width: 53.3vw; */
+    width: 45.3vw;
 }
 
-#table > tr > td:nth-child(3)   /* CATEGORIA */
+#table > tr > td:nth-child(3),   /* PROVEEDOR */
+#table > tr > td:nth-child(4)  /* CATEGORIA */
 {
     width: 8vw;
 }
