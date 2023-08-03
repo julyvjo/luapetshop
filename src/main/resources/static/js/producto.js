@@ -130,13 +130,13 @@ function validarNuevoProducto()     // AÚN NO SE VALIDAR PARA EVITAR SQL INJECT
     // }
 
     //  Proveedor por ahora no puede implementarse
-    // const nuevoProductoProveedor = document.getElementById("modalNuevoProductoProveedor");
+    const nuevoProductoProveedor = document.getElementById("modalNuevoProductoProveedor");
 
-    // if (nuevoProductoProveedor.value === "0")
-    // {
-    //     console.log("ERROR: El producto tiene que tener algún proveedor!");
-    //     return false;
-    // }
+    if (nuevoProductoProveedor.value === "0")
+    {
+        console.log("ERROR: El producto tiene que tener algún proveedor!");
+        return false;
+    }
 
     const nuevoProductoPrecioCompra = document.getElementById("modalNuevoProductoPrecioCompra");
 
@@ -204,7 +204,7 @@ function enviarNuevoProducto()
     //  Descripción por ahora no va a ser implementado.
     // const nuevoProductoDescripcion = document.getElementById("modalNuevoProductoDescripcion");
 
-    // const nuevoProductoProveedor = document.getElementById("modalNuevoProductoProveedor");
+    const nuevoProductoProveedor = document.getElementById("modalNuevoProductoProveedor");
     const nuevoProductoPrecioCompra = document.getElementById("modalNuevoProductoPrecioCompra");
     const nuevoProductoRentabilidad = document.getElementById("modalNuevoProductoRentabilidad");
     const nuevoProductoGanancia = document.getElementById("modalNuevoProductoGanancia");
@@ -220,7 +220,7 @@ function enviarNuevoProducto()
 
         // descripcion: nuevoProductoDescripcion.value,
 
-        // id_proveedor: parseInt(nuevoProductoProveedor.value),
+        id_proveedor: parseInt(nuevoProductoProveedor.value),
         precio_compra: parseFloat(nuevoProductoPrecioCompra.value).toFixed(2),
         rentabilidad: parseFloat(nuevoProductoRentabilidad.value).toFixed(2),
         ganancia: parseFloat(nuevoProductoGanancia.value).toFixed(2),
@@ -271,6 +271,7 @@ function cargarEditor(fila)
     const tr = fila.parentNode.parentNode.parentNode;
     const filaIdProducto = tr.getAttribute("data-id-producto");
     const filaIdCategoria = tr.getAttribute("data-id-categoria");
+    const filaIdProveedor = tr.getAttribute("data-id-proveedor");
     const h5 = tr.querySelectorAll("h5");
 
     /*
@@ -278,14 +279,14 @@ function cargarEditor(fila)
         //  CODIGO BARRAS?
         h5[1] - Nombre
         //  DESCRIPCION?
-        //  PROVEEDOR?
-        h5[2]  CATEGORIA?
-        h5[3] - Stock
-        h5[4] - Precio compra
-        h5[5] - Rentabilidad
-        h5[6] - Ganancia
-        h5[7] - Precio venta
-        h5[8] - Editor Linea
+        h5[2] - Proveedor
+        h5[3] - Categoria
+        h5[4] - Stock
+        h5[5] - Precio compra
+        h5[6] - Rentabilidad
+        h5[7] - Ganancia
+        h5[8] - Precio venta
+        h5[9] - Editor Linea
     */
 
     //  Imagen aún está pendiente.
@@ -303,26 +304,26 @@ function cargarEditor(fila)
     // editorLineaDescripcion.value = h5[2].textContent;
 
     //  Proveedor actualmente no se puede implementar completamente.
-    // const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
-    // editorLineaProveedor.value = h5[2].textContent;
+    const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
+    editorLineaProveedor.value = filaIdProveedor;
 
     const editorLineaCategoria = document.getElementById("modalEditorLineaCategoria");
     editorLineaCategoria.value = filaIdCategoria;
 
     const editorLineaStock = document.getElementById("modalEditorLineaStock");
-    editorLineaStock.value = h5[3].textContent;
+    editorLineaStock.value = h5[4].textContent;
 
     const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
-    editorLineaPrecioCompra.value = h5[4].textContent;
+    editorLineaPrecioCompra.value = h5[5].textContent;
 
     const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
-    editorLineaRentabilidad.value = h5[5].textContent;
+    editorLineaRentabilidad.value = h5[6].textContent;
 
     const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
-    editorLineaGanancia.value = h5[6].textContent;
+    editorLineaGanancia.value = h5[7].textContent;
     
     const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
-    editorLineaPrecioVenta.value = h5[7].textContent;
+    editorLineaPrecioVenta.value = h5[8].textContent;
 
     const editorLineaID = document.getElementById("modalEditorLineaId");
     editorLineaID.value = filaIdProducto;
@@ -360,13 +361,13 @@ function validarEditorLinea()       //  AÚN NO SE VALIDAR PARA EVITAR SQL INJEC
     // }
 
     //  Proveedor por ahora no puede implementarse
-    // const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
+    const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
 
-    // if (editorLineaProveedor.value === "0")
-    // {
-    //     console.log("ERROR: El producto tiene que tener algún proveedor!");
-    //     return false;
-    // }
+    if (editorLineaProveedor.value === "0")
+    {
+        console.log("ERROR: El producto tiene que tener algún proveedor!");
+        return false;
+    }
  
     const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
     
@@ -434,7 +435,7 @@ function enviarEditorLinea()
     //  Descripción no va a implementarse por ahora.
     // const editorLineaDescripcion = document.getElementById("modalEditorLineaDescripcion");
     
-    // const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
+    const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
     const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
     const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
     const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
@@ -451,7 +452,7 @@ function enviarEditorLinea()
 
         // descripcion: editorLineaDescripcion.value,
 
-        // id_proveedor: parseInt(editorLineaProveedor.value),
+        id_proveedor: parseInt(editorLineaProveedor.value),
         precio_compra: parseFloat(editorLineaPrecioCompra.value).toFixed(2),
         rentabilidad: parseFloat(editorLineaRentabilidad.value).toFixed(2),
         ganancia: parseFloat(editorLineaGanancia.value).toFixed(2),
@@ -478,7 +479,7 @@ let datosProducto = {
 
     // descripcion: "",     //  De momento no implementado.
 
-    // id_proveedor: 0,     // 0 si no tiene proveedor asignado.
+    id_proveedor: 0,     // 0 si no tiene proveedor asignado.
     precio_compra: 0.00,
     rentabilidad: 0.0,
     ganancia: 0.0,
@@ -497,7 +498,7 @@ function iniciarDatosProducto()
 
         // descripcion: "",
         
-        // id_proveedor: 0,
+        id_proveedor: 0,
         precio_compra: 0.00,
         rentabilidad: 0.0,
         ganancia: 0.0,
