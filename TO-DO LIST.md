@@ -44,8 +44,9 @@
 
 ##  PRODUCTO
 
-- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Ajustar validación para volver a valores default si por ejemplo los inputs quedaron vacíos.
+- [x] TABLA + EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar PROVEEDOR en nuevoProducto y editorLinea
 
+- [x] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Ajustar validación para volver a valores default si por ejemplo los inputs quedaron vacíos.
 - [x] TABLA + EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Agregar e implementar columna PROVEEDOR
 - [x] IMPLEMENTAR rutas a la imagen del producto (th:src=${atributo})
 - [x] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; IMPLEMENTAR IMAGEN DE CADA PRODUCTO.
