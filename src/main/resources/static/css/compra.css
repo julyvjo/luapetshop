@@ -4,8 +4,40 @@
 
 #app
 {
-    justify-content: center;
+    justify-content: space-evenly;
 }
+
+#app > div:first-child
+{
+    margin: 0;
+    padding: 2vh 1vw;
+    width: 80vw;
+    background-color: var(--alternative);
+    color: var(--primary);
+    border-width: 1vh 1vw;
+    border-style: solid;
+    border-color: var(--accent);
+    border-radius: 1vw;
+
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#app > div:first-child > button
+{
+    /* #compraExcepcional */
+    /* #historialCompras */
+    margin: 0;
+    padding: 1vh 1vw;
+    border: 0;
+    border-radius: 1vw;
+    line-height: normal;
+
+    align-self: center;
+}
+
 
 
 /* ///////////// */
