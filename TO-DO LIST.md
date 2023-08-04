@@ -15,6 +15,8 @@
 - [ ] JULY; Para el listado de proveedores... ¿Cómo se modificaría? (Agregar, editar, eliminar proveedores)
 - [ ] JULY; Preguntar por conceptos TRY/CATCH, EXCEPTIONS y otros conceptos de POO.
 
+- [ ] **COMPRA; Chequear si esta página no debería permitir registrar COMPRAS EXCEPCIONALES. (Ejemplo, usaron la plata de alguno de los fondos para insumos propios del petshop, o sacaron para uso personal)**
+
 - [ ] VENTA; Debería blanquear TOTAL SIN recargos/modificadores de los métodos de pago? (o sea, mostrar este total en conjunto con los montos de cada método de pago y el total con recargos incluidos)
 - [ ] VENTA; (Posible bug) Al cambiar TOTAL SIN recargos (por ej. modificando cantidad de algún producto) la diferencia SIEMPRE recae en el monto del método de pago principal... Es necesario en caso de agregar un método de pago complementario, que pase a modificarse el monto de este último?
 - [ ] VENTA; (Posible bug) Los montos de los métodos de pago deberían SIEMPRE mostrarse con los recargos incluidos?
@@ -29,10 +31,12 @@
 - [ ] CSS TABLAS; El scrollbar vertical solamente debería afectar a `<tbody>`
 - [ ] CSS TABLAS; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y reducir el ancho de esas columnas que solamente van a mostrar un número o incluso un valor fijo. (De nuevo agregado por nueva columna PROVEEDOR)
 - [ ] CSS; Modificar variables de color de TEXTOS para que usen su propia variable (fix para múltiples páginas con el cambio de bgcolor)
+- [ ] CSS; Agregar efectos a los botones para dar feedback visual de que se accionó un botón.
 - [ ] ERROR LOGS; Traducir al español!!
 
 - [x] <sup>~~EMMIK; Analizar propuesta de implementar códigos de barras~~</sup> **DE MOMENTO HAY QUE CONFIRMAR IMPLEMENTACIÓN**
 - [x] <sup>~~EMMIK; Analizar propuesta de permitir setear total de venta arbitrario (e.g. para redondear)~~</sup> **RECOMENDACIÓN PERSONAL DADA A EMMIK; NOSOTROS NO DEBERÍAMOS MODIFICAR NADA**
+
 
 * Considerar agregar unidad de valores en los outputs (por ejemplo $)
 * CSS; Maximizar espacio para listado de productos.
@@ -100,7 +104,13 @@
 
 ##  COMPRA
 
-- [ ] **PREGUNTAR; Chequear si esta página no debería permitir registrar COMPRAS EXCEPCIONALES. (Ejemplo, usaron la plata de alguno de los fondos para insumos propios del petshop, o sacaron para uso personal)**
+- [ ] COMPRA EXCEPCIONAL; Crear modal/formulario
+- [ ] COMPRA EXCEPCIONAL; Dar formato a modal/formulario
+- [ ] COMPRA EXCEPCIONAL; Implementar en COMPRAS
+- [ ] COMPRA EXCEPCIONAL; Implementar validación del input
+- [ ] COMPRA EXCEPCIONAL; Hacer fetch JSON para backend
+
+- [ ] HISTORIAL COMPRAS; (CUANDO SE TERMINE DE IMPLEMENTAR CAJA/HISTORIAL GENERAL) Implementar.
 
 - [x] <sup>~~GUARDAR COMPRA; Implementar fetch para disparar el proceso de crear compra.~~</sup>
 ---
