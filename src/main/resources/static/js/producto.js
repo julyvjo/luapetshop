@@ -298,10 +298,30 @@ function cargarEditor(fila)
 
     const editorLineaNombre = document.getElementById("modalEditorLineaNombre");
     editorLineaNombre.value = h5[1].textContent;
+    
+    if (h5[1].textContent != "")
+    {   
+        editorLineaNombre.setAttribute("data-default-value", h5[1].textContent);
+        editorLineaNombre.addEventListener("change", () =>
+        {
+            if (editorLineaNombre.value === "")
+                editorLineaNombre.value = editorLineaNombre.getAttribute("data-default-value");
+        });
+    }
 
-    //  Descripción actualmente no se va a usar.
+    //  DESCRIPCIÓN POR AHORA NO SE VA A USAR
     // const editorLineaDescripcion = document.getElementById("modalEditorLineaDescripcion");
     // editorLineaDescripcion.value = h5[2].textContent;
+    //
+    // if (h5[2].textContent != "")
+    // {   
+    //     editorLineaDescripcion.setAttribute("data-default-value", h5[2].textContent);
+    //     editorLineaDescripcion.addEventListener("change", () =>
+    //     {
+    //         if (editorLineaDescripcion.value === "")
+    //             editorLineaDescripcion.value = editorLineaDescripcion.getAttribute("data-default-value");
+    //     });
+    // }
 
     //  Proveedor actualmente no se puede implementar completamente.
     const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
@@ -313,17 +333,67 @@ function cargarEditor(fila)
     const editorLineaStock = document.getElementById("modalEditorLineaStock");
     editorLineaStock.value = h5[4].textContent;
 
+    if (h5[4].textContent != 0)
+    {   
+        editorLineaStock.setAttribute("data-default-value", h5[4].textContent);
+        editorLineaStock.addEventListener("change", () =>
+        {
+            if (editorLineaStock.value === "")
+                editorLineaStock.value = editorLineaStock.getAttribute("data-default-value");
+        });
+    }
+
     const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
     editorLineaPrecioCompra.value = h5[5].textContent;
+
+    if (h5[5].textContent != "0.00")
+    {   
+        editorLineaPrecioCompra.setAttribute("data-default-value", h5[5].textContent);
+        editorLineaPrecioCompra.addEventListener("change", () =>
+        {
+            if (editorLineaPrecioCompra.value === "")
+                editorLineaPrecioCompra.value = editorLineaPrecioCompra.getAttribute("data-default-value");
+        });
+    }
 
     const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
     editorLineaRentabilidad.value = h5[6].textContent;
 
+    if (h5[6].textContent != "0.00")
+    {   
+        editorLineaRentabilidad.setAttribute("data-default-value", h5[6].textContent);
+        editorLineaRentabilidad.addEventListener("change", () =>
+        {
+            if (editorLineaRentabilidad.value === "")
+                editorLineaRentabilidad.value = editorLineaRentabilidad.getAttribute("data-default-value");
+        });
+    }
+
     const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
     editorLineaGanancia.value = h5[7].textContent;
+
+    if (h5[7].textContent != "0.00")
+    {   
+        editorLineaGanancia.setAttribute("data-default-value", h5[7].textContent);
+        editorLineaGanancia.addEventListener("change", () =>
+        {
+            if (editorLineaGanancia.value === "")
+                editorLineaGanancia.value = editorLineaGanancia.getAttribute("data-default-value");
+        });
+    }
     
     const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
     editorLineaPrecioVenta.value = h5[8].textContent;
+
+    if (h5[8].textContent != "0.00")
+    {   
+        editorLineaPrecioVenta.setAttribute("data-default-value", h5[8].textContent);
+        editorLineaPrecioVenta.addEventListener("change", () =>
+        {
+            if (editorLineaPrecioVenta.value === "")
+                editorLineaPrecioVenta.value = editorLineaPrecioVenta.getAttribute("data-default-value");
+        });
+    }
 
     const editorLineaID = document.getElementById("modalEditorLineaId");
     editorLineaID.value = filaIdProducto;
