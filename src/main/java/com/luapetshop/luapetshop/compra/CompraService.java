@@ -51,7 +51,7 @@ public class CompraService {
 		int proveedor_id = (int) datos.get("id_proveedor");
 		Proveedor proveedor = proveedorRepository.findById(proveedor_id).get();
 		//datos -> monto
-		double monto = (double) datos.get("monto");
+		double monto = Double.parseDouble((String)datos.get("monto"));
 		//datos -> medio de pago
 		int id_medio_pago = (int) datos.get("id_medio_pago");
 		MedioPago mp = medioPagoRepository.findById(id_medio_pago).get();

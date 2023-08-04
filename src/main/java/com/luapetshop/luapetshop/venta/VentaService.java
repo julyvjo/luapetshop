@@ -54,16 +54,16 @@ public class VentaService {
 		//mp1 y parcial1
 		int id_medio_pago1 = (int) datos.get("id_medio_pago1");
 		MedioPago mp1 = medioPagoService.getMedioPago(id_medio_pago1).get();
-		double parcial1 = (double) datos.get("parcial1");
+		double parcial1 = Double.parseDouble((String)datos.get("parcial1"));
 		//mp2 y parcial2
 		int id_medio_pago2 = (int) datos.get("id_medio_pago2");
 		MedioPago mp2 = null;
 		if(id_medio_pago2 != 0) {	
 			mp2 = medioPagoService.getMedioPago(id_medio_pago2).get();
 		}
-		double parcial2 = (double) datos.get("parcial2");
+		double parcial2 = Double.parseDouble((String)datos.get("parcial2")) ;
 		//total
-        double total = (double) datos.get("total");
+        double total = Double.parseDouble((String)datos.get("total"));
 		//generar fecha
 		LocalDateTime fecha = LocalDateTime.now();
 		
@@ -144,7 +144,7 @@ public class VentaService {
 	        	linea_venta.setCantidad(cantidad);
 	        	
 	        	//setear precio
-	        	linea_venta.setPrecio_venta((double)line.get("precio_venta"));
+	        	linea_venta.setPrecio_venta(Double.parseDouble((String)line.get("precio_venta")));
 	        	
 	        	venta.getLineasVenta().add(linea_venta);
 	        	
