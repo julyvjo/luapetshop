@@ -104,9 +104,9 @@
 
 ##  COMPRA
 
-- [ ] COMPRA EXCEPCIONAL; Crear modal/formulario
-- [ ] COMPRA EXCEPCIONAL; Dar formato a modal/formulario
-- [ ] COMPRA EXCEPCIONAL; Implementar en COMPRAS
+- [x] COMPRA EXCEPCIONAL; Crear modal/formulario
+- [x] COMPRA EXCEPCIONAL; Dar formato a modal/formulario
+- [x] COMPRA EXCEPCIONAL; Implementar en COMPRAS
 - [ ] COMPRA EXCEPCIONAL; Implementar validación del input
 - [ ] COMPRA EXCEPCIONAL; Hacer fetch JSON para backend
 
