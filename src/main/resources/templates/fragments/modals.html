@@ -252,5 +252,27 @@
             </div>
         </div>
     </div>
+
+    <!-- MODAL COMPRA EXCEPCIONAL -->
+    <!-- 
+        -   Nota: Esto podría cambiar a movimiento excepcional para evitar crear venta excepcional que podría ser
+            lo mismo salvo un campo que estaría precargado.
+        -   Nota: Quizás la implementación de este modal cambie dependiendo el feedback futuro.
+     -->
+     <div th:fragment="modalCompraExcepcional" id="modalCompraExcepcional" class="modal fade" tabindex="-1" role="dialog" style="display: none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">REGISTRAR COMPRA EXCEPCIONAL</h5>
+                    <button class="close" type="button" data-dismiss="modal" onclick="ocultarModal('modalCompraExcepcional')">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>HELLO WORLD</div>
+                </div>
+            </div>
+        </div>
+    </div>     
 </body>
 </html>

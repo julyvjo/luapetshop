@@ -3,6 +3,7 @@
 <head th:replace="~{fragments/general.html :: headBoilerplate(@{\js\compra.js}, @{\css\compra.css})}"></head>
 <body>
     <header th:replace="~{fragments/headernav.html :: headerNavFull (class5='actual')}"></header>
+    
     <div id="app">
         <div>
             <!-- COMPRA EXCEPCIONAL -->
@@ -48,6 +49,13 @@
             </div>
         </div>
     </div>
+   
     <footer th:replace="~{fragments/general.html :: footer}"></footer>
+    
+    <!-- MODAL COMPRA EXCEPCIONAL -->
+    <div th:replace="~{fragments/modals.html :: modalCompraExcepcional}"></div>
+    
+    <!-- MODAL HISTORIAL COMPRAS -->
+    <!-- <div th:replace="~{fragments/modals.html :: modalHistorialCompras}"></div> -->
 </body>
 </html>

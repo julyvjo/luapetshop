@@ -1,3 +1,6 @@
+const COMPRA_EXCEPCIONAL = document.getElementById("compraExcepcional");
+// const HISTORIAL_COMPRAS = document.getElementById("");
+
 const proveedor = document.getElementById("formCompraProveedor");
 
 const containerMonto = document.getElementById("formCompraPaymentAmmount");
@@ -14,7 +17,10 @@ let compra = {};    //  Este objeto es el que se envía al finalizar la Compra.
 
 // **************************************************************
 
-
+COMPRA_EXCEPCIONAL.addEventListener("click", () =>
+{
+    mostrarModal("modalCompraExcepcional");
+});
 
 monto.addEventListener("change", (e) =>
 {
