@@ -1082,10 +1082,6 @@ function entregarVenta()
     const HEADERS = new Headers();
     HEADERS.append('Content-Type', 'application/json');
 
-    console.log(JSON_DATA);
-
-    /* COMENTADO HASTA QUE SE PUEDA TESTEAR BIEN EL SYNTAXERROR QUE DEVUELVE
-
     const API_URL = "/new/venta";
 
     const LINK = new URL(API_URL, window.location.origin);
@@ -1096,7 +1092,8 @@ function entregarVenta()
         body: JSON_DATA
     })
 
-    .then(response => response.json())
+    // .then(response => response.json())
+    .then(response => response.text())
     
     .then(responseData => {
         console.log(responseData);  // Resultado de enviar el json.
@@ -1105,7 +1102,5 @@ function entregarVenta()
     .catch(error => {
         console.log("ERROR: ", error);  // Errores que puedan haber.
     })
-
-    */
 }
 // **************************************************************

@@ -586,10 +586,6 @@ function entregarProducto()
     const HEADERS = new Headers();
     HEADERS.append('Content-Type', 'application/json');
 
-    console.log(JSON_DATA);
-
-    /* COMENTADO HASTA QUE SE PUEDA TESTEAR BIEN
-
     const API_URL = "/new/producto";
 
     const LINK = new URL(API_URL, window.location.origin);
@@ -600,7 +596,8 @@ function entregarProducto()
         body: JSON_DATA
     })
 
-    .then(response => response.json())
+    // .then(response => response.json())
+    .then(response => response.text())
     
     .then(responseData => {
         console.log(responseData);  // Resultado de enviar el json.
@@ -609,8 +606,6 @@ function entregarProducto()
     .catch(error => {
         console.log("ERROR: ", error);  // Errores que puedan haber.
     })
-
-    */
 }
 // **************************************************************
 
