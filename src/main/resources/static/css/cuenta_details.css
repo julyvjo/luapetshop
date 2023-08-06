@@ -48,7 +48,7 @@ tbody > tr > td:first-child
 {
     /* FECHA */
     /* width: 25%; */
-    width: 33%;
+    width: 25%;
 }
 
 thead > tr > td:nth-child(2),
@@ -56,13 +56,21 @@ tbody > tr > td:nth-child(2)
 {
     /* MONTO */
     /* width: 40%; */
-    width: 33%;
+    width: 15%;
+}
+
+thead > tr > td:nth-child(3),
+tbody > tr > td:nth-child(3)
+{
+    /* TIPO */
+    /* width: 35%; */
+    width: 30%;
 }
 
 thead > tr > td:last-child,
 tbody > tr > td:last-child
 {
-    /* TIPO */
+    /* MOTIVO */
     /* width: 35%; */
-    width: 33%;
+    width: 30%;
 }
