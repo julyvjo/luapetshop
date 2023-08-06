@@ -65,8 +65,40 @@ COMPRA_EXCEPCIONAL_REGISTRAR.addEventListener("click", () =>
     else
         compra_excepcional.motivo = COMPRA_EXCEPCIONAL_MOTIVO.value;
     
-    console.log(compra_excepcional);
+    // console.log(compra_excepcional);
+    entregarCompraExcepcional();
 });
+
+function entregarCompraExcepcional()
+{
+    const JSON_DATA = JSON.stringify(compra_excepcional);
+
+    const HEADERS = new Headers();
+    HEADERS.append('Content-Type', 'application/json');
+
+    console.log(JSON_DATA);
+
+    // // const API_URL = "/new/compra";   //  NECESITO SABER EL API_URL PARA ESTE CASO!!
+
+    // const LINK = new URL(API_URL, window.location.origin);
+
+    // fetch(LINK, {
+    //     method: 'POST',
+    //     headers: HEADERS,
+    //     body: JSON_DATA
+    // })
+
+    // // .then(response => response.json())
+    // .then(response => response.text())
+    
+    // .then(responseData => {
+    //     console.log(responseData);  // Resultado de enviar el json.
+    // })
+    
+    // .catch(error => {
+    //     console.log("ERROR: ", error);  // Errores que puedan haber.
+    // })
+}
 // **************************************************************
 
 
