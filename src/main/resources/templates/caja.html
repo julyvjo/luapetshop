@@ -12,11 +12,11 @@
                         <h2 th:text="${item.nombre}"></h2>
                     </div>
                     <div>
-                        <div>Saldo ACTUAL</div>
+                        <div>Saldo ACTUAL ($)</div>
                         <div th:text="${#numbers.formatDecimal(item.saldo, 1, 2)}"></div>
                     </div>
                     <div>
-                        <div>Saldo INICIAL</div>
+                        <div>Saldo INICIAL ($)</div>
                         <div th:text="${#numbers.formatDecimal(item.saldo_inicial, 1, 2)}"></div>
                     </div>
                     <div>
@@ -34,14 +34,6 @@
             </div>
             <div>
                 <div>
-                    <!-- <div>
-                        <div>GASTO EXCEPCIONAL</div>
-                        <div id="appCajaGastoExcepcional">1</div>
-                    </div>
-                    <div>
-                        <div>MÉTODO DE PAGO EXCEPCIONAL</div>
-                        <div id="appCajaMetodoPagoExcepcional">1</div>
-                    </div> -->
                     <button id="appCajaMovimiento">REGISTRAR MOVIMIENTO EXCEPCIONAL</button>
                     <div>
                         <div>SALDO TOTAL ($)</div>
@@ -57,5 +49,8 @@
 
     <!-- MODAL GENERAL -->
     <div th:replace="~{fragments/modals.html :: modalCerrarCaja}"></div>
+
+    <!-- MODAL COMPRA EXCEPCIONAL -->
+    <div th:replace="~{fragments/modals.html :: modalCompraExcepcional}"></div>
 </body>
 </html>
