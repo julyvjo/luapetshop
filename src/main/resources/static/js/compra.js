@@ -1,4 +1,11 @@
 const COMPRA_EXCEPCIONAL = document.getElementById("compraExcepcional");
+const COMPRA_EXCEPCIONAL_FONDO = document.getElementsByName("compraExcepcionalFondo")[0];
+const COMPRA_EXCEPCIONAL_MONTO = document.getElementsByName("compraExcepcionalMonto")[0];
+const COMPRA_EXCEPCIONAL_MOTIVO = document.getElementsByName("compraExcepcionalMotivo")[0];
+const COMPRA_EXCEPCIONAL_REGISTRAR = document.getElementById("compraExcepcionalRegistrar");
+
+let compra_excepcional = {};    //  Este objeto es el que se envía al registrar una compra excepcional.
+
 // const HISTORIAL_COMPRAS = document.getElementById("");
 
 const proveedor = document.getElementById("formCompraProveedor");
@@ -12,15 +19,27 @@ const metodoDePago = containerMetodoDePago.querySelector("select");
 const compraButton = document.getElementById("formCompraButton");
 
 let compra = {};    //  Este objeto es el que se envía al finalizar la Compra.
-
-
-
 // **************************************************************
+
+
+
+//  || COMPRA EXCEPCIONAL FUNCTIONS
 
 COMPRA_EXCEPCIONAL.addEventListener("click", () =>
 {
     mostrarModal("modalCompraExcepcional");
 });
+
+COMPRA_EXCEPCIONAL_REGISTRAR.addEventListener("click", () =>{
+    compra_excepcional.id_fondo = parseInt(COMPRA_EXCEPCIONAL_FONDO.value);
+    compra_excepcional.monto = parseFloat(COMPRA_EXCEPCIONAL_MONTO.value).toFixed(2);
+    compra_excepcional.motivo = COMPRA_EXCEPCIONAL_MOTIVO.value;
+
+    console.log(compra_excepcional);
+});
+// **************************************************************
+
+
 
 monto.addEventListener("change", (e) =>
 {
