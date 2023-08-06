@@ -61,6 +61,12 @@
 
 ##  VENTA
 
+- [ ] VENTA EXCEPCIONAL; Crear modal/formulario
+- [ ] VENTA EXCEPCIONAL; Dar formato a modal/formulario
+- [ ] VENTA EXCEPCIONAL; Implementar en VENTAS
+- [ ] VENTA EXCEPCIONAL; Implementar validación del input
+- [ ] VENTA EXCEPCIONAL; Hacer fetch JSON para backend
+
 - [ ] HISTORIAL; Implementar *una vez que CAJA esté completo* (ya que debería almacenar todas las ventas de ese mismo día)
 
 - [x] METODOS DE PAGO; Testear y fixear bugs de la nueva implementación de los modificadores/recargos.
