@@ -47,7 +47,8 @@
                             <!-- *********** -->
 
                             <tr th:each="item :${movimientos}" th:id="${item.id_movimiento}">
-                                <td><h5 th:text="${item.fecha}"></h5></td>
+                                <!-- <td><h5 th:text="${item.fecha}"></h5></td> -->
+                                <td><h5 th:text="${#temporals.format(item.fecha, 'dd-MM-yyyy HH:mm')}"></h5></td>
                                 <td><h5 th:text="${item.monto}"></h5></td>
                                 <!--td><h5 th:text="${item.tipo}"></h5></td-->
                                 <td>
