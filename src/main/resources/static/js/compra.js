@@ -30,11 +30,41 @@ COMPRA_EXCEPCIONAL.addEventListener("click", () =>
     mostrarModal("modalCompraExcepcional");
 });
 
-COMPRA_EXCEPCIONAL_REGISTRAR.addEventListener("click", () =>{
+COMPRA_EXCEPCIONAL_MONTO.addEventListener("change", () =>
+{
+    if ( validarInputMonto(COMPRA_EXCEPCIONAL_MONTO.value) === false )
+    {
+        window.alert("ERROR: El monto abonado es inválido!\n\nSe va a reiniciar el valor a 0.");
+        COMPRA_EXCEPCIONAL_MONTO.value = "0.00";
+        return;
+    }
+
+    COMPRA_EXCEPCIONAL_MONTO.value = COMPRA_EXCEPCIONAL_MONTO.value.replace(/,/g, ".");
+    COMPRA_EXCEPCIONAL_MONTO.value = parseFloat(COMPRA_EXCEPCIONAL_MONTO.value).toFixed(2);
+});
+
+COMPRA_EXCEPCIONAL_REGISTRAR.addEventListener("click", () =>
+{    
+    if (COMPRA_EXCEPCIONAL_FONDO.value === "0")
+    {
+        window.alert("ERROR: Es necesario elegir un fondo!");
+        return;
+    }
+
+    if (COMPRA_EXCEPCIONAL_MONTO.value === "" || COMPRA_EXCEPCIONAL_MONTO.value === "0.00")
+    {
+        window.alert("ERROR: Es necesario ingresar un monto válido!");
+        return;
+    }
+    
     compra_excepcional.id_fondo = parseInt(COMPRA_EXCEPCIONAL_FONDO.value);
     compra_excepcional.monto = parseFloat(COMPRA_EXCEPCIONAL_MONTO.value).toFixed(2);
-    compra_excepcional.motivo = COMPRA_EXCEPCIONAL_MOTIVO.value;
-
+    
+    if (COMPRA_EXCEPCIONAL_MOTIVO.value === "")
+        compra_excepcional.motivo = "Motivo no especificado.";
+    else
+        compra_excepcional.motivo = COMPRA_EXCEPCIONAL_MOTIVO.value;
+    
     console.log(compra_excepcional);
 });
 // **************************************************************
