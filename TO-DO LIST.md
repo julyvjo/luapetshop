@@ -2,16 +2,11 @@
 
 ##  PREGUNTAS
 
-- [ ] **EMMIK; FEEDBACK para nombres de columnas CODIGO DE BARRAS, PROVEEDOR y CATEGORIA**
-- [ ] **EMMIK; CERRAR CAJA individualmente o todas al mismo tiempo? también preguntar si necesita una fecha de último cierre de caja para tener referencia de cuánto tiempo llevan registrando todo sin chequear.**
-- [ ] **EMMIK; FEEDBACK columnas del carrito venta (nombres; qué columnas hay, etc.)**
-- [ ] **EMMIK; METODOS DE PAGO, necesitamos los modificadores/comisiones/recargos reales para actualizar**
-- [ ] **EMMIK; CUENTA_DETAILS, FEEDBACK + Saber si es necesario agregar/quitar columnas (o qué información debería mostrar)**
 
 - [x] JULY; GUARDAR COMPRA, no se cómo hacer troubleshooting con el SyntaxError que devuelve...
 - [x] JULY; GUARDAR VENTA, no se cómo hacer troubleshooting con el SyntaxError que devuelve...
-- [ ] JULY; NUEVO PRODUCTO, testear posibles errores al enviar/recibir JSON...
-- [ ] JULY; EDITAR LINEA, testear posibles errores al enviar/recibir JSON...
+- [x] JULY; NUEVO PRODUCTO, testear posibles errores al enviar/recibir JSON...
+- [x] JULY; EDITAR LINEA, testear posibles errores al enviar/recibir JSON...
 - [ ] JULY; Para el listado de proveedores... ¿Cómo se modificaría? (Agregar, editar, eliminar proveedores)
 - [ ] JULY; Preguntar por conceptos TRY/CATCH, EXCEPTIONS y otros conceptos de POO.
 
@@ -23,6 +18,11 @@
 
 - [ ] OFF-TOPIC; Chequear si es correcto implementar los JS de la forma que hice esto (no se si es necesario usar "import" o algo así en los otros archivos para que usen las funciones que defina acá)
 
+- [x] **EMMIK; FEEDBACK columnas del carrito venta (nombres; qué columnas hay, etc.)** Tudo bem tudo legal.
+- [x] **EMMIK; FEEDBACK para nombres de columnas CODIGO DE BARRAS, PROVEEDOR y CATEGORIA** Tudo bom tudo legal
+- [x] **EMMIK; CERRAR CAJA individualmente o todas al mismo tiempo? también preguntar si necesita una fecha de último cierre de caja para tener referencia de cuánto tiempo llevan registrando todo sin chequear.** todas juntas
+- [x] **EMMIK; METODOS DE PAGO, necesitamos los modificadores/comisiones/recargos reales para actualizar** Emmik pensaba que si selecciona un método de pago, que solamente guarde el valor del modificador para después DESCONTARLO DEL PRECIO DE VENTA PARA PODER TENER LA GANANCIA REAL (considerando precio de compra). Es decir, LAS COMISIONES CORREN POR PARTE DEL PETSHOP, NO SE LE SUMA AL COSTO QUE PAGA EL CLIENTE.
+- [x] **EMMIK; CUENTA_DETAILS, FEEDBACK + Saber si es necesario agregar/quitar columnas (o qué información debería mostrar)** AGREGAR COMISIONES/GANANCIA
 ---
 
 ##  GENERAL
@@ -61,12 +61,7 @@
 
 ##  VENTA
 
-- [ ] VENTA EXCEPCIONAL; Crear modal/formulario
-- [ ] VENTA EXCEPCIONAL; Dar formato a modal/formulario
-- [ ] VENTA EXCEPCIONAL; Implementar en VENTAS
-- [ ] VENTA EXCEPCIONAL; Implementar validación del input
-- [ ] VENTA EXCEPCIONAL; Hacer fetch JSON para backend
-
+- [ ] METODOS DE PAGO MODIFICADORES; Cambiar modificadores para que EFECTIVO haga un descuento, y todo lo demás NO AFECTE.
 - [ ] HISTORIAL; Implementar *una vez que CAJA esté completo* (ya que debería almacenar todas las ventas de ese mismo día)
 
 - [x] METODOS DE PAGO; Testear y fixear bugs de la nueva implementación de los modificadores/recargos.
@@ -82,6 +77,16 @@
 ---
 
 ##  CAJA
+
+- [ ] CUENTA_DETAILS; AGREGAR COLUMNA GANANCIA
+- [ ] FONDOS; AGREGAR BBVA FRANCES
+- [ ] FONDOS; ASEGURARSE de que se vean todos los fondos.
+
+- [ ] MOVIMIENTO EXCEPCIONAL; Crear modal/formulario
+- [ ] MOVIMIENTO EXCEPCIONAL; Dar formato a modal/formulario
+- [ ] MOVIMIENTO EXCEPCIONAL; Implementar en CAJA
+- [ ] MOVIMIENTO EXCEPCIONAL; Implementar validación del input
+- [ ] MOVIMIENTO EXCEPCIONAL; Hacer fetch JSON para backend
 
 - [ ] CERRAR CAJA; CONSIDERAR agregar fecha de último cierre de caja.
 - [ ] CREAR formulario/modal para registrar COMPRAS EXCEPCIONALES (tranquilamente podría necesitarse hacer más de 1; incluso esto puede moverse a COMPRA)
@@ -109,12 +114,6 @@
 ---
 
 ##  COMPRA
-
-- [x] COMPRA EXCEPCIONAL; Crear modal/formulario
-- [x] COMPRA EXCEPCIONAL; Dar formato a modal/formulario
-- [x] COMPRA EXCEPCIONAL; Implementar en COMPRAS
-- [ ] COMPRA EXCEPCIONAL; Implementar validación del input
-- [ ] COMPRA EXCEPCIONAL; Hacer fetch JSON para backend
 
 - [ ] HISTORIAL COMPRAS; (CUANDO SE TERMINE DE IMPLEMENTAR CAJA/HISTORIAL GENERAL) Implementar.
 
