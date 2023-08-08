@@ -4,11 +4,12 @@
 
 - [ ] JULY; Para el listado de proveedores... ¿Cómo se modificaría? (Agregar, editar, eliminar proveedores)
 
-- [ ] VENTA; Debería blanquear TOTAL SIN recargos/modificadores de los métodos de pago? (o sea, mostrar este total en conjunto con los montos de cada método de pago y el total con recargos incluidos)
 - [ ] VENTA; (Posible bug) Al cambiar TOTAL SIN recargos (por ej. modificando cantidad de algún producto) la diferencia SIEMPRE recae en el monto del método de pago principal... Es necesario en caso de agregar un método de pago complementario, que pase a modificarse el monto de este último?
 - [ ] VENTA; (Posible bug) Los montos de los métodos de pago deberían SIEMPRE mostrarse con los recargos incluidos?
 
 - [ ] OFF-TOPIC; Chequear si es correcto implementar los JS de la forma que hice esto (no se si es necesario usar "import" o algo así en los otros archivos para que usen las funciones que defina acá)
+
+- [x] VENTA; Debería blanquear TOTAL SIN recargos/modificadores de los métodos de pago? (o sea, mostrar este total en conjunto con los montos de cada método de pago y el total con recargos incluidos)
 
     == == == == ==
 
@@ -36,7 +37,7 @@
 
 ##  PRODUCTO
 
-- [x] IMAGEN; Implementación completa en producto.
+- [ ] IMAGEN; Implementación completa en producto.
 - [x] IMAGEN; Rutas a la imagen del producto (th:src=${atributo})
 
 - [x] TABLA + EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar PROVEEDOR en nuevoProducto y editorLinea
@@ -68,8 +69,8 @@
 ##  CAJA
 
 - [ ] CUENTA_DETAILS; AGREGAR COLUMNA GANANCIA
-- [ ] FONDOS; AGREGAR BBVA FRANCES
-- [ ] FONDOS; ASEGURARSE de que se vean todos los fondos.
+- [x] FONDOS; AGREGAR BBVA FRANCES
+- [x] FONDOS; ASEGURARSE de que se vean todos los fondos.
 
 - [ ] MOVIMIENTO EXCEPCIONAL; Crear modal/formulario
 - [ ] MOVIMIENTO EXCEPCIONAL; Dar formato a modal/formulario
@@ -107,6 +108,9 @@
 - [ ] HISTORIAL COMPRAS; (CUANDO SE TERMINE DE IMPLEMENTAR CAJA/HISTORIAL GENERAL) Implementar.
 
 - [x] <sup>~~GUARDAR COMPRA; Implementar fetch para disparar el proceso de crear compra.~~</sup>
+
+* HISTORIAL COMPRAS; Este registro tendría que idealmente mostrar TODO?
+
 ---
     
 ##  USUARIO (DEJAR PARA VERSIÓN FUTURA)
