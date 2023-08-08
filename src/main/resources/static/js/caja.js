@@ -17,30 +17,30 @@ DETALLES_BUTTONS.forEach(element =>
 
 
 // REGISTRAR MOVIMIENTO EXCEPCIONAL BUTTON
-const COMPRA_EXCEPCIONAL = document.getElementById("appCajaMovimiento");
-const COMPRA_EXCEPCIONAL_FONDO = document.getElementsByName("compraExcepcionalFondo")[0];
-const COMPRA_EXCEPCIONAL_MONTO = document.getElementsByName("compraExcepcionalMonto")[0];
-const COMPRA_EXCEPCIONAL_MOTIVO = document.getElementsByName("compraExcepcionalMotivo")[0];
-const COMPRA_EXCEPCIONAL_REGISTRAR = document.getElementById("compraExcepcionalRegistrar");
+const MOVIMIENTO_EXCEPCIONAL = document.getElementById("appCajaMovimiento");
+const MOVIMIENTO_EXCEPCIONAL_FONDO = document.getElementsByName("movimientoExcepcionalFondo")[0];
+const MOVIMIENTO_EXCEPCIONAL_MONTO = document.getElementsByName("movimientoExcepcionalMonto")[0];
+const MOVIMIENTO_EXCEPCIONAL_MOTIVO = document.getElementsByName("movimientoExcepcionalMotivo")[0];
+const MOVIMIENTO_EXCEPCIONAL_REGISTRAR = document.getElementById("movimientoExcepcionalRegistrar");
 
-let compra_excepcional = {};    //  Este objeto es el que se envía al registrar una compra excepcional.
+let movimientoExcepcional = {};    //  Este objeto es el que se envía al registrar una compra excepcional.
 
-COMPRA_EXCEPCIONAL.addEventListener("click", () =>
+MOVIMIENTO_EXCEPCIONAL.addEventListener("click", () =>
 {
-    mostrarModal("modalCompraExcepcional");
+    mostrarModal("modalMovimientoExcepcional");
 });
 
-COMPRA_EXCEPCIONAL_MONTO.addEventListener("change", () =>
+MOVIMIENTO_EXCEPCIONAL_MONTO.addEventListener("change", () =>
 {
-    if ( validarInputMonto(COMPRA_EXCEPCIONAL_MONTO.value) === false )
+    if ( validarInputMonto(MOVIMIENTO_EXCEPCIONAL_MONTO.value) === false )
     {
         window.alert("ERROR: El monto abonado es inválido!\n\nSe va a reiniciar el valor a 0.");
-        COMPRA_EXCEPCIONAL_MONTO.value = "0.00";
+        MOVIMIENTO_EXCEPCIONAL_MONTO.value = "0.00";
         return;
     }
 
-    COMPRA_EXCEPCIONAL_MONTO.value = COMPRA_EXCEPCIONAL_MONTO.value.replace(/,/g, ".");
-    COMPRA_EXCEPCIONAL_MONTO.value = parseFloat(COMPRA_EXCEPCIONAL_MONTO.value).toFixed(2);
+    MOVIMIENTO_EXCEPCIONAL_MONTO.value = MOVIMIENTO_EXCEPCIONAL_MONTO.value.replace(/,/g, ".");
+    MOVIMIENTO_EXCEPCIONAL_MONTO.value = parseFloat(MOVIMIENTO_EXCEPCIONAL_MONTO.value).toFixed(2);
 });
 
 function validarInputMonto(string)
@@ -59,35 +59,35 @@ function validarInputMonto(string)
     // console.log(validateNumber("abc"));     // false (contiene caracteres no válidos como letras)
 }
 
-COMPRA_EXCEPCIONAL_REGISTRAR.addEventListener("click", () =>
+MOVIMIENTO_EXCEPCIONAL_REGISTRAR.addEventListener("click", () =>
 {    
-    if (COMPRA_EXCEPCIONAL_FONDO.value === "0")
+    if (MOVIMIENTO_EXCEPCIONAL_FONDO.value === "0")
     {
         window.alert("ERROR: Es necesario elegir un fondo!");
         return;
     }
 
-    if (COMPRA_EXCEPCIONAL_MONTO.value === "" || COMPRA_EXCEPCIONAL_MONTO.value === "0.00")
+    if (MOVIMIENTO_EXCEPCIONAL_MONTO.value === "" || MOVIMIENTO_EXCEPCIONAL_MONTO.value === "0.00")
     {
         window.alert("ERROR: Es necesario ingresar un monto válido!");
         return;
     }
     
-    compra_excepcional.id_fondo = parseInt(COMPRA_EXCEPCIONAL_FONDO.value);
-    compra_excepcional.monto = parseFloat(COMPRA_EXCEPCIONAL_MONTO.value).toFixed(2);
+    movimientoExcepcional.id_fondo = parseInt(MOVIMIENTO_EXCEPCIONAL_FONDO.value);
+    movimientoExcepcional.monto = parseFloat(MOVIMIENTO_EXCEPCIONAL_MONTO.value).toFixed(2);
     
-    if (COMPRA_EXCEPCIONAL_MOTIVO.value === "")
-        compra_excepcional.motivo = "Motivo no especificado.";
+    if (MOVIMIENTO_EXCEPCIONAL_MOTIVO.value === "")
+        movimientoExcepcional.motivo = "Motivo no especificado.";
     else
-        compra_excepcional.motivo = COMPRA_EXCEPCIONAL_MOTIVO.value;
+        movimientoExcepcional.motivo = MOVIMIENTO_EXCEPCIONAL_MOTIVO.value;
     
-    // console.log(compra_excepcional);
-    entregarCompraExcepcional();
+    // console.log(movimientoExcepcional);
+    entregarmovimientoExcepcional();
 });
 
-function entregarCompraExcepcional()
+function entregarmovimientoExcepcional()
 {
-    const JSON_DATA = JSON.stringify(compra_excepcional);
+    const JSON_DATA = JSON.stringify(movimientoExcepcional);
 
     const HEADERS = new Headers();
     HEADERS.append('Content-Type', 'application/json');
