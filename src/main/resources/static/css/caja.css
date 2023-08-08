@@ -60,22 +60,25 @@
     width: 100%;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    /* justify-content: center; */
 }
 
 #appCajaFondos > div > div > div
 {
     margin: 0;
     padding: 0 1vw;
-    width: 50%;
+    /* width: 50%; */
+    width: 100%;
 
     background-color: var(--primary);
     color: var(--secondary);
 
-    border-radius: 0 1vw 1vw 0;
+    /* border-radius: 0 1vw 1vw 0; */
+    border-radius: 0 0 1vw 1vw;
     border: 0;
 
-    text-align: left;
+    text-align: center;
 }
 
 #appCajaFondos > div > div > div:first-child
@@ -83,9 +86,10 @@
     background-color: var(--accent);
     color: var(--primary);
 
-    border-radius: 1vw 0 0 1vw;
+    /* border-radius: 1vw 0 0 1vw; */
+    border-radius: 1vw 1vw 0 0;
 
-    text-align: right;
+    /* text-align: right; */
 }
 
 #appCajaFondos > div > div > h2
