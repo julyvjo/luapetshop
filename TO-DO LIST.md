@@ -2,6 +2,8 @@
 
 ##  PREGUNTAS
 
+- [ ] EMMIK; Cómo funcionaría GANANCIA DIARIA? Cada fondo tiene que registrar esto individualmente?
+
 - [ ] JULY; Para el listado de proveedores... ¿Cómo se modificaría? (Agregar, editar, eliminar proveedores)
 
 - [ ] VENTA; (Posible bug) Al cambiar TOTAL SIN recargos (por ej. modificando cantidad de algún producto) la diferencia SIEMPRE recae en el monto del método de pago principal... Es necesario en caso de agregar un método de pago complementario, que pase a modificarse el monto de este último?
@@ -52,10 +54,9 @@
 ##  VENTA
 
 - [ ] METODOS DE PAGO MODIFICADORES; Cambiar modificadores para que EFECTIVO haga un descuento, y todo lo demás NO AFECTE.
+- [ ] METODOS DE PAGO; Testear y fixear bugs de la nueva implementación de los modificadores/recargos.
 - [ ] HISTORIAL; Implementar *una vez que CAJA esté completo* (ya que debería almacenar todas las ventas de ese mismo día)
 
-- [x] METODOS DE PAGO; Testear y fixear bugs de la nueva implementación de los modificadores/recargos.
-- [x] FINALIZAR VENTA; Implementar fetch para disparar el proceso de crear venta.
 - [x] <sup>~~CSS CARRITO; Setear anchos fijos a cada columna para evitar redimensiones al agregar productos.~~</sup>
 - [x] <sup>~~BUG; Al cambiar método de pago COMPLEMENTARIO, el monto de este se reinicia a 0.~~</sup>
 - [x] <sup>~~PREGUNTAR; ¿Cómo deberíamos chequear que una venta no afecta más stock del que supuestamente existe?~~</sup> **ASUMIMOS QUE LA VENTA CHEQUEA IRL EL STOCK ACTUAL, ERGO STOCK EN BD PUEDE NO SER REALMENTE LA CANTIDAD (entonces el stock simplemente se resetea a cero sin volverse negativo)**
