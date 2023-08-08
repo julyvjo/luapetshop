@@ -28,6 +28,9 @@
     display: flex;
     flex-direction: row;
     gap: 1vw;
+
+    /* overflow-x: scroll;
+    overflow-y: auto; */
 }
 
 #appCajaFondos > div
@@ -42,7 +45,7 @@
     border-width: 0.5vh 0.5vw;
     border-style: solid;
     border-radius: 1vw;
-    width: 33%;
+    width: 25%;
 
     display: flex;
     flex-direction: column;
