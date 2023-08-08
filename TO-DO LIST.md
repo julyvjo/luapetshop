@@ -2,15 +2,7 @@
 
 ##  PREGUNTAS
 
-
-- [x] JULY; GUARDAR COMPRA, no se cómo hacer troubleshooting con el SyntaxError que devuelve...
-- [x] JULY; GUARDAR VENTA, no se cómo hacer troubleshooting con el SyntaxError que devuelve...
-- [x] JULY; NUEVO PRODUCTO, testear posibles errores al enviar/recibir JSON...
-- [x] JULY; EDITAR LINEA, testear posibles errores al enviar/recibir JSON...
 - [ ] JULY; Para el listado de proveedores... ¿Cómo se modificaría? (Agregar, editar, eliminar proveedores)
-- [ ] JULY; Preguntar por conceptos TRY/CATCH, EXCEPTIONS y otros conceptos de POO.
-
-- [ ] **COMPRA; Chequear si esta página no debería permitir registrar COMPRAS EXCEPCIONALES. (Ejemplo, usaron la plata de alguno de los fondos para insumos propios del petshop, o sacaron para uso personal)**
 
 - [ ] VENTA; Debería blanquear TOTAL SIN recargos/modificadores de los métodos de pago? (o sea, mostrar este total en conjunto con los montos de cada método de pago y el total con recargos incluidos)
 - [ ] VENTA; (Posible bug) Al cambiar TOTAL SIN recargos (por ej. modificando cantidad de algún producto) la diferencia SIEMPRE recae en el monto del método de pago principal... Es necesario en caso de agregar un método de pago complementario, que pase a modificarse el monto de este último?
@@ -18,25 +10,21 @@
 
 - [ ] OFF-TOPIC; Chequear si es correcto implementar los JS de la forma que hice esto (no se si es necesario usar "import" o algo así en los otros archivos para que usen las funciones que defina acá)
 
-- [x] **EMMIK; FEEDBACK columnas del carrito venta (nombres; qué columnas hay, etc.)** Tudo bem tudo legal.
-- [x] **EMMIK; FEEDBACK para nombres de columnas CODIGO DE BARRAS, PROVEEDOR y CATEGORIA** Tudo bom tudo legal
-- [x] **EMMIK; CERRAR CAJA individualmente o todas al mismo tiempo? también preguntar si necesita una fecha de último cierre de caja para tener referencia de cuánto tiempo llevan registrando todo sin chequear.** todas juntas
-- [x] **EMMIK; METODOS DE PAGO, necesitamos los modificadores/comisiones/recargos reales para actualizar** Emmik pensaba que si selecciona un método de pago, que solamente guarde el valor del modificador para después DESCONTARLO DEL PRECIO DE VENTA PARA PODER TENER LA GANANCIA REAL (considerando precio de compra). Es decir, LAS COMISIONES CORREN POR PARTE DEL PETSHOP, NO SE LE SUMA AL COSTO QUE PAGA EL CLIENTE.
-- [x] **EMMIK; CUENTA_DETAILS, FEEDBACK + Saber si es necesario agregar/quitar columnas (o qué información debería mostrar)** AGREGAR COMISIONES/GANANCIA
+    == == == == ==
+
+* <sup>~~EMMIK; FEEDBACK columnas del carrito venta (nombres; qué columnas hay, etc.)~~</sup> **Tudo bem tudo legal.**
+* <sup>~~EMMIK; FEEDBACK para nombres de columnas CODIGO DE BARRAS, PROVEEDOR y CATEGORIA~~</sup> **Tudo bom tudo legal.**
+* <sup>~~EMMIK; CERRAR CAJA individualmente o todas al mismo tiempo? también preguntar si necesita una fecha de último cierre de caja para tener referencia de cuánto tiempo llevan registrando todo sin chequear.~~</sup> **Cerramos todas las cajas JUNTAS.**
+
+* <sup>~~EMMIK; METODOS DE PAGO, necesitamos los modificadores/comisiones/recargos reales para actualizar~~</sup> **Emmik pensaba que si selecciona un método de pago, que solamente guarde el valor del modificador para después DESCONTARLO DEL PRECIO DE VENTA PARA PODER TENER LA GANANCIA REAL (considerando precio de compra). Es decir, LAS COMISIONES CORREN POR PARTE DEL PETSHOP, NO SE LE SUMA AL COSTO QUE PAGA EL CLIENTE.**
+* <sup>~~EMMIK; CUENTA_DETAILS, FEEDBACK + Saber si es necesario agregar/quitar columnas (o qué información debería mostrar)~~</sup> **AGREGAR COMISIONES/GANANCIA**
 ---
 
 ##  GENERAL
 
 - [ ] MEDIOS DE PAGO; ACTUALIZAR COMISIONES de cada método acorde a feedback (para que sean valores reales)
-- [ ] CSS TABLAS; El scrollbar vertical solamente debería afectar a `<tbody>`
-- [ ] CSS TABLAS; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y reducir el ancho de esas columnas que solamente van a mostrar un número o incluso un valor fijo. (De nuevo agregado por nueva columna PROVEEDOR)
-- [ ] CSS; Modificar variables de color de TEXTOS para que usen su propia variable (fix para múltiples páginas con el cambio de bgcolor)
-- [ ] CSS; Agregar efectos a los botones para dar feedback visual de que se accionó un botón.
+
 - [ ] ERROR LOGS; Traducir al español!!
-
-- [x] <sup>~~EMMIK; Analizar propuesta de implementar códigos de barras~~</sup> **DE MOMENTO HAY QUE CONFIRMAR IMPLEMENTACIÓN**
-- [x] <sup>~~EMMIK; Analizar propuesta de permitir setear total de venta arbitrario (e.g. para redondear)~~</sup> **RECOMENDACIÓN PERSONAL DADA A EMMIK; NOSOTROS NO DEBERÍAMOS MODIFICAR NADA**
-
 
 * Considerar agregar unidad de valores en los outputs (por ejemplo $)
 * CSS; Maximizar espacio para listado de productos.
@@ -48,12 +36,13 @@
 
 ##  PRODUCTO
 
+- [x] IMAGEN; Implementación completa en producto.
+- [x] IMAGEN; Rutas a la imagen del producto (th:src=${atributo})
+
 - [x] TABLA + EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar PROVEEDOR en nuevoProducto y editorLinea
 
-- [x] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Ajustar validación para volver a valores default si por ejemplo los inputs quedaron vacíos.
 - [x] TABLA + EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Agregar e implementar columna PROVEEDOR
-- [x] IMPLEMENTAR rutas a la imagen del producto (th:src=${atributo})
-- [x] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; IMPLEMENTAR IMAGEN DE CADA PRODUCTO.
+- [x] <sup>~~EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Ajustar validación para volver a valores default si por ejemplo los inputs quedaron vacíos.~~</sup>
 - [x] <sup>~~GUARDAR NUEVO PRODUCTO; Implementar fetch para disparar el proceso de crear un nuevo producto.~~</sup>
 - [x] <sup>~~GUARDAR EDITAR LINEA; Implementar fetch para disparar el proceso de crear una nueva modificación.~~</sup>
 
@@ -130,6 +119,11 @@
 
 ##  CSS
 
+- [ ] CSS TABLAS; El scrollbar vertical solamente debería afectar a `<tbody>`
+- [ ] CSS TABLAS; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y reducir el ancho de esas columnas que solamente van a mostrar un número o incluso un valor fijo. (De nuevo agregado por nueva columna PROVEEDOR)
+- [ ] CSS; Modificar variables de color de TEXTOS para que usen su propia variable (fix para múltiples páginas con el cambio de bgcolor)
+- [ ] CSS; Agregar efectos a los botones para dar feedback visual de que se accionó un botón.
+
 - [ ] Setear comentarios separadores de bloques de reglas CSS para navegarlo más fácilmente ( https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Organizing )
 - [ ] Troubleshooting de cómo en algunos navegadores se rompen las dimensiones (e.g. thinkpad)
 
@@ -137,13 +131,10 @@
 
 ## DATABASE
 
-- [ ] Chequear posibles problemas con números float pasados como string en el JSON de todos los endpoint.
-- [ ] Rework de estructura de la base de datos
-- [ ] PRODUCTO; Agregar id_proveedor
-- [ ] PRODUCTO; Agregar codigo_producto (código de barras)
-
-*   Eliminar producto_proveedor
-*   Asociar proveedores a productos (Rel. 1 a 1)
+- [ ] MODIFICADORES METODOS DE PAGO; Efectivo = 0.98; Todos los demás deberían ser 1.00 (no modificar)
+- [ ] PRODUCTO; Eliminar producto_proveedor
+- [ ] GENERAL; Rework de estructura de la base de datos
+- [ ] GENERAL; Asociar proveedores a productos (Rel. 1 a 1)
 
 ---
 
