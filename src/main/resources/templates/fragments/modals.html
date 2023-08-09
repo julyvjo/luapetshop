@@ -253,25 +253,20 @@
         </div>
     </div>
 
-    <!-- MODAL COMPRA EXCEPCIONAL -->
-    <!-- 
-        -   Nota: Esto podría cambiar a movimiento excepcional para evitar crear venta excepcional que podría ser
-            lo mismo salvo un campo que estaría precargado.
-        -   Nota: Quizás la implementación de este modal cambie dependiendo el feedback futuro.
-     -->
-     <div th:fragment="modalCompraExcepcional" id="modalCompraExcepcional" class="modal fade" tabindex="-1" role="dialog" style="display: none;">
+    <!-- MODAL MOVIMIENTO EXCEPCIONAL -->
+     <div th:fragment="modalMovimientoExcepcional" id="modalMovimientoExcepcional" class="modal fade" tabindex="-1" role="dialog" style="display: none;">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header" id="modalCompraExcepcionalHeader">
-                    <h5 class="modal-title">REGISTRAR COMPRA EXCEPCIONAL</h5>
-                    <button class="close" type="button" data-dismiss="modal" onclick="ocultarModal('modalCompraExcepcional')">
+                <div class="modal-header" id="modalMovimientoExcepcionalHeader">
+                    <h5 class="modal-title">REGISTRAR MOVIMIENTO</h5>
+                    <button class="close" type="button" data-dismiss="modal" onclick="ocultarModal('modalMovimientoExcepcional')">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body" id="modalCompraExcepcionalBody">
+                <div class="modal-body" id="modalMovimientoExcepcionalBody">
                     <div>
-                        <label for="compraExcepcionalFondo">FONDO</label>
-                        <select name="compraExcepcionalFondo">
+                        <label for="movimientoExcepcionalFondo">FONDO</label>
+                        <select name="movimientoExcepcionalFondo">
                             <option value="0" selected disabled>SELECCIONAR FONDO</option>
                             <option value="1">BANCO PROVINCIA</option>
                             <option value="2">MERCADO PAGO</option>
@@ -282,8 +277,8 @@
 
                     <!--    PREPARADO POR SI CAMBIA LA IMPLEMENTACIÓN DE ESTE MODAL
                     <div>
-                        <label for="compraExcepcionalMonto">TIPO MOVIMIENTO</label>
-                        <select name="compraExcepcional" required>
+                        <label for="movimientoExcepcionalMonto">TIPO MOVIMIENTO</label>
+                        <select name="movimientoExcepcional" required>
                             <option value="0" selected disabled>SELECCIONAR TIPO</option>
                             <option value="1" >INGRESO</option>
                             <option value="2" >GASTO</option>
@@ -292,17 +287,17 @@
                      -->
                     
                     <div>
-                        <label for="compraExcepcionalMonto">MONTO</label>
-                        <input name="compraExcepcionalMonto" placeholder="0.00" required>
+                        <label for="movimientoExcepcionalMonto">MONTO</label>
+                        <input name="movimientoExcepcionalMonto" placeholder="0.00" required>
                     </div>
 
                     <div>
-                        <label for="compraExcepcionalMotivo">MOTIVO</label>
-                        <input name="compraExcepcionalMotivo" placeholder="Compra de un café" required>
+                        <label for="movimientoExcepcionalMotivo">MOTIVO</label>
+                        <input name="movimientoExcepcionalMotivo" placeholder="Compra de un café" required>
                     </div>
 
                     <div>
-                        <button id="compraExcepcionalRegistrar">REGISTRAR</button>
+                        <button id="movimientoExcepcionalRegistrar">REGISTRAR</button>
                     </div>
                 </div>
             </div>

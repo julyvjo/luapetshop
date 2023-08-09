@@ -28,6 +28,9 @@
     display: flex;
     flex-direction: row;
     gap: 1vw;
+
+    /* overflow-x: scroll;
+    overflow-y: auto; */
 }
 
 #appCajaFondos > div
@@ -42,7 +45,7 @@
     border-width: 0.5vh 0.5vw;
     border-style: solid;
     border-radius: 1vw;
-    width: 33%;
+    width: 25%;
 
     display: flex;
     flex-direction: column;
@@ -57,22 +60,25 @@
     width: 100%;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    /* justify-content: center; */
 }
 
 #appCajaFondos > div > div > div
 {
     margin: 0;
     padding: 0 1vw;
-    width: 50%;
+    /* width: 50%; */
+    width: 100%;
 
     background-color: var(--primary);
     color: var(--secondary);
 
-    border-radius: 0 1vw 1vw 0;
+    /* border-radius: 0 1vw 1vw 0; */
+    border-radius: 0 0 1vw 1vw;
     border: 0;
 
-    text-align: left;
+    text-align: center;
 }
 
 #appCajaFondos > div > div > div:first-child
@@ -80,9 +86,10 @@
     background-color: var(--accent);
     color: var(--primary);
 
-    border-radius: 1vw 0 0 1vw;
+    /* border-radius: 1vw 0 0 1vw; */
+    border-radius: 1vw 1vw 0 0;
 
-    text-align: right;
+    /* text-align: right; */
 }
 
 #appCajaFondos > div > div > h2
@@ -244,52 +251,52 @@
 
 
 
-/* ////////////////////////// */
-/* /// COMRPA EXCEPCIONAL /// */
-/* ////////////////////////// */
+/* ////////////////////////////// */
+/* /// MOVIMIENTO EXCEPCIONAL /// */
+/* ////////////////////////////// */
 
-#modalCompraExcepcional > div.modal-dialog
+#modalMovimientoExcepcional > div.modal-dialog
 {
     max-width: 30vw;
 }
 
-#modalCompraExcepcionalHeader,
-#modalCompraExcepcionalBody > div > label
+#modalMovimientoExcepcionalHeader,
+#modalMovimientoExcepcionalBody > div > label
 {
     color: var(--bearWhite);
 }
 
-#modalCompraExcepcionalBody
+#modalMovimientoExcepcionalBody
 {
     display: flex;
     flex-direction: column;
     gap: 2vh;
 }
 
-#modalCompraExcepcionalBody > div:first-child,
-#modalCompraExcepcionalBody > div:nth-child(2)
+#modalMovimientoExcepcionalBody > div:first-child,
+#modalMovimientoExcepcionalBody > div:nth-child(2)
 {
     align-self: center;
 }
 
-#modalCompraExcepcionalBody > div:nth-child(3)
+#modalMovimientoExcepcionalBody > div:nth-child(3)
 {
     display: flex;
     flex-direction: column;
     gap: 1vh;
 }
 
-#modalCompraExcepcionalBody > div:nth-child(3) > :first-child
+#modalMovimientoExcepcionalBody > div:nth-child(3) > :first-child
 {
     align-self: center;
 }
 
-#modalCompraExcepcionalBody > div:last-child
+#modalMovimientoExcepcionalBody > div:last-child
 {
     align-self: flex-end;
 }
 
-#modalCompraExcepcionalBody > div:last-child > button
+#modalMovimientoExcepcionalBody > div:last-child > button
 {
     margin: 0;
     padding: 1vh 1vw;
