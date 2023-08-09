@@ -48,9 +48,7 @@
                             <label for="nuevoProductoProveedor">Proveedor</label>
                             <select id="modalNuevoProductoProveedor" name="nuevoProductoProveedor" required>
                                 <option value="0">SELECCIONAR PROVEEDOR</option>
-                                <option value="1">La Sin-rival</option>
-                                <option value="2">Per-ros</option>
-                                <!-- <option th:each="item: ${proveedores}" th:value="${item.id_proveedor}" th:text="${item.nombre}"></option> -->
+                                <option th:each="item: ${proveedores}" th:value="${item.id_proveedor}" th:text="${item.nombre}"></option>
                             </select>
                         </div>
 
@@ -163,9 +161,7 @@
                             <label for="editorLineaProveedor">Proveedor</label>
                             <select id="modalEditorLineaProveedor" name="editorLineaProveedor" required>
                                 <option value="0">SELECCIONAR PROVEEDOR</option>
-                                <option value="1">La Sin-rival</option>
-                                <option value="2">Per-ros</option>
-                                <!-- <option th:each="item: ${proveedores}" th:value="${item.id_proveedor}" th:text="${item.nombre}"></option> -->
+                                <option th:each="item: ${proveedores}" th:value="${item.id_proveedor}" th:text="${item.nombre}"></option>
                             </select>
                         </div>
 
