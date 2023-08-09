@@ -21,7 +21,7 @@
                     </div>
                     <div>
                         <div>VARIACIÓN Saldo</div>
-                        <div th:text="${#numbers.formatDecimal(item.saldo_inicial - item.saldo, 1, 2)}"></div>
+                        <div th:text="${#numbers.formatDecimal(item.saldo - item.saldo_inicial, 1, 2)}"></div>
                     </div>
                     <div>
                         <div>ACTUALIZADO</div>
