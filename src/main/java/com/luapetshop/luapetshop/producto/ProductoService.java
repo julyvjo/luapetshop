@@ -93,21 +93,10 @@ public class ProductoService {
 	public List<Categoria> getCategorias() {
 		return categoriaRepository.findAll();
 	}
+
+	public Producto getProductoByCodigoAndProveedor() {
+		
+		return null;
+	}
 	
-	/*
-	 * 
-	 * {
-		"id_producto": 1, (0 si es nuevo, otro si es modif)
-        "nombre": "nombre",
-		"descripcion":"descripcion",
-        "precio_compra": 0.00,
-        "rentabilidad": 0.2, (porcentaje de ganancia)
-		"ganancia": 0.00, ####### estaba en duda -> queda
-		"precio_venta": 0.00 ####### Nuevo
-				//
-		"stock": 0,
-		"imagen": "base64",
-}
-	 * 
-	 * */
 }

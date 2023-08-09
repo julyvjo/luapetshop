@@ -31,9 +31,9 @@ public class Venta {
 	@JoinColumn(name = "id_medio_pago2")
 	private MedioPago medio_pago2;
 	private LocalDateTime fecha;
-	private double parcial1;
-	private double parcial2;
-	private double total;
+	private Double parcial1;
+	private Double parcial2;
+	private Double total;
 	private char estado;
 	@OneToOne
 	@JoinColumn(name = "id_movimiento1")
@@ -48,8 +48,8 @@ public class Venta {
 		super();
 	}
 
-	public Venta(MedioPago medio_pago1, MedioPago medio_pago2, LocalDateTime fecha, double parcial1, double parcial2,
-			double total, char estado, Movimiento movimiento1, Movimiento movimiento2, List<LineaVenta> lineasVenta) {
+	public Venta(MedioPago medio_pago1, MedioPago medio_pago2, LocalDateTime fecha, Double parcial1, Double parcial2,
+			Double total, char estado, Movimiento movimiento1, Movimiento movimiento2, List<LineaVenta> lineasVenta) {
 		super();
 		this.medio_pago1 = medio_pago1;
 		this.medio_pago2 = medio_pago2;
@@ -63,8 +63,8 @@ public class Venta {
 		this.lineasVenta = lineasVenta;
 	}
 
-	public Venta(int id_venta, MedioPago medio_pago1, MedioPago medio_pago2, LocalDateTime fecha, double parcial1,
-			double parcial2, double total, char estado, Movimiento movimiento1, Movimiento movimiento2,
+	public Venta(int id_venta, MedioPago medio_pago1, MedioPago medio_pago2, LocalDateTime fecha, Double parcial1,
+			Double parcial2, Double total, char estado, Movimiento movimiento1, Movimiento movimiento2,
 			List<LineaVenta> lineasVenta) {
 		super();
 		this.id_venta = id_venta;
@@ -113,11 +113,11 @@ public class Venta {
 		this.id_venta = id_venta;
 	}
 
-	public double getTotal() {
+	public Double getTotal() {
 		return total;
 	}
 
-	public void setTotal(double total) {
+	public void setTotal(Double total) {
 		this.total = total;
 	}
 
@@ -145,19 +145,19 @@ public class Venta {
 		this.medio_pago2 = medio_pago2;
 	}
 
-	public double getParcial1() {
+	public Double getParcial1() {
 		return parcial1;
 	}
 
-	public void setParcial1(double parcial1) {
+	public void setParcial1(Double parcial1) {
 		this.parcial1 = parcial1;
 	}
 
-	public double getParcial2() {
+	public Double getParcial2() {
 		return parcial2;
 	}
 
-	public void setParcial2(double parcial2) {
+	public void setParcial2(Double parcial2) {
 		this.parcial2 = parcial2;
 	}
 

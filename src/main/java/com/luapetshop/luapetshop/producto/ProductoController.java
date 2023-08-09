@@ -19,13 +19,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.luapetshop.luapetshop.proveedor.Proveedor;
+import com.luapetshop.luapetshop.repository.IProveedorRepository;
+
 @Controller
 public class ProductoController {
 	private ProductoService productoService;
+	private IProveedorRepository proveedorRepository;
 	
 	@Autowired
-	public ProductoController(ProductoService productoService) {
+	public ProductoController(
+			ProductoService productoService, 
+			IProveedorRepository proveedorRepository) {
 		this.productoService = productoService;
+		this.proveedorRepository = proveedorRepository;
 	}
 	
 	@GetMapping("/producto")
@@ -57,6 +64,10 @@ public class ProductoController {
 			List<Integer> pages = IntStream.rangeClosed(1, totalpages).boxed().collect(Collectors.toList());
 			model.addAttribute("pages", pages);
 		}
+		
+		List<Proveedor> proveedores = proveedorRepository.findAll();
+		
+		model.addAttribute("proveedores", proveedores);
 		model.addAttribute("nombre", nombre);
 		model.addAttribute("productos", pageProducto.getContent());
 		model.addAttribute("current", page+1);

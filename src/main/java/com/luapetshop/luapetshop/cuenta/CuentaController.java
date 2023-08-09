@@ -75,5 +75,22 @@ public class CuentaController {
 		}
     }
 	
+	@PostMapping("/new/movimiento")
+    public ResponseEntity<String> HandleNewMovimiento(
+    		@RequestBody Map<String, Object> datos) {
+        
+		LOGGER.info("recibido POST en /new/movimiento: " + datos.toString());
+		
+		try {			
+			cuentaService.createNewMovimiento(datos);
+			return ResponseEntity.status(HttpStatus.CREATED).body("Movimiento creado exitosamente");
+		} catch (Exception e) {
+			LOGGER.error("Error al crear movimiento");
+			LOGGER.error(e.getMessage());
+			e.printStackTrace();
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al crear movimiento");
+		}
+    }
+	
 	
 }

@@ -14,6 +14,12 @@
             <button type="submit">Subir PDF</button>
         </form> -->
 
+        <style>
+          .container {
+              border: 1px solid #ccc; /* 1px de ancho, tipo sólido, color gris */
+              padding: 10px; /* Agregamos un poco de espacio interno para separar el contenido del borde */
+          }
+        </style>
 
         <script>
             // Función para realizar el POST request al servidor
@@ -45,13 +51,61 @@
               });
             }
           </script>
+
+          <script>
+            function enviarArchivoCSV() {
+                const fileInput = document.getElementById('csvFileInput');
+                const tipoSelect = document.getElementById('tipo');
+
+                const selectedFile = fileInput.files[0];
+                const selectedTipo = tipoSelect.value;
+
+                if (selectedFile) {
+                    const formData = new FormData();
+                    formData.append('csvFile', selectedFile);
+                    formData.append('tipo', selectedTipo);
+
+                    fetch('/upload_csv', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log(data); // Manejar la respuesta del servidor si es necesario
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                } else {
+                    console.log('No se ha seleccionado un archivo CSV.');
+                }
+            }
+          </script>
           
-          <!-- Formulario para enviar el archivo PDF -->
-          <form>
-            <input type="file" id="pdfFileInput" accept=".pdf" />
-            <input type="text" id="pages" placeholder="Ingrese paginas a tomar" />
-            <button type="button" onclick="enviarArchivoPDF()">Enviar PDF</button>
-          </form>
+          <!-- Formulario para enviar archivo PDF -->
+          <div class="container">
+            <form>
+              <input type="file" id="pdfFileInput" accept=".pdf" />
+              <input type="text" id="pages" placeholder="Ingrese paginas a tomar" />
+              <button type="button" onclick="enviarArchivoPDF()">Subir PDF</button>
+            </form>
+          </div>
+
+          <!-- Formulario para enviar archivo CSV -->
+          <div class="container">
+            <form>
+              <input type="file" id="csvFileInput" accept=".csv" />
+              
+              <label for="tipo">Seleccionar opción:</label>
+              <select id="tipo">
+                  <option value="todo">Importar todo</option>
+                  <option value="precios">Importar precios</option>
+              </select>
+
+
+              <button type="button" onclick="enviarArchivoCSV()">Subir CSV</button>
+            </form>
+          </div>
           
 
 

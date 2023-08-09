@@ -56,16 +56,21 @@ public class ImportacionController {
 	
 	
 	@PostMapping("/upload_csv")
-	public ResponseEntity<String> handlePDFUpload(
-			@RequestParam("csvFile") MultipartFile file) {
-		PDFHandler pdfHandler = new PDFHandler();
+	public ResponseEntity<String> handleCSVUpload(
+			@RequestParam("csvFile") MultipartFile file,
+			@RequestParam("tipo") String tipo) {
 		
 		if(file.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El archivo ingresado es erroneo");
 		}
 		
 		CSVHandler csvHandler = new CSVHandler();
-		csvHandler.applyCSV(file);
+		try {
+			csvHandler.applyCSV(file, tipo);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+		}
 
         return ResponseEntity.status(HttpStatus.CREATED).body("Datos importados exitosamente");
 	}

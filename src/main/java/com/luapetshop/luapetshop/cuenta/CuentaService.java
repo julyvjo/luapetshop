@@ -9,18 +9,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.luapetshop.luapetshop.repository.ICuentaRepository;
+import com.luapetshop.luapetshop.repository.IMovimientoRepository;
 
 import jakarta.transaction.Transactional;
 
 @Service
 public class CuentaService {
 	private ICuentaRepository cuentaRepository;
+	private IMovimientoRepository movimientoRepository;
 	
 	@Autowired
-	public CuentaService(ICuentaRepository cuentaRepository) {
+	public CuentaService(ICuentaRepository cuentaRepository, IMovimientoRepository movimientoRepository) {
+		super();
 		this.cuentaRepository = cuentaRepository;
+		this.movimientoRepository = movimientoRepository;
 	}
-	
+
+
+
 	public List<Cuenta> getCuentas() {
 		return cuentaRepository.findAll();
 	}
@@ -42,5 +48,17 @@ public class CuentaService {
 			cuentaRepository.save(cuenta);
 		}
 		
+	}
+
+	public void createNewMovimiento(Map<String, Object> datos) {
+		
+		Movimiento movimiento = new Movimiento();
+		
+//		 id_cuenta
+//		 fecha
+//		 monto
+//		 tipo
+//		 motivo
+		movimientoRepository.save(movimiento);
 	}
 }
