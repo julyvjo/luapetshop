@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{fragments/general.html :: headBoilerplate(@{\js\cuenta_details.js}, @{\css\cuenta_details.css})}"></head>
+<body>
+    <header th:replace="~{fragments/headernav.html :: headerNavFull (class3='actual')}"></header>
+
+    <div id="app">
+        <!-- APP HEADER -->
+        <div id="appHeader">
+            <!-- VOLVER -->
+            <div id="appVolver">VOLVER</div>
+        </div>
+
+        <!-- TABLA -->
+        <div class="container">
+            <div class="row">
+                <div class="tableContainer">
+                    <table class="table">
+                        <thead class="table-borderless">
+                            <tr class="table-header">
+                                <td><h4 class="table-header-text-mini">Fecha</h4></td>
+                                <td><h4 class="table-header-text-mini">M.pago</h4></td>
+                                <td><h4 class="table-header-text-mini">Parcial</h4></td>
+                                <td><h4 class="table-header-text-mini">M.pago alt.</h4></td>
+                                <td><h4 class="table-header-text-mini">Parcial alt.</h4></td>
+                                <td><h4 class="table-header-text-mini">Total</h4></td>
+                            </tr>
+                        </thead>
+                        <tbody id="table" class="table-borderless" style="border-top: none !important;">
+                            <tr th:each="item :${ventas}" th:id="${item.id_venta}">
+                                <td><h5 th:text="${#temporals.format(item.fecha, 'dd-MM-yyyy HH:mm')}"></h5></td>
+
+                                <td th:if="${item.medio_pago1}">
+                                    <h5 th:text="${item.medio_pago1.nombre}"></h5>
+                                </td>
+                                <td th:unless="${item.medio_pago1}">
+                                    <h5></h5>
+                                </td>
+                                <td><h5 th:text="${item.parcial1 ?: ''}"></h5></td>
+                                
+                                <td th:if="${item.medio_pago2}">
+                                    <h5 th:text="${item.medio_pago2.nombre}"></h5>
+                                </td>
+                                <td th:unless="${item.medio_pago2}">
+                                    <h5></h5>
+                                </td>
+                                <td><h5 th:text="${item.parcial2 ?: ''}"></h5></td>
+                                
+                                <td><h5 th:text="${item.total ?: ''}"></h5></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="~{fragments/general.html :: footer}"></footer>
+</body>
+</html>
