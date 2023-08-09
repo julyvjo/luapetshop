@@ -33,17 +33,20 @@ public class CompraController {
 	public String compra(
 			Model model, 
 			@RequestParam Map<String, Object> params) {
-		
-		
-		//model.addAttribute("proveedores", proveedores);
-		//model.addAttribute("medios_pago", pageProducto.getContent());
 
         List<MedioPago> mediospago = medioPagoService.getMediosPago();
 		model.addAttribute("mediospago", mediospago);
 		
-		// System.out.println(mediospago.get(0).getNombre());
-		
 		return "compra";
+	}
+	
+	@GetMapping("/compra/historial")
+	public String compraHistorial(Model model) {
+		
+		List<Compra> compras = compraService.getComprasDelDia();
+		model.addAttribute("compras", compras);
+
+		return "compra_historial";
 	}
 	
 	@PostMapping("/new/compra")

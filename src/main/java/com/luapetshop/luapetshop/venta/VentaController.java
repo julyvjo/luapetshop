@@ -44,23 +44,15 @@ public class VentaController {
 	@GetMapping("/venta/historial")
 	public String ventaHistorial(Model model) {
 		
-		List<Venta> ventas = ventaService.getVentas();
+		List<Venta> ventas = ventaService.getVentasDelDia();
 		
 		for( Venta venta : ventas ) {
 			venta.getMedio_pago1();
 			venta.getMedio_pago2();
 		}
 		
-//		for( Venta venta : ventas ) {
-//			System.out.println("Venta " + venta.getId_venta() + 
-//					" Medio1: " + venta.getMedio_pago1().getNombre() + 
-//					" Medio2: " + venta.getMedio_pago2().getNombre());
-//		}
-		
 		model.addAttribute("ventas", ventas);
-		
-		
-		
+
 		return "venta_historial";
 	}
 	

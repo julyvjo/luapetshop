@@ -173,4 +173,10 @@ public class VentaService {
         }
 	}
 
+
+	public List<Venta> getVentasDelDia() {
+		
+		return ventaRepository.findTodaySales();
+	}
+
 }

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{fragments/general.html :: headBoilerplate(@{\js\cuenta_details.js}, @{\css\cuenta_details.css})}"></head>
+<body>
+    <header th:replace="~{fragments/headernav.html :: headerNavFull (class3='actual')}"></header>
+
+    <div id="app">
+        <!-- APP HEADER -->
+        <div id="appHeader">
+            <!-- VOLVER -->
+            <div id="appVolver">VOLVER</div>
+        </div>
+
+        <!-- TABLA -->
+        <div class="container">
+            <div class="row">
+                <div class="tableContainer">
+                    <table class="table">
+                        <thead class="table-borderless">
+                            <tr class="table-header">
+                                <td><h3 class="table-header-text-mini">Fecha</h3></td>
+                                <td><h3 class="table-header-text-mini">Proveedor</h3></td>
+                                <td><h3 class="table-header-text-mini">M.Pago</h3></td>
+                                <td><h3 class="table-header-text-mini">Total</h3></td>
+                            </tr>
+                        </thead>
+                        <tbody id="table" class="table-borderless" style="border-top: none !important;">
+                            <tr th:each="item :${compras}" th:id="${item.id_compra}">
+                                <td><h5 th:text="${#temporals.format(item.fecha, 'dd-MM-yyyy HH:mm')}"></h5></td>
+
+                                <td th:if="${item.proveedor}">
+                                    <h5 th:text="${item.proveedor.nombre}"></h5>
+                                </td>
+                                <td th:unless="${item.proveedor}">
+                                    <h5></h5>
+                                </td>
+                                
+                                <td th:if="${item.medio_pago}">
+                                    <h5 th:text="${item.medio_pago.nombre}"></h5>
+                                </td>
+                                <td th:unless="${item.medio_pago}">
+                                    <h5></h5>
+                                </td>
+                                
+                                <td><h5 th:text="${item.total ?: ''}"></h5></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="~{fragments/general.html :: footer}"></footer>
+</body>
+</html>

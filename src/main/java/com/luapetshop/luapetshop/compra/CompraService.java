@@ -95,4 +95,9 @@ public class CompraService {
 		cuentaRepository.save(cuenta);
 	}
 
+	public List<Compra> getComprasDelDia() {
+		
+		return compraRepository.findTodayPurchases();
+	}
+
 }
