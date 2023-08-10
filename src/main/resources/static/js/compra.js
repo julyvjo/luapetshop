@@ -6,7 +6,7 @@ const COMPRA_EXCEPCIONAL_REGISTRAR = document.getElementById("compraExcepcionalR
 
 let compra_excepcional = {};    //  Este objeto es el que se envía al registrar una compra excepcional.
 
-// const HISTORIAL_COMPRAS = document.getElementById("");
+const HISTORIAL_COMPRAS = document.getElementById("historialCompras");
 
 const proveedor = document.getElementById("formCompraProveedor");
 
@@ -21,6 +21,18 @@ const compraButton = document.getElementById("formCompraButton");
 let compra = {};    //  Este objeto es el que se envía al finalizar la Compra.
 // **************************************************************
 
+
+//  || HISTORIAL COMPRAS BUTTON
+
+if (HISTORIAL_COMPRAS)
+{
+    HISTORIAL_COMPRAS.addEventListener("click", () =>
+    {
+        const LINK = new URL("/compra/historial", window.location.origin);
+    
+        window.location.href = LINK;
+    });
+}
 
 
 //  || COMPRA EXCEPCIONAL FUNCTIONS
