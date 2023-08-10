@@ -18,35 +18,47 @@
                     <table class="table">
                         <thead class="table-borderless">
                             <tr class="table-header">
-                                <td><h4 class="table-header-text-mini">Fecha</h4></td>
-                                <td><h4 class="table-header-text-mini">M.pago</h4></td>
-                                <td><h4 class="table-header-text-mini">Parcial</h4></td>
-                                <td><h4 class="table-header-text-mini">M.pago alt.</h4></td>
-                                <td><h4 class="table-header-text-mini">Parcial alt.</h4></td>
-                                <td><h4 class="table-header-text-mini">Total</h4></td>
+                                <td><h5 class="table-header-text-mini">FECHA</h5></td>
+                                <td><h5 class="table-header-text-mini">METODO PAGO PRINCIPAL</h5></td>
+                                <td><h5 class="table-header-text-mini">MONTO PRINCIPAL</h5></td>
+                                <td><h5 class="table-header-text-mini">METODO PAGO COMPLEMENTARIO</h5></td>
+                                <td><h5 class="table-header-text-mini">MONTO COMPLEMENTARIO</h5></td>
+                                <td><h5 class="table-header-text-mini">TOTAL</h5></td>
                             </tr>
                         </thead>
                         <tbody id="table" class="table-borderless" style="border-top: none !important;">
                             <tr th:each="item :${ventas}" th:id="${item.id_venta}">
-                                <td><h5 th:text="${#temporals.format(item.fecha, 'dd-MM-yyyy HH:mm')}"></h5></td>
+                                <td>
+                                    <h5 th:text="${#temporals.format(item.fecha, 'dd-MM-yyyy HH:mm')}"></h5>
+                                </td>
 
                                 <td th:if="${item.medio_pago1}">
                                     <h5 th:text="${item.medio_pago1.nombre}"></h5>
                                 </td>
+                                <!-- IF-ELSE = IF-UNLESS -->
                                 <td th:unless="${item.medio_pago1}">
                                     <h5></h5>
                                 </td>
-                                <td><h5 th:text="${item.parcial1 ?: ''}"></h5></td>
+
+                                <td>
+                                    <h5 th:text="${item.parcial1 ?: ''}"></h5>
+                                </td>
                                 
                                 <td th:if="${item.medio_pago2}">
                                     <h5 th:text="${item.medio_pago2.nombre}"></h5>
                                 </td>
+                                <!-- IF-ELSE = IF-UNLESS -->
                                 <td th:unless="${item.medio_pago2}">
                                     <h5></h5>
                                 </td>
-                                <td><h5 th:text="${item.parcial2 ?: ''}"></h5></td>
+
+                                <td>
+                                    <h5 th:text="${item.parcial2 ?: ''}"></h5>
+                                </td>
                                 
-                                <td><h5 th:text="${item.total ?: ''}"></h5></td>
+                                <td>
+                                    <h5 th:text="${item.total ?: ''}"></h5>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
