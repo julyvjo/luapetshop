@@ -50,6 +50,8 @@
 
 ##  VENTA
 
+- [ ] HISTORIAL VENTA; Corregir formato CSS.
+
 - [ ] METODOS DE PAGO MODIFICADORES; RE-Implementar modificadores?!?
 - [ ] METODOS DE PAGO; Testear y fixear bugs de la nueva implementación de los modificadores/recargos.
 
@@ -94,7 +96,7 @@
 
 ##  COMPRA
 
-- [ ] HISTORIAL COMPRAS; (CUANDO SE TERMINE DE IMPLEMENTAR CAJA/HISTORIAL GENERAL) Implementar.
+- [ ] HISTORIAL COMPRAS; Corregir formato CSS.
 
 ---
     
