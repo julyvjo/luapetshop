@@ -18,10 +18,10 @@
                     <table class="table">
                         <thead class="table-borderless">
                             <tr class="table-header">
-                                <td><h3 class="table-header-text-mini">FECHA</h3></td>
-                                <td><h3 class="table-header-text-mini">PROVEEDOR</h3></td>
-                                <td><h3 class="table-header-text-mini">METODO PAGO</h3></td>
-                                <td><h3 class="table-header-text-mini">TOTAL</h3></td>
+                                <td><h5 class="table-header-text-mini">FECHA</h5></td>
+                                <td><h5 class="table-header-text-mini">PROVEEDOR</h5></td>
+                                <td><h5 class="table-header-text-mini">METODO DE PAGO</h5></td>
+                                <td><h5 class="table-header-text-mini">TOTAL</h5></td>
                             </tr>
                         </thead>
                         <tbody id="table" class="table-borderless" style="border-top: none !important;">
@@ -47,7 +47,7 @@
                                 </td>
                                 
                                 <td>
-                                    <h5 th:text="${item.total ?: ''}"></h5>
+                                    <h5 th:text="'&#36; ' + ${#numbers.formatDecimal(item.total, 1, 2) ?: '0.00'}"></h5>
                                 </td>
                             </tr>
                         </tbody>
