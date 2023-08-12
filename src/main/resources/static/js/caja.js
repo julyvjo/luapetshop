@@ -102,7 +102,7 @@ function entregarmovimientoExcepcional()
 
     console.log(JSON_DATA);
 
-    // // const API_URL = "/new/compra";   //  NECESITO SABER EL API_URL PARA ESTE CASO!!
+    // // const API_URL = "/new/movimiento";   //  NECESITO SABER EL API_URL PARA ESTE CASO!!
 
     // const LINK = new URL(API_URL, window.location.origin);
 
