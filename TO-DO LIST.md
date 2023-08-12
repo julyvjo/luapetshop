@@ -50,7 +50,7 @@
 
 ##  VENTA
 
-- [ ] HISTORIAL VENTA; Corregir formato CSS.
+- [x] HISTORIAL VENTA; Corregir formato CSS.
 
 - [ ] METODOS DE PAGO MODIFICADORES; RE-Implementar modificadores?!?
 - [ ] METODOS DE PAGO; Testear y fixear bugs de la nueva implementación de los modificadores/recargos.
@@ -96,7 +96,7 @@
 
 ##  COMPRA
 
-- [ ] HISTORIAL COMPRAS; Corregir formato CSS.
+- [x] HISTORIAL COMPRAS; Corregir formato CSS.
 
 ---
     
@@ -127,9 +127,11 @@
 
 ## DATABASE
 
-- [ ] PRODUCTO; Eliminar producto_proveedor
+- [ ] CUENTAS; Agregar GANANCIA (Se podría calcular... pero capaz es útil tenerlo guardado también?)
 - [ ] GENERAL; Rework de estructura de la base de datos
 - [ ] GENERAL; Asociar proveedores a productos (Rel. 1 a 1)
+
+- [x] PRODUCTO; Eliminar producto_proveedor
 
 ---
 
