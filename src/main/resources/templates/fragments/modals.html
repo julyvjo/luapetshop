@@ -264,10 +264,7 @@
                         <label for="movimientoExcepcionalFondo">FONDO</label>
                         <select name="movimientoExcepcionalFondo">
                             <option value="0" selected disabled>SELECCIONAR FONDO</option>
-                            <option value="1">BANCO PROVINCIA</option>
-                            <option value="2">MERCADO PAGO</option>
-                            <option value="3">EFECTIVO</option>
-                            <!-- <option th:each="item : ${cuentas}" th:value="${item.id_cuenta}" th:text="${item.nombre}"></option> -->
+                            <option th:each="item : ${cuentas}" th:value="${item.id_cuenta}" th:text="${item.nombre}"></option>
                         </select>
                     </div>
 
