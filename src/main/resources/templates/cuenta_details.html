@@ -12,7 +12,7 @@
             <!-- CUENTA -->
             <div th:text="'&#128181; ' + ${cuenta.nombre}"></div>
             <!-- SALDO -->
-            <div th:text="'Saldo ACTUAL: $ ' + ${cuenta.saldo}"></div>
+            <div th:text="'Saldo ACTUAL: $ ' + ${#numbers.formatDecimal(cuenta.saldo, 1, 2) ?: '0.00'}"></div>
         </div>
 
         <!-- TABLA -->
@@ -31,7 +31,9 @@
                         <tbody id="table" class="table-borderless" style="border-top: none !important;">
                             <tr th:each="item :${movimientos}" th:id="${item.id_movimiento}">
                                 <td><h5 th:text="${#temporals.format(item.fecha, 'dd-MM-yyyy HH:mm')}"></h5></td>
-                                <td><h5 th:text="${item.monto}"></h5></td>
+                                
+                                <td><h5 th:text="'&#36; ' + ${#numbers.formatDecimal(item.monto, 1, 2) ?: '0.00'}"></h5></td>
+                                
                                 <td>
                                     <h5 th:switch="${item.tipo}">
                                         <h5 th:case="'C'">Compra a proveedor</h5>
@@ -41,8 +43,17 @@
                                         <h5 th:case="*">Desconocido</h5>
                                     </h5>
                                 </td>
+                               
                                 <!-- <td><h5 th:text="${item.motivo}"></h5></td> -->
-                                <td><h5>MOTIVO</h5></td>
+                                
+                                <td th:if="${item.motivo}">
+                                    <h5 th:text="${item.motivo}"></h5>
+                                </td>
+                                <!-- IF-ELSE = IF-UNLESS -->
+                                <td th:unless="${item.motivo}">
+                                    <h5>No especificado</h5>
+                                </td>
+                                <!-- <td><h5>MOTIVO</h5></td> -->
                             </tr>
                         </tbody>
                     </table>
