@@ -254,12 +254,21 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" id="modalMovimientoExcepcionalHeader">
-                    <h5 class="modal-title">REGISTRAR MOVIMIENTO</h5>
+                    <h2 class="modal-title">REGISTRAR MOVIMIENTO</h2>
                     <button class="close" type="button" data-dismiss="modal" onclick="ocultarModal('modalMovimientoExcepcional')">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body" id="modalMovimientoExcepcionalBody">
+                    <div>
+                        <label for="movimientoExcepcionalMonto">TIPO DE MOVIMIENTO</label>
+                        <select name="movimientoExcepcional" required>
+                            <option value="0" selected disabled>SELECCIONAR TIPO</option>
+                            <option value="I" >INGRESO</option>
+                            <option value="E" >EGRESO</option>
+                        </select>
+                    </div>
+                    
                     <div>
                         <label for="movimientoExcepcionalFondo">FONDO</label>
                         <select name="movimientoExcepcionalFondo">
@@ -267,17 +276,6 @@
                             <option th:each="item : ${cuentas}" th:value="${item.id_cuenta}" th:text="${item.nombre}"></option>
                         </select>
                     </div>
-
-                    <!--    PREPARADO POR SI CAMBIA LA IMPLEMENTACIÓN DE ESTE MODAL
-                    <div>
-                        <label for="movimientoExcepcionalMonto">TIPO MOVIMIENTO</label>
-                        <select name="movimientoExcepcional" required>
-                            <option value="0" selected disabled>SELECCIONAR TIPO</option>
-                            <option value="1" >INGRESO</option>
-                            <option value="2" >GASTO</option>
-                        </select>
-                    </div>
-                     -->
                     
                     <div>
                         <label for="movimientoExcepcionalMonto">MONTO</label>
