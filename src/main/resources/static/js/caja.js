@@ -18,6 +18,7 @@ DETALLES_BUTTONS.forEach(element =>
 
 // REGISTRAR MOVIMIENTO EXCEPCIONAL BUTTON
 const MOVIMIENTO_EXCEPCIONAL = document.getElementById("appCajaMovimiento");
+const MOVIMIENTO_EXCEPCIONAL_TIPO = document.getElementsByName("movimientoExcepcionalTipo")[0];
 const MOVIMIENTO_EXCEPCIONAL_FONDO = document.getElementsByName("movimientoExcepcionalFondo")[0];
 const MOVIMIENTO_EXCEPCIONAL_MONTO = document.getElementsByName("movimientoExcepcionalMonto")[0];
 const MOVIMIENTO_EXCEPCIONAL_MOTIVO = document.getElementsByName("movimientoExcepcionalMotivo")[0];
@@ -61,6 +62,12 @@ function validarInputMonto(string)
 
 MOVIMIENTO_EXCEPCIONAL_REGISTRAR.addEventListener("click", () =>
 {    
+    if (MOVIMIENTO_EXCEPCIONAL_TIPO.value === "0")
+    {
+        window.alert("ERROR: Es necesario elegir un tipo de movimiento!");
+        return;
+    }
+
     if (MOVIMIENTO_EXCEPCIONAL_FONDO.value === "0")
     {
         window.alert("ERROR: Es necesario elegir un fondo!");
@@ -72,7 +79,8 @@ MOVIMIENTO_EXCEPCIONAL_REGISTRAR.addEventListener("click", () =>
         window.alert("ERROR: Es necesario ingresar un monto válido!");
         return;
     }
-    
+
+    movimientoExcepcional.tipo = MOVIMIENTO_EXCEPCIONAL_TIPO.value;
     movimientoExcepcional.id_fondo = parseInt(MOVIMIENTO_EXCEPCIONAL_FONDO.value);
     movimientoExcepcional.monto = parseFloat(MOVIMIENTO_EXCEPCIONAL_MONTO.value).toFixed(2);
     
