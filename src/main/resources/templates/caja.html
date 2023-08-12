@@ -20,12 +20,17 @@
                         <div th:text="${#numbers.formatDecimal(item.saldo_inicial, 1, 2)}"></div>
                     </div>
                     <div>
-                        <div>VARIACIÓN Saldo</div>
+                        <div>VARIACIÓN Saldo ($)</div>
                         <div th:text="${#numbers.formatDecimal(item.saldo - item.saldo_inicial, 1, 2)}"></div>
                     </div>
-                    <div>
+                    <!-- <div>
                         <div>ACTUALIZADO</div>
                         <div th:text="${#temporals.format(item.actualizado, 'dd-MM-yyyy HH:mm')}"></div>
+                    </div> -->
+                    <div>
+                        <div>GANANCIA TOTAL ($)</div>
+                        <!-- <div th:text="${#numbers.formatDecimal(item.ganancia, 1, 2)}"></div> -->
+                        <div>$ 0.00</div>
                     </div>
                     <div>
                         <button class="appCajaDetalles" th:data-id-cuenta="${item.id_cuenta}">DETALLES</button>
