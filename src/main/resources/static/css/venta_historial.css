@@ -47,30 +47,40 @@ thead > tr > td:first-child,
 tbody > tr > td:first-child
 {
     /* FECHA */
-    /* width: 25%; */
-    width: 25%;
+    width: 14%;
 }
 
 thead > tr > td:nth-child(2),
 tbody > tr > td:nth-child(2)
 {
-    /* MONTO */
-    /* width: 40%; */
-    width: 15%;
+    /* METODO DE PAGO PRINCIPAL */
+    width: 20%;
 }
 
 thead > tr > td:nth-child(3),
 tbody > tr > td:nth-child(3)
 {
-    /* TIPO */
-    /* width: 35%; */
-    width: 30%;
+    /* MONTO PRINCIPAL */
+    width: 15%;
+}
+
+thead > tr > td:nth-child(4),
+tbody > tr > td:nth-child(4)
+{
+    /* METODO DE PAGO COMPLEMENTARIO */
+    width: 20%;
+}
+
+thead > tr > td:nth-child(5),
+tbody > tr > td:nth-child(5)
+{
+    /* MONTO COMPLEMENTARIO */
+    width: 15%;
 }
 
 thead > tr > td:last-child,
 tbody > tr > td:last-child
 {
-    /* MOTIVO */
-    /* width: 35%; */
-    width: 30%;
+    /* TOTAL */
+    width: 16%;
 }

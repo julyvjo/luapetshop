@@ -19,10 +19,10 @@
                         <thead class="table-borderless">
                             <tr class="table-header">
                                 <td><h5 class="table-header-text-mini">FECHA</h5></td>
-                                <td><h5 class="table-header-text-mini">METODO PAGO PRINCIPAL</h5></td>
-                                <td><h5 class="table-header-text-mini">MONTO PRINCIPAL</h5></td>
-                                <td><h5 class="table-header-text-mini">METODO PAGO COMPLEMENTARIO</h5></td>
-                                <td><h5 class="table-header-text-mini">MONTO COMPLEMENTARIO</h5></td>
+                                <td><h5 class="table-header-text-mini">METODO PAGO 1</h5></td>
+                                <td><h5 class="table-header-text-mini">MONTO 1</h5></td>
+                                <td><h5 class="table-header-text-mini">METODO PAGO 2</h5></td>
+                                <td><h5 class="table-header-text-mini">MONTO 2</h5></td>
                                 <td><h5 class="table-header-text-mini">TOTAL</h5></td>
                             </tr>
                         </thead>
@@ -41,7 +41,7 @@
                                 </td>
 
                                 <td>
-                                    <h5 th:text="${item.parcial1 ?: ''}"></h5>
+                                    <h5 th:text="'&#36; ' + ${#numbers.formatDecimal(item.parcial1, 1, 2) ?: 'ERROR'}"></h5>
                                 </td>
                                 
                                 <td th:if="${item.medio_pago2}">
@@ -49,15 +49,15 @@
                                 </td>
                                 <!-- IF-ELSE = IF-UNLESS -->
                                 <td th:unless="${item.medio_pago2}">
-                                    <h5></h5>
+                                    <h5>NO USADO</h5>
                                 </td>
 
                                 <td>
-                                    <h5 th:text="${item.parcial2 ?: ''}"></h5>
+                                    <h5 th:text="'&#36; ' + ${#numbers.formatDecimal(item.parcial2, 1, 2) ?: '0.00'}"></h5>
                                 </td>
                                 
                                 <td>
-                                    <h5 th:text="${item.total ?: ''}"></h5>
+                                    <h5 th:text="'&#36; ' + ${#numbers.formatDecimal(item.total, 1, 2) ?: '0.00'}"></h5>
                                 </td>
                             </tr>
                         </tbody>
