@@ -50,7 +50,7 @@ function goToPage(buttonId)
             break;
     
         default:
-            console.log(`ERROR: ${buttonId} seems to not be a valid page!`);
+            console.log(`ERROR: ${buttonId} no pareciera ser una página válida!`);
             return;
     }
 

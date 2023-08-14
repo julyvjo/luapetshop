@@ -100,7 +100,7 @@ nuevoProveedorPrecioCompra.addEventListener("change", () =>
 
     if (validarPrecioCompra(nuevoProveedorPrecioCompra.value) === false)
     {
-        console.log("ERROR: Expecting integer or float number! ");
+        console.log("ERROR: Se espera un número entero (integer) o flotante (float)!");
         nuevoProveedorPrecioCompra.value = "0.00";
         return;
     }

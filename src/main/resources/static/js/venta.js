@@ -49,7 +49,7 @@ if (buscadorInput)
             
             if ( estaEnCarrito(resultadoBusqueda[idResultado].id_producto) )
             {   //  resultadoBusqueda is defined in the SEARCH FUNCTIONS section globally!
-                console.log("ERROR: The selected item is already in the cart!");
+                console.log("ERROR: El item seleccionado ya está en el carrito!");
                 return;
             }
 
@@ -186,7 +186,7 @@ function mostrarResultadosBusqueda(resultado)
 
     if (!resultadosBuscador)
     {
-        console.log("ERROR: It seems like no #resultadosBuscador element exists in this page!");
+        console.log("ERROR: El elemento #resultadosBuscador no existe en la página!");
         return;
     }
 
@@ -234,7 +234,7 @@ function mostrarResultadosBusqueda(resultado)
             {
                 if ( estaEnCarrito(resultadoBusqueda[index].id_producto) )
                 {   //  resultadoBusqueda is defined in the SEARCH FUNCTIONS section globally!
-                    console.log("ERROR: The selected item is already in the cart!");
+                    console.log("ERROR: El item seleccionado ya está en el carrito!");
                     return;
                 }
 
@@ -412,7 +412,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
         {   
             if (carritoValidarCantidad(cantidadInput.value) === false)
             {
-                console.log("ERROR: Expecting integer number! Reseting to default value.");
+                console.log("ERROR: Se esperaba un número entero! Reiniciando a valor predeterminado.");
                 cantidadInput.value = "1";
                 return;
             }
@@ -598,7 +598,7 @@ function carritoEliminarFila(id_producto)
         let sigue = index < listadoCarrito.length;
     }
 
-    console.log("ERROR: Somehow id_producto is not in the cart...");
+    console.log("ERROR: El ID del producto no está en el carrito!");
 }
 // **************************************************************
 
@@ -640,7 +640,7 @@ montoMetodoPago.addEventListener("change", () =>
 {
     if (validarInputMontos(montoMetodoPago.value) === false)
     {
-        console.log("ERROR: Expecting integer or float number! ");
+        console.log("ERROR: Se espera un número entero (integer) o flotante (float)!");
         montoMetodoPago.value = "0.00";
         return;
     }
@@ -708,7 +708,7 @@ montoMetodoPagoComplementario.addEventListener("change", () =>
 {
     if (validarInputMontos(montoMetodoPagoComplementario.value) === false)
     {
-        console.log("ERROR: Expecting integer or float number! ");
+        console.log("ERROR: Se espera un número entero (integer) o flotante (float)!");
         montoMetodoPagoComplementario.value = "0.00";
         return;
     }
@@ -740,7 +740,7 @@ function buscarOpcionMetodoPago(idMetodoPago, value)
             return options[index];
     }
     
-    console.log("ERROR: Value not found in option list");
+    console.log("ERROR: La opción buscada no se encuentra en la lista!");
     return;
 }
 
@@ -813,7 +813,7 @@ function actualizarMetodoPagoYTotal()   // Actualizar MONTO metodos de pago y to
 
     if (!arguments[0])
     {
-        console.log("ERROR: Expected 1 argument to handle multiple metodo de pago. Asuming default case.");
+        console.log("ERROR: Se espera al menos 1 argumento para manejar múltiples metodos de pago. Se asumo el caso predeterminado.");
         montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
         montoMetodoPagoComplementario.value = "0.00";
 
@@ -834,7 +834,7 @@ function actualizarMetodoPagoYTotal()   // Actualizar MONTO metodos de pago y to
 
         if (VALOR_ACTUAL < 0)
         {
-            console.log("ERROR: Values for both metodos de pago no longer valid. Resetting to default case.");
+            console.log("ERROR: Los valores para ambos metodos de pago ya no son válidos. Reiniciando al caso predeterminado.");
     
             montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
             montoMetodoPagoComplementario.value = "0.00";
@@ -866,7 +866,7 @@ function actualizarMetodoPagoYTotal()   // Actualizar MONTO metodos de pago y to
 
         if (VALOR_ACTUAL < 0)
         {
-            console.log("ERROR: Values for both metodos de pago no longer valid. Resetting to default case.");
+            console.log("ERROR: Los valores para ambos metodos de pago ya no son válidos. Reiniciando al caso predeterminado.");
     
             montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
             montoMetodoPagoComplementario.value = "0.00";
@@ -895,6 +895,7 @@ function actualizarMetodoPagoYTotal()   // Actualizar MONTO metodos de pago y to
     else
     {
         console.log("ERROR: Argument not recognized. Asuming default case.");
+        console.log("ERROR: Argumento no reconocido. Se asume el caso predeterminado.");
         montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
         montoMetodoPagoComplementario.value = "0.00";
 
@@ -929,7 +930,7 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
 
     if (listadoCarrito.length === 1)
     {
-        window.alert("ERROR: Empty cart!");
+        window.alert("ERROR: Carrito vacío!");
         return;
     }
 
@@ -977,25 +978,25 @@ function validarMetodosPago()
 
     if ( !metodo1valido && !metodo2valido )
     {
-        window.alert("ERROR: An element for METODO DE PAGO or METODO DE PAGO COMPLEMENTARIO has not been defined!");
+        window.alert("ERROR: Un elemento para METODO DE PAGO ó METODO DE PAGO COMPLEMENTARIO no fue definido!");
         return false;
     }
 
     if ( metodoPago.value === "default" )
     {
-        window.alert("ERROR: There needs to be at least 1 METODO DE PAGO selected!");
+        window.alert("ERROR: Se tiene que seleccionar al menos 1 METODO DE PAGO!");
         return false;
     }
 
     if ( montoMetodoPago === 0 )
     {
-        window.alert("ERROR: METODO DE PAGO is not being used!");
+        window.alert("ERROR: No se está usando METODO DE PAGO!");
         return false;
     }
 
     if ( metodoPagoComplementario.value != "default" && montoMetodoPago === 0 )
     {
-        window.alert("ERROR: METODO DE PAGO COMPLEMENTARIO is not being used!");
+        window.alert("ERROR: No se está usando METODO DE PAGO COMPLEMENTARIO!");
         return false;
     }
 
