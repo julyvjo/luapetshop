@@ -66,23 +66,23 @@
                 <!-- METODOS DE PAGO Y TOTAL -->
                 <div>
                     <div id="containerMetodoPago">
-                        <select name="itemSelected" data-valor-previo="default" data-modificador-metodo-pago="1.0">
-                            <option value="default" data-id-metodo-pago="0" data-modificador-metodo-pago="1.0" disabled selected>METODO DE PAGO</option>
-                            <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre} + ' ( ' + ${#numbers.formatPercent(item.modificador - 1.0, 1, 2)} + ' )'" th:data-id-metodo-pago="${item.id_medio_pago}" th:data-modificador-metodo-pago="${item.modificador}"></option>
+                        <select name="itemSelected" data-valor-previo="default">
+                            <option value="default" data-id-metodo-pago="0" disabled selected>METODO DE PAGO</option>
+                            <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}" th:data-id-metodo-pago="${item.id_medio_pago}"></option>
                         </select>
                         <input disabled autocomplete="off" value="0.00">
                     </div>
 
                     <div id="containerMetodoPagoComplementario">
-                        <select name="itemSelected" data-valor-previo="default" data-modificador-metodo-pago="1.0" disabled>
-                            <option value="default" data-id-metodo-pago="0" data-modificador-metodo-pago="1.0" selected>METODO DE PAGO COMPLEMENTARIO</option>
-                            <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre} + ' ( ' + ${#numbers.formatPercent(item.modificador - 1.0, 1, 2)} + ' )'" th:data-id-metodo-pago="${item.id_medio_pago}" th:data-modificador-metodo-pago="${item.modificador}"></option>
+                        <select name="itemSelected" data-valor-previo="default" disabled>
+                            <option value="default" data-id-metodo-pago="0" selected>METODO DE PAGO COMPLEMENTARIO</option>
+                            <option th:each="item : ${mediospago}" th:value="${item.nombre}" th:text="${item.nombre}" th:data-id-metodo-pago="${item.id_medio_pago}"></option>
                         </select>
                         <input disabled autocomplete="off" value="NO USADO">
                     </div>
 
                     <div>
-                        <div>TOTAL (Incluye recargos)</div>
+                        <div>TOTAL</div>
                         <div id="appVentaTotal">0.00</div>
                     </div>
                 </div>
