@@ -75,5 +75,6 @@ thead > tr > td:last-child,
 tbody > tr > td:last-child
 {
     /* MOTIVO / OBSERVACION */
+    /* width: 55% */
     width: 45%;
 }

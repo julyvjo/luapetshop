@@ -66,6 +66,8 @@
 ##  CAJA
 
 - [ ] CUENTA_DETAILS; AGREGAR COLUMNA GANANCIA
+- [ ] CERRAR CAJA; Agregar fecha de último cierre de caja.
+
 - [x] FONDOS; AGREGAR BBVA FRANCES
 - [x] FONDOS; ASEGURARSE de que se vean todos los fondos.
 
@@ -76,7 +78,6 @@
 - [x] MOVIMIENTO EXCEPCIONAL; Diseñar y agregar implementación Ingreso/Egreso
 - [ ] MOVIMIENTO EXCEPCIONAL; Hacer fetch JSON para backend
 
-- [ ] CERRAR CAJA; CONSIDERAR agregar fecha de último cierre de caja.
 
 * Considerar implementar ALGUNA FORMA DE REVERTIR COMPRAS Y VENTAS
 * DEBERÍA GENERARSE un scroll horizontal en caso de agregar otro fondo
