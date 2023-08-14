@@ -24,8 +24,6 @@
 
 - [ ] MEDIOS DE PAGO; ACTUALIZAR COMISIONES de cada método acorde a feedback (para que sean valores reales)
 
-- [ ] ERROR LOGS; Traducir al español!!
-
 - [ ] TESTING; (Cuando ya se termine de implementar todo) Realizar testing de todo.
 
 - [ ] SEGURIDAD; Revisar y mejorar seguridad de toda la info.
@@ -95,8 +93,6 @@
 ---
 
 ##  COMPRA
-
-- [x] HISTORIAL COMPRAS; Corregir formato CSS.
 
 ---
     
