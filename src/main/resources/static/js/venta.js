@@ -624,9 +624,6 @@ metodoPago.addEventListener("change", () =>
     optionParaBloquear.disabled = true;
 
     metodoPago.setAttribute("data-valor-previo", metodoPago.value);
-
-    // const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-    // metodoPago.setAttribute("data-modificador-metodo-pago", MODIFICADOR);
     
     actualizarMetodoPagoYTotal("aparte");
 });
@@ -646,11 +643,6 @@ montoMetodoPago.addEventListener("change", () =>
     montoMetodoPago.value = parseFloat(montoMetodoPago.value).toFixed(2);
     
     actualizarMetodoPagoYTotal("metodoPago");
-
-    // const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-    
-    // montoMetodoPagoModificado = montoMetodoPago.value;
-    // montoMetodoPagoModificado = montoMetodoPago.value * MODIFICADOR;
 });
 // **************************************************************
 
@@ -674,7 +666,6 @@ metodoPagoComplementario.addEventListener("change", () =>
         montoMetodoPago.disabled = false;
 
         montoMetodoPagoComplementario.disabled = false;
-        // montoMetodoPagoComplementario.value = "0.00";
     }
 
     const valorPrevio = metodoPagoComplementario.getAttribute("data-valor-previo");
@@ -690,13 +681,7 @@ metodoPagoComplementario.addEventListener("change", () =>
 
     metodoPagoComplementario.setAttribute("data-valor-previo", metodoPagoComplementario.value);
 
-    // const MODIFICADOR_COMPLEMENTARIO = metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-    // metodoPagoComplementario.setAttribute("data-modificador-metodo-pago", MODIFICADOR_COMPLEMENTARIO);
-    
     actualizarMetodoPagoYTotal("aparte");
-    
-    // montoMetodoPagoComplementarioModificado = montoMetodoPagoComplementario.value;
-    // montoMetodoPagoComplementarioModificado = montoMetodoPagoComplementario.value * MODIFICADOR_COMPLEMENTARIO;
 });
 
 const montoMetodoPagoComplementario = containerMetodoPagoComplementario.querySelector("input");
@@ -714,11 +699,6 @@ montoMetodoPagoComplementario.addEventListener("change", () =>
     montoMetodoPagoComplementario.value = parseFloat(montoMetodoPagoComplementario.value).toFixed(2);
 
     actualizarMetodoPagoYTotal("metodoPagoComplementario");
-
-    // const MODIFICADOR_COMPLEMENTARIO = metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-
-    // montoMetodoPagoComplementarioModificado = montoMetodoPagoComplementario.value;
-    // montoMetodoPagoComplementarioModificado = montoMetodoPagoComplementario.value * MODIFICADOR_COMPLEMENTARIO;
 });
 // **************************************************************
 
@@ -761,8 +741,6 @@ function validarInputMontos(string)
 // MODIFICADORES METODO DE PAGO
 
 let totalVentaConvertido = 0;
-// let montoMetodoPagoModificado = 0;
-// let montoMetodoPagoComplementarioModificado = 0;
 
 function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId)
 {    
@@ -795,16 +773,6 @@ function actualizarMetodoPagoYTotal()   // Actualizar MONTO metodos de pago y to
         montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
         montoMetodoPagoComplementario.value = "0.00";
 
-        // const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-        // montoMetodoPagoModificado = montoMetodoPago.value;
-        // montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
-        
-        // const MODIFICADOR_COMPLEMENTARIO = metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-        // montoMetodoPagoComplementarioModificado = montoMetodoPagoComplementario.value;
-        // montoMetodoPagoComplementarioModificado = parseFloat( (montoMetodoPagoComplementarioModificado * MODIFICADOR_COMPLEMENTARIO).toFixed(2) );
-
-        // totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
-
         totalVenta.textContent = (parseFloat(montoMetodoPago.value) + parseFloat(montoMetodoPagoComplementario.value)).toFixed(2);
         
         return;
@@ -815,12 +783,6 @@ function actualizarMetodoPagoYTotal()   // Actualizar MONTO metodos de pago y to
         console.log("ERROR: Se espera al menos 1 argumento para manejar múltiples metodos de pago. Se asumo el caso predeterminado.");
         montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
         montoMetodoPagoComplementario.value = "0.00";
-
-        // const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-        // montoMetodoPagoModificado = montoMetodoPago.value;
-        // montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
-
-        // totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
 
         totalVenta.textContent = (parseFloat(montoMetodoPago.value) + parseFloat(montoMetodoPagoComplementario.value)).toFixed(2);
 
@@ -840,28 +802,12 @@ function actualizarMetodoPagoYTotal()   // Actualizar MONTO metodos de pago y to
             montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
             montoMetodoPagoComplementario.value = "0.00";
 
-            // const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-            // montoMetodoPagoModificado = montoMetodoPago.value;
-            // montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
-
-            // totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
-
             totalVenta.textContent = (parseFloat(montoMetodoPago.value) + parseFloat(montoMetodoPagoComplementario.value)).toFixed(2);
 
             return;
         }
         
         montoMetodoPagoComplementario.value = VALOR_ACTUAL;
-
-        // const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-        // montoMetodoPagoModificado = montoMetodoPago.value;
-        // montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
-
-        // const MODIFICADOR_COMPLEMENTARIO = metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-        // montoMetodoPagoComplementarioModificado = montoMetodoPagoComplementario.value;
-        // montoMetodoPagoComplementarioModificado = parseFloat( (montoMetodoPagoComplementarioModificado * MODIFICADOR_COMPLEMENTARIO).toFixed(2) );
-
-        // totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
 
         totalVenta.textContent = (parseFloat(montoMetodoPago.value) + parseFloat(montoMetodoPagoComplementario.value)).toFixed(2);
     }
@@ -876,28 +822,12 @@ function actualizarMetodoPagoYTotal()   // Actualizar MONTO metodos de pago y to
             montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
             montoMetodoPagoComplementario.value = "0.00";
 
-            // const MODIFICADOR_COMPLEMENTARIO = metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-            // montoMetodoPagoComplementarioModificado = montoMetodoPagoComplementario.value;
-            // montoMetodoPagoComplementarioModificado = parseFloat( (montoMetodoPagoComplementarioModificado * MODIFICADOR_COMPLEMENTARIO).toFixed(2) );
-
-            // totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
-
             totalVenta.textContent = (parseFloat(montoMetodoPago.value) + parseFloat(montoMetodoPagoComplementario.value)).toFixed(2);
 
             return;
         }
         
         montoMetodoPago.value = VALOR_ACTUAL;
-
-        // const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-        // montoMetodoPagoModificado = montoMetodoPago.value;
-        // montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
-
-        // const MODIFICADOR_COMPLEMENTARIO = metodoPagoComplementario.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-        // montoMetodoPagoComplementarioModificado = montoMetodoPagoComplementario.value;
-        // montoMetodoPagoComplementarioModificado = parseFloat( (montoMetodoPagoComplementarioModificado * MODIFICADOR_COMPLEMENTARIO).toFixed(2) );
-
-        // totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
         
         totalVenta.textContent = (parseFloat(montoMetodoPago.value) + parseFloat(montoMetodoPagoComplementario.value)).toFixed(2);
     }
@@ -906,12 +836,6 @@ function actualizarMetodoPagoYTotal()   // Actualizar MONTO metodos de pago y to
         console.log("ERROR: Argumento no reconocido. Se asume el caso predeterminado.");
         montoMetodoPago.value = parseFloat(totalVentaConvertido).toFixed(2);
         montoMetodoPagoComplementario.value = "0.00";
-
-        // const MODIFICADOR = metodoPago.selectedOptions[0].getAttribute("data-modificador-metodo-pago");
-        // montoMetodoPagoModificado = montoMetodoPago.value;
-        // montoMetodoPagoModificado = parseFloat( (montoMetodoPagoModificado * MODIFICADOR).toFixed(2) );
-
-        // totalVenta.textContent = (montoMetodoPagoModificado + montoMetodoPagoComplementarioModificado).toFixed(2);
         
         totalVenta.textContent = (parseFloat(montoMetodoPago.value) + parseFloat(montoMetodoPagoComplementario.value)).toFixed(2);
 
@@ -971,7 +895,9 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
         metodoPago.value = "default";
         montoMetodoPago.value = "0.00";
         metodoPagoComplementario.value = "default";
+        metodoPagoComplementario.disabled = true;
         montoMetodoPagoComplementario.value = "0.00";
+        totalVentaConvertido = 0;
         
         //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
         //  location.reload();
@@ -1091,7 +1017,7 @@ function entregarVenta()
     const HEADERS = new Headers();
     HEADERS.append('Content-Type', 'application/json');
 
-    console.log(JSON_DATA);
+    // console.log(JSON_DATA);
 
     const API_URL = "/new/venta";
 
