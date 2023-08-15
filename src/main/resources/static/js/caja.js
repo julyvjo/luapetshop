@@ -91,10 +91,10 @@ MOVIMIENTO_EXCEPCIONAL_REGISTRAR.addEventListener("click", () =>
         movimientoExcepcional.motivo = MOVIMIENTO_EXCEPCIONAL_MOTIVO.value;
     
     // console.log(movimientoExcepcional);
-    entregarmovimientoExcepcional();
+    entregarMovimientoExcepcional();
 });
 
-function entregarmovimientoExcepcional()
+function entregarMovimientoExcepcional()
 {
     const JSON_DATA = JSON.stringify(movimientoExcepcional);
 
