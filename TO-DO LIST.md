@@ -50,10 +50,10 @@
 
 - [x] HISTORIAL VENTA; Corregir formato CSS.
 
-- [ ] METODOS DE PAGO MODIFICADORES; RE-Implementar modificadores?!?
-- [ ] METODOS DE PAGO; Testear y fixear bugs de la nueva implementación de los modificadores/recargos.
+- [x] METODOS DE PAGO MODIFICADORES; RE-Implementar modificadores?!?
+- [x] METODOS DE PAGO; Testear y fixear bugs de la nueva implementación de los modificadores/recargos.
 
-- [ ] HISTORIAL; Implementar *una vez que CAJA esté completo* (ya que debería almacenar todas las ventas de ese mismo día)
+- [x] HISTORIAL; Implementar *una vez que CAJA esté completo* (ya que debería almacenar todas las ventas de ese mismo día)
 
 - [x] <sup>~~PREGUNTAR; ¿Cómo deberíamos chequear que una venta no afecta más stock del que supuestamente existe?~~</sup> **ASUMIMOS QUE LA VENTA CHEQUEA IRL EL STOCK ACTUAL, ERGO STOCK EN BD PUEDE NO SER REALMENTE LA CANTIDAD (entonces el stock simplemente se resetea a cero sin volverse negativo)**
 
@@ -65,8 +65,8 @@
 
 ##  CAJA
 
-- [ ] CUENTA_DETAILS; AGREGAR COLUMNA GANANCIA
-- [ ] CERRAR CAJA; Agregar fecha de último cierre de caja.
+- [x] CUENTA_DETAILS; AGREGAR COLUMNA GANANCIA
+- [x] CERRAR CAJA; Agregar fecha de último cierre de caja.
 
 - [x] FONDOS; AGREGAR BBVA FRANCES
 - [x] FONDOS; ASEGURARSE de que se vean todos los fondos.
