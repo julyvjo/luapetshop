@@ -38,6 +38,8 @@
 - [ ] IMAGEN; Agregar imágenes de productos (Quizas en nueva ruta?).
 - [ ] IMAGEN; Implementar agregar/modificar imagen de un producto (nuevo o existente).
 
+
+- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar autompletado de valores en $C/%R/$G/$V
 - [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Chequear que se haga fetch correctamente.
 
 
@@ -64,6 +66,10 @@
 ---
 
 ##  CAJA
+
+- [ ] CERRAR CAJA; Implementar CAJA EFECTIVO?
+- [ ] CERRAR CAJA; Implementar CONTADOR BILLETES
+- [ ] CERRAR CAJA; Hacer fetch JSON para backend
 
 - [x] CUENTA_DETAILS; AGREGAR COLUMNA GANANCIA
 - [x] CERRAR CAJA; Agregar fecha de último cierre de caja.
