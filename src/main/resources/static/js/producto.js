@@ -106,7 +106,24 @@ nuevoProductoEnviar.addEventListener("click", () =>
     if(!validarNuevoProducto())
         return;
 
-    enviarNuevoProducto();
+    if ( !window.confirm("Estás por finalizar la compra...\n\n¿Estás seguro?") )
+    return;
+
+    // Insistir con la confirmación para evitar lo máximo posible finalizar por accidente.
+    setTimeout(() =>
+    {
+        if ( !window.confirm("¿Realmente estás seguro?") )
+            return;
+
+        enviarNuevoProducto();
+
+        window.alert("Producto registrado exitosamente!");
+
+        //  REINICIAR TODO
+        
+        //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+        //  location.reload();
+    }, 250);
 });
 
 function validarNuevoProducto()     // AÚN NO SE VALIDAR PARA EVITAR SQL INJECTION!
@@ -406,7 +423,24 @@ modalEditorLineaEnviar.addEventListener("click", () =>
     if(!validarEditorLinea())
         return;
 
-    enviarEditorLinea();
+    if ( !window.confirm("Estás por finalizar la compra...\n\n¿Estás seguro?") )
+    return;
+
+    // Insistir con la confirmación para evitar lo máximo posible finalizar por accidente.
+    setTimeout(() =>
+    {
+        if ( !window.confirm("¿Realmente estás seguro?") )
+            return;
+
+        enviarEditorLinea();
+
+        window.alert("Producto registrado exitosamente!");
+
+        //  REINICIAR TODO
+        
+        //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+        //  location.reload();
+    }, 250);
 });
 
 function validarEditorLinea()       //  AÚN NO SE VALIDAR PARA EVITAR SQL INJECTION!
