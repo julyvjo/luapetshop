@@ -120,6 +120,8 @@ nuevoProductoEnviar.addEventListener("click", () =>
         window.alert("Producto registrado exitosamente!");
 
         //  REINICIAR TODO
+
+        reiniciarNuevoProducto();
         
         //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
         //  location.reload();
@@ -251,11 +253,44 @@ function enviarNuevoProducto()
     // console.log("ENVIANDO datosProducto desde NUEVO PRODUCTO...", datosProducto);
     entregarProducto();
 }
+
+
+function reiniciarNuevoProducto()
+{
+    //  Código por ahora no va a ser implementado.
+    // const nuevoProductoCodigo = document.getElementById("modalNuevoProductoCodigo");
+    
+    const nuevoProductoNombre = document.getElementById("modalNuevoProductoNombre");
+
+    //  Descripción por ahora no va a ser implementado.
+    // const nuevoProductoDescripcion = document.getElementById("modalNuevoProductoDescripcion");
+
+    const nuevoProductoProveedor = document.getElementById("modalNuevoProductoProveedor");
+    const nuevoProductoPrecioCompra = document.getElementById("modalNuevoProductoPrecioCompra");
+    const nuevoProductoRentabilidad = document.getElementById("modalNuevoProductoRentabilidad");
+    const nuevoProductoGanancia = document.getElementById("modalNuevoProductoGanancia");
+    const nuevoProductoPrecioVenta = document.getElementById("modalNuevoProductoPrecioVenta");
+    const nuevoProductoCategoria = document.getElementById("modalNuevoProductoCategoria");
+    const nuevoProductoStock = document.getElementById("modalNuevoProductoStock");
+    // const nuevoProductoImagen = document.getElementById("modalNuevoProductoImagen");
+
+    // nuevoProductoCodigo.value = "";
+    nuevoProductoNombre.value = "";
+    // nuevoProductoDescripcion.value = "";
+    nuevoProductoProveedor.value = "0";
+    nuevoProductoPrecioCompra.value = "0.00";
+    nuevoProductoRentabilidad.value = "0.00";
+    nuevoProductoGanancia.value = "0.00";
+    nuevoProductoPrecioVenta.value = "0.00";
+    nuevoProductoCategoria.value = "0";
+    nuevoProductoStock.value = "0";
+    // nuevoProductoImagen.value = "";
+}
 // **************************************************************
 
 
 
-// INDIVIDUAL EDIT
+// EDITOR LINEA
 
 const arrayBotonEditar = document.querySelectorAll('.botonEditar');
 
