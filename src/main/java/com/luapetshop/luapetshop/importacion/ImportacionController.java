@@ -1,6 +1,7 @@
 package com.luapetshop.luapetshop.importacion;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -13,23 +14,34 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.luapetshop.luapetshop.proveedor.Proveedor;
+import com.luapetshop.luapetshop.repository.IProductoRepository;
+import com.luapetshop.luapetshop.repository.IProveedorRepository;
+
 
 @Controller
 public class ImportacionController {
 	private DownloadHandler downloadHandler;
+	private IProductoRepository productoRepository;
+	private IProveedorRepository proveedorRepository;
 	
 	@Autowired
-	public ImportacionController(DownloadHandler downloadHandler) {
+	public ImportacionController(DownloadHandler downloadHandler, IProductoRepository productoRepository,
+			IProveedorRepository proveedorRepository) {
 		super();
 		this.downloadHandler = downloadHandler;
+		this.productoRepository = productoRepository;
+		this.proveedorRepository = proveedorRepository;
 	}
+	
 
 	@GetMapping("/importacion")
 	public String proveedor() {
 		
 		return "importacion";
 	}
-	
+
+
 	@PostMapping("/upload_pdf")
 	public ResponseEntity<byte[]> handlePDFUpload(
 			@RequestParam("pdfFile") MultipartFile file,
@@ -58,21 +70,29 @@ public class ImportacionController {
 	@PostMapping("/upload_csv")
 	public ResponseEntity<String> handleCSVUpload(
 			@RequestParam("csvFile") MultipartFile file,
-			@RequestParam("tipo") String tipo) {
+			@RequestParam("proveedor") int id_proveedor) {
 		
+		//archivo valido?
 		if(file.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El archivo ingresado es erroneo");
 		}
 		
-		CSVHandler csvHandler = new CSVHandler();
+		//proveedor valido?
+		Optional<Proveedor> proveedor = proveedorRepository.findById(id_proveedor);
+		if(proveedor.isEmpty()) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El proveedor ingresado es erroneo");
+		}
+		
+		CSVHandler csvHandler = new CSVHandler(file, productoRepository, proveedor.get());
+		String output;
 		try {
-			csvHandler.applyCSV(file, tipo);
+			output = csvHandler.process();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
 		}
 
-        return ResponseEntity.status(HttpStatus.CREATED).body("Datos importados exitosamente");
+        return ResponseEntity.status(HttpStatus.CREATED).body("Datos importados exitosamente: \n\n" + output);
 	}
 	
 	@GetMapping("/download/productos")
