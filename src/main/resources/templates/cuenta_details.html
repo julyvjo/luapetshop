@@ -31,32 +31,39 @@
                         </thead>
                         <tbody id="table" class="table-borderless" style="border-top: none !important;">
                             <tr th:each="item :${movimientos}" th:id="${item.id_movimiento}">
-                                <td><h5 th:text="${#temporals.format(item.fecha, 'dd-MM-yyyy HH:mm')}"></h5></td>
-                                
-                                <td><h5 th:text="'&#36; ' + ${#numbers.formatDecimal(item.monto, 1, 2) ?: '0.00'}"></h5></td>
-                                
+                                <!-- FECHA -->
                                 <td>
-                                    <h5 th:switch="${item.tipo}">
-                                        <h5 th:case="'C'">Compra a proveedor</h5>
-                                        <h5 th:case="'V'">Venta de productos</h5>
-                                        <h5 th:case="'I'">Ingreso excepcional</h5>
-                                        <h5 th:case="'E'">Egreso excepcional</h5>
-                                        <h5 th:case="*">Desconocido</h5>
-                                    </h5>
+                                    <h5 th:text="${#temporals.format(item.fecha, 'dd-MM-yyyy HH:mm')}"></h5>
                                 </td>
-                               
-                                <td><h5>$ 0.00</h5></td>
-
-                                <!-- <td><h5 th:text="${item.motivo}"></h5></td> -->
                                 
-                                <td th:if="${item.motivo}">
-                                    <h5 th:text="${item.motivo}"></h5>
+                                <!-- MONTO -->
+                                <td>
+                                    <h5 th:text="'&#36; ' + ${#numbers.formatDecimal(item.monto, 1, 2) ?: '0.00'}"></h5>
                                 </td>
-                                <!-- IF-ELSE = IF-UNLESS -->
-                                <td th:unless="${item.motivo}">
-                                    <h5>No especificado</h5>
+                                
+                                <!-- TIPO DE MOVIMIENTO -->
+                                <td th:switch="${item.tipo}">
+                                    <h5 th:case="'C'">Compra a proveedor</h5>
+                                    <h5 th:case="'V'">Venta de productos</h5>
+                                    <h5 th:case="'I'">Ingreso excepcional</h5>
+                                    <h5 th:case="'E'">Egreso excepcional</h5>
+                                    <h5 th:case="*">Desconocido</h5>
                                 </td>
-                                <!-- <td><h5>MOTIVO</h5></td> -->
+                                
+                                <!-- GANANCIA -->
+                                <td>
+                                    <h5>$ 0.00</h5>
+                                </td>
+
+                                <!-- MOTIVO / OBSERVACIÓN -->
+                                <!-- (Uso item.tipo para tener mensajes predeterminados si corresponde o no) -->
+                                <td th:switch="${item.tipo}">
+                                    <h5 th:case="'C'">Compra a proveedor - NO CORRESPONDE.</h5>
+                                    <h5 th:case="'V'">Venta de productos - NO CORRESPONDE.</h5>
+                                    <h5 th:case="'I'">NO ESPECIFICADO - INGRESO EXCEPCIONAL.</h5>
+                                    <h5 th:case="'E'">NO ESPECIFICADO - EGRESO EXCEPCIONAL.</h5>
+                                    <h5 th:case="*">DESCONOCIDO.</h5>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
