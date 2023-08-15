@@ -29,6 +29,7 @@ let movimientoExcepcional = {};    //  Este objeto es el que se envía al regist
 MOVIMIENTO_EXCEPCIONAL.addEventListener("click", () =>
 {
     mostrarModal("modalMovimientoExcepcional");
+    window.onclick = null;
 });
 
 MOVIMIENTO_EXCEPCIONAL_MONTO.addEventListener("change", () =>
@@ -100,28 +101,26 @@ function entregarmovimientoExcepcional()
     const HEADERS = new Headers();
     HEADERS.append('Content-Type', 'application/json');
 
-    console.log(JSON_DATA);
+    const API_URL = "/new/movimiento";   //  NECESITO SABER EL API_URL PARA ESTE CASO!!
 
-    // // const API_URL = "/new/movimiento";   //  NECESITO SABER EL API_URL PARA ESTE CASO!!
+    const LINK = new URL(API_URL, window.location.origin);
 
-    // const LINK = new URL(API_URL, window.location.origin);
+    fetch(LINK, {
+        method: 'POST',
+        headers: HEADERS,
+        body: JSON_DATA
+    })
 
-    // fetch(LINK, {
-    //     method: 'POST',
-    //     headers: HEADERS,
-    //     body: JSON_DATA
-    // })
-
-    // // .then(response => response.json())
-    // .then(response => response.text())
+    // .then(response => response.json())
+    .then(response => response.text())
     
-    // .then(responseData => {
-    //     console.log(responseData);  // Resultado de enviar el json.
-    // })
+    .then(responseData => {
+        console.log(responseData);  // Resultado de enviar el json.
+    })
     
-    // .catch(error => {
-    //     console.log("ERROR: ", error);  // Errores que puedan haber.
-    // })
+    .catch(error => {
+        console.log("ERROR: ", error);  // Errores que puedan haber.
+    })
 }
 // **************************************************************
 
