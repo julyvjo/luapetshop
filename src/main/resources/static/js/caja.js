@@ -92,6 +92,8 @@ MOVIMIENTO_EXCEPCIONAL_REGISTRAR.addEventListener("click", () =>
     
     // console.log(movimientoExcepcional);
     entregarMovimientoExcepcional();
+
+    reiniciarMovimientoExcepcional();
 });
 
 function entregarMovimientoExcepcional()
@@ -121,6 +123,16 @@ function entregarMovimientoExcepcional()
     .catch(error => {
         console.log("ERROR: ", error);  // Errores que puedan haber.
     })
+}
+
+function reiniciarMovimientoExcepcional()
+{
+    movimientoExcepcional = {};
+
+    MOVIMIENTO_EXCEPCIONAL_TIPO.value = "0";
+    MOVIMIENTO_EXCEPCIONAL_FONDO.value = "0";
+    MOVIMIENTO_EXCEPCIONAL_MONTO.value = "";
+    MOVIMIENTO_EXCEPCIONAL_MOTIVO.value = "";
 }
 // **************************************************************
 
