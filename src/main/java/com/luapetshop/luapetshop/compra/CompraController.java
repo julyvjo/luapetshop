@@ -62,7 +62,7 @@ public class CompraController {
 		Map<String, Object> res = new HashMap<String, Object>();
 		res.put("status", "ok");
 		
-		return ResponseEntity.ok(res);
-		//return ResponseEntity.status(HttpStatus.CREATED).body("Compra guardada con exito");
+		// return ResponseEntity.ok(res);
+		return ResponseEntity.status(HttpStatus.CREATED).body("Compra guardada con exito");
     }
 }
