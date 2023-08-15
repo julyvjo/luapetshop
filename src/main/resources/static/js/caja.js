@@ -81,19 +81,40 @@ MOVIMIENTO_EXCEPCIONAL_REGISTRAR.addEventListener("click", () =>
         return;
     }
 
-    movimientoExcepcional.tipo = MOVIMIENTO_EXCEPCIONAL_TIPO.value;
-    movimientoExcepcional.id_fondo = parseInt(MOVIMIENTO_EXCEPCIONAL_FONDO.value);
-    movimientoExcepcional.monto = parseFloat(MOVIMIENTO_EXCEPCIONAL_MONTO.value).toFixed(2);
-    
-    if (MOVIMIENTO_EXCEPCIONAL_MOTIVO.value === "")
-        movimientoExcepcional.motivo = "Motivo no especificado.";
-    else
-        movimientoExcepcional.motivo = MOVIMIENTO_EXCEPCIONAL_MOTIVO.value;
-    
-    // console.log(movimientoExcepcional);
-    entregarMovimientoExcepcional();
+    if ( !window.confirm("Estás por finalizar la compra...\n\n¿Estás seguro?") )
+        return;
 
-    reiniciarMovimientoExcepcional();
+    // Insistir con la confirmación para evitar lo máximo posible finalizar por accidente.
+    setTimeout(() =>
+    {
+        if ( !window.confirm("¿Realmente estás seguro?") )
+            return;
+
+        // CARGA DE movimientoExcepcional
+
+        movimientoExcepcional.tipo = MOVIMIENTO_EXCEPCIONAL_TIPO.value;
+        movimientoExcepcional.id_fondo = parseInt(MOVIMIENTO_EXCEPCIONAL_FONDO.value);
+        movimientoExcepcional.monto = parseFloat(MOVIMIENTO_EXCEPCIONAL_MONTO.value).toFixed(2);
+        
+        if (MOVIMIENTO_EXCEPCIONAL_MOTIVO.value === "")
+            movimientoExcepcional.motivo = "Motivo no especificado.";
+        else
+            movimientoExcepcional.motivo = MOVIMIENTO_EXCEPCIONAL_MOTIVO.value;
+
+        window.alert("Movimiento registrado exitosamente!");
+
+        //  ENTREGA DE movimientoExcepcional
+
+        // console.log(movimientoExcepcional);
+        entregarMovimientoExcepcional();
+
+        //  REINICIAR TODO
+        
+        reiniciarMovimientoExcepcional();
+        
+        //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+        //  location.reload();
+    }, 250);
 });
 
 function entregarMovimientoExcepcional()
