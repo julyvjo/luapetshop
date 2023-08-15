@@ -375,7 +375,6 @@ function cargarEditor(fila)
     //     });
     // }
 
-    //  Proveedor actualmente no se puede implementar completamente.
     const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
     editorLineaProveedor.value = filaIdProveedor;
 
@@ -472,7 +471,8 @@ modalEditorLineaEnviar.addEventListener("click", () =>
         window.alert("Producto registrado exitosamente!");
 
         //  REINICIAR TODO
-        
+        reiniciarEditorLinea();
+
         //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
         //  location.reload();
     }, 250);
@@ -604,6 +604,38 @@ function enviarEditorLinea()
     // ENVIAR AL BACKEND
     // console.log("ENVIANDO datosProducto desde EDITOR LINEA...", datosProducto);
     entregarProducto();
+}
+
+function reiniciarEditorLinea()
+{
+    //  CÓDIGO POR AHORA NO SE VA A USAR
+    // const editorLineaCodigo = document.getElementById("modalEditorLineaCodigo");
+    
+    const editorLineaNombre = document.getElementById("modalEditorLineaNombre");
+    
+    //  DESCRIPCIÓN POR AHORA NO SE VA A USAR
+    // const editorLineaDescripcion = document.getElementById("modalEditorLineaDescripcion");
+    
+    const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
+    const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
+    const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
+    const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
+    const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
+    const editorLineaCategoria = document.getElementById("modalEditorLineaCategoria");
+    const editorLineaStock = document.getElementById("modalEditorLineaStock");
+    // const editorLineaImagen = document.getElementById("modalEditorLineaRutaImagen");
+
+    // editorLineaCodigo.value = "";
+    editorLineaNombre.value = "";
+    // editorLineaDescripcion.value = ""; 
+    editorLineaProveedor.value = "0"; 
+    editorLineaPrecioCompra.value = "0.00"; 
+    editorLineaRentabilidad.value = "0.00"; 
+    editorLineaGanancia.value = "0.00"; 
+    editorLineaPrecioVenta.value = "0.00"; 
+    editorLineaCategoria.value = "0"; 
+    editorLineaStock.value = "0"; 
+    // editorLineaImagen.value = ""; 
 }
 // **************************************************************
 
