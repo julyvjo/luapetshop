@@ -728,8 +728,8 @@ if (arrayBotonFoto.length !== 0)
             // const IMAGEN = "Imagotipo-2-cyan.jpg";
 
             const MODAL_FOTO_IMAGEN = document.getElementById("modalFotoImagen");
-            // MODAL_FOTO_IMAGEN.setAttribute("src", `../img/${IMAGEN}`);
-            MODAL_FOTO_IMAGEN.setAttribute("src", `${window.location.origin}/img/${IMAGEN}`);
+            // MODAL_FOTO_IMAGEN.setAttribute("src", `../img/prod/${IMAGEN}`);
+            MODAL_FOTO_IMAGEN.setAttribute("src", `${window.location.origin}/img/prod/${IMAGEN}`);
         });    
     });
 }
