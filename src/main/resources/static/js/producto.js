@@ -36,6 +36,22 @@ function agregarEventListenerInteger(nombre)
 
 // VALIDAR NUMEROS FLOAT
 
+function validarNumeroFloat(string)
+{
+    //  Regular expression para validar que string represente un número float
+    //  const numberRegex = /^[0-9]+$/;  //  Por si solo quisiera validar un número entero.
+    const numberRegex = /^[0-9]+([.,][0-9]+)?$/;;
+
+    return numberRegex.test(string);
+
+    // Ejemplos:
+    // console.log(validateNumber("12345"));   // true
+    // console.log(validateNumber("12.345"));  // true
+    // console.log(validateNumber("12,345"));  // true
+    // console.log(validateNumber("12,34.56"));// false (múltiples separadores)
+    // console.log(validateNumber("abc"));     // false (contiene caracteres no válidos como letras)
+}
+
 function agregarEventListenerFloat(nombre)
 {
     const ID = nombre;
@@ -55,22 +71,6 @@ function agregarEventListenerFloat(nombre)
         elemento.value = parseFloat(elemento.value).toFixed(2);
     });
 }
-
-function validarNumeroFloat(string)
-{
-    //  Regular expression para validar que string represente un número float
-    //  const numberRegex = /^[0-9]+$/;  //  Por si solo quisiera validar un número entero.
-    const numberRegex = /^[0-9]+([.,][0-9]+)?$/;;
-
-    return numberRegex.test(string);
-
-    // Ejemplos:
-    // console.log(validateNumber("12345"));   // true
-    // console.log(validateNumber("12.345"));  // true
-    // console.log(validateNumber("12,345"));  // true
-    // console.log(validateNumber("12,34.56"));// false (múltiples separadores)
-    // console.log(validateNumber("abc"));     // false (contiene caracteres no válidos como letras)
-}
 // **************************************************************
 
 
@@ -85,10 +85,10 @@ if (nuevoProducto)
     {
         mostrarModal("modalNuevoProducto");
 
-        agregarEventListenerFloat("modalNuevoProductoPrecioCompra");
-        agregarEventListenerFloat("modalNuevoProductoRentabilidad");
-        agregarEventListenerFloat("modalNuevoProductoGanancia");
-        agregarEventListenerFloat("modalNuevoProductoPrecioVenta");
+        // agregarEventListenerFloat("modalNuevoProductoPrecioCompra");
+        // agregarEventListenerFloat("modalNuevoProductoRentabilidad");
+        // agregarEventListenerFloat("modalNuevoProductoGanancia");
+        // agregarEventListenerFloat("modalNuevoProductoPrecioVenta");
 
         agregarEventListenerInteger("modalNuevoProductoStock");
 
@@ -806,4 +806,70 @@ function buscadorGoToPage(contenido)
     // console.log('nueva url =' + actualurl.toString());
     window.location.href = actualurl.toString();        
 }
+// **************************************************************
+
+
+
+//  NUEVO PRODUCTO AUTOCOMPLETE
+
+const nuevoProductoPrecioCompra = document.getElementById("modalNuevoProductoPrecioCompra");
+const nuevoProductoRentabilidad = document.getElementById("modalNuevoProductoRentabilidad");
+const nuevoProductoGanancia = document.getElementById("modalNuevoProductoGanancia");
+const nuevoProductoPrecioVenta = document.getElementById("modalNuevoProductoPrecioVenta");
+
+nuevoProductoPrecioCompra.addEventListener("change", () =>
+{
+    if (validarNumeroFloat(nuevoProductoPrecioCompra.value) === false)
+    {
+        console.log("ERROR: No es un número integer! Reiniciando a valor default.");
+        nuevoProductoPrecioCompra.value = "0.00";
+        return;
+    }
+
+    // AJUSTAR RENTABILIDAD
+    // AJUSTAR GANANCIA
+    // AJUSTAR PRECIO_VENTA
+});
+
+nuevoProductoRentabilidad.addEventListener("change", () =>
+{
+    if (validarNumeroFloat(nuevoProductoRentabilidad.value) === false)
+    {
+        console.log("ERROR: No es un número integer! Reiniciando a valor default.");
+        nuevoProductoRentabilidad.value = "0.00";
+        return;
+    }
+
+    // AJUSTAR PRECIO_COMPRA
+    // AJUSTAR GANANCIA
+    // AJUSTAR PRECIO_VENTA
+});
+
+nuevoProductoGanancia.addEventListener("change", () =>
+{
+    if (validarNumeroFloat(nuevoProductoGanancia.value) === false)
+    {
+        console.log("ERROR: No es un número integer! Reiniciando a valor default.");
+        nuevoProductoGanancia.value = "0.00";
+        return;
+    }
+
+    // AJUSTAR PRECIO_COMPRA
+    // AJUSTAR RENTABILIDAD
+    // AJUSTAR PRECIO_VENTA
+});
+
+nuevoProductoPrecioVenta.addEventListener("change", () =>
+{
+    if (validarNumeroFloat(nuevoProductoPrecioVenta.value) === false)
+    {
+        console.log("ERROR: No es un número integer! Reiniciando a valor default.");
+        nuevoProductoPrecioVenta.value = "0.00";
+        return;
+    }
+
+    // AJUSTAR PRECIO_COMPRA
+    // AJUSTAR RENTABILIDAD
+    // AJUSTAR GANANCIA
+});
 // **************************************************************
