@@ -830,7 +830,7 @@ nuevoProductoPrecioCompra.addEventListener("change", () =>
 {
     if (validarNumeroFloat(nuevoProductoPrecioCompra.value) === false)
     {
-        console.log("ERROR: No es un número integer! Reiniciando a valor default.");
+        console.log("ERROR: No es un número flotante! Reiniciando a valor default.");
         nuevoProductoPrecioCompra.value = "0.00";
         return;
     }
@@ -851,7 +851,7 @@ nuevoProductoRentabilidad.addEventListener("change", () =>
 {
     if (validarNumeroFloat(nuevoProductoRentabilidad.value) === false)
     {
-        console.log("ERROR: No es un número integer! Reiniciando a valor default.");
+        console.log("ERROR: No es un número flotante! Reiniciando a valor default.");
         nuevoProductoRentabilidad.value = "0.00";
         return;
     }
@@ -872,7 +872,7 @@ nuevoProductoGanancia.addEventListener("change", () =>
 {
     if (validarNumeroFloat(nuevoProductoGanancia.value) === false)
     {
-        console.log("ERROR: No es un número integer! Reiniciando a valor default.");
+        console.log("ERROR: No es un número flotante! Reiniciando a valor default.");
         nuevoProductoGanancia.value = "0.00";
         return;
     }
@@ -893,7 +893,7 @@ nuevoProductoPrecioVenta.addEventListener("change", () =>
 {
     if (validarNumeroFloat(nuevoProductoPrecioVenta.value) === false)
     {
-        console.log("ERROR: No es un número integer! Reiniciando a valor default.");
+        console.log("ERROR: No es un número flotante! Reiniciando a valor default.");
         nuevoProductoPrecioVenta.value = "0.00";
         return;
     }
