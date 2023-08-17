@@ -304,10 +304,10 @@ if (arrayBotonEditar.length !== 0)
             mostrarModal("modalEditorLinea");
             cargarEditor(fila);
 
-            agregarEventListenerFloat("modalEditorLineaPrecioCompra");
-            agregarEventListenerFloat("modalEditorLineaRentabilidad");
-            agregarEventListenerFloat("modalEditorLineaGanancia");
-            agregarEventListenerFloat("modalEditorLineaPrecioVenta");
+            // agregarEventListenerFloat("modalEditorLineaPrecioCompra");
+            // agregarEventListenerFloat("modalEditorLineaRentabilidad");
+            // agregarEventListenerFloat("modalEditorLineaGanancia");
+            // agregarEventListenerFloat("modalEditorLineaPrecioVenta");
 
             agregarEventListenerInteger("modalNuevoProductoStock");
 
@@ -397,58 +397,65 @@ function cargarEditor(fila)
 
     const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
     editorLineaPrecioCompra.value = h5[5].textContent;
+    editorLineaDefaultPrecioCompra = parseFloat( h5[5].textContent ).toFixed(2);
 
-    if (h5[5].textContent != "0.00")
-    {   
-        editorLineaPrecioCompra.setAttribute("data-default-value", h5[5].textContent);
-        editorLineaPrecioCompra.addEventListener("change", () =>
-        {
-            if (editorLineaPrecioCompra.value === "")
-                editorLineaPrecioCompra.value = editorLineaPrecioCompra.getAttribute("data-default-value");
-        });
-    }
+    // if (h5[5].textContent != "0.00")
+    // {   
+    //     editorLineaPrecioCompra.setAttribute("data-default-value", h5[5].textContent);
+    //     editorLineaPrecioCompra.addEventListener("change", () =>
+    //     {
+    //         if (editorLineaPrecioCompra.value === "")
+    //             editorLineaPrecioCompra.value = editorLineaPrecioCompra.getAttribute("data-default-value");
+    //     });
+    // }
 
     const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
-    editorLineaRentabilidad.value = h5[6].textContent;
+    editorLineaRentabilidad.value = (parseFloat(h5[6].textContent) * 100 ).toFixed(2);
+    editorLineaDefaultRentabilidad = (parseFloat(h5[6].textContent) * 100 ).toFixed(2);
 
-    if (h5[6].textContent != "0.00")
-    {   
-        editorLineaRentabilidad.setAttribute("data-default-value", h5[6].textContent);
-        editorLineaRentabilidad.addEventListener("change", () =>
-        {
-            if (editorLineaRentabilidad.value === "")
-                editorLineaRentabilidad.value = editorLineaRentabilidad.getAttribute("data-default-value");
-        });
-    }
+    // if (h5[6].textContent != "0.00")
+    // {   
+    //     editorLineaRentabilidad.setAttribute("data-default-value", h5[6].textContent);
+    //     editorLineaRentabilidad.addEventListener("change", () =>
+    //     {
+    //         if (editorLineaRentabilidad.value === "")
+    //             editorLineaRentabilidad.value = editorLineaRentabilidad.getAttribute("data-default-value");
+    //     });
+    // }
 
     const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
     editorLineaGanancia.value = h5[7].textContent;
+    editorLineaDefaultGanancia = parseFloat( h5[7].textContent ).toFixed(2);
+    
 
-    if (h5[7].textContent != "0.00")
-    {   
-        editorLineaGanancia.setAttribute("data-default-value", h5[7].textContent);
-        editorLineaGanancia.addEventListener("change", () =>
-        {
-            if (editorLineaGanancia.value === "")
-                editorLineaGanancia.value = editorLineaGanancia.getAttribute("data-default-value");
-        });
-    }
+    // if (h5[7].textContent != "0.00")
+    // {   
+    //     editorLineaGanancia.setAttribute("data-default-value", h5[7].textContent);
+    //     editorLineaGanancia.addEventListener("change", () =>
+    //     {
+    //         if (editorLineaGanancia.value === "")
+    //             editorLineaGanancia.value = editorLineaGanancia.getAttribute("data-default-value");
+    //     });
+    // }
     
     const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
-    editorLineaPrecioVenta.value = h5[8].textContent;
+    editorLineaDefaultPrecioVenta = parseFloat( h5[8].textContent ).toFixed(2);
 
-    if (h5[8].textContent != "0.00")
-    {   
-        editorLineaPrecioVenta.setAttribute("data-default-value", h5[8].textContent);
-        editorLineaPrecioVenta.addEventListener("change", () =>
-        {
-            if (editorLineaPrecioVenta.value === "")
-                editorLineaPrecioVenta.value = editorLineaPrecioVenta.getAttribute("data-default-value");
-        });
-    }
+    // if (h5[8].textContent != "0.00")
+    // {   
+    //     editorLineaPrecioVenta.setAttribute("data-default-value", h5[8].textContent);
+    //     editorLineaPrecioVenta.addEventListener("change", () =>
+    //     {
+    //         if (editorLineaPrecioVenta.value === "")
+    //             editorLineaPrecioVenta.value = editorLineaPrecioVenta.getAttribute("data-default-value");
+    //     });
+    // }
 
     const editorLineaID = document.getElementById("modalEditorLineaId");
     editorLineaID.value = filaIdProducto;
+
+    //  SETEAR AUTOCOMPLETADO INTELIGENTE
+    editorLineaSetupAutocomplete();
 }
 
 const modalEditorLineaEnviar = document.getElementById("modalEditorLineaEnviar");
@@ -594,7 +601,8 @@ function enviarEditorLinea()
 
         id_proveedor: parseInt(editorLineaProveedor.value),
         precio_compra: parseFloat(editorLineaPrecioCompra.value).toFixed(2),
-        rentabilidad: parseFloat(editorLineaRentabilidad.value).toFixed(2),
+        // rentabilidad: parseFloat(editorLineaRentabilidad.value).toFixed(2),
+        rentabilidad: ( parseFloat(editorLineaRentabilidad.value) / parseFloat(editorLineaPrecioCompra.value) ).toFixed(4), //  4 Decimales para poder representar % con 2 decimales de precisión luego...
         ganancia: parseFloat(editorLineaGanancia.value).toFixed(2),
         precio_venta: parseFloat(editorLineaPrecioVenta.value).toFixed(2),
         id_categoria: parseInt(editorLineaCategoria.value),
@@ -901,4 +909,112 @@ nuevoProductoPrecioVenta.addEventListener("change", () =>
     // AJUSTAR RENTABILIDAD
     nuevoProductoRentabilidad.value = ( ( parseFloat(nuevoProductoGanancia.value) / parseFloat(nuevoProductoPrecioCompra.value) ) * parseFloat(100) ).toFixed(2);
 });
+// **************************************************************
+
+
+
+// EDITOR LINEA AUTOCOMPLETE
+
+let editorLineaDefaultPrecioCompra = "0.00";
+let editorLineaDefaultRentabilidad = "0.00";
+let editorLineaDefaultGanancia = "0.00";
+let editorLineaDefaultPrecioVenta = "0.00";
+
+
+function editorLineaSetupAutocomplete()
+{
+    /*
+        Con todo esto dentro de una función me aseguro que solo se agreguen
+        los eventListeners una vez pre-cargados los inputs (así puedo
+        usarlos como los valores default como fallback en caso de error).
+    */
+
+    const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
+    const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
+    const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
+    const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
+
+    editorLineaPrecioCompra.addEventListener("change", () =>
+    {
+        if (validarNumeroFloat(editorLineaPrecioCompra.value) === false)
+        {
+            console.log("ERROR: No es un número flotante! Reiniciando a valor default.");
+            editorLineaPrecioCompra.value = editorLineaDefaultPrecioCompra;
+            return;
+        }
+
+        editorLineaPrecioCompra.value = editorLineaPrecioCompra.value.replace(/,/g, ".");
+        editorLineaPrecioCompra.value = parseFloat(editorLineaPrecioCompra.value).toFixed(2);
+
+        // AJUSTAR RENTABILIDAD?
+
+        // AJUSTAR GANANCIA
+        editorLineaGanancia.value = ( parseFloat(editorLineaPrecioCompra.value) * ( parseFloat(editorLineaRentabilidad.value) / 100 ) ).toFixed(2);
+
+        // AJUSTAR PRECIO_VENTA
+        editorLineaPrecioVenta.value = ( parseFloat(editorLineaPrecioCompra.value) * ( parseFloat(1) + ( parseFloat(editorLineaRentabilidad.value) / 100 ) ) ).toFixed(2);
+    });
+
+    editorLineaRentabilidad.addEventListener("change", () =>
+    {
+        if (validarNumeroFloat(editorLineaRentabilidad.value) === false)
+        {
+            console.log("ERROR: No es un número flotante! Reiniciando a valor default.");
+            editorLineaRentabilidad.value = editorLineaDefaultRentabilidad;
+            return;
+        }
+
+        editorLineaRentabilidad.value = editorLineaRentabilidad.value.replace(/,/g, ".");
+        editorLineaRentabilidad.value = parseFloat(editorLineaRentabilidad.value).toFixed(2);
+        // AJUSTAR PRECIO_COMPRA?
+
+        // AJUSTAR GANANCIA
+        editorLineaGanancia.value = ( parseFloat(editorLineaPrecioCompra.value) * ( parseFloat(editorLineaRentabilidad.value) / 100 ) ).toFixed(2);
+
+        // AJUSTAR PRECIO_VENTA
+        editorLineaPrecioVenta.value = ( parseFloat(editorLineaPrecioCompra.value) * ( parseFloat(1) + ( parseFloat(editorLineaRentabilidad.value) / 100 ) ) ).toFixed(2);
+    });
+
+    editorLineaGanancia.addEventListener("change", () =>
+    {
+        if (validarNumeroFloat(editorLineaGanancia.value) === false)
+        {
+            console.log("ERROR: No es un número flotante! Reiniciando a valor default.");
+            editorLineaGanancia.value = editorLineaDefaultGanancia;
+            return;
+        }
+
+        editorLineaGanancia.value = editorLineaGanancia.value.replace(/,/g, ".");
+        editorLineaGanancia.value = parseFloat(editorLineaGanancia.value).toFixed(2);
+
+        // AJUSTAR PRECIO_COMPRA?
+
+        // AJUSTAR RENTABILIDAD
+        editorLineaRentabilidad.value = ( ( parseFloat(editorLineaGanancia.value) / parseFloat(editorLineaPrecioCompra.value) ) * parseFloat(100) ).toFixed(2);
+
+        // AJUSTAR PRECIO_VENTA
+        editorLineaPrecioVenta.value = ( parseFloat(editorLineaPrecioCompra.value) * ( parseFloat(1) + ( parseFloat(editorLineaRentabilidad.value) / 100 ) ) ).toFixed(2);
+    });
+
+    editorLineaPrecioVenta.addEventListener("change", () =>
+    {
+        if (validarNumeroFloat(editorLineaPrecioVenta.value) === false)
+        {
+            console.log("ERROR: No es un número flotante! Reiniciando a valor default.");
+            editorLineaPrecioVenta.value = editorLineaDefaultPrecioVenta;
+            return;
+        }
+
+        editorLineaPrecioVenta.value = editorLineaPrecioVenta.value.replace(/,/g, ".");
+        editorLineaPrecioVenta.value = parseFloat(editorLineaPrecioVenta.value).toFixed(2);
+
+        // AJUSTAR PRECIO_COMPRA?
+
+        // AJUSTAR GANANCIA
+        editorLineaGanancia.value = ( parseFloat(editorLineaPrecioVenta.value) - parseFloat(editorLineaPrecioCompra.value) ).toFixed(2);
+
+        // AJUSTAR RENTABILIDAD
+        editorLineaRentabilidad.value = ( ( parseFloat(editorLineaGanancia.value) / parseFloat(editorLineaPrecioCompra.value) ) * parseFloat(100) ).toFixed(2);
+    });
+}
 // **************************************************************
