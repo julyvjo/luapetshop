@@ -826,6 +826,9 @@ nuevoProductoPrecioCompra.addEventListener("change", () =>
         return;
     }
 
+    nuevoProductoPrecioCompra.value = nuevoProductoPrecioCompra.value.replace(/,/g, ".");
+    nuevoProductoPrecioCompra.value = parseFloat(nuevoProductoPrecioCompra.value).toFixed(2);
+
     // AJUSTAR RENTABILIDAD
     // AJUSTAR GANANCIA
     // AJUSTAR PRECIO_VENTA
@@ -839,6 +842,9 @@ nuevoProductoRentabilidad.addEventListener("change", () =>
         nuevoProductoRentabilidad.value = "0.00";
         return;
     }
+
+    nuevoProductoRentabilidad.value = nuevoProductoRentabilidad.value.replace(/,/g, ".");
+    nuevoProductoRentabilidad.value = parseFloat(nuevoProductoRentabilidad.value).toFixed(2);
 
     // AJUSTAR PRECIO_COMPRA
     // AJUSTAR GANANCIA
@@ -854,6 +860,9 @@ nuevoProductoGanancia.addEventListener("change", () =>
         return;
     }
 
+    nuevoProductoGanancia.value = nuevoProductoGanancia.value.replace(/,/g, ".");
+    nuevoProductoGanancia.value = parseFloat(nuevoProductoGanancia.value).toFixed(2);
+
     // AJUSTAR PRECIO_COMPRA
     // AJUSTAR RENTABILIDAD
     // AJUSTAR PRECIO_VENTA
@@ -867,6 +876,9 @@ nuevoProductoPrecioVenta.addEventListener("change", () =>
         nuevoProductoPrecioVenta.value = "0.00";
         return;
     }
+
+    nuevoProductoPrecioVenta.value = nuevoProductoPrecioVenta.value.replace(/,/g, ".");
+    nuevoProductoPrecioVenta.value = parseFloat(nuevoProductoPrecioVenta.value).toFixed(2);
 
     // AJUSTAR PRECIO_COMPRA
     // AJUSTAR RENTABILIDAD
