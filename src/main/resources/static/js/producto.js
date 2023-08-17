@@ -920,7 +920,6 @@ let editorLineaDefaultRentabilidad = "0.00";
 let editorLineaDefaultGanancia = "0.00";
 let editorLineaDefaultPrecioVenta = "0.00";
 
-
 function editorLineaSetupAutocomplete()
 {
     /*
@@ -936,17 +935,15 @@ function editorLineaSetupAutocomplete()
 
     editorLineaPrecioCompra.addEventListener("change", () =>
     {
-        if (validarNumeroFloat(editorLineaPrecioCompra.value) === false)
+        if (validarNumeroFloat(editorLineaPrecioCompra.value) === false || editorLineaPrecioCompra.value === "")
         {
-            console.log("ERROR: No es un número flotante! Reiniciando a valor default.");
+            console.log("ERROR: No es un número flotante o está vacío! Reiniciando a valor default.");
             editorLineaPrecioCompra.value = editorLineaDefaultPrecioCompra;
             return;
         }
 
         editorLineaPrecioCompra.value = editorLineaPrecioCompra.value.replace(/,/g, ".");
         editorLineaPrecioCompra.value = parseFloat(editorLineaPrecioCompra.value).toFixed(2);
-
-        // AJUSTAR RENTABILIDAD?
 
         // AJUSTAR GANANCIA
         editorLineaGanancia.value = ( parseFloat(editorLineaPrecioCompra.value) * ( parseFloat(editorLineaRentabilidad.value) / 100 ) ).toFixed(2);
@@ -957,16 +954,15 @@ function editorLineaSetupAutocomplete()
 
     editorLineaRentabilidad.addEventListener("change", () =>
     {
-        if (validarNumeroFloat(editorLineaRentabilidad.value) === false)
+        if (validarNumeroFloat(editorLineaRentabilidad.value) === false || editorLineaRentabilidad.value === "")
         {
-            console.log("ERROR: No es un número flotante! Reiniciando a valor default.");
+            console.log("ERROR: No es un número flotante o está vacío! Reiniciando a valor default.");
             editorLineaRentabilidad.value = editorLineaDefaultRentabilidad;
             return;
         }
 
         editorLineaRentabilidad.value = editorLineaRentabilidad.value.replace(/,/g, ".");
         editorLineaRentabilidad.value = parseFloat(editorLineaRentabilidad.value).toFixed(2);
-        // AJUSTAR PRECIO_COMPRA?
 
         // AJUSTAR GANANCIA
         editorLineaGanancia.value = ( parseFloat(editorLineaPrecioCompra.value) * ( parseFloat(editorLineaRentabilidad.value) / 100 ) ).toFixed(2);
@@ -977,17 +973,15 @@ function editorLineaSetupAutocomplete()
 
     editorLineaGanancia.addEventListener("change", () =>
     {
-        if (validarNumeroFloat(editorLineaGanancia.value) === false)
+        if (validarNumeroFloat(editorLineaGanancia.value) === false || editorLineaGanancia.value === "")
         {
-            console.log("ERROR: No es un número flotante! Reiniciando a valor default.");
+            console.log("ERROR: No es un número flotante o está vacío! Reiniciando a valor default.");
             editorLineaGanancia.value = editorLineaDefaultGanancia;
             return;
         }
 
         editorLineaGanancia.value = editorLineaGanancia.value.replace(/,/g, ".");
         editorLineaGanancia.value = parseFloat(editorLineaGanancia.value).toFixed(2);
-
-        // AJUSTAR PRECIO_COMPRA?
 
         // AJUSTAR RENTABILIDAD
         editorLineaRentabilidad.value = ( ( parseFloat(editorLineaGanancia.value) / parseFloat(editorLineaPrecioCompra.value) ) * parseFloat(100) ).toFixed(2);
@@ -998,17 +992,15 @@ function editorLineaSetupAutocomplete()
 
     editorLineaPrecioVenta.addEventListener("change", () =>
     {
-        if (validarNumeroFloat(editorLineaPrecioVenta.value) === false)
+        if (validarNumeroFloat(editorLineaPrecioVenta.value) === false || editorLineaPrecioVenta.value === "")
         {
-            console.log("ERROR: No es un número flotante! Reiniciando a valor default.");
+            console.log("ERROR: No es un número flotante o está vacío! Reiniciando a valor default.");
             editorLineaPrecioVenta.value = editorLineaDefaultPrecioVenta;
             return;
         }
 
         editorLineaPrecioVenta.value = editorLineaPrecioVenta.value.replace(/,/g, ".");
         editorLineaPrecioVenta.value = parseFloat(editorLineaPrecioVenta.value).toFixed(2);
-
-        // AJUSTAR PRECIO_COMPRA?
 
         // AJUSTAR GANANCIA
         editorLineaGanancia.value = ( parseFloat(editorLineaPrecioVenta.value) - parseFloat(editorLineaPrecioCompra.value) ).toFixed(2);
