@@ -174,3 +174,17 @@ if (cerrarCaja)
     // If in the future this changes, this needs to be implemented inside an Event Listener.
 }
 // **************************************************************
+
+
+
+// SALDO TOTAL
+
+const SALDO_TOTAL = document.getElementById("appCajaSaldoTotal");
+
+const SALDOS_CUENTAS = document.querySelectorAll(".saldoActual");
+
+SALDOS_CUENTAS.forEach(element =>
+{
+    SALDO_TOTAL.textContent = ( parseFloat(SALDO_TOTAL.textContent) + parseFloat(element.textContent) ).toFixed(2);
+});
+// **************************************************************
