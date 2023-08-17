@@ -241,7 +241,8 @@ function enviarNuevoProducto()
 
         id_proveedor: parseInt(nuevoProductoProveedor.value),
         precio_compra: parseFloat(nuevoProductoPrecioCompra.value).toFixed(2),
-        rentabilidad: parseFloat(nuevoProductoRentabilidad.value).toFixed(2),
+        // rentabilidad: parseFloat(nuevoProductoRentabilidad.value).toFixed(2),
+        rentabilidad: ( parseFloat(nuevoProductoGanancia.value) / parseFloat(nuevoProductoPrecioCompra.value) ).toFixed(4), //  4 Decimales para poder representar % con 2 decimales de precisión luego...
         ganancia: parseFloat(nuevoProductoGanancia.value).toFixed(2),
         precio_venta: parseFloat(nuevoProductoPrecioVenta.value).toFixed(2),
         id_categoria: parseInt(nuevoProductoCategoria.value),
@@ -829,9 +830,13 @@ nuevoProductoPrecioCompra.addEventListener("change", () =>
     nuevoProductoPrecioCompra.value = nuevoProductoPrecioCompra.value.replace(/,/g, ".");
     nuevoProductoPrecioCompra.value = parseFloat(nuevoProductoPrecioCompra.value).toFixed(2);
 
-    // AJUSTAR RENTABILIDAD
+    // AJUSTAR RENTABILIDAD?
+
     // AJUSTAR GANANCIA
+    nuevoProductoGanancia.value = ( parseFloat(nuevoProductoPrecioCompra.value) * ( parseFloat(nuevoProductoRentabilidad.value) / 100 ) ).toFixed(2);
+
     // AJUSTAR PRECIO_VENTA
+    nuevoProductoPrecioVenta.value = ( parseFloat(nuevoProductoPrecioCompra.value) * ( parseFloat(1) + ( parseFloat(nuevoProductoRentabilidad.value) / 100 ) ) ).toFixed(2);
 });
 
 nuevoProductoRentabilidad.addEventListener("change", () =>
@@ -846,9 +851,13 @@ nuevoProductoRentabilidad.addEventListener("change", () =>
     nuevoProductoRentabilidad.value = nuevoProductoRentabilidad.value.replace(/,/g, ".");
     nuevoProductoRentabilidad.value = parseFloat(nuevoProductoRentabilidad.value).toFixed(2);
 
-    // AJUSTAR PRECIO_COMPRA
+    // AJUSTAR PRECIO_COMPRA?
+
     // AJUSTAR GANANCIA
+    nuevoProductoGanancia.value = ( parseFloat(nuevoProductoPrecioCompra.value) * ( parseFloat(nuevoProductoRentabilidad.value) / 100 ) ).toFixed(2);
+
     // AJUSTAR PRECIO_VENTA
+    nuevoProductoPrecioVenta.value = ( parseFloat(nuevoProductoPrecioCompra.value) * ( parseFloat(1) + ( parseFloat(nuevoProductoRentabilidad.value) / 100 ) ) ).toFixed(2);
 });
 
 nuevoProductoGanancia.addEventListener("change", () =>
@@ -863,9 +872,13 @@ nuevoProductoGanancia.addEventListener("change", () =>
     nuevoProductoGanancia.value = nuevoProductoGanancia.value.replace(/,/g, ".");
     nuevoProductoGanancia.value = parseFloat(nuevoProductoGanancia.value).toFixed(2);
 
-    // AJUSTAR PRECIO_COMPRA
+    // AJUSTAR PRECIO_COMPRA?
+
     // AJUSTAR RENTABILIDAD
+    nuevoProductoRentabilidad.value = ( ( parseFloat(nuevoProductoGanancia.value) / parseFloat(nuevoProductoPrecioCompra.value) ) * parseFloat(100) ).toFixed(2);
+
     // AJUSTAR PRECIO_VENTA
+    nuevoProductoPrecioVenta.value = ( parseFloat(nuevoProductoPrecioCompra.value) * ( parseFloat(1) + ( parseFloat(nuevoProductoRentabilidad.value) / 100 ) ) ).toFixed(2);
 });
 
 nuevoProductoPrecioVenta.addEventListener("change", () =>
@@ -880,8 +893,12 @@ nuevoProductoPrecioVenta.addEventListener("change", () =>
     nuevoProductoPrecioVenta.value = nuevoProductoPrecioVenta.value.replace(/,/g, ".");
     nuevoProductoPrecioVenta.value = parseFloat(nuevoProductoPrecioVenta.value).toFixed(2);
 
-    // AJUSTAR PRECIO_COMPRA
-    // AJUSTAR RENTABILIDAD
+    // AJUSTAR PRECIO_COMPRA?
+
     // AJUSTAR GANANCIA
+    nuevoProductoGanancia.value = ( parseFloat(nuevoProductoPrecioVenta.value) - parseFloat(nuevoProductoPrecioCompra.value) ).toFixed(2);
+
+    // AJUSTAR RENTABILIDAD
+    nuevoProductoRentabilidad.value = ( ( parseFloat(nuevoProductoGanancia.value) / parseFloat(nuevoProductoPrecioCompra.value) ) * parseFloat(100) ).toFixed(2);
 });
 // **************************************************************
