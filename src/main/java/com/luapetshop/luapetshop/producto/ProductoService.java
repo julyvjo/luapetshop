@@ -1,13 +1,18 @@
 package com.luapetshop.luapetshop.producto;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.luapetshop.luapetshop.repository.ICategoriaRepository;
 import com.luapetshop.luapetshop.repository.IProductoRepository;
@@ -18,6 +23,7 @@ import jakarta.transaction.Transactional;
 public class ProductoService {
 	private IProductoRepository productoRepository;
 	private ICategoriaRepository categoriaRepository;
+	private String IMAGE_DIR = "/imagenes";
 	
 	@Autowired
 	public ProductoService(IProductoRepository productoRepository, ICategoriaRepository categoriaRepository) {
@@ -72,20 +78,25 @@ public class ProductoService {
 		if( id_producto != 0 ) {
 			producto.setId_producto(id_producto);
 		}
-
+		
 		producto.setNombre( (String) datos.get("nombre"));
 		producto.setDescripcion((String) datos.get("descripcion"));
-		producto.setPrecio_compra((double) datos.get("precio_compra"));
-		producto.setRentabilidad((double) datos.get("rentabilidad"));
+		Double precio_compra = Double.valueOf((String)datos.get("precio_compra"));
+		Double rentabilidad = Double.valueOf((String)datos.get("rentabilidad"));
+		Double precio_venta = precio_compra + (precio_compra * rentabilidad);
+		Double ganancia = precio_compra * rentabilidad;
+		producto.setPrecio_compra(precio_compra);
+		producto.setRentabilidad(rentabilidad);
+		producto.setPrecio_venta(precio_venta);
+		producto.setGanancia(ganancia);
 		
 		Optional<Categoria> optionalCategoria = categoriaRepository.findById( (int) datos.get("id_categoria") );
 		producto.setCategoria( optionalCategoria.get() );
 		
-		producto.setGanancia( (double) datos.get("ganancia") );
-		producto.setPrecio_venta((double) datos.get("precio_venta") );
 		producto.setStock((int) datos.get("stock"));
 		
 		//imagen (almacenar imagen, guardar ruta en producto.imagen
+		
 		
 		return producto;
 	}
@@ -98,5 +109,42 @@ public class ProductoService {
 		
 		return null;
 	}
+	
+	protected void saveImagen(MultipartFile file) {
+		
+		try {
+            // Verificar imagen
+            if (!file.getContentType().startsWith("image")) {
+                //return ResponseEntity.badRequest().body("El archivo proporcionado no es una imagen válida.");
+            }
+
+            // Guarda la imagen en el sistema de archivos
+           // String fileName = UUID.randomUUID().toString() + "." + FilenameUtils.getExtension(file.getOriginalFilename());
+            //Path filePath = Paths.get(IMAGE_DIR, fileName);
+            //Files.copy(file.getInputStream(), filePath);
+
+            // Almacena la ruta en la base de datos
+//            ImageEntity imageEntity = new ImageEntity();
+//            imageEntity.setName(jsonData.getName());
+//            imageEntity.setDescription(jsonData.getDescription());
+//            imageEntity.setImageUrl(filePath.toString()); // Guarda la ruta completa
+//            imageRepository.save(imageEntity);
+
+            //return ResponseEntity.ok("Imagen cargada exitosamente. Ruta: " + filePath.toString());
+        } catch (Exception e) {
+            //return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al cargar la imagen.");
+        }
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

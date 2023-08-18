@@ -43,13 +43,15 @@ public class Venta {
 	private Movimiento movimiento2;
 	@OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<LineaVenta> lineasVenta = new ArrayList<LineaVenta>();
+	private Double ganancia;
 	
 	public Venta() {
 		super();
 	}
 
 	public Venta(MedioPago medio_pago1, MedioPago medio_pago2, LocalDateTime fecha, Double parcial1, Double parcial2,
-			Double total, char estado, Movimiento movimiento1, Movimiento movimiento2, List<LineaVenta> lineasVenta) {
+			Double total, char estado, Movimiento movimiento1, Movimiento movimiento2, List<LineaVenta> lineasVenta,
+			Double ganancia) {
 		super();
 		this.medio_pago1 = medio_pago1;
 		this.medio_pago2 = medio_pago2;
@@ -61,11 +63,12 @@ public class Venta {
 		this.movimiento1 = movimiento1;
 		this.movimiento2 = movimiento2;
 		this.lineasVenta = lineasVenta;
+		this.ganancia = ganancia;
 	}
 
 	public Venta(int id_venta, MedioPago medio_pago1, MedioPago medio_pago2, LocalDateTime fecha, Double parcial1,
 			Double parcial2, Double total, char estado, Movimiento movimiento1, Movimiento movimiento2,
-			List<LineaVenta> lineasVenta) {
+			List<LineaVenta> lineasVenta, Double ganancia) {
 		super();
 		this.id_venta = id_venta;
 		this.medio_pago1 = medio_pago1;
@@ -78,8 +81,16 @@ public class Venta {
 		this.movimiento1 = movimiento1;
 		this.movimiento2 = movimiento2;
 		this.lineasVenta = lineasVenta;
+		this.ganancia = ganancia;
 	}
 
+	public Double getGanancia() {
+		return ganancia;
+	}
+
+	public void setGanancia(Double ganancia) {
+		this.ganancia = ganancia;
+	}
 
 	public List<LineaVenta> getLineasVenta() {
 		return lineasVenta;

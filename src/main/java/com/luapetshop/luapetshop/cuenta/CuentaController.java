@@ -1,5 +1,6 @@
 package com.luapetshop.luapetshop.cuenta;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -35,6 +36,17 @@ public class CuentaController {
 		List<Cuenta> cuentas = cuentaService.getCuentas();
 		
 		model.addAttribute("cuentas", cuentas);
+		
+		//ganancia total
+		Double ganancia_total = cuentaService.getGananciaTotalDelDia();
+		if(ganancia_total == null)
+			ganancia_total = 0.0;
+		model.addAttribute("ganancia_total", ganancia_total);
+		
+		//fecha apertura/cierre
+		LocalDateTime fecha_apertura = cuentaService.getFechaApertura();
+		model.addAttribute("fecha_apertura", fecha_apertura);
+		
 		return "caja";
 	}
 	

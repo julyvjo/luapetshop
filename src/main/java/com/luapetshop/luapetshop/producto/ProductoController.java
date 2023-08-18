@@ -93,7 +93,6 @@ public class ProductoController {
         
 		System.out.println(datos.toString());
 		
-		
 		try {
 			
 			productoService.agregarProducto(datos);
@@ -104,5 +103,23 @@ public class ProductoController {
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(datos.toString());
     }
 	
+	/*
+        // codigo_producto: 0, // (0 si no tiene un código de barras asignado)
+				"id_producto": 1, (0 si es nuevo, otro si es modif)
+        "nombre": "nombre",
+				"descripcion":"descripcion",
+				// id_proveedor: 0, // (0 si no tiene asignado un proveedor)
+        //  "precio_compra": 0.00,
+        "precio_compra": "0.00",
+        //  "rentabilidad": 0.2, // (porcentaje de ganancia)
+        "rentabilidad": "0.20", // (porcentaje de ganancia)
+				//  "ganancia": 0.00,
+				"ganancia": "0.00",
+				//  "precio_venta": 0.00,
+				"precio_venta": "0.00",
+				"id_categoria": 1, // (no puede ser cero nunca)
+				"stock": 0,
+				"imagen": "base64"
+	*/
 	
 }

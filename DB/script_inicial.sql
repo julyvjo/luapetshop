@@ -37,12 +37,14 @@ CREATE TABLE cuenta (
     saldo DECIMAL(12, 2)
 );
 
+
 CREATE TABLE movimiento (
 	id_movimiento INT AUTO_INCREMENT PRIMARY KEY,
 	id_cuenta INT,
 	fecha DATETIME,
 	monto DECIMAL(12, 2),
 	tipo char,
+	comision DECIMAL(12, 2),
 	FOREIGN KEY (id_cuenta) REFERENCES cuenta (id_cuenta)
 );
 
@@ -76,6 +78,7 @@ CREATE TABLE venta (
     parcial2 DECIMAL(12, 2),
     fecha DATETIME,
     total DECIMAL(12, 2),
+    ganancia DECIMAL(12, 2),
     estado char,
     FOREIGN KEY (id_movimiento1) REFERENCES movimiento (id_movimiento),
     FOREIGN KEY (id_movimiento2) REFERENCES movimiento (id_movimiento),
@@ -259,4 +262,7 @@ VALUES
  
  -- Querys propias para testing
 
+SELECT * FROM compra
+WHERE fecha >= (SELECT fecha_apertura FROM cuenta limit 1)
+ORDER BY fecha desc;
 

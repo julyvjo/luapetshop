@@ -55,7 +55,7 @@
           <script>
             function enviarArchivoCSV() {
                 const fileInput = document.getElementById('csvFileInput');
-                const tipoSelect = document.getElementById('tipo');
+                const tipoSelect = document.getElementById('proveedor');
 
                 const selectedFile = fileInput.files[0];
                 const selectedTipo = tipoSelect.value;
@@ -96,12 +96,11 @@
             <form>
               <input type="file" id="csvFileInput" accept=".csv" />
               
-              <label for="tipo">Seleccionar opción:</label>
-              <select id="tipo">
-                  <option value="todo">Importar todo</option>
-                  <option value="precios">Importar precios</option>
+              <label for="proveedor">Seleccionar Proveedor:</label>
+              <select id="proveedor">
+                  <option value="0">SELECCIONAR PROVEEDOR</option>
+                  <option th:each="item: ${proveedores}" th:value="${item.id_proveedor}" th:text="${item.nombre}"></option>
               </select>
-
 
               <button type="button" onclick="enviarArchivoCSV()">Subir CSV</button>
             </form>

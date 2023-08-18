@@ -24,12 +24,24 @@ public class Movimiento {
 	private double monto;
 	private char tipo;
 	private String motivo;
+	private Double comision;
 	
 	public Movimiento() {
 		super();
 	}
 
-	public Movimiento(int id_movimiento, Cuenta cuenta, LocalDateTime fecha, double monto, char tipo, String motivo) {
+	public Movimiento(Cuenta cuenta, LocalDateTime fecha, double monto, char tipo, String motivo, Double comision) {
+		super();
+		this.cuenta = cuenta;
+		this.fecha = fecha;
+		this.monto = monto;
+		this.tipo = tipo;
+		this.motivo = motivo;
+		this.comision = comision;
+	}
+
+	public Movimiento(int id_movimiento, Cuenta cuenta, LocalDateTime fecha, double monto, char tipo, String motivo,
+			Double comision) {
 		super();
 		this.id_movimiento = id_movimiento;
 		this.cuenta = cuenta;
@@ -37,15 +49,15 @@ public class Movimiento {
 		this.monto = monto;
 		this.tipo = tipo;
 		this.motivo = motivo;
+		this.comision = comision;
 	}
 
-	public Movimiento(Cuenta cuenta, LocalDateTime fecha, double monto, char tipo, String motivo) {
-		super();
-		this.cuenta = cuenta;
-		this.fecha = fecha;
-		this.monto = monto;
-		this.tipo = tipo;
-		this.motivo = motivo;
+	public Double getComision() {
+		return comision;
+	}
+
+	public void setComision(Double comision) {
+		this.comision = comision;
 	}
 
 	public String getMotivo() {

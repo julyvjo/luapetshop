@@ -61,4 +61,18 @@ public class CuentaService {
 //		 motivo
 		movimientoRepository.save(movimiento);
 	}
+
+
+
+	public Double getGananciaTotalDelDia() {
+		
+		return cuentaRepository.findGananciaTotalDelDia();
+	}
+
+
+
+	public LocalDateTime getFechaApertura() {
+		
+		return cuentaRepository.findFechaApertura();
+	}
 }

@@ -78,12 +78,16 @@ public class VentaService {
 			movimiento1.setMonto(parcial1);
 			//tipo C = compra
 			movimiento1.setTipo('V');
+			//comision1
+			Double comision1 = mp1.getModificador() * parcial1;
+			movimiento1.setComision(comision1);
 			//save
 			movimientoRepository.save(movimiento1);
 		
 		//crear movimiento 2
 		Movimiento movimiento2 = null;
 		Cuenta cuenta2 = null;
+		Double comision2 = null;
 		if(id_medio_pago2 != 0) {
 			//crear movimiento 2
 			movimiento2 = new Movimiento();
@@ -96,6 +100,9 @@ public class VentaService {
 			movimiento2.setMonto(parcial2);
 			//tipo C = compra
 			movimiento2.setTipo('V');
+			//comision2
+			comision2 = mp2.getModificador() * parcial2;
+			movimiento2.setComision(comision2);
 			//save
 			movimientoRepository.save(movimiento2);
 		}
@@ -127,6 +134,8 @@ public class VentaService {
 			//SAVE preventivo para agregar lineas de venta
 			ventaRepository.save(venta);
 			
+			//sumatoria de precio_compra de todos los productos
+			Double total_compra = 0.0;
 	        //setear las lineas de venta
 	        List<Map<String, Object>> lines = (List<Map<String, Object>>) datos.get("lineas_venta");
 	        for( Map<String, Object> line : lines ) {
@@ -151,10 +160,19 @@ public class VentaService {
 	        	//modificar stock del producto
 	        	int stock_actual = prod.getStock();
 	        	prod.setStock(stock_actual - cantidad);
+	        	
+	        	//acumulamos precio_compra del producto por la cantidad vendida
+	        	total_compra += prod.getPrecio_compra() * cantidad;
+	        	
 	        	//guardar producto
 	        	productoRepository.save(prod);
 	        }
         
+	        //ganancia
+	        Double ganancia = total - total_compra - comision1;
+	        if(id_medio_pago2 != 0 && comision2 != null)
+	        	ganancia -= comision2;
+	        
 	        //save venta y respectivas lineas
 	        ventaRepository.save(venta);
 	        
