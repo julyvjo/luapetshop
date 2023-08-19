@@ -47,7 +47,9 @@
                 </div>
                 <div>
                     <button id="botonCerrarCaja">CERRAR CAJA DIARIA</button>
-                    <div>( Desde 14-07-2023 00:00 )</div>
+                    <!-- <div>( Desde 14-07-2023 00:00 )</div> -->
+                    <!-- <div th:text="${fecha_apertura}"></div> -->
+                    <div th:text="'( Desde ' + ${#temporals.format(fecha_apertura, 'dd-MM-yyyy HH:mm')} + ' )'"></div>
                 </div>
             </div>
         </div>
