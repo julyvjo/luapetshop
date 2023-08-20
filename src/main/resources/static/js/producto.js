@@ -252,16 +252,29 @@ function enviarNuevoProducto()
     }
 
     //formdata.append('data', JSON.stringify(datosProducto))
-    formdata = new FormData()
-    formdata.append('id_producto', 0)
-    formdata.append('nombre', nuevoProductoNombre.value)
-    formdata.append('id_proveedor', parseInt(nuevoProductoProveedor.value))
     //formdata.append('', )
-    formdata.append('imagen', nuevoProductoImagen)
+
+    formdata = new FormData();
+
+    // formdata.append('codigo_producto', 0);
+
+    formdata.append('id_producto', 0);
+    formdata.append('nombre', nuevoProductoNombre.value);
+
+    // formdata.append('descripcion', nuevoProductoDescripcion.value);
+
+    formdata.append('id_proveedor', parseInt(nuevoProductoProveedor.value));
+    formdata.append('precio_compra', parseFloat(nuevoProductoPrecioCompra.value));
+    formdata.append('rentabilidad', parseFloat(nuevoProductoRentabilidad.value));
+    formdata.append('ganancia', parseFloat(nuevoProductoGanancia.value));
+    formdata.append('precio_venta', parseFloat(nuevoProductoPrecioVenta.value));
+    formdata.append('id_categoria', parseInt(nuevoProductoCategoria.value));
+    formdata.append('stock', parseInt(nuevoProductoStock.value));
+    formdata.append('imagen', nuevoProductoImagen);
 
     // ENVIAR AL BACKEND
     // console.log("ENVIANDO datosProducto desde NUEVO PRODUCTO...", datosProducto);
-    entregarProducto();
+    entregarProducto(formdata);
 }
 
 
@@ -619,9 +632,27 @@ function enviarEditorLinea()
         // imagen: editorLineaImagen.value,
     }
 
+    formdata = new FormData();
+
+    // formdata.append('codigo_producto', 0);
+
+    formdata.append('id_producto', 0);
+    formdata.append('nombre', editorLineaNombre.value);
+
+    // formdata.append('descripcion', editorLineaDescripcion.value);
+
+    formdata.append('id_proveedor', parseInt(editorLineaProveedor.value));
+    formdata.append('precio_compra', parseFloat(editorLineaPrecioCompra.value));
+    formdata.append('rentabilidad', parseFloat(editorLineaRentabilidad.value));
+    formdata.append('ganancia', parseFloat(editorLineaGanancia.value));
+    formdata.append('precio_venta', parseFloat(editorLineaPrecioVenta.value));
+    formdata.append('id_categoria', parseInt(editorLineaCategoria.value));
+    formdata.append('stock', parseInt(editorLineaStock.value));
+    formdata.append('imagen', editorLineaImagen);
+
     // ENVIAR AL BACKEND
     // console.log("ENVIANDO datosProducto desde EDITOR LINEA...", datosProducto);
-    entregarProducto();
+    entregarProducto(formdata);
 }
 
 function reiniciarEditorLinea()
@@ -698,7 +729,7 @@ function iniciarDatosProducto()
     }
 }
 
-function entregarProducto()
+function entregarProducto(formdata)
 {
     //const JSON_DATA = JSON.stringify(datosProducto);
 
@@ -749,6 +780,7 @@ if (arrayBotonFoto.length !== 0)
 
             const MODAL_FOTO_IMAGEN = document.getElementById("modalFotoImagen");
             MODAL_FOTO_IMAGEN.setAttribute("src", `${window.location.origin}/img/prod/${IMAGEN}`);
+            // MODAL_FOTO_IMAGEN.setAttribute("src", `/img/prod/${IMAGEN}`);
             // MODAL_FOTO_IMAGEN.setAttribute("src", `${window.location.origin}/img/site/${IMAGEN}`);
         });
     });
