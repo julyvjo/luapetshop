@@ -23,15 +23,15 @@
                         <div>VARIACIÓN Saldo ($)</div>
                         <div th:text="${#numbers.formatDecimal(item.saldo - item.saldo_inicial, 1, 2)}"></div>
                     </div>
-                    <!-- <div>
-                        <div>ACTUALIZADO</div>
-                        <div th:text="${#temporals.format(item.actualizado, 'dd-MM-yyyy HH:mm')}"></div>
-                    </div> -->
                     <div>
-                        <div>GANANCIA TOTAL ($)</div>
-                        <!-- <div th:text="${#numbers.formatDecimal(item.ganancia, 1, 2)}"></div> -->
-                        <div>$ 0.00</div>
+                        <div>ACTUALIZADO</div>
+                        <div th:text="${#temporals.format(item.fecha_apertura, 'dd-MM-yyyy HH:mm')}"></div>
                     </div>
+                    <!-- <div> -->
+                        <!-- <div>GANANCIA TOTAL ($)</div> -->
+                        <!-- <div th:text="${#numbers.formatDecimal(item.ganancia_total, 1, 2)}"></div> -->
+                        <!-- <div>$ 0.00</div> -->
+                    <!-- </div> -->
                     <div>
                         <button class="appCajaDetalles" th:data-id-cuenta="${item.id_cuenta}">DETALLES</button>
                     </div>
@@ -47,7 +47,9 @@
                 </div>
                 <div>
                     <button id="botonCerrarCaja">CERRAR CAJA DIARIA</button>
-                    <div>( Desde 12-08-2023 16:22 )</div>
+                    <!-- <div>( Desde 14-07-2023 00:00 )</div> -->
+                    <!-- <div th:text="${fecha_apertura}"></div> -->
+                    <div th:text="'( Desde ' + ${#temporals.format(fecha_apertura, 'dd-MM-yyyy HH:mm')} + ' )'"></div>
                 </div>
             </div>
         </div>
