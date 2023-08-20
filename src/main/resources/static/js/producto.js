@@ -230,7 +230,7 @@ function enviarNuevoProducto()
     const nuevoProductoPrecioVenta = document.getElementById("modalNuevoProductoPrecioVenta");
     const nuevoProductoCategoria = document.getElementById("modalNuevoProductoCategoria");
     const nuevoProductoStock = document.getElementById("modalNuevoProductoStock");
-    // const nuevoProductoImagen = document.getElementById("modalNuevoProductoImagen");
+    const nuevoProductoImagen = document.getElementById("modalNuevoProductoImagen").files[0];
 
     datosProducto = {
         // codigo_producto: 0,
@@ -247,8 +247,17 @@ function enviarNuevoProducto()
         precio_venta: parseFloat(nuevoProductoPrecioVenta.value).toFixed(2),
         id_categoria: parseInt(nuevoProductoCategoria.value),
         stock: parseInt(nuevoProductoStock.value),
-        // imagen: nuevoProductoImagen.value,
+        //imagen: nuevoProductoImagen
+        //imagen: nuevoProductoImagen.value,
     }
+
+    //formdata.append('data', JSON.stringify(datosProducto))
+    formdata = new FormData()
+    formdata.append('id_producto', 0)
+    formdata.append('nombre', nuevoProductoNombre.value)
+    formdata.append('id_proveedor', parseInt(nuevoProductoProveedor.value))
+    //formdata.append('', )
+    formdata.append('imagen', nuevoProductoImagen)
 
     // ENVIAR AL BACKEND
     // console.log("ENVIANDO datosProducto desde NUEVO PRODUCTO...", datosProducto);
@@ -691,19 +700,21 @@ function iniciarDatosProducto()
 
 function entregarProducto()
 {
-    const JSON_DATA = JSON.stringify(datosProducto);
+    //const JSON_DATA = JSON.stringify(datosProducto);
 
     const HEADERS = new Headers();
-    HEADERS.append('Content-Type', 'application/json');
+    //HEADERS.append('Content-Type', 'application/json');
 
     const API_URL = "/new/producto";
 
     const LINK = new URL(API_URL, window.location.origin);
 
+
     fetch(LINK, {
         method: 'POST',
         headers: HEADERS,
-        body: JSON_DATA
+        body: formdata
+        //body: JSON_DATA
     })
 
     // .then(response => response.json())
