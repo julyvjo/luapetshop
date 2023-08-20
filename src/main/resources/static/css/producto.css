@@ -97,6 +97,11 @@
     gap: 2vw;
 }
 
+#productoModalNuevoProducto > div:nth-child(5) > input
+{
+    border: solid 1px var(--primary);
+}
+
 /* #productoModalNuevoProducto > div:nth-child(3)
 {
     width: ;
@@ -181,6 +186,11 @@
     justify-content: space-around;
     align-items: flex-start;
     gap: 2vw;
+}
+
+#productoModalEditorLinea > div:nth-child(5) > input
+{
+    border: solid 1px var(--primary);
 }
 
 #productoModalEditorLinea > div,
