@@ -230,7 +230,7 @@ function enviarNuevoProducto()
     const nuevoProductoPrecioVenta = document.getElementById("modalNuevoProductoPrecioVenta");
     const nuevoProductoCategoria = document.getElementById("modalNuevoProductoCategoria");
     const nuevoProductoStock = document.getElementById("modalNuevoProductoStock");
-    const nuevoProductoImagen = document.getElementById("modalNuevoProductoImagen").files[0];
+    const nuevoProductoFile = document.getElementById("modalNuevoProductoFile").files[0];
 
     // datosProducto.append('codigo_producto', 0);
 
@@ -239,14 +239,14 @@ function enviarNuevoProducto()
 
     // datosProducto.append('descripcion', nuevoProductoDescripcion.value);
 
-    datosProducto.append('id_proveedor', parseInt(nuevoProductoProveedor.value));
+    datosProducto.append('proveedor', parseInt(nuevoProductoProveedor.value));
     datosProducto.append('precio_compra', parseFloat(nuevoProductoPrecioCompra.value));
     datosProducto.append('rentabilidad', parseFloat(nuevoProductoRentabilidad.value));
     datosProducto.append('ganancia', parseFloat(nuevoProductoGanancia.value));
     datosProducto.append('precio_venta', parseFloat(nuevoProductoPrecioVenta.value));
-    datosProducto.append('id_categoria', parseInt(nuevoProductoCategoria.value));
+    datosProducto.append('categoria', parseInt(nuevoProductoCategoria.value));
     datosProducto.append('stock', parseInt(nuevoProductoStock.value));
-    datosProducto.append('imagen', nuevoProductoImagen);
+    datosProducto.append('file', nuevoProductoFile);
 
     // ENVIAR AL BACKEND
     entregarProducto();
@@ -270,7 +270,7 @@ function reiniciarNuevoProducto()
     const nuevoProductoPrecioVenta = document.getElementById("modalNuevoProductoPrecioVenta");
     const nuevoProductoCategoria = document.getElementById("modalNuevoProductoCategoria");
     const nuevoProductoStock = document.getElementById("modalNuevoProductoStock");
-    const nuevoProductoImagen = document.getElementById("modalNuevoProductoImagen");
+    const nuevoProductoFile = document.getElementById("modalNuevoProductoFile");
 
     // nuevoProductoCodigo.value = "";
     nuevoProductoNombre.value = "";
@@ -282,7 +282,7 @@ function reiniciarNuevoProducto()
     nuevoProductoPrecioVenta.value = "0.00";
     nuevoProductoCategoria.value = "0";
     nuevoProductoStock.value = "0";
-    nuevoProductoImagen.value = "";
+    nuevoProductoFile.value = "";
 
     datosProducto = new FormData();
 }
@@ -588,26 +588,24 @@ function enviarEditorLinea()
     const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
     const editorLineaCategoria = document.getElementById("modalEditorLineaCategoria");
     const editorLineaStock = document.getElementById("modalEditorLineaStock");
-    // const editorLineaImagen = document.getElementById("modalEditorLineaImagen");
+    const editorLineaFile = document.getElementById("modalEditorLineaFile");
     const editorLineaID = document.getElementById("modalEditorLineaId");
-
-    datosProducto = new datosProducto();
 
     // datosProducto.append('codigo_producto', 0);
 
-    datosProducto.append('id_producto', 0);
+    datosProducto.append('id_producto', parseInt(editorLineaID.value));
     datosProducto.append('nombre', editorLineaNombre.value);
 
     // datosProducto.append('descripcion', editorLineaDescripcion.value);
 
-    datosProducto.append('id_proveedor', parseInt(editorLineaProveedor.value));
+    datosProducto.append('proveedor', parseInt(editorLineaProveedor.value));
     datosProducto.append('precio_compra', parseFloat(editorLineaPrecioCompra.value));
     datosProducto.append('rentabilidad', parseFloat(editorLineaRentabilidad.value));
     datosProducto.append('ganancia', parseFloat(editorLineaGanancia.value));
     datosProducto.append('precio_venta', parseFloat(editorLineaPrecioVenta.value));
-    datosProducto.append('id_categoria', parseInt(editorLineaCategoria.value));
+    datosProducto.append('categoria', parseInt(editorLineaCategoria.value));
     datosProducto.append('stock', parseInt(editorLineaStock.value));
-    datosProducto.append('imagen', editorLineaImagen);
+    datosProducto.append('file', editorLineaFile);
 
     // ENVIAR AL BACKEND
     entregarProducto();
@@ -630,7 +628,7 @@ function reiniciarEditorLinea()
     const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
     const editorLineaCategoria = document.getElementById("modalEditorLineaCategoria");
     const editorLineaStock = document.getElementById("modalEditorLineaStock");
-    const editorLineaImagen = document.getElementById("modalEditorLineaRutaImagen");
+    const editorLineaFile = document.getElementById("modalEditorLineaFile");
 
     // editorLineaCodigo.value = "";
     editorLineaNombre.value = "";
@@ -642,7 +640,7 @@ function reiniciarEditorLinea()
     editorLineaPrecioVenta.value = "0.00"; 
     editorLineaCategoria.value = "0"; 
     editorLineaStock.value = "0"; 
-    editorLineaImagen.value = "";
+    editorLineaFile.value = "";
 
     datosProducto = new FormData();
 }
