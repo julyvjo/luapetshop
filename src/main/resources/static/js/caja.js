@@ -159,24 +159,6 @@ function reiniciarMovimientoExcepcional()
 
 
 
-// CERRAR CAJA BUTTON
-
-const cerrarCaja = document.getElementById('botonCerrarCaja');
-
-if (cerrarCaja)
-{
-    cerrarCaja.addEventListener("click", (e) =>
-    {
-        mostrarModal("modalCerrarCaja");
-    });
-
-    // I implemented it like this because script.js has "defer" attribute.
-    // If in the future this changes, this needs to be implemented inside an Event Listener.
-}
-// **************************************************************
-
-
-
 // SALDO TOTAL
 
 const SALDO_TOTAL = document.getElementById("appCajaSaldoTotal");
@@ -187,4 +169,132 @@ SALDOS_CUENTAS.forEach(element =>
 {
     SALDO_TOTAL.textContent = ( parseFloat(SALDO_TOTAL.textContent) + parseFloat(element.textContent) ).toFixed(2);
 });
+// **************************************************************
+
+
+
+// CERRAR CAJA DIARIA BUTTON
+
+const cerrarCaja = document.getElementById('botonCerrarCaja');
+
+if (cerrarCaja)
+{
+    cerrarCaja.addEventListener("click", (e) =>
+    {
+        mostrarModal("modalCerrarCaja");
+    });
+}
+// **************************************************************
+
+
+
+// CONTADOR EFECTIVO
+
+const MINUS10 = document.getElementById("cerrarCajaContadorMinus10");
+const CONTADOR10 = document.getElementById("cerrarCajaContador10");
+const PLUS10 = document.getElementById("cerrarCajaContadorPlus10");
+cerrarCajaEventListeners(CONTADOR10, MINUS10, PLUS10);
+
+const MINUS20 = document.getElementById("cerrarCajaContadorMinus20");
+const CONTADOR20 = document.getElementById("cerrarCajaContador20");
+const PLUS20 = document.getElementById("cerrarCajaContadorPlus20");
+cerrarCajaEventListeners(CONTADOR20, MINUS20, PLUS20);
+
+const MINUS50 = document.getElementById("cerrarCajaContadorMinus50");
+const CONTADOR50 = document.getElementById("cerrarCajaContador50");
+const PLUS50 = document.getElementById("cerrarCajaContadorPlus50");
+cerrarCajaEventListeners(CONTADOR50, MINUS50, PLUS50);
+
+const MINUS100 = document.getElementById("cerrarCajaContadorMinus100");
+const CONTADOR100 = document.getElementById("cerrarCajaContador100");
+const PLUS100 = document.getElementById("cerrarCajaContadorPlus100");
+cerrarCajaEventListeners(CONTADOR100, MINUS100, PLUS100);
+
+const MINUS200 = document.getElementById("cerrarCajaContadorMinus200");
+const CONTADOR200 = document.getElementById("cerrarCajaContador200");
+const PLUS200 = document.getElementById("cerrarCajaContadorPlus200");
+cerrarCajaEventListeners(CONTADOR200, MINUS200, PLUS200);
+
+const MINUS500 = document.getElementById("cerrarCajaContadorMinus500");
+const CONTADOR500 = document.getElementById("cerrarCajaContador500");
+const PLUS500 = document.getElementById("cerrarCajaContadorPlus500");
+cerrarCajaEventListeners(CONTADOR500, MINUS500, PLUS500);
+
+const MINUS1000 = document.getElementById("cerrarCajaContadorMinus1000");
+const CONTADOR1000 = document.getElementById("cerrarCajaContador1000");
+const PLUS1000 = document.getElementById("cerrarCajaContadorPlus1000");
+cerrarCajaEventListeners(CONTADOR1000, MINUS1000, PLUS1000);
+
+const MINUS2000 = document.getElementById("cerrarCajaContadorMinus2000");
+const CONTADOR2000 = document.getElementById("cerrarCajaContador2000");
+const PLUS2000 = document.getElementById("cerrarCajaContadorPlus2000");
+cerrarCajaEventListeners(CONTADOR2000, MINUS2000, PLUS2000);
+
+function cerrarCajaEventListeners(CONTADOR, MINUS, PLUS)
+{
+    CONTADOR.addEventListener("change", () =>
+    {
+        console.log("hola");
+    });
+
+    CONTADOR.addEventListener("keydown", (e) =>
+    {
+        e.preventDefault();
+
+        if (e.key === "ArrowUp" || e.key === "ArrowRight")
+        {
+            CONTADOR.value = parseInt(CONTADOR.value) + 1;
+        }
+        else if (e.key === "ArrowDown" || e.key === "ArrowLeft")
+        {
+            if (parseInt(CONTADOR.value) - 1 < 0)
+            {
+                console.log("ERROR: La cantidad de billetes tiene que ser positiva!");
+                return;
+            }
+            
+            CONTADOR.value = parseInt(CONTADOR.value) - 1;
+        }
+
+        cerrarCajaActualizarTotal();
+    });
+
+    MINUS.addEventListener("click", () =>
+    {
+        if (parseInt(CONTADOR.value) - 1 < 0)
+        {
+            console.log("ERROR: La cantidad de billetes tiene que ser positiva!");
+            return;
+        }
+        
+        CONTADOR.value = parseInt(CONTADOR.value) - 1;
+
+        cerrarCajaActualizarTotal();
+    });
+
+    PLUS.addEventListener("click", () =>
+    {
+        CONTADOR.value = parseInt(CONTADOR.value) + 1;
+
+        cerrarCajaActualizarTotal();
+    });
+}
+
+function cerrarCajaActualizarTotal()
+{
+    const TOTAL = document.getElementById("cerrarCajaTotalContador");
+
+    let total = parseFloat(0);
+
+    total += parseFloat(CONTADOR10.value) * 10;
+    total += parseFloat(CONTADOR20.value) * 20;
+    total += parseFloat(CONTADOR50.value) * 50;
+    total += parseFloat(CONTADOR100.value) * 100;
+    total += parseFloat(CONTADOR200.value) * 200;
+    total += parseFloat(CONTADOR500.value) * 500;
+    total += parseFloat(CONTADOR1000.value) * 1000;
+    total += parseFloat(CONTADOR2000.value) * 2000;
+
+    TOTAL.textContent = total.toFixed(2);
+}
 // **************************************************************
