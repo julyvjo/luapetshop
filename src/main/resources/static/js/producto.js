@@ -251,30 +251,25 @@ function enviarNuevoProducto()
         //imagen: nuevoProductoImagen.value,
     }
 
-    //formdata.append('data', JSON.stringify(datosProducto))
-    //formdata.append('', )
+    // datosProductoFormData.append('codigo_producto', 0);
 
-    formdata = new FormData();
+    datosProductoFormData.append('id_producto', 0);
+    datosProductoFormData.append('nombre', nuevoProductoNombre.value);
 
-    // formdata.append('codigo_producto', 0);
+    // datosProductoFormData.append('descripcion', nuevoProductoDescripcion.value);
 
-    formdata.append('id_producto', 0);
-    formdata.append('nombre', nuevoProductoNombre.value);
-
-    // formdata.append('descripcion', nuevoProductoDescripcion.value);
-
-    formdata.append('id_proveedor', parseInt(nuevoProductoProveedor.value));
-    formdata.append('precio_compra', parseFloat(nuevoProductoPrecioCompra.value));
-    formdata.append('rentabilidad', parseFloat(nuevoProductoRentabilidad.value));
-    formdata.append('ganancia', parseFloat(nuevoProductoGanancia.value));
-    formdata.append('precio_venta', parseFloat(nuevoProductoPrecioVenta.value));
-    formdata.append('id_categoria', parseInt(nuevoProductoCategoria.value));
-    formdata.append('stock', parseInt(nuevoProductoStock.value));
-    formdata.append('imagen', nuevoProductoImagen);
+    datosProductoFormData.append('id_proveedor', parseInt(nuevoProductoProveedor.value));
+    datosProductoFormData.append('precio_compra', parseFloat(nuevoProductoPrecioCompra.value));
+    datosProductoFormData.append('rentabilidad', parseFloat(nuevoProductoRentabilidad.value));
+    datosProductoFormData.append('ganancia', parseFloat(nuevoProductoGanancia.value));
+    datosProductoFormData.append('precio_venta', parseFloat(nuevoProductoPrecioVenta.value));
+    datosProductoFormData.append('id_categoria', parseInt(nuevoProductoCategoria.value));
+    datosProductoFormData.append('stock', parseInt(nuevoProductoStock.value));
+    datosProductoFormData.append('imagen', nuevoProductoImagen);
 
     // ENVIAR AL BACKEND
     // console.log("ENVIANDO datosProducto desde NUEVO PRODUCTO...", datosProducto);
-    entregarProducto(formdata);
+    entregarProducto();
 }
 
 
@@ -308,6 +303,8 @@ function reiniciarNuevoProducto()
     nuevoProductoCategoria.value = "0";
     nuevoProductoStock.value = "0";
     // nuevoProductoImagen.value = "";
+
+    datosProductoFormData = new FormData();
 }
 // **************************************************************
 
@@ -632,27 +629,27 @@ function enviarEditorLinea()
         // imagen: editorLineaImagen.value,
     }
 
-    formdata = new FormData();
+    datosProductoFormData = new datosProductoFormData();
 
-    // formdata.append('codigo_producto', 0);
+    // datosProductoFormData.append('codigo_producto', 0);
 
-    formdata.append('id_producto', 0);
-    formdata.append('nombre', editorLineaNombre.value);
+    datosProductoFormData.append('id_producto', 0);
+    datosProductoFormData.append('nombre', editorLineaNombre.value);
 
-    // formdata.append('descripcion', editorLineaDescripcion.value);
+    // datosProductoFormData.append('descripcion', editorLineaDescripcion.value);
 
-    formdata.append('id_proveedor', parseInt(editorLineaProveedor.value));
-    formdata.append('precio_compra', parseFloat(editorLineaPrecioCompra.value));
-    formdata.append('rentabilidad', parseFloat(editorLineaRentabilidad.value));
-    formdata.append('ganancia', parseFloat(editorLineaGanancia.value));
-    formdata.append('precio_venta', parseFloat(editorLineaPrecioVenta.value));
-    formdata.append('id_categoria', parseInt(editorLineaCategoria.value));
-    formdata.append('stock', parseInt(editorLineaStock.value));
-    formdata.append('imagen', editorLineaImagen);
+    datosProductoFormData.append('id_proveedor', parseInt(editorLineaProveedor.value));
+    datosProductoFormData.append('precio_compra', parseFloat(editorLineaPrecioCompra.value));
+    datosProductoFormData.append('rentabilidad', parseFloat(editorLineaRentabilidad.value));
+    datosProductoFormData.append('ganancia', parseFloat(editorLineaGanancia.value));
+    datosProductoFormData.append('precio_venta', parseFloat(editorLineaPrecioVenta.value));
+    datosProductoFormData.append('id_categoria', parseInt(editorLineaCategoria.value));
+    datosProductoFormData.append('stock', parseInt(editorLineaStock.value));
+    datosProductoFormData.append('imagen', editorLineaImagen);
 
     // ENVIAR AL BACKEND
     // console.log("ENVIANDO datosProducto desde EDITOR LINEA...", datosProducto);
-    entregarProducto(formdata);
+    entregarProducto();
 }
 
 function reiniciarEditorLinea()
@@ -684,7 +681,9 @@ function reiniciarEditorLinea()
     editorLineaPrecioVenta.value = "0.00"; 
     editorLineaCategoria.value = "0"; 
     editorLineaStock.value = "0"; 
-    // editorLineaImagen.value = ""; 
+    // editorLineaImagen.value = "";
+
+    datosProductoFormData = new FormData();
 }
 // **************************************************************
 
@@ -709,6 +708,8 @@ let datosProducto = {
     // imagen: "base64"
 }
 
+let datosProductoFormData = new FormData();
+
 function iniciarDatosProducto()
 {
     datosProducto = {
@@ -729,7 +730,7 @@ function iniciarDatosProducto()
     }
 }
 
-function entregarProducto(formdata)
+function entregarProducto()
 {
     //const JSON_DATA = JSON.stringify(datosProducto);
 
@@ -744,7 +745,7 @@ function entregarProducto(formdata)
     fetch(LINK, {
         method: 'POST',
         headers: HEADERS,
-        body: formdata
+        body: datosProductoFormData
         //body: JSON_DATA
     })
 
