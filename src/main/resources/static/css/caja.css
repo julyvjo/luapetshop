@@ -235,6 +235,99 @@
     justify-content: center;
     align-items: center;
 }
+
+#modalCerrarCaja > div.modal-dialog
+{
+    max-width: 75vw;
+
+}
+
+#modalCerrarCajaTitle
+{
+    color: var(--bearWhite);
+}
+
+#modalCerrarCajaBody
+{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+
+    color: var(--bearWhite);
+}
+
+#modalCerrarCajaBody > div:first-child
+{
+    /* CONTAINER CONTADOR EFECTIVO Y SALDO EFECTIVO */
+    display: flex;
+    gap: 2vw;
+}
+
+#modalCerrarCajaBody > div:first-child > div:first-child
+{
+    /* CONTADOR EFECTIVO */
+
+    margin: 0;
+    padding: 1vh;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+#modalCerrarCajaBody > div:first-child > div:first-child > div:first-child
+{
+    /* TITULO CONTADOR EFECTIVO */
+
+    background-color: var(--accent);
+    border: 0;
+    border-radius: 1vw;
+
+}
+
+#modalCerrarCajaBody > div:first-child > div:first-child > div:nth-child(2)
+{
+    /* INPUTS EFECTIVO */
+
+    display: flex;
+    gap: 2vw;
+}
+
+#modalCerrarCajaBody > div:first-child > div:first-child > div:last-child > div:first-child
+{
+    /* TITULO TOTAL CONTADOR EFECTIVO */
+
+    background-color: var(--accent);
+    border: 0;
+    border-radius: 1vw 1vw 0 0;
+
+}
+
+#modalCerrarCajaBody > div:first-child > div:first-child > div:last-child > div:last-child
+{
+    /* MONTO TOTAL CONTADOR EFECTIVO */
+
+    background-color: var(--primary);
+    color: var(--secondary);
+    border: 0;
+    border-radius: 0 0 1vw 1vw;
+}
+
+#modalCerrarCajaBody > div:first-child > div:last-child
+{
+    /* SALDO EFECTIVO */
+
+    margin: 0;
+    padding: 1vh;
+    background-color: var(--accent);
+    border: 0;
+    border-radius: 1vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 /* *********************************************** */
 
 

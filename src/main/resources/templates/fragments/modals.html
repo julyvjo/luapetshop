@@ -232,85 +232,97 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title">CERRAR CAJA DIARIA</h2>
+                    <h2 id="modalCerrarCajaTitle" class="modal-title">CERRAR CAJA DIARIA</h2>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close" onclick="ocultarModal('modalCerrarCaja')">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div id="modalCerrarCajaDiv" class="modal-body">
+                <div id="modalCerrarCajaBody" class="modal-body">
                     <div>
                         <div>
-                            <div>CONTADOR BILLETES</div>
+                            <div>CONTADOR EFECTIVO</div>
+
                             <div>
-                                <div>$ 10</div>
                                 <div>
-                                    <button id="cerrarCajaContadorMinus10">(-)</button>
-                                    <input id="cerrarCajaContador10">
-                                    <button id="cerrarCajaContadorPlus10">(+)</button>
+                                    <div>
+                                        <div>$ 10</div>
+                                        <div>
+                                            <button id="cerrarCajaContadorMinus10">(-)</button>
+                                            <input id="cerrarCajaContador10">
+                                            <button id="cerrarCajaContadorPlus10">(+)</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div>$ 20</div>
+                                        <div>
+                                            <button id="cerrarCajaContadorMinus20">(-)</button>
+                                            <input id="cerrarCajaContador20">
+                                            <button id="cerrarCajaContadorPlus20">(+)</button>
+                                        </div>
+                                    </div>
+        
+                                    <div>
+                                        <div>$ 50</div>
+                                        <div>
+                                            <button id="cerrarCajaContadorMinus50">(-)</button>
+                                            <input id="cerrarCajaContador50">
+                                            <button id="cerrarCajaContadorPlus50">(+)</button>
+                                        </div>
+                                    </div>
+        
+                                    <div>
+                                        <div>$ 100</div>
+                                        <div>
+                                            <button id="cerrarCajaContadorMinus100">(-)</button>
+                                            <input id="cerrarCajaContador100">
+                                            <button id="cerrarCajaContadorPlus100">(+)</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            
-                            <div>
-                                <div>$ 20</div>
+    
                                 <div>
-                                    <button id="cerrarCajaContadorMinus20">(-)</button>
-                                    <input id="cerrarCajaContador20">
-                                    <button id="cerrarCajaContadorPlus20">(+)</button>
+                                    <div>
+                                        <div>$ 200</div>
+                                        <div>
+                                            <button id="cerrarCajaContadorMinus200">(-)</button>
+                                            <input id="cerrarCajaContador200">
+                                            <button id="cerrarCajaContadorPlus200">(+)</button>
+                                        </div>
+                                    </div>
+        
+                                    <div>
+                                        <div>$ 500</div>
+                                        <div>
+                                            <button id="cerrarCajaContadorMinus500">(-)</button>
+                                            <input id="cerrarCajaContador500">
+                                            <button id="cerrarCajaContadorPlus500">(+)</button>
+                                        </div>
+                                    </div>
+        
+                                    <div>
+                                        <div>$ 1000</div>
+                                        <div>
+                                            <button id="cerrarCajaContadorMinus1000">(-)</button>
+                                            <input id="cerrarCajaContador1000">
+                                            <button id="cerrarCajaContadorPlus1000">(+)</button>
+                                        </div>
+                                    </div>
+        
+                                    <div>
+                                        <div>$ 2000</div>
+                                        <div>
+                                            <button id="cerrarCajaContadorMinus2000">(-)</button>
+                                            <input id="cerrarCajaContador2000">
+                                            <button id="cerrarCajaContadorPlus2000">(+)</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
                             <div>
-                                <div>$ 50</div>
-                                <div>
-                                    <button id="cerrarCajaContadorMinus50">(-)</button>
-                                    <input id="cerrarCajaContador50">
-                                    <button id="cerrarCajaContadorPlus50">(+)</button>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div>$ 100</div>
-                                <div>
-                                    <button id="cerrarCajaContadorMinus100">(-)</button>
-                                    <input id="cerrarCajaContador100">
-                                    <button id="cerrarCajaContadorPlus100">(+)</button>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div>$ 200</div>
-                                <div>
-                                    <button id="cerrarCajaContadorMinus200">(-)</button>
-                                    <input id="cerrarCajaContador200">
-                                    <button id="cerrarCajaContadorPlus200">(+)</button>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div>$ 500</div>
-                                <div>
-                                    <button id="cerrarCajaContadorMinus500">(-)</button>
-                                    <input id="cerrarCajaContador500">
-                                    <button id="cerrarCajaContadorPlus500">(+)</button>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div>$ 1000</div>
-                                <div>
-                                    <button id="cerrarCajaContadorMinus1000">(-)</button>
-                                    <input id="cerrarCajaContador1000">
-                                    <button id="cerrarCajaContadorPlus1000">(+)</button>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div>$ 2000</div>
-                                <div>
-                                    <button id="cerrarCajaContadorMinus2000">(-)</button>
-                                    <input id="cerrarCajaContador2000">
-                                    <button id="cerrarCajaContadorPlus2000">(+)</button>
-                                </div>
+                                <div>TOTAL CONTADOR EFECTIVO ($)</div>
+                                <div id="cerrarCajaTotalContador">0.00</div>
                             </div>
                         </div>
 
@@ -318,19 +330,16 @@
                             <div>DETALLES CAJA EFECTIVO</div>
                             <div>
                                 <div>SALDO ACTUAL</div>
-                                <div id="cerrarCajaSaldoActual"></div>
+                                <div id="cerrarCajaSaldoActual">0.00</div>
                             </div>
                             <div>
                                 <div>SALDO INICIAL</div>
-                                <div id="cerrarCajaSaldoInicial"></div>
+                                <div id="cerrarCajaSaldoInicial">0.00</div>
                             </div>
                             <div>
                                 <div>FECHA APERTURA</div>
-                                <div id="cerrarCajaFecha"></div>
+                                <div id="cerrarCajaFecha">21-08-2023 17:57</div>
                             </div>
-                            <div>-----</div>
-                            <div>TOTAL CONTADOR BILLETES</div>
-                            <div id="cerrarCajaTotalContador">0.00</div>
                         </div>
                     </div>
                     <button id="cerrarCajaButton">CERRAR CAJA</button>
