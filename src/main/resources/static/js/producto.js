@@ -232,43 +232,23 @@ function enviarNuevoProducto()
     const nuevoProductoStock = document.getElementById("modalNuevoProductoStock");
     const nuevoProductoImagen = document.getElementById("modalNuevoProductoImagen").files[0];
 
-    datosProducto = {
-        // codigo_producto: 0,
-        id_producto: 0,
-        nombre: nuevoProductoNombre.value,
+    // datosProducto.append('codigo_producto', 0);
 
-        // descripcion: nuevoProductoDescripcion.value,
+    datosProducto.append('id_producto', 0);
+    datosProducto.append('nombre', nuevoProductoNombre.value);
 
-        id_proveedor: parseInt(nuevoProductoProveedor.value),
-        precio_compra: parseFloat(nuevoProductoPrecioCompra.value).toFixed(2),
-        // rentabilidad: parseFloat(nuevoProductoRentabilidad.value).toFixed(2),
-        rentabilidad: ( parseFloat(nuevoProductoGanancia.value) / parseFloat(nuevoProductoPrecioCompra.value) ).toFixed(4), //  4 Decimales para poder representar % con 2 decimales de precisión luego...
-        ganancia: parseFloat(nuevoProductoGanancia.value).toFixed(2),
-        precio_venta: parseFloat(nuevoProductoPrecioVenta.value).toFixed(2),
-        id_categoria: parseInt(nuevoProductoCategoria.value),
-        stock: parseInt(nuevoProductoStock.value),
-        //imagen: nuevoProductoImagen
-        //imagen: nuevoProductoImagen.value,
-    }
+    // datosProducto.append('descripcion', nuevoProductoDescripcion.value);
 
-    // datosProductoFormData.append('codigo_producto', 0);
-
-    datosProductoFormData.append('id_producto', 0);
-    datosProductoFormData.append('nombre', nuevoProductoNombre.value);
-
-    // datosProductoFormData.append('descripcion', nuevoProductoDescripcion.value);
-
-    datosProductoFormData.append('id_proveedor', parseInt(nuevoProductoProveedor.value));
-    datosProductoFormData.append('precio_compra', parseFloat(nuevoProductoPrecioCompra.value));
-    datosProductoFormData.append('rentabilidad', parseFloat(nuevoProductoRentabilidad.value));
-    datosProductoFormData.append('ganancia', parseFloat(nuevoProductoGanancia.value));
-    datosProductoFormData.append('precio_venta', parseFloat(nuevoProductoPrecioVenta.value));
-    datosProductoFormData.append('id_categoria', parseInt(nuevoProductoCategoria.value));
-    datosProductoFormData.append('stock', parseInt(nuevoProductoStock.value));
-    datosProductoFormData.append('imagen', nuevoProductoImagen);
+    datosProducto.append('id_proveedor', parseInt(nuevoProductoProveedor.value));
+    datosProducto.append('precio_compra', parseFloat(nuevoProductoPrecioCompra.value));
+    datosProducto.append('rentabilidad', parseFloat(nuevoProductoRentabilidad.value));
+    datosProducto.append('ganancia', parseFloat(nuevoProductoGanancia.value));
+    datosProducto.append('precio_venta', parseFloat(nuevoProductoPrecioVenta.value));
+    datosProducto.append('id_categoria', parseInt(nuevoProductoCategoria.value));
+    datosProducto.append('stock', parseInt(nuevoProductoStock.value));
+    datosProducto.append('imagen', nuevoProductoImagen);
 
     // ENVIAR AL BACKEND
-    // console.log("ENVIANDO datosProducto desde NUEVO PRODUCTO...", datosProducto);
     entregarProducto();
 }
 
@@ -304,7 +284,7 @@ function reiniciarNuevoProducto()
     nuevoProductoStock.value = "0";
     nuevoProductoImagen.value = "";
 
-    datosProductoFormData = new FormData();
+    datosProducto = new FormData();
 }
 // **************************************************************
 
@@ -611,44 +591,25 @@ function enviarEditorLinea()
     // const editorLineaImagen = document.getElementById("modalEditorLineaImagen");
     const editorLineaID = document.getElementById("modalEditorLineaId");
 
-    datosProducto = {
-        // codigo_producto: editorLineaCodigo.value,
-        id_producto: parseInt(editorLineaID.value),
-        nombre: editorLineaNombre.value,
+    datosProducto = new datosProducto();
 
-        // descripcion: editorLineaDescripcion.value,
+    // datosProducto.append('codigo_producto', 0);
 
-        id_proveedor: parseInt(editorLineaProveedor.value),
-        precio_compra: parseFloat(editorLineaPrecioCompra.value).toFixed(2),
-        // rentabilidad: parseFloat(editorLineaRentabilidad.value).toFixed(2),
-        rentabilidad: ( parseFloat(editorLineaRentabilidad.value) / parseFloat(editorLineaPrecioCompra.value) ).toFixed(4), //  4 Decimales para poder representar % con 2 decimales de precisión luego...
-        ganancia: parseFloat(editorLineaGanancia.value).toFixed(2),
-        precio_venta: parseFloat(editorLineaPrecioVenta.value).toFixed(2),
-        id_categoria: parseInt(editorLineaCategoria.value),
-        stock: parseInt(editorLineaStock.value),
-        // imagen: editorLineaImagen.value,
-    }
+    datosProducto.append('id_producto', 0);
+    datosProducto.append('nombre', editorLineaNombre.value);
 
-    datosProductoFormData = new datosProductoFormData();
+    // datosProducto.append('descripcion', editorLineaDescripcion.value);
 
-    // datosProductoFormData.append('codigo_producto', 0);
-
-    datosProductoFormData.append('id_producto', 0);
-    datosProductoFormData.append('nombre', editorLineaNombre.value);
-
-    // datosProductoFormData.append('descripcion', editorLineaDescripcion.value);
-
-    datosProductoFormData.append('id_proveedor', parseInt(editorLineaProveedor.value));
-    datosProductoFormData.append('precio_compra', parseFloat(editorLineaPrecioCompra.value));
-    datosProductoFormData.append('rentabilidad', parseFloat(editorLineaRentabilidad.value));
-    datosProductoFormData.append('ganancia', parseFloat(editorLineaGanancia.value));
-    datosProductoFormData.append('precio_venta', parseFloat(editorLineaPrecioVenta.value));
-    datosProductoFormData.append('id_categoria', parseInt(editorLineaCategoria.value));
-    datosProductoFormData.append('stock', parseInt(editorLineaStock.value));
-    datosProductoFormData.append('imagen', editorLineaImagen);
+    datosProducto.append('id_proveedor', parseInt(editorLineaProveedor.value));
+    datosProducto.append('precio_compra', parseFloat(editorLineaPrecioCompra.value));
+    datosProducto.append('rentabilidad', parseFloat(editorLineaRentabilidad.value));
+    datosProducto.append('ganancia', parseFloat(editorLineaGanancia.value));
+    datosProducto.append('precio_venta', parseFloat(editorLineaPrecioVenta.value));
+    datosProducto.append('id_categoria', parseInt(editorLineaCategoria.value));
+    datosProducto.append('stock', parseInt(editorLineaStock.value));
+    datosProducto.append('imagen', editorLineaImagen);
 
     // ENVIAR AL BACKEND
-    // console.log("ENVIANDO datosProducto desde EDITOR LINEA...", datosProducto);
     entregarProducto();
 }
 
@@ -683,7 +644,7 @@ function reiniciarEditorLinea()
     editorLineaStock.value = "0"; 
     editorLineaImagen.value = "";
 
-    datosProductoFormData = new FormData();
+    datosProducto = new FormData();
 }
 // **************************************************************
 
@@ -691,51 +652,12 @@ function reiniciarEditorLinea()
 
 // || DATOS PRODUCTO
 
-let datosProducto = {
-    // codigo_producto: 0,     // 0 si no tiene código de barras asignado.
-    id_producto: 0,         // 0 si es nuevo.
-    nombre: "",
-
-    // descripcion: "",     //  De momento no implementado.
-
-    id_proveedor: 0,     // 0 si no tiene proveedor asignado.
-    precio_compra: 0.00,
-    rentabilidad: 0.0,
-    ganancia: 0.0,
-    precio_venta: 0.0,
-    id_categoria: 0,     // 0 si no tiene categoría asiganda.
-    stock: 0,
-    // imagen: "base64"
-}
-
-let datosProductoFormData = new FormData();
-
-function iniciarDatosProducto()
-{
-    datosProducto = {
-        // codigo_producto: 0,
-        id_producto: 0,
-        nombre: "",
-
-        // descripcion: "",
-        
-        id_proveedor: 0,
-        precio_compra: 0.00,
-        rentabilidad: 0.0,
-        ganancia: 0.0,
-        precio_venta: 0.0,
-        id_categoria: 0,     
-        stock: 0,
-        // imagen: "base64"
-    }
-}
+let datosProducto = new FormData();
 
 function entregarProducto()
 {
-    //const JSON_DATA = JSON.stringify(datosProducto);
 
     const HEADERS = new Headers();
-    //HEADERS.append('Content-Type', 'application/json');
 
     const API_URL = "/new/producto";
 
@@ -745,8 +667,7 @@ function entregarProducto()
     fetch(LINK, {
         method: 'POST',
         headers: HEADERS,
-        body: datosProductoFormData
-        //body: JSON_DATA
+        body: datosProducto
     })
 
     // .then(response => response.json())
