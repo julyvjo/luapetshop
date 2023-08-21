@@ -7,8 +7,6 @@
 - [ ] EMMIK; VENTA. Al cambiar TOTAL SIN recargos (por ej. modificando cantidad de algún producto) la diferencia SIEMPRE recae en el monto del método de pago principal... Es necesario en caso de agregar un método de pago complementario, que pase a modificarse el monto de este último?
 - [ ] EMMIK; VENTA. Los montos de los métodos de pago deberían SIEMPRE mostrarse con los recargos incluidos?
 
-- [x] VENTA; Debería blanquear TOTAL SIN recargos/modificadores de los métodos de pago? (o sea, mostrar este total en conjunto con los montos de cada método de pago y el total con recargos incluidos)
-
     == == == == ==
 
 * <sup>~~EMMIK; FEEDBACK columnas del carrito venta (nombres; qué columnas hay, etc.)~~</sup> **Tudo bem tudo legal.**
@@ -35,16 +33,12 @@
 ##  PRODUCTO
 
 - [x] IMAGEN; Rutas a la imagen del producto (th:src=${atributo})
-- [ ] IMAGEN; Agregar imágenes de productos (Quizas en nueva ruta?).
+- [x] IMAGEN; Agregar imágenes de productos (Quizas en nueva ruta?).
 - [ ] IMAGEN; Implementar agregar/modificar imagen de un producto (nuevo o existente).
 
 
-- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar autompletado de valores en $C/%R/$G/$V
-- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Chequear que se haga fetch correctamente.
-
-
-- [x] <sup>~~TABLA + EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar PROVEEDOR en nuevoProducto y editorLinea~~</sup>
-- [x] <sup>~~TABLA + EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Agregar e implementar columna PROVEEDOR~~</sup>
+- [x] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar autompletado de valores en $C/%R/$G/$V
+- [] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Chequear que se haga fetch correctamente.
 
 ---
 
@@ -67,21 +61,10 @@
 
 ##  CAJA
 
-- [ ] CERRAR CAJA; Implementar CAJA EFECTIVO?
-- [ ] CERRAR CAJA; Implementar CONTADOR BILLETES
+- [x] CERRAR CAJA; Implementar CAJA EFECTIVO
+- [x] CERRAR CAJA; Implementar CONTADOR EFECTIVO
 - [ ] CERRAR CAJA; Hacer fetch JSON para backend
 
-- [x] CUENTA_DETAILS; AGREGAR COLUMNA GANANCIA
-- [x] CERRAR CAJA; Agregar fecha de último cierre de caja.
-
-- [x] FONDOS; AGREGAR BBVA FRANCES
-- [x] FONDOS; ASEGURARSE de que se vean todos los fondos.
-
-- [x] MOVIMIENTO EXCEPCIONAL; Crear modal/formulario
-- [x] MOVIMIENTO EXCEPCIONAL; Dar formato a modal/formulario
-- [x] MOVIMIENTO EXCEPCIONAL; Implementar en CAJA
-- [x] MOVIMIENTO EXCEPCIONAL; Implementar validación del input
-- [x] MOVIMIENTO EXCEPCIONAL; Diseñar y agregar implementación Ingreso/Egreso
 - [ ] MOVIMIENTO EXCEPCIONAL; Hacer fetch JSON para backend
 
 
