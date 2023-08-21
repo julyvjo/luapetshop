@@ -338,7 +338,7 @@
                             </div>
                             <div>
                                 <div>FECHA APERTURA</div>
-                                <div id="cerrarCajaFecha">21-08-2023 17:57</div>
+                                <div id="cerrarCajaFecha" th:text="${#temporals.format(fecha_apertura, 'dd-MM-yyyy HH:mm')}"></div>
                             </div>
                         </div>
                     </div>

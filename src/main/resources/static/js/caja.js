@@ -298,3 +298,16 @@ function cerrarCajaActualizarTotal()
     TOTAL.textContent = total.toFixed(2);
 }
 // **************************************************************
+
+
+
+//  SALDO EFECTIVO
+
+// const SALDOS_CUENTAS = document.querySelectorAll(".saldoActual");    // Ya está definido en SALDO TOTAL!
+const EFECTIVO_SALDO_ACTUAL = document.getElementById("cerrarCajaSaldoActual");
+EFECTIVO_SALDO_ACTUAL.textContent = parseFloat(SALDOS_CUENTAS[2].textContent);
+
+const SALDOS_INICIALES_CUENTAS = document.querySelectorAll(".saldoInicial");
+const EFECTIVO_SALDO_INICIAL = document.getElementById("cerrarCajaSaldoInicial");
+EFECTIVO_SALDO_INICIAL.textContent = parseFloat(SALDOS_INICIALES_CUENTAS[2].textContent);
+// **************************************************************
