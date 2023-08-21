@@ -290,7 +290,7 @@ function reiniciarNuevoProducto()
     const nuevoProductoPrecioVenta = document.getElementById("modalNuevoProductoPrecioVenta");
     const nuevoProductoCategoria = document.getElementById("modalNuevoProductoCategoria");
     const nuevoProductoStock = document.getElementById("modalNuevoProductoStock");
-    // const nuevoProductoImagen = document.getElementById("modalNuevoProductoImagen");
+    const nuevoProductoImagen = document.getElementById("modalNuevoProductoImagen");
 
     // nuevoProductoCodigo.value = "";
     nuevoProductoNombre.value = "";
@@ -302,7 +302,7 @@ function reiniciarNuevoProducto()
     nuevoProductoPrecioVenta.value = "0.00";
     nuevoProductoCategoria.value = "0";
     nuevoProductoStock.value = "0";
-    // nuevoProductoImagen.value = "";
+    nuevoProductoImagen.value = "";
 
     datosProductoFormData = new FormData();
 }
@@ -669,7 +669,7 @@ function reiniciarEditorLinea()
     const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
     const editorLineaCategoria = document.getElementById("modalEditorLineaCategoria");
     const editorLineaStock = document.getElementById("modalEditorLineaStock");
-    // const editorLineaImagen = document.getElementById("modalEditorLineaRutaImagen");
+    const editorLineaImagen = document.getElementById("modalEditorLineaRutaImagen");
 
     // editorLineaCodigo.value = "";
     editorLineaNombre.value = "";
@@ -681,7 +681,7 @@ function reiniciarEditorLinea()
     editorLineaPrecioVenta.value = "0.00"; 
     editorLineaCategoria.value = "0"; 
     editorLineaStock.value = "0"; 
-    // editorLineaImagen.value = "";
+    editorLineaImagen.value = "";
 
     datosProductoFormData = new FormData();
 }
