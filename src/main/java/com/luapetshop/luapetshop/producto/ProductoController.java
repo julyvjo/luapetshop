@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.luapetshop.luapetshop.proveedor.Proveedor;
 import com.luapetshop.luapetshop.repository.IProveedorRepository;
+import com.luapetshop.luapetshop.util.Util;
 
 @Controller
 public class ProductoController {
@@ -87,29 +89,67 @@ public class ProductoController {
 				(String.valueOf(params.get("nombre"))):null;
 		
 		return productoService.getProductos(nombre);
-	}
+	}	
 	
 	@PostMapping("/new/producto")
     public ResponseEntity<String> agregarProducto(
-    		@RequestParam("id_producto") Integer id_producto,
-    		@RequestParam("nombre") String nombre,
-    		@RequestParam("id_proveedor") Integer id_proveedor,
-    		@RequestParam("imagen") MultipartFile file) {
+    		@ModelAttribute("producto") Producto producto,
+    		@RequestParam("file") MultipartFile file
+    		) {
+    		
+		//validaciones
 		
-		if(file.isEmpty()) {
-			System.out.println("file empty");
+		//contiene imagen?
+		if(!file.isEmpty()) {
+			//guarda imagen y obtiene ruta
+			String imgurlPath = Util.saveImage(file, "productos/");
+			//setea ruta de imagen para el producto
+			producto.setImagen(imgurlPath);
 		}
-		System.out.println("file NOT empty");
-		System.out.println(file.getSize());
-		System.out.println(file.getName());
-		System.out.println(nombre);
-		System.out.println(id_producto.toString());
-		System.out.println(id_proveedor.toString());
 		
+		System.out.println("imagen not empty");
+		System.out.println(file.getSize());
+		
+		
+		System.out.println("nombre: " + producto.getNombre());
+		System.out.println("rentabilidad: " + producto.getRentabilidad());
+		System.out.println("precio_compra: " + producto.getPrecio_compra());
+		System.out.println("proveedor: " + producto.getProveedor().getNombre());
+		System.out.println("proveedor: " + producto.getCategoria().getNombre());
+		System.out.println("imagen?: " + producto.getImagen());
 		
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("respuesta test");
 
 	}
+	
+	
+//	@PostMapping("/new/producto")
+//    public ResponseEntity<String> agregarProducto(
+//    		@RequestParam("id_producto") Integer id_producto,
+//    		@RequestParam("id_categoria") Integer id_categoria,
+//    		@RequestParam("id_proveedor") Integer id_proveedor,
+//    		@RequestParam("nombre") String nombre,
+//    		@RequestParam("codigo") String codigo ,
+//    		@RequestParam("imagen") MultipartFile imagen,
+//    		@RequestParam("descripcion") String descripcion,
+//    		@RequestParam("precio_compra") Double precio_compra,
+//    		@RequestParam("rentabilidad") Double rentabilidad,
+//    		@RequestParam("ganancia") Double ganancia,
+//    		@RequestParam("precio_venta") Double precio_venta,
+//    		@RequestParam("stock") Integer stock
+//    		) {
+//    		
+//		//validaciones
+//		
+//		//contiene imagen?
+//		if(imagen.isEmpty()) {
+//			System.out.println("file empty");
+//			//actualiza imagen
+//		}
+//		
+//		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("respuesta test");
+//
+//	}
 	
 	
 //	@PostMapping("/new/producto")
