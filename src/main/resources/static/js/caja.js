@@ -184,6 +184,18 @@ if (cerrarCaja)
         mostrarModal("modalCerrarCaja");
     });
 }
+
+const CERRAR_CAJA_BUTTON = document.getElementById("cerrarCajaButton");
+
+if (CERRAR_CAJA_BUTTON)
+{
+    CERRAR_CAJA_BUTTON.addEventListener("click", () =>
+    {
+        console.log("Hola");
+        // prepararCajas();
+        // entregarCajas();
+    });
+}
 // **************************************************************
 
 
