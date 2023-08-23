@@ -173,33 +173,6 @@ SALDOS_CUENTAS.forEach(element =>
 
 
 
-// CERRAR CAJA DIARIA BUTTON
-
-const cerrarCaja = document.getElementById('botonCerrarCaja');
-
-if (cerrarCaja)
-{
-    cerrarCaja.addEventListener("click", (e) =>
-    {
-        mostrarModal("modalCerrarCaja");
-    });
-}
-
-const CERRAR_CAJA_BUTTON = document.getElementById("cerrarCajaButton");
-
-if (CERRAR_CAJA_BUTTON)
-{
-    CERRAR_CAJA_BUTTON.addEventListener("click", () =>
-    {
-        console.log("Hola");
-        // prepararCajas();
-        // entregarCajas();
-    });
-}
-// **************************************************************
-
-
-
 // CONTADOR EFECTIVO
 
 const MINUS10 = document.getElementById("cerrarCajaContadorMinus10");
@@ -322,4 +295,31 @@ EFECTIVO_SALDO_ACTUAL.textContent = parseFloat(SALDOS_CUENTAS[2].textContent);
 const SALDOS_INICIALES_CUENTAS = document.querySelectorAll(".saldoInicial");
 const EFECTIVO_SALDO_INICIAL = document.getElementById("cerrarCajaSaldoInicial");
 EFECTIVO_SALDO_INICIAL.textContent = parseFloat(SALDOS_INICIALES_CUENTAS[2].textContent);
+// **************************************************************
+
+
+
+// CERRAR CAJA DIARIA BUTTON
+
+const cerrarCaja = document.getElementById('botonCerrarCaja');
+
+if (cerrarCaja)
+{
+    cerrarCaja.addEventListener("click", (e) =>
+    {
+        mostrarModal("modalCerrarCaja");
+    });
+}
+
+const CERRAR_CAJA_BUTTON = document.getElementById("cerrarCajaButton");
+
+if (CERRAR_CAJA_BUTTON)
+{
+    CERRAR_CAJA_BUTTON.addEventListener("click", () =>
+    {
+        console.log("Hola");
+        // prepararCajas();
+        // entregarCajas();
+    });
+}
 // **************************************************************
