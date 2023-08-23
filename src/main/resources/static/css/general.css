@@ -23,6 +23,7 @@
     --alternative: var(--luaCyan);
     --secondary: var(--bearBlack);
     --accent: var(--bearCyan);
+    --text: var(--bearWhite);
 }
 
 html
@@ -47,7 +48,7 @@ body
     background-color: var(--primary); /* If background is defined; this needs to be AFTER it. */
     /* background-color: transparent; */
     /* background-size: cover; */
-	color: var(--primary);
+	color: var(--text);
 	font-family: 'MadeTommy', Helvetica, sans-serif;
     font-size: 1.47vw;
     /* font-size: 3vh; */
@@ -175,7 +176,7 @@ header
 .table-header /* .table-header should be the <theader> element of a table */
 {
     background-color: var(--accent);
-    color: var(--primary);
+    color: var(--text);
 }
 
 .table-header > td:first-child
@@ -202,7 +203,7 @@ header
 #table > :nth-child(even)
 {
     background-color: var(--alternative);
-    color: var(--primary);
+    color: var(--text);
 }
 
 #table > :last-child > *
@@ -264,7 +265,7 @@ header
     border: 0.1vh solid var(--primary);
     border-radius: 1vw;
     background-color: var(--alternative);
-    color: var(--primary);
+    color: var(--text);
     cursor: pointer;
 
     display: flex;

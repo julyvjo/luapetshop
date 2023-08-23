@@ -11,7 +11,7 @@
     /* border: 0.1vh solid var(--primary); */
 
     background-color: transparent;
-    color: var(--bearWhite);
+    color: var(--text);
 
     display: flex;
     justify-content: space-evenly;
@@ -50,7 +50,7 @@
 
 #nav > div > p
 {
-    color: var(--primary);
+    color: var(--text);
     font-size: 8vh;
     font-weight: bold;
 }

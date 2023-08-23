@@ -42,7 +42,7 @@
     border-radius: 1vw;
     border: 0;
     background-color: var(--accent);
-    color: var(--primary);
+    color: var(--text);
 }
 /* *********************************************** */
 
@@ -63,7 +63,7 @@
 
 #modalNuevoProveedor > div.modal-dialog > div > div > h5
 {
-    color: var(--bearWhite);
+    color: var(--text);
     font-size: 4vh;
 }
 
@@ -97,7 +97,7 @@
 {
     margin: 0;
     padding: 0;
-    color: var(--bearWhite);
+    color: var(--text);
     text-align: center;
 }
 
@@ -138,7 +138,7 @@
     border: 0.5vh solid var(--accent);
     border-radius: 1vw;
     background-color: var(--alternative);
-    color: var(--primary);
+    color: var(--text);
 }
 
 .modal-header

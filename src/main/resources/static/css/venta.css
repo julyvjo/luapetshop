@@ -86,7 +86,7 @@
     border-radius: 1vw;
     border: 0;
     background-color: var(--accent);
-    color: var(--primary);
+    color: var(--text);
 }
 
 #appVentaContainer > :nth-child(2)
@@ -165,7 +165,7 @@ input.py-2
     padding: 0 1vw;
     width: 50%;
     background-color: var(--accent);
-    color: var(--primary);
+    color: var(--text);
     border: 0;
     /* border-right: 0.1vw solid var(--secondary); */
     border-radius: 1vw 0 0 1vw;
@@ -182,7 +182,7 @@ input.py-2
 #appVentaContainer > :last-child > :first-child > div :nth-child(odd) > option:hover
 {
     background-color: var(--accent);
-    color: var(--primary);
+    color: var(--text);
 }
 
 #appVentaContainer > :last-child > :first-child > div :nth-child(even)
@@ -203,7 +203,7 @@ input.py-2
     padding: 0;
 
     background-color: var(--accent);
-    color: var(--primary);
+    color: var(--text);
     border: 0;
     border-radius: 1vw;
     cursor: pointer;
@@ -265,6 +265,6 @@ input.py-2
     border: 0.5vh solid var(--accent);
     border-radius: 1vw;
     background-color: var(--alternative);
-    color: var(--primary);
+    color: var(--text);
 }
 /* *********************************************** */

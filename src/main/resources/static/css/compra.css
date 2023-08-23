@@ -13,7 +13,7 @@
     padding: 2vh 1vw;
     width: 80vw;
     background-color: var(--alternative);
-    color: var(--primary);
+    color: var(--text);
     border-width: 1vh 1vw;
     border-style: solid;
     border-color: var(--accent);
@@ -50,7 +50,7 @@
     padding: 2vh 1vw;
     width: 80vw;
     background-color: var(--alternative);
-    color: var(--primary);
+    color: var(--text);
     border-width: 1vh 1vw;
     border-style: solid;
     border-color: var(--accent);
@@ -65,7 +65,7 @@
     flex-direction:  column;
     justify-content: space-evenly;
     gap: 2vh;
-    color: var(--bearWhite);
+    color: var(--text);
 }
 
 #formCompra > h5
@@ -145,7 +145,7 @@
     border: 0.5vh solid var(--accent);
     border-radius: 1vw;
     background-color: var(--alternative);
-    color: var(--primary);
+    color: var(--text);
 }
 
 
@@ -162,7 +162,7 @@
 #modalCompraExcepcionalHeader,
 #modalCompraExcepcionalBody > div > label
 {
-    color: var(--bearWhite);
+    color: var(--text);
 }
 
 #modalCompraExcepcionalBody

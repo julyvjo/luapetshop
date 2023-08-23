@@ -39,7 +39,7 @@
     padding: 2vh 0.5vw;
     /* background-color: var(--accent); */
     background-color: transparent;
-    color: var(--primary);
+    color: var(--text);
     /* border-color: var(--accent); */
     border-color: var(--primary);
     border-width: 0.5vh 0.5vw;
@@ -84,7 +84,7 @@
 #appCajaFondos > div > div > div:first-child
 {
     background-color: var(--accent);
-    color: var(--primary);
+    color: var(--text);
 
     /* border-radius: 1vw 0 0 1vw; */
     border-radius: 1vw 1vw 0 0;
@@ -105,7 +105,7 @@
     padding: 0;
 
     background-color: var(--accent);
-    color: var(--primary);
+    color: var(--text);
     border: 0;
     border-radius: 1vw;
     cursor: pointer;
@@ -156,7 +156,7 @@
     height: 80%;
 
     background-color: var(--accent);
-    color: var(--primary);
+    color: var(--text);
     border: 0;
     border-radius: 1vw;
 }
@@ -175,7 +175,7 @@
 {
     padding: 0 1vw;
     background-color: var(--accent);
-    color: var(--primary);
+    color: var(--text);
     border-radius: 1vw 0 0 1vw;
 
     display: flex;
@@ -207,7 +207,7 @@
     margin: 0;
     padding: 0;
 
-    color: var(--primary);
+    color: var(--text);
 
     display: flex;
     flex-direction: column;
@@ -225,7 +225,7 @@
     width: 100%;
 
     background-color: var(--accent);
-    color: var(--primary);
+    color: var(--text);
     border: 0;
     border-radius: 1vw;
     cursor: pointer;
@@ -244,7 +244,7 @@
 
 #modalCerrarCajaTitle
 {
-    color: var(--bearWhite);
+    color: var(--text);
 }
 
 #modalCerrarCajaBody
@@ -253,7 +253,7 @@
     flex-direction: column;
     gap: 2vh;
 
-    color: var(--bearWhite);
+    color: var(--text);
 }
 
 #modalCerrarCajaBody > div:first-child
@@ -346,7 +346,7 @@
     border: 0.5vh solid var(--accent);
     border-radius: 1vw;
     background-color: var(--alternative);
-    color: var(--primary);
+    color: var(--text);
 }
 
 .modal-title
@@ -369,7 +369,7 @@
 #modalMovimientoExcepcionalHeader,
 #modalMovimientoExcepcionalBody > div > label
 {
-    color: var(--bearWhite);
+    color: var(--text);
 }
 
 #modalMovimientoExcepcionalBody
