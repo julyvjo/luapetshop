@@ -317,9 +317,25 @@ if (CERRAR_CAJA_BUTTON)
 {
     CERRAR_CAJA_BUTTON.addEventListener("click", () =>
     {
-        console.log("Hola");
-        // prepararCajas();
-        // entregarCajas();
+        if ( !window.confirm("Estás por cerrar TODAS las cajas...\n\n¿Estás seguro?") )
+            return;
+
+        // Insistir con la confirmación para evitar lo máximo posible finalizar por accidente.
+        setTimeout(() =>
+        {
+            if ( !window.confirm("¿Realmente estás seguro?") )
+                return;
+
+            // prepararCajas();
+            // entregarCajas();
+            
+            window.alert("Cajas cerradas con éxito!");
+
+            console.log("Hola");
+
+            //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+            //  location.reload();
+        }, 250);
     });
 }
 // **************************************************************
