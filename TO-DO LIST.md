@@ -65,7 +65,7 @@
 - [x] CERRAR CAJA; Implementar CONTADOR EFECTIVO
 - [ ] CERRAR CAJA; Hacer fetch JSON para backend
 
-- [ ] MOVIMIENTO EXCEPCIONAL; Hacer fetch JSON para backend
+- [x] MOVIMIENTO EXCEPCIONAL; Hacer fetch JSON para backend
 
 
 * Considerar implementar ALGUNA FORMA DE REVERTIR COMPRAS Y VENTAS
