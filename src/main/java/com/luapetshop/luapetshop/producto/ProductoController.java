@@ -99,83 +99,20 @@ public class ProductoController {
     		
 		//validaciones
 		
-		//contiene imagen?
-		if(!file.isEmpty()) {
-			//guarda imagen y obtiene ruta
-			String imgurlPath = Util.saveImage(file, "productos/");
-			//setea ruta de imagen para el producto
-			producto.setImagen(imgurlPath);
+		String response;
+		
+		try {
+			//handle
+			response = productoService.CrearOActualizarProducto(producto, file);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("respuesta test");
 		}
 		
-		System.out.println("imagen not empty");
-		System.out.println(file.getSize());
-		
-		
-		System.out.println("nombre: " + producto.getNombre());
-		System.out.println("rentabilidad: " + producto.getRentabilidad());
-		System.out.println("precio_compra: " + producto.getPrecio_compra());
-		System.out.println("proveedor: " + producto.getProveedor().getNombre());
-		System.out.println("proveedor: " + producto.getCategoria().getNombre());
-		System.out.println("imagen?: " + producto.getImagen());
-		
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("respuesta test");
-
+		return ResponseEntity.status(HttpStatus.CREATED).body(response);
 	}
-	
-	
-//	@PostMapping("/new/producto")
-//    public ResponseEntity<String> agregarProducto(
-//    		@RequestParam("id_producto") Integer id_producto,
-//    		@RequestParam("id_categoria") Integer id_categoria,
-//    		@RequestParam("id_proveedor") Integer id_proveedor,
-//    		@RequestParam("nombre") String nombre,
-//    		@RequestParam("codigo") String codigo ,
-//    		@RequestParam("imagen") MultipartFile imagen,
-//    		@RequestParam("descripcion") String descripcion,
-//    		@RequestParam("precio_compra") Double precio_compra,
-//    		@RequestParam("rentabilidad") Double rentabilidad,
-//    		@RequestParam("ganancia") Double ganancia,
-//    		@RequestParam("precio_venta") Double precio_venta,
-//    		@RequestParam("stock") Integer stock
-//    		) {
-//    		
-//		//validaciones
-//		
-//		//contiene imagen?
-//		if(imagen.isEmpty()) {
-//			System.out.println("file empty");
-//			//actualiza imagen
-//		}
-//		
-//		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("respuesta test");
-//
-//	}
-	
-	
-//	@PostMapping("/new/producto")
-//    public ResponseEntity<String> agregarProducto(
-//    		@RequestParam("data") Map<String, Object> datos,
-//    		@RequestParam("imagen") MultipartFile file) {
-//        
-//		if(file.isEmpty()) {
-//			System.out.println("file empty");
-//		}
-//		System.out.println("file NOT empty");
-//		System.out.println(file.getName());
-//		System.out.println(datos.toString());
-//		
-//		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("respuesta test");
-		
-//		try {
-//			
-//			productoService.agregarProducto(datos);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Hubo un problema al registrar el producto");
-//		}
-//
-//		return ResponseEntity.status(HttpStatus.ACCEPTED).body(datos.toString());
-//    }
 
 	
 }

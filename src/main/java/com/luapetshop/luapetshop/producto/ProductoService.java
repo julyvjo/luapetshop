@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.luapetshop.luapetshop.repository.ICategoriaRepository;
 import com.luapetshop.luapetshop.repository.IProductoRepository;
+import com.luapetshop.luapetshop.util.Util;
 
 import jakarta.transaction.Transactional;
 
@@ -136,6 +137,29 @@ public class ProductoService {
         }
 		
 		
+		
+	}
+	
+	@Transactional
+	public String CrearOActualizarProducto(Producto producto, MultipartFile file) {
+		
+		//contiene imagen?
+		if(!file.isEmpty()) {
+			//guarda imagen y obtiene ruta
+			String imgurlPath = Util.saveImage(file, "productos/");
+			//setea ruta de imagen para el producto
+			producto.setImagen(imgurlPath);
+		}
+		
+//		System.out.println("nombre: " + producto.getNombre());
+//		System.out.println("rentabilidad: " + producto.getRentabilidad());
+//		System.out.println("precio_compra: " + producto.getPrecio_compra());
+//		System.out.println("proveedor: " + producto.getProveedor().getNombre());
+//		System.out.println("proveedor: " + producto.getCategoria().getNombre());
+//		System.out.println("imagen?: " + producto.getImagen());
+		productoRepository.save(producto);
+		
+		return "producto creado, id: " + producto.getId_producto();
 		
 	}
 	

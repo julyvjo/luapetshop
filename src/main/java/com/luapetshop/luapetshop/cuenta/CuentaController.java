@@ -71,7 +71,7 @@ public class CuentaController {
 		return "cuenta_details";
 	}
 	
-	@PostMapping("/caja/cerrar")
+	@GetMapping("/caja/cerrar")
     public ResponseEntity<String> cerrarCaja(@RequestBody Map<String, Object> datos) {
         
 		//LOGGER.info("recibido POST en /caja/cerrar: " + datos.toString());
