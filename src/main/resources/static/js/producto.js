@@ -683,7 +683,7 @@ function entregarProducto()
 
 
 
-// PRODUCT PHOTO BUTTON
+// BOTON FOTO DEL PRODUCTO
 
 const arrayBotonFoto = document.querySelectorAll('.botonFoto');
 
@@ -696,13 +696,9 @@ if (arrayBotonFoto.length !== 0)
             mostrarModal("modalFoto");
 
             const IMAGEN = element.getAttribute("data-imagen");
-            // const IMAGEN = "Imagotipo-2-cyan.jpg";
 
             const MODAL_FOTO_IMAGEN = document.getElementById("modalFotoImagen");
             MODAL_FOTO_IMAGEN.setAttribute("src", `${IMAGEN}`);
-            //MODAL_FOTO_IMAGEN.setAttribute("src", `${window.location.origin}/img/prod/${IMAGEN}`);
-            // MODAL_FOTO_IMAGEN.setAttribute("src", `/img/prod/${IMAGEN}`);
-            // MODAL_FOTO_IMAGEN.setAttribute("src", `${window.location.origin}/img/site/${IMAGEN}`);
         });
     });
 }
