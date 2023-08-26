@@ -437,7 +437,7 @@ function cargarEditor(fila)
     //     });
     // }
     
-    const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
+    // const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
     editorLineaDefaultPrecioVenta = parseFloat( h5[8].textContent ).toFixed(2);
 
     // if (h5[8].textContent != "0.00")
