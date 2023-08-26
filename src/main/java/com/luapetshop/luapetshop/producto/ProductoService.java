@@ -106,38 +106,9 @@ public class ProductoService {
 		return categoriaRepository.findAll();
 	}
 
-	public Producto getProductoByCodigoAndProveedor() {
+	public Optional<Producto> getProductoByCodigoAndProveedor(String codigo, Integer id_proveedor) {
 		
-		return null;
-	}
-	
-	protected void saveImagen(MultipartFile file) {
-		
-		try {
-            // Verificar imagen
-            if (!file.getContentType().startsWith("image")) {
-                //return ResponseEntity.badRequest().body("El archivo proporcionado no es una imagen válida.");
-            }
-
-            // Guarda la imagen en el sistema de archivos
-           // String fileName = UUID.randomUUID().toString() + "." + FilenameUtils.getExtension(file.getOriginalFilename());
-            //Path filePath = Paths.get(IMAGE_DIR, fileName);
-            //Files.copy(file.getInputStream(), filePath);
-
-            // Almacena la ruta en la base de datos
-//            ImageEntity imageEntity = new ImageEntity();
-//            imageEntity.setName(jsonData.getName());
-//            imageEntity.setDescription(jsonData.getDescription());
-//            imageEntity.setImageUrl(filePath.toString()); // Guarda la ruta completa
-//            imageRepository.save(imageEntity);
-
-            //return ResponseEntity.ok("Imagen cargada exitosamente. Ruta: " + filePath.toString());
-        } catch (Exception e) {
-            //return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al cargar la imagen.");
-        }
-		
-		
-		
+		return productoRepository.findProductoByCodigoAndProveedor(codigo, id_proveedor);
 	}
 	
 	@Transactional
@@ -150,25 +121,11 @@ public class ProductoService {
 			//setea ruta de imagen para el producto
 			producto.setImagen(imgurlPath);
 		}
-		
-//		System.out.println("nombre: " + producto.getNombre());
-//		System.out.println("rentabilidad: " + producto.getRentabilidad());
-//		System.out.println("precio_compra: " + producto.getPrecio_compra());
-//		System.out.println("proveedor: " + producto.getProveedor().getNombre());
-//		System.out.println("proveedor: " + producto.getCategoria().getNombre());
-//		System.out.println("imagen?: " + producto.getImagen());
+
 		productoRepository.save(producto);
 		
 		return "producto creado, id: " + producto.getId_producto();
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 }

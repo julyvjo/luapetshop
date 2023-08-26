@@ -25,7 +25,7 @@ public class CSVHandler {
 
 	public String process() {
     	StringBuilder sb = new StringBuilder();
-    	int id_proveedor = this.proveedor.getId_proveedor();
+    	Integer id_proveedor = this.proveedor.getId_proveedor();
 		
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
             String line;

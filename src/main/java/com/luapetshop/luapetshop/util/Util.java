@@ -26,10 +26,6 @@ public class Util {
 		int randomNumber = (int) ((Math.random() * (1000000 - 0)) + 0);
 		String random = String.valueOf(randomNumber);
 		
-		//String baseDir = "src/main/resources/static";
-		//String baseDir = "static";
-		//String completeDir = baseDir + "/" + imgurlDir;
-		//String completeDir = baseDir + "/" + imgurlDir;
 		String completeDir = imgurlDir;
 		
 		//imagen
@@ -51,11 +47,6 @@ public class Util {
 	}
 
 	private static void createDirIfNotExists(String imgurlDir) {
-		
-		String currentDirectory = System.getProperty("user.dir");
-        System.out.println("Directorio actual: " + currentDirectory);
-        
-        System.out.println("imgurlDir: " + imgurlDir);
 		
 		// Convierte la ruta en un objeto Path
         Path path = Paths.get(imgurlDir);

@@ -23,6 +23,6 @@ public interface IProductoRepository extends JpaRepository<Producto, Integer> {
 			+ " codigo = ?1 AND"
 			+ " id_proveedor = ?2"
 			+ " limit 1", nativeQuery = true)
-	Optional<Producto> findProductoByCodigoAndProveedor(String codigo, int id_proveedor);
+	Optional<Producto> findProductoByCodigoAndProveedor(String codigo, Integer id_proveedor);
 
 }
