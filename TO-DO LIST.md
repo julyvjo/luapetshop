@@ -22,13 +22,13 @@
 
 ##  PRODUCTO
 
-- [x] IMAGEN; Rutas a la imagen del producto (th:src=${atributo})
-- [x] IMAGEN; Agregar imágenes de productos (Quizas en nueva ruta?).
-- [ ] IMAGEN; Implementar agregar/modificar imagen de un producto (nuevo o existente).
+- [x] <sup>~~IMAGEN; Rutas a la imagen del producto (th:src=${atributo})~~</sup>
+- [x] <sup>~~IMAGEN; Agregar imágenes de productos (Quizas en nueva ruta?).~~</sup>
+- [x] <sup>~~IMAGEN; Implementar agregar/modificar imagen de un producto (nuevo o existente).~~</sup>
 
 
-- [x] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar autompletado de valores en $C/%R/$G/$V
-- [] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Fix fetch necesitando "FILE" enviado
+- [x] <sup>~~EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar autompletado de valores en $C/%R/$G/$V~~</sup>
+- [x] <sup>~~EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Fix fetch necesitando "FILE" enviado~~</sup>
 
 ---
 
@@ -48,8 +48,8 @@
 - [x] CERRAR CAJA; Implementar CONTADOR EFECTIVO
 - [ ] CERRAR CAJA; Hacer fetch JSON para backend
 
-- [ ] MOVIMIENTO EXCEPCIONAL; Fix error 500
-- [ ] MOVIMIENTO EXCEPCIONAL; Reload después de hacer fetch
+- [x] <sup>~~MOVIMIENTO EXCEPCIONAL; Fix error 500~~</sup>
+- [x] <sup>~~MOVIMIENTO EXCEPCIONAL; Reload después de hacer fetch~~</sup>
 
 
 * Considerar implementar ALGUNA FORMA DE REVERTIR COMPRAS Y VENTAS
@@ -74,10 +74,6 @@
 - [ ] CSS; Agregar efectos a los botones para dar feedback visual de que se accionó un botón.
 - [ ] CSS TABLAS; El scrollbar vertical solamente debería afectar a `<tbody>`
 - [ ] Troubleshooting de cómo en algunos navegadores se rompen las dimensiones (e.g. thinkpad)
-
-- [x] CSS TABLAS; Para maximizar ancho disponible para nombre del producto, quizás se puede abreviar y reducir el ancho de esas columnas que solamente van a mostrar un número o incluso un valor fijo. (De nuevo agregado por nueva columna PROVEEDOR)
-- [x] CSS; Modificar variables de color de TEXTOS para que usen su propia variable (fix para múltiples páginas con el cambio de bgcolor)
-
 
 * Setear comentarios separadores de bloques de reglas CSS para navegarlo más fácilmente ( https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Organizing )
 * Maximizar espacio para listado de productos.
