@@ -93,7 +93,7 @@ MOVIMIENTO_EXCEPCIONAL_REGISTRAR.addEventListener("click", () =>
         // CARGA DE movimientoExcepcional
 
         movimientoExcepcional.tipo = MOVIMIENTO_EXCEPCIONAL_TIPO.value;
-        movimientoExcepcional.id_fondo = parseInt(MOVIMIENTO_EXCEPCIONAL_FONDO.value);
+        movimientoExcepcional.id_cuenta = parseInt(MOVIMIENTO_EXCEPCIONAL_FONDO.value);
         movimientoExcepcional.monto = parseFloat(MOVIMIENTO_EXCEPCIONAL_MONTO.value).toFixed(2);
         
         if (MOVIMIENTO_EXCEPCIONAL_MOTIVO.value === "")
