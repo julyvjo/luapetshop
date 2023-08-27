@@ -588,7 +588,7 @@ function enviarEditorLinea()
     const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
     const editorLineaCategoria = document.getElementById("modalEditorLineaCategoria");
     const editorLineaStock = document.getElementById("modalEditorLineaStock");
-    const editorLineaFile = document.getElementById("modalEditorLineaFile");
+    const editorLineaFile = document.getElementById("modalEditorLineaFile").files[0];
     const editorLineaID = document.getElementById("modalEditorLineaId");
 
     // datosProducto.append('codigo_producto', 0);
