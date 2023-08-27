@@ -101,7 +101,7 @@ MOVIMIENTO_EXCEPCIONAL_REGISTRAR.addEventListener("click", () =>
         else
             movimientoExcepcional.motivo = MOVIMIENTO_EXCEPCIONAL_MOTIVO.value;
 
-        window.alert("Movimiento registrado exitosamente!");
+        window.alert("Movimiento registrado exitosamente!\nSe actualizará la página en unos instantes.");
 
         //  ENTREGA DE movimientoExcepcional
 
@@ -111,9 +111,9 @@ MOVIMIENTO_EXCEPCIONAL_REGISTRAR.addEventListener("click", () =>
         //  REINICIAR TODO
         
         reiniciarMovimientoExcepcional();
-        
+
         //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
-        //  location.reload();
+        setTimeout(() => {location.reload()}, 2000);
     }, 250);
 });
 
