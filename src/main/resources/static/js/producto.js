@@ -601,7 +601,7 @@ function enviarEditorLinea()
 
     datosProducto.append('proveedor', parseInt(editorLineaProveedor.value));
     datosProducto.append('precio_compra', parseFloat(editorLineaPrecioCompra.value));
-    datosProducto.append('rentabilidad', parseFloat(editorLineaRentabilidad.value) / 100);
+    datosProducto.append('rentabilidad', ( parseFloat(editorLineaRentabilidad.value) / parseFloat(100) ).toFixed(4));
     datosProducto.append('ganancia', parseFloat(editorLineaGanancia.value));
     datosProducto.append('precio_venta', parseFloat(editorLineaPrecioVenta.value));
     datosProducto.append('categoria', parseInt(editorLineaCategoria.value));
