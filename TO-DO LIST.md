@@ -28,7 +28,7 @@
 
 
 - [x] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar autompletado de valores en $C/%R/$G/$V
-- [] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Chequear que se haga fetch correctamente.
+- [] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Fix fetch necesitando "FILE" enviado
 
 ---
 
@@ -48,7 +48,8 @@
 - [x] CERRAR CAJA; Implementar CONTADOR EFECTIVO
 - [ ] CERRAR CAJA; Hacer fetch JSON para backend
 
-- [x] MOVIMIENTO EXCEPCIONAL; Hacer fetch JSON para backend
+- [ ] MOVIMIENTO EXCEPCIONAL; Fix error 500
+- [ ] MOVIMIENTO EXCEPCIONAL; Reload después de hacer fetch
 
 
 * Considerar implementar ALGUNA FORMA DE REVERTIR COMPRAS Y VENTAS
