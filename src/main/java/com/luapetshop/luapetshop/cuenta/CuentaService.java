@@ -57,8 +57,8 @@ public class CuentaService {
 //		 id_cuenta, monto, tipo, motivo, fecha
 		Integer id_cuenta = (Integer)datos.get("id_cuenta");
 		Double monto = Double.valueOf((String)datos.get("monto"));
-		Character tipo = (Character)datos.get("tipo");
-		if(tipo == 'I' || tipo == 'E') {
+		char tipo = ((String)datos.get("tipo")).charAt(0);
+		if(tipo != 'I' && tipo != 'E') {
 			throw new Exception("El tipo " + tipo + " es invalido");
 		}
 		String motivo = (String)datos.get("motivo");

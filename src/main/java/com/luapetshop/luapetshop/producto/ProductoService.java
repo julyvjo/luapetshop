@@ -123,8 +123,6 @@ public class ProductoService {
 			//setea ruta de imagen para el producto
 			producto.setImagen(imgurlPath);
 		}
-		
-		System.out.println("Rentabilidad: " + producto.getRentabilidad());
 
 		productoRepository.save(producto);
 		
