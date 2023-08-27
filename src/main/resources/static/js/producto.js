@@ -437,7 +437,8 @@ function cargarEditor(fila)
     //     });
     // }
     
-    // const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
+    const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
+    editorLineaPrecioVenta.value = parseFloat( h5[8].textContent ).toFixed(2);
     editorLineaDefaultPrecioVenta = parseFloat( h5[8].textContent ).toFixed(2);
 
     // if (h5[8].textContent != "0.00")
@@ -600,7 +601,7 @@ function enviarEditorLinea()
 
     datosProducto.append('proveedor', parseInt(editorLineaProveedor.value));
     datosProducto.append('precio_compra', parseFloat(editorLineaPrecioCompra.value));
-    datosProducto.append('rentabilidad', parseFloat(editorLineaRentabilidad.value));
+    datosProducto.append('rentabilidad', parseFloat(editorLineaRentabilidad.value) / 100);
     datosProducto.append('ganancia', parseFloat(editorLineaGanancia.value));
     datosProducto.append('precio_venta', parseFloat(editorLineaPrecioVenta.value));
     datosProducto.append('categoria', parseInt(editorLineaCategoria.value));
