@@ -51,8 +51,12 @@
                                 </td>
                                 
                                 <!-- GANANCIA -->
-                                <td>
+                                <!-- <td>
                                     <h5>$ 0.00</h5>
+                                </td> -->
+                                <td th:switch="${item.tipo}">
+                                    <h5 th:case="'V'" th:text="'&#36; ' + ${#numbers.formatDecimal(item.comision, 1, 2)}"></h5>
+                                    <h5 th:case="*">No corresponde</h5>
                                 </td>
 
                                 <!-- MOTIVO / OBSERVACIÓN -->
@@ -60,8 +64,8 @@
                                 <td th:switch="${item.tipo}">
                                     <h5 th:case="'C'">Compra a proveedor - NO CORRESPONDE.</h5>
                                     <h5 th:case="'V'">Venta de productos - NO CORRESPONDE.</h5>
-                                    <h5 th:case="'I'">NO ESPECIFICADO - INGRESO EXCEPCIONAL.</h5>
-                                    <h5 th:case="'E'">NO ESPECIFICADO - EGRESO EXCEPCIONAL.</h5>
+                                    <h5 th:case="'I'" th:text="${item.motivo}"></h5>
+                                    <h5 th:case="'E'" th:text="${item.motivo}"></h5>
                                     <h5 th:case="*">DESCONOCIDO.</h5>
                                 </td>
                             </tr>
