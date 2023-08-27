@@ -2,6 +2,7 @@ package com.luapetshop.luapetshop.producto;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -16,14 +17,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.luapetshop.luapetshop.proveedor.Proveedor;
 import com.luapetshop.luapetshop.repository.IProveedorRepository;
-import com.luapetshop.luapetshop.util.Util;
 
 @Controller
 public class ProductoController {
@@ -94,21 +93,22 @@ public class ProductoController {
 	@PostMapping("/new/producto")
     public ResponseEntity<String> agregarProducto(
     		@ModelAttribute("producto") Producto producto,
-    		@RequestParam("file") MultipartFile file
+    		@RequestParam(name = "file", required = false) Optional<MultipartFile> opt_file
     		) {
-    		
-		//validaciones
 		
-		String response;
-		
+		String response = null;
+		MultipartFile file = null;
 		try {
 			//handle
+			if (opt_file.isPresent()) {
+				file = opt_file.get();
+			}
 			response = productoService.CrearOActualizarProducto(producto, file);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("respuesta test");
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ERROR al procesar producto: " + e.getMessage());
 		}
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(response);

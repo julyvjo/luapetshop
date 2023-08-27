@@ -114,17 +114,21 @@ public class ProductoService {
 	@Transactional
 	public String CrearOActualizarProducto(Producto producto, MultipartFile file) {
 		
+		boolean nuevo = producto.getId_producto() == 0;
+		String accion = nuevo? "creado": "actualizado";
 		//contiene imagen?
-		if(!file.isEmpty()) {
+		if(file != null) {
 			//guarda imagen y obtiene ruta
 			String imgurlPath = Util.saveImage(file, "productos/");
 			//setea ruta de imagen para el producto
 			producto.setImagen(imgurlPath);
 		}
+		
+		System.out.println("Rentabilidad: " + producto.getRentabilidad());
 
 		productoRepository.save(producto);
 		
-		return "producto creado, id: " + producto.getId_producto();
+		return "producto " + accion + ", id: " + producto.getId_producto();
 		
 	}
 		
