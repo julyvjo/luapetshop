@@ -331,7 +331,21 @@ if (CERRAR_CAJA_BUTTON)
             
             window.alert("Cajas cerradas con éxito!");
 
-            console.log("Hola");
+            // const API_URL = "/caja/cerrar";
+
+            // const LINK = new URL(API_URL, window.location.origin);
+
+            // fetch(LINK)
+
+            // .then(response => response.text())
+    
+            // .then(responseData => {
+            //     console.log(responseData);  // Resultado de enviar el json.
+            // })
+            
+            // .catch(error => {
+            //     console.log("ERROR: ", error);  // Errores que puedan haber.
+            // })
 
             //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
             //  location.reload();
