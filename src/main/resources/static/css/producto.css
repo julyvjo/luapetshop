@@ -300,7 +300,12 @@
     width: 8vw;
 }
 
-#table > tr > td:nth-child(4)   /* STOCK */
+#table > tr > td:nth-child(5)   /* STOCK */
+{
+    width: 6.5vw;
+}
+
+#table > tr > td:nth-child(7)   /* RENTABILIDAD */
 {
     width: 6.5vw;
 }
