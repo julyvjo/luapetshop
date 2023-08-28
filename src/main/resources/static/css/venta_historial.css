@@ -28,6 +28,17 @@
     cursor: pointer;
 }
 
+#appHeader > div:first-child:hover
+{
+    background-color: #f2f2f2AA;
+}
+
+#appHeader > div:first-child:active
+{
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
 .container
 {
     height: 72vh;
