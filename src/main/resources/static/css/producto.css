@@ -43,6 +43,19 @@
     background-color: var(--accent);
     color: var(--text);
 }
+
+#botonBuscador:hover,
+#botonNuevoProducto:hover
+{
+    background-color: #f2f2f2AA;
+}
+
+#botonBuscador:active,
+#botonNuevoProducto:active
+{
+    background-color: var(--alternative);
+    color: var(--primary);
+}
 /* *********************************************** */
 
 
