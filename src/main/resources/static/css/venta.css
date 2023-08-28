@@ -89,6 +89,17 @@
     color: var(--text);
 }
 
+#botonHistorialVenta:hover
+{
+    background-color: #04848bAA;
+}
+
+#botonHistorialVenta:active
+{
+    background-color: var(--alternative);
+    color: var(--primary);
+}
+
 #appVentaContainer > :nth-child(2)
 /* CARRITO COMPRA */
 {
@@ -212,6 +223,17 @@ input.py-2
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#appVentaContainer > :last-child > :last-child:hover
+{
+    background-color: #04848bAA;
+}
+
+#appVentaContainer > :last-child > :last-child:active
+{
+    background-color: var(--alternative);
+    color: var(--primary);
 }
 /* *********************************************** */
 
