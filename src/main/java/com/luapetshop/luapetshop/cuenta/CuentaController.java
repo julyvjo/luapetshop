@@ -72,18 +72,18 @@ public class CuentaController {
 	}
 	
 	@GetMapping("/caja/cerrar")
-    public ResponseEntity<String> cerrarCaja(@RequestBody Map<String, Object> datos) {
+    public ResponseEntity<String> cerrarCaja() {
         
-		//LOGGER.info("recibido POST en /caja/cerrar: " + datos.toString());
+		LOGGER.info("recibido: GET /caja/cerrar");
 		
 		try {			
-			cuentaService.cerrarCaja(datos);
+			cuentaService.cerrarCaja();
 			return ResponseEntity.status(HttpStatus.ACCEPTED).body("caja cerrada exitosamente");
 		} catch (Exception e) {
 			LOGGER.error("Error al cerrar caja");
 			LOGGER.error(e.getMessage());
 			e.printStackTrace();
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al cerrar caja");
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al cerrar caja: " + e.getMessage());
 		}
     }
 	

@@ -36,7 +36,7 @@ public class CuentaService {
 	}
 
 	@Transactional
-	public void cerrarCaja(Map<String, Object> datos) {
+	public void cerrarCaja() {
 		//parsear datos
 		LocalDateTime fecha_apertura = LocalDateTime.now();
 		
