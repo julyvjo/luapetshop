@@ -33,7 +33,7 @@ html
 }
 
 *, *:before, *:after {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 body
@@ -110,9 +110,29 @@ header
     overflow: hidden;
 }
 
+#headerNav > div:hover
+{
+    background-color: #05c3d1AA;
+}
+
+#headerNav > div:active
+{
+    background-color: #05c3d111;
+}
+
 #headerNav > div.fixed
 {
     background-color: var(--accent);
+}
+
+#headerNav > div.fixed:hover
+{
+    background-color: #04848bAA;
+}
+
+#headerNav > div.fixed:active
+{
+    background-color: #04848b11;
 }
 
 #headerNav > div.actual
@@ -120,6 +140,16 @@ header
     border-color: var(--secondary);
     background-color: var(--primary);
     color: var(--secondary);
+}
+
+#headerNav > div.actual:hover
+{
+    background-color: #f2f2f2AA;
+}
+
+#headerNav > div.actual:active
+{
+    background-color: #f2f2f211;
 }
 
 
