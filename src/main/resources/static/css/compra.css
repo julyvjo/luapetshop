@@ -38,6 +38,20 @@
     align-self: center;
 }
 
+#app > div:first-child > button:not([disabled]):hover
+{
+    /* #compraExcepcional */
+    /* #historialCompras */
+    background-color: #f2f2f2AA;
+}
+
+#app > div:first-child > button:not([disabled]):active
+{
+    /* #compraExcepcional */
+    /* #historialCompras */
+    background-color: var(--accent);
+    color: var(--primary);
+}
 
 
 /* ///////////// */
@@ -127,6 +141,17 @@
     line-height: normal;
 
     align-self: center;
+}
+
+#formCompraButton:hover
+{
+    background-color: #f2f2f2AA;
+}
+
+#formCompraButton:active
+{
+    background-color: var(--accent);
+    color: var(--primary);
 }
 
 
