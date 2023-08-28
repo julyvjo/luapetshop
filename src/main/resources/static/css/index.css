@@ -41,6 +41,16 @@
     font-weight: bold;
 }
 
+#nav > div:hover
+{
+    background-color: #05c3d1AA;
+}
+
+#nav > div:active
+{
+    background-color: #05c3d111;
+}
+
 #nav > div > img
 {
     width: auto;
