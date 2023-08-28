@@ -22,13 +22,11 @@
 
 ##  PRODUCTO
 
-- [x] <sup>~~IMAGEN; Rutas a la imagen del producto (th:src=${atributo})~~</sup>
-- [x] <sup>~~IMAGEN; Agregar imágenes de productos (Quizas en nueva ruta?).~~</sup>
-- [x] <sup>~~IMAGEN; Implementar agregar/modificar imagen de un producto (nuevo o existente).~~</sup>
+- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Agregar CODIGO a los modals (codigo de producto del proveedor)
+- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Agregar atributo CODIGO en HTML
+- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar CODIGO (codigo de producto del proveedor)
 
-
-- [x] <sup>~~EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar autompletado de valores en $C/%R/$G/$V~~</sup>
-- [x] <sup>~~EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Fix fetch necesitando "FILE" enviado~~</sup>
+- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Quitar doble confirmación (se puede simplemente volver a editar)
 
 ---
 
@@ -43,6 +41,8 @@
 ---
 
 ##  CAJA
+
+- [ ] AGREGAR GANANCIA_TOTAL (junto a SALDO_TOTAL; mov. excepcional más fino)
 
 - [x] CERRAR CAJA; Implementar CAJA EFECTIVO
 - [x] CERRAR CAJA; Implementar CONTADOR EFECTIVO
