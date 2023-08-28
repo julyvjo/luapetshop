@@ -15,7 +15,7 @@ CREATE TABLE producto (
     imagen VARCHAR(255),
     descripcion VARCHAR(1024),
     precio_compra DECIMAL(12, 2),
-    rentabilidad DECIMAL(5, 2),
+    rentabilidad DECIMAL(10, 4),
     ganancia DECIMAL(12, 2),
     precio_venta DECIMAL(12, 2),
     stock INT,
@@ -258,11 +258,3 @@ VALUES
    ('admin','$2a$10$BoJ47v3ebE/vnLMVQ1EvdOFunxxJZOCqVtmdVNEdg6aR1Gq9lBqS.');
 
   
- 
- 
- -- Querys propias para testing
-
-SELECT * FROM compra
-WHERE fecha >= (SELECT fecha_apertura FROM cuenta limit 1)
-ORDER BY fecha desc;
-
