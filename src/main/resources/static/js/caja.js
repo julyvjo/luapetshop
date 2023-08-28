@@ -328,27 +328,25 @@ if (CERRAR_CAJA_BUTTON)
 
             // prepararCajas();
             // entregarCajas();
-            
-            window.alert("Cajas cerradas con éxito!");
 
-            // const API_URL = "/caja/cerrar";
+            const API_URL = "/caja/cerrar";
+            const LINK = new URL(API_URL, window.location.origin);
 
-            // const LINK = new URL(API_URL, window.location.origin);
-
-            // fetch(LINK)
-
-            // .then(response => response.text())
+            fetch(LINK)
+            .then(response => response.text())
     
-            // .then(responseData => {
-            //     console.log(responseData);  // Resultado de enviar el json.
-            // })
+            .then(responseData => {
+                console.log(responseData);  // Resultado de enviar el json.
+                window.alert(responseData);
+            })
             
-            // .catch(error => {
-            //     console.log("ERROR: ", error);  // Errores que puedan haber.
-            // })
+            .catch(error => {
+                console.log("ERROR: ", error);  // Errores que puedan haber.
+                window.alert("ERROR: ", error);
+            })
 
-            //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
-            //  location.reload();
+             //Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+             location.reload();
         }, 250);
     });
 }
