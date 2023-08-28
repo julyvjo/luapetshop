@@ -172,6 +172,7 @@ public class VentaService {
 	        Double ganancia = total - total_compra - comision1;
 	        if(id_medio_pago2 != 0 && comision2 != null)
 	        	ganancia -= comision2;
+	        venta.setGanancia(ganancia);
 	        
 	        //save venta y respectivas lineas
 	        ventaRepository.save(venta);
