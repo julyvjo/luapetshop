@@ -3,118 +3,39 @@
 <head th:replace="~{fragments/general.html :: headBoilerplate(@{\js\importacion.js}, @{\css\importacion.css})}"></head>
 <body>
     <header th:replace="~{fragments/headernav.html :: headerNavFull (class4='actual')}"></header>
+
     <div id="app">
-        <div id="extraApps">
-        
+        <!-- FORMULARIO PARA ENVIAR ARCHIVO PDF -->
+        <div>
+            <h2>IMPORTACIÓN PDF DEL PROVEEDOR</h2>
+
+            <form>
+                <input type="file" id="pdfFileInput" accept=".pdf" />
+
+                <label for="pages">Ingrese páginas a tomar:</label>
+                <input type="text" id="pages" placeholder="1-15" />
+            </form>
+
+            <button class="boton" type="button" onclick="enviarArchivoPDF()">IMPORTAR PDF</button>
         </div>
-        
-        <!-- <h2>Subir archivo PDF</h2>
-        <form action="/upload_pdf" method="post" enctype="multipart/form-data">
-            <input type="file" name="pdfFile" accept=".pdf">
-            <button type="submit">Subir PDF</button>
-        </form> -->
 
-        <style>
-          .container {
-              border: 1px solid #ccc; /* 1px de ancho, tipo sólido, color gris */
-              padding: 10px; /* Agregamos un poco de espacio interno para separar el contenido del borde */
-          }
-        </style>
+        <!-- FORMULARIO PARA ENVIAR ARCHIVO CSV -->
+        <div>
+            <h2>IMPORTACIÓN CSV DEL PROVEEDOR</h2>
 
-        <script>
-            // Función para realizar el POST request al servidor
-            function enviarArchivoPDF() {
-              // Crea un objeto FormData y agrega el archivo PDF que deseas enviar
-              var formData = new FormData();
-              formData.append("pdfFile", document.getElementById("pdfFileInput").files[0]);
-              formData.append("pages", document.getElementById("pages").value);
-          
-              // Realiza el POST request al servidor utilizando fetch
-              fetch("/upload_pdf", {
-                method: "POST",
-                body: formData
-              })
-              .then(response => response.blob())
-              .then(blob => {
-                // Genera un enlace para descargar el archivo CSV
-                var url = URL.createObjectURL(blob);
-                var a = document.createElement("a");
-                a.href = url;
-                a.download = "datos.csv";
-                a.click();
-                // Libera el objeto URL creado para evitar pérdidas de memoria
-                URL.revokeObjectURL(url);
-              })
-              .catch(error => {
-                // Manejo de errores en caso de que ocurra un problema con el fetch
-                console.error(error);
-              });
-            }
-          </script>
-
-          <script>
-            function enviarArchivoCSV() {
-                const fileInput = document.getElementById('csvFileInput');
-                const tipoSelect = document.getElementById('proveedor');
-
-                const selectedFile = fileInput.files[0];
-                const selectedTipo = tipoSelect.value;
-
-                if (selectedFile) {
-                    const formData = new FormData();
-                    formData.append('csvFile', selectedFile);
-                    formData.append('tipo', selectedTipo);
-
-                    fetch('/upload_csv', {
-                        method: 'POST',
-                        body: formData
-                    })
-                    .then(response => response.text())
-                    .then(data => {
-                        console.log(data); // Manejar la respuesta del servidor si es necesario
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
-                } else {
-                    console.log('No se ha seleccionado un archivo CSV.');
-                }
-            }
-          </script>
-          
-          <!-- Formulario para enviar archivo PDF -->
-          <div class="container">
             <form>
-              <input type="file" id="pdfFileInput" accept=".pdf" />
-              <input type="text" id="pages" placeholder="Ingrese paginas a tomar" />
-              <button type="button" onclick="enviarArchivoPDF()">Subir PDF</button>
+                <input type="file" id="csvFileInput" accept=".csv" />
+
+                <label for="proveedor">Seleccionar proveedor:</label>
+                <select id="proveedor">
+                    <option value="0">SELECCIONAR PROVEEDOR</option>
+                    <option th:each="item: ${proveedores}" th:value="${item.id_proveedor}" th:text="${item.nombre}"></option>
+                </select>
             </form>
-          </div>
 
-          <!-- Formulario para enviar archivo CSV -->
-          <div class="container">
-            <form>
-              <input type="file" id="csvFileInput" accept=".csv" />
-              
-              <label for="proveedor">Seleccionar Proveedor:</label>
-              <select id="proveedor">
-                  <option value="0">SELECCIONAR PROVEEDOR</option>
-                  <option th:each="item: ${proveedores}" th:value="${item.id_proveedor}" th:text="${item.nombre}"></option>
-              </select>
-
-              <button type="button" onclick="enviarArchivoCSV()">Subir CSV</button>
-            </form>
-          </div>
-          
-
-
-
-
-
+            <button class="boton" type="button" onclick="enviarArchivoCSV()">IMPORTAR CSV</button>
+        </div>
     </div>
-
-
-    <footer th:replace="~{fragments/general.html :: footer}"></footer>
-
+<footer th:replace="~{fragments/general.html :: footer}"></footer>
 </body>
 </html>

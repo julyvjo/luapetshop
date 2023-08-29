@@ -2,152 +2,66 @@
 /* /// || APP /// */
 /* ////////////// */
 
-#extraApps
+#app
 {
-    margin: 0;
-    padding: 1vh 1vw;
-    /* height: 20vh; */
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-evenly;
 }
 
-#buscador
-{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 1vw;
-}
-
-#inputBuscador
-{
-    margin: 0;
-    padding: 1vh 1vw;
-    width: 45vw;
-    border: 0;
-    border-radius: 1vw;
-
-    outline: none;
-}
-
-#botonBuscador,
-#botonNuevoProducto,
-#botonNuevoProveedor
-{
-    margin: 0;
-    padding: 1vh 1vw;
-    border-radius: 1vw;
-    border: 0;
-    background-color: var(--accent);
-    color: var(--text);
-}
-/* *********************************************** */
-
-
-
-/* //////////////////////////////// */
-/* /// || MODAL NUEVO PROVEEDOR /// */
-/* //////////////////////////////// */
-
-/*
-    Dupliqué todo lo de #modalNuevoProducto por si es necesario ajustar este en particular.
-*/
-
-#modalNuevoProveedor > div.modal-dialog
-{
-    max-width: 25vw;
-}
-
-#modalNuevoProveedor > div.modal-dialog > div > div > h5
-{
-    color: var(--text);
-    font-size: 4vh;
-}
-
-#formularioModalNuevoProveedor
-{
-    margin: 0;
-    padding: 0;
-    
-    height: 65vh;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2vh;
-}
-
-#formularioModalNuevoProveedor > div
-{
-    margin: 0;
-    padding: 1vh 2vw;
-    /* background-color: red; */
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#formularioModalNuevoProveedor > div,
-#formularioModalNuevoProveedor > div > div
-{
-    margin: 0;
-    padding: 0;
-    color: var(--text);
-    text-align: center;
-}
-
-#formularioModalNuevoProveedor > button,
-#formularioModalNuevoProveedor > div > select,
-#formularioModalNuevoProveedor > div > input,
-#formularioModalNuevoProveedor > div > button,
-#formularioModalNuevoProveedor > div > div > input,
-#formularioModalNuevoProveedor > div > div > select
-{
-    margin: 0;
-    padding: 1vh 1vw;
-    width: 100%;
-    border: 0;
-    border-radius: 1vw;
-    outline: none;
-}
-
-#formularioModalNuevoProveedor > button
-{
-    margin-top: auto;
-}
-/* *********************************************** */
-
-
-
-/* //////////////// */
-/* /// || MODAL /// */
-/* //////////////// */
-
-.modal /* Acts as a backdrop for the modal */
-{
-    background-color: #121212A0;
-}
-
-.modal > div > div
-{
-    border: 0.5vh solid var(--accent);
-    border-radius: 1vw;
+#app > div
+{   
+    margin: 2.5vh 0;
+    padding: 2vh 1vw;
+    width: 80vw;
     background-color: var(--alternative);
     color: var(--text);
+    border-width: 1vh 1vw;
+    border-style: solid;
+    border-color: var(--accent);
+    border-radius: 1vw;
+
+    align-self: center;
 }
 
-.modal-header
+#app > div > h2
 {
-    height: 10vh;
+    font-size: 3vh;   
+    font-weight: 900;
+    line-height: normal;
+    color: var(--text);
 }
 
-.modal-body
+#app > div > form > *
 {
-    height: 70vh;
+    padding: 1vh 1vw;
+    border: 0;
+    border-radius: 1vw;
+    line-height: normal;
 }
-/* *********************************************** */
+
+#pages,
+#proveedor
+{
+    width: 22vw;
+}
+
+.boton
+{
+    margin: 0;
+    padding: 1vh 1vw;
+    border: 0;
+    border-radius: 1vw;
+    line-height: normal;
+
+    align-self: center;
+}
+
+.boton:hover
+{
+    background-color: #f2f2f2AA;
+}
+
+.boton:active
+{
+    background-color: var(--accent);
+    color: var(--primary);
+}
