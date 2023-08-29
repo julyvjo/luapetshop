@@ -101,6 +101,8 @@
 
 #appCajaFondos > div > div > button
 {
+    /* .appCajaDetalles */
+    
     margin: 0;
     padding: 0;
 
@@ -116,6 +118,20 @@
     align-items: center;
 }
 
+#appCajaFondos > div > div > button:hover
+{
+    /* .appCajaDetalles */
+
+    background-color: #04848bAA;
+}
+
+#appCajaFondos > div > div > button:active
+{
+    /* .appCajaDetalles */
+
+    background-color: var(--alternative);
+    color: var(--primary);
+}
 
 
 
@@ -137,7 +153,7 @@
     /* #appCajaMovimiento, */
     /* #appCajaSaldoTotal, */
     /* #appCajaGananciaTotal */
-    
+
     margin: 0;
     padding: 0;
     flex-grow: 3;
@@ -160,6 +176,17 @@
     color: var(--text);
     border: 0;
     border-radius: 1vw;
+}
+
+#appCajaMovimiento:hover
+{
+    background-color: #04848bAA;
+}
+
+#appCajaMovimiento:active
+{
+    background-color: var(--alternative);
+    color: var(--primary);
 }
 
 #appCajaContainer > :last-child > :first-child > div:nth-child(2),
@@ -244,6 +271,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#botonCerrarCaja:hover
+{
+    background-color: #04848bAA;
+}
+
+#botonCerrarCaja:active
+{
+    background-color: var(--alternative);
+    color: var(--primary);
 }
 
 #modalCerrarCaja > div.modal-dialog
