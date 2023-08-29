@@ -106,26 +106,37 @@ nuevoProductoEnviar.addEventListener("click", () =>
     if(!validarNuevoProducto())
         return;
 
-    if ( !window.confirm("Estás por finalizar la compra...\n\n¿Estás seguro?") )
-    return;
+    // if ( !window.confirm("Estás por finalizar la compra...\n\n¿Estás seguro?") )
+    // return;
 
-    // Insistir con la confirmación para evitar lo máximo posible finalizar por accidente.
-    setTimeout(() =>
-    {
-        if ( !window.confirm("¿Realmente estás seguro?") )
-            return;
+    // // Insistir con la confirmación para evitar lo máximo posible finalizar por accidente.
+    // setTimeout(() =>
+    // {
+    //     if ( !window.confirm("¿Realmente estás seguro?") )
+    //         return;
 
-        enviarNuevoProducto();
+    //     enviarNuevoProducto();
 
-        window.alert("Producto registrado exitosamente!");
+    //     window.alert("Producto registrado exitosamente!");
 
-        //  REINICIAR TODO
+    //     //  REINICIAR TODO
 
-        reiniciarNuevoProducto();
+    //     reiniciarNuevoProducto();
         
-        //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
-        //  location.reload();
-    }, 250);
+    //     //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+    //     //  location.reload();
+    // }, 250);
+
+    enviarNuevoProducto();
+
+    window.alert("Producto registrado exitosamente!");
+
+    //  REINICIAR TODO
+
+    reiniciarNuevoProducto();
+
+    //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+    //  location.reload();
 });
 
 function validarNuevoProducto()     // AÚN NO SE VALIDAR PARA EVITAR SQL INJECTION!
@@ -465,25 +476,35 @@ modalEditorLineaEnviar.addEventListener("click", () =>
     if(!validarEditorLinea())
         return;
 
-    if ( !window.confirm("Estás por finalizar la compra...\n\n¿Estás seguro?") )
-    return;
+    // if ( !window.confirm("Estás por finalizar la compra...\n\n¿Estás seguro?") )
+    // return;
 
-    // Insistir con la confirmación para evitar lo máximo posible finalizar por accidente.
-    setTimeout(() =>
-    {
-        if ( !window.confirm("¿Realmente estás seguro?") )
-            return;
+    // // Insistir con la confirmación para evitar lo máximo posible finalizar por accidente.
+    // setTimeout(() =>
+    // {
+    //     if ( !window.confirm("¿Realmente estás seguro?") )
+    //         return;
 
-        enviarEditorLinea();
+    //     enviarEditorLinea();
 
-        window.alert("Producto registrado exitosamente!");
+    //     window.alert("Producto registrado exitosamente!");
 
-        //  REINICIAR TODO
-        reiniciarEditorLinea();
+    //     //  REINICIAR TODO
+    //     reiniciarEditorLinea();
 
-        //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
-        //  location.reload();
-    }, 250);
+    //     //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+    //     //  location.reload();
+    // }, 250);
+
+    enviarEditorLinea();
+
+    window.alert("Producto registrado exitosamente!");
+
+    //  REINICIAR TODO
+    reiniciarEditorLinea();
+
+    //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+    //  location.reload();
 });
 
 function validarEditorLinea()       //  AÚN NO SE VALIDAR PARA EVITAR SQL INJECTION!
