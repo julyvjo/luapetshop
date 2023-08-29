@@ -409,8 +409,8 @@ function cargarEditor(fila)
     // }
 
     const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
-    editorLineaRentabilidad.value = (parseFloat(h5[6].textContent) * 100 ).toFixed(2);
-    editorLineaDefaultRentabilidad = (parseFloat(h5[6].textContent) * 100 ).toFixed(2);
+    editorLineaRentabilidad.value = parseFloat(h5[6].textContent).toFixed(2);
+    editorLineaDefaultRentabilidad = parseFloat(h5[6].textContent).toFixed(2);
 
     // if (h5[6].textContent != "0.00")
     // {   
