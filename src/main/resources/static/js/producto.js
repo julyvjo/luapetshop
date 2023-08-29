@@ -129,14 +129,14 @@ nuevoProductoEnviar.addEventListener("click", () =>
 
     enviarNuevoProducto();
 
-    window.alert("Producto registrado exitosamente!");
+    window.alert("Producto registrado exitosamente!\nSe actualizará la página en unos instantes.");
 
     //  REINICIAR TODO
 
     reiniciarNuevoProducto();
 
     //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
-    //  location.reload();
+    setTimeout(() => {location.reload()}, 2000);
 });
 
 function validarNuevoProducto()     // AÚN NO SE VALIDAR PARA EVITAR SQL INJECTION!
@@ -498,13 +498,13 @@ modalEditorLineaEnviar.addEventListener("click", () =>
 
     enviarEditorLinea();
 
-    window.alert("Producto registrado exitosamente!");
+    window.alert("Producto registrado exitosamente!\nSe actualizará la página en unos instantes.");
 
     //  REINICIAR TODO
     reiniciarEditorLinea();
 
     //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
-    //  location.reload();
+    setTimeout(() => {location.reload()}, 2000);
 });
 
 function validarEditorLinea()       //  AÚN NO SE VALIDAR PARA EVITAR SQL INJECTION!
