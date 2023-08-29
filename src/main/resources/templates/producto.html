@@ -50,7 +50,8 @@
                                 <td><h5 th:text="${item.categoria.nombre}"></h5></td>
                                 <td><h5 th:text="${item.stock}"></h5></td>
                                 <td><h5 th:text="${#numbers.formatDecimal(item.precio_compra, 1, 2)}"></h5></td>
-                                <td><h5 th:text="${#numbers.formatDecimal(item.rentabilidad * 100, 2, 'POINT', 2, 'COMMA')} + ' %'"></h5></td>
+                                <!-- <td><h5 th:text="${#numbers.formatDecimal(item.rentabilidad * 100, 1, 'POINT', 2, 'COMMA')} + ' %'"></h5></td> -->
+                                <td><h5 th:text="${#numbers.formatDecimal(item.rentabilidad * 100, 1, 2)}"></h5></td>
                                 <td><h5 th:text="${#numbers.formatDecimal(item.ganancia, 1, 2)}"></h5></td>
                                 <td><h5 th:text="${#numbers.formatDecimal(item.precio_venta, 1, 2)}"></h5></td>
                                 <td><h5><button class="botonEditar">&#9998;</button></h5></td>
