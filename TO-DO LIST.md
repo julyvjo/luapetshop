@@ -26,7 +26,7 @@
 - [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Agregar atributo CODIGO en HTML
 - [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar CODIGO (codigo de producto del proveedor)
 
-- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Quitar doble confirmación (se puede simplemente volver a editar)
+- [x] <sup>~~EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Quitar doble confirmación (se puede simplemente volver a editar)~~</sup>
 
 ---
 
@@ -42,11 +42,11 @@
 
 ##  CAJA
 
-- [ ] AGREGAR GANANCIA_TOTAL (junto a SALDO_TOTAL; mov. excepcional más fino)
+- [x] <sup>~~AGREGAR GANANCIA_TOTAL (junto a SALDO_TOTAL; mov. excepcional más fino)~~</sup>
 
-- [x] CERRAR CAJA; Implementar CAJA EFECTIVO
-- [x] CERRAR CAJA; Implementar CONTADOR EFECTIVO
-- [ ] CERRAR CAJA; Hacer fetch JSON para backend
+- [x] <sup>~~CERRAR CAJA; Implementar CAJA EFECTIVO~~</sup>
+- [x] <sup>~~CERRAR CAJA; Implementar CONTADOR EFECTIVO~~</sup>
+- [x] <sup>~~CERRAR CAJA; Hacer fetch JSON para backend~~</sup>
 
 - [x] <sup>~~MOVIMIENTO EXCEPCIONAL; Fix error 500~~</sup>
 - [x] <sup>~~MOVIMIENTO EXCEPCIONAL; Reload después de hacer fetch~~</sup>
@@ -71,9 +71,9 @@
 
 ##  CSS
 
-- [ ] CSS; Agregar efectos a los botones para dar feedback visual de que se accionó un botón.
 - [ ] CSS TABLAS; El scrollbar vertical solamente debería afectar a `<tbody>`
 - [ ] Troubleshooting de cómo en algunos navegadores se rompen las dimensiones (e.g. thinkpad)
+- [x] <sup>~~CSS; Agregar efectos a los botones para dar feedback visual de que se accionó un botón.~~</sup>
 
 * Setear comentarios separadores de bloques de reglas CSS para navegarlo más fácilmente ( https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Organizing )
 * Maximizar espacio para listado de productos.
