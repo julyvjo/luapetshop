@@ -133,10 +133,11 @@
 }
 
 #appCajaContainer > :last-child > :first-child
-/* #appCajaGastoExcepcional, */
-/* #appCajaMetodoPagoExcepcional, */
-/* #appCajaSaldoTotal */
 {
+    /* #appCajaMovimiento, */
+    /* #appCajaSaldoTotal, */
+    /* #appCajaGananciaTotal */
+    
     margin: 0;
     padding: 0;
     flex-grow: 3;
@@ -145,7 +146,7 @@
     flex-direction: column;
     
     /* justify-content: space-between; */
-    gap: 2vh;
+    gap: 1vh;
 }
 
 #appCajaMovimiento
@@ -161,8 +162,11 @@
     border-radius: 1vw;
 }
 
+#appCajaContainer > :last-child > :first-child > div:nth-child(2),
 #appCajaContainer > :last-child > :first-child > div:last-child
 {
+    /* SALDO TOTAL y GANANCIA TOTAL */
+
     margin: 0;
     padding: 0;
     width: 100%;
@@ -171,8 +175,11 @@
     flex-direction: row;
 }
 
+#appCajaContainer > :last-child > :first-child > div:nth-child(2) :nth-child(odd),
 #appCajaContainer > :last-child > :first-child > div:last-child :nth-child(odd)
 {
+    /* SALDO TOTAL y GANANCIA TOTAL */
+
     padding: 0 1vw;
     background-color: var(--accent);
     color: var(--text);
@@ -183,8 +190,11 @@
     align-items: center;
 }
 
+#appCajaContainer > :last-child > :first-child > div:nth-child(2) :nth-child(even),
 #appCajaContainer > :last-child > :first-child > div:last-child :nth-child(even)
 {
+    /* SALDO TOTAL y GANANCIA TOTAL */
+    
     padding: 0 1vw;
     border-radius: 0 1vw 1vw 0;
 }
