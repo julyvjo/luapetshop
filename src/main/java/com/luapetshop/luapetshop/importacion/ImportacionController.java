@@ -73,7 +73,7 @@ public class ImportacionController {
 	
 	
 	@PostMapping("/upload_csv")
-	public ResponseEntity<String> handleCSVUpload(
+	public ResponseEntity<?> handleCSVUpload(
 			@RequestParam("csvFile") MultipartFile file,
 			@RequestParam("proveedor") int id_proveedor) {
 		
@@ -97,7 +97,15 @@ public class ImportacionController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
 		}
 
-        return ResponseEntity.status(HttpStatus.CREATED).body("Datos importados exitosamente: \n\n" + output);
+		byte[] responseFile = output.getBytes();
+        
+		// Configurar headers
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.TEXT_PLAIN); // Especificar el tipo de contenido como texto plano
+        headers.setContentDispositionFormData("attachment", "import.txt"); // Establecer el nombre del archivo
+
+        // Retornar csv
+        return new ResponseEntity<>(responseFile, headers, HttpStatus.OK);
 	}
 	
 	@GetMapping("/download/productos")

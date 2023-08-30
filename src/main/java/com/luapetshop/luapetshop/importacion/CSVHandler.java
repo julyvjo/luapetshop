@@ -30,6 +30,9 @@ public class CSVHandler {
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
             String line;
             while ((line = br.readLine()) != null) {
+            	if(line.isBlank()) {
+            		continue;            		
+            	}
             	//los campos son: codigo y precio, el proveedor viene aparte
                 String[] fields = line.split(";");
                 String codigo = fields[0];
@@ -40,7 +43,7 @@ public class CSVHandler {
                 //validacion de existencia de producto
                 if(opt_producto.isEmpty()) {
                 	//el producto no existe, no se deberia crear en este caso porque es una actualizacion de precios
-                	sb.append("ERROR producto inexistente: " + codigo);
+                	sb.append("ERROR codigo de producto y/o proveedor inexistente: " + codigo + "\n");
                 	continue;
                 }
                 Producto producto = opt_producto.get();
@@ -57,7 +60,7 @@ public class CSVHandler {
                 
                 try {
                 	productoRepository.save(producto);
-                	sb.append("Actualizado producto [" + producto.getCodigo() + "] " + producto.getNombre() + ": precio_compra = " + producto.getPrecio_compra() + " ; precio_venta = " + producto.getPrecio_venta());
+                	sb.append("Producto actualizado [" + producto.getCodigo() + "] " + producto.getNombre() + ": precio_compra = " + producto.getPrecio_compra() + " ; precio_venta = " + producto.getPrecio_venta());
 				} catch (Exception e) {
 					// TODO: handle exception
 					e.printStackTrace();

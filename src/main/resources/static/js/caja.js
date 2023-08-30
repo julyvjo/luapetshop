@@ -338,6 +338,8 @@ if (CERRAR_CAJA_BUTTON)
             .then(responseData => {
                 console.log(responseData);  // Resultado de enviar el json.
                 window.alert(responseData);
+                //Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+                location.reload();
             })
             
             .catch(error => {
@@ -345,8 +347,6 @@ if (CERRAR_CAJA_BUTTON)
                 window.alert("ERROR: ", error);
             })
 
-             //Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
-             location.reload();
         }, 250);
     });
 }

@@ -1,13 +1,8 @@
 package com.luapetshop.luapetshop.producto;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,7 +19,7 @@ import jakarta.transaction.Transactional;
 public class ProductoService {
 	private IProductoRepository productoRepository;
 	private ICategoriaRepository categoriaRepository;
-	private String IMAGE_DIR = "/imagenes";
+	private String IMAGE_DIR = "productos/";
 	
 	@Autowired
 	public ProductoService(IProductoRepository productoRepository, ICategoriaRepository categoriaRepository) {
@@ -114,20 +109,23 @@ public class ProductoService {
 	@Transactional
 	public String CrearOActualizarProducto(Producto producto, MultipartFile file) {
 		
-		boolean nuevo = producto.getId_producto() == 0;
-		String accion = nuevo? "creado": "actualizado";
+		Integer id = producto.getId_producto();
+		String accion = id == 0? "creado": "actualizado";
 		//contiene imagen?
 		if(file != null) {
 			//guarda imagen y obtiene ruta
-			String imgurlPath = Util.saveImage(file, "productos/");
+			String imgurlPath = Util.saveImage(file, IMAGE_DIR);
 			//setea ruta de imagen para el producto
 			producto.setImagen(imgurlPath);
+		}else if ( id != 0 ){
+			Producto producto_existente = productoRepository.findById(id).get();
+			if(producto_existente.getImagen() != null) {				
+				producto.setImagen(producto_existente.getImagen());
+			}
 		}
-
+		
 		productoRepository.save(producto);
-		
 		return "producto " + accion + ", id: " + producto.getId_producto();
-		
 	}
 		
 }

@@ -32,9 +32,6 @@ public class Util {
 		Path filePath = Paths.get(completeDir,random+image.getOriginalFilename());
 		Path databasePath = Paths.get(imgurlDir,random+image.getOriginalFilename());
 		
-		System.out.println("filePath: " + filePath.toString());
-		System.out.println("dataBasePath: " + databasePath.toString());
-		
 		OutputStream os;
 		try {
 			os = Files.newOutputStream(filePath.toAbsolutePath());

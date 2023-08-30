@@ -43,20 +43,44 @@ function enviarArchivoCSV() {
     if (selectedFile) {
         const formData = new FormData();
         formData.append('csvFile', selectedFile);
-        formData.append('tipo', selectedTipo);
+        formData.append('proveedor', selectedTipo);
 
         fetch('/upload_csv', {
             method: 'POST',
             body: formData
         })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data); // Manejar la respuesta del servidor si es necesario
+
+        .then(response => response.blob())
+        .then(blob => {
+            // Genera un enlace para descargar el archivo CSV
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement("a");
+            a.href = url;
+            a.download = "import.txt";
+            a.click();
+            // Libera el objeto URL creado para evitar pérdidas de memoria
+            URL.revokeObjectURL(url);
         })
+
         .catch(error => {
             console.error('Error:', error);
         });
     } else {
         console.log('No se ha seleccionado un archivo CSV.');
     }
+}
+
+function downloadProductos(){
+    fetch("/download/productos")
+    .then(response => response.blob())
+    .then(blob => {
+        // Genera un enlace para descargar el archivo CSV
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = "productos.csv";
+        a.click();
+        // Libera el objeto URL creado para evitar pérdidas de memoria
+        URL.revokeObjectURL(url);
+    })
 }
