@@ -129,14 +129,9 @@ nuevoProductoEnviar.addEventListener("click", () =>
 
     enviarNuevoProducto();
 
-    window.alert("Producto registrado exitosamente!\nSe actualizará la página en unos instantes.");
-
     //  REINICIAR TODO
 
     reiniciarNuevoProducto();
-
-    //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
-    setTimeout(() => {location.reload()}, 2000);
 });
 
 function validarNuevoProducto()     // AÚN NO SE VALIDAR PARA EVITAR SQL INJECTION!
@@ -498,13 +493,8 @@ modalEditorLineaEnviar.addEventListener("click", () =>
 
     enviarEditorLinea();
 
-    window.alert("Producto registrado exitosamente!\nSe actualizará la página en unos instantes.");
-
     //  REINICIAR TODO
     reiniciarEditorLinea();
-
-    //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
-    setTimeout(() => {location.reload()}, 2000);
 });
 
 function validarEditorLinea()       //  AÚN NO SE VALIDAR PARA EVITAR SQL INJECTION!
@@ -694,7 +684,12 @@ function entregarProducto()
     .then(response => response.text())
     
     .then(responseData => {
-        console.log(responseData);  // Resultado de enviar el json.
+        // console.log(responseData);
+
+        window.alert(responseData); // Resultado de enviar el json.
+                
+        //Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+        location.reload();
     })
     
     .catch(error => {
