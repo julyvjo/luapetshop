@@ -883,7 +883,7 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
             return;
 
         cargarCarritoVenta();
-        window.alert("VENTA FINALIZADA");
+        // window.alert("VENTA FINALIZADA");
 
         //  ACÁ ENVIAR carritoVenta a donde corresponda.
         entregarVenta();
@@ -1033,7 +1033,7 @@ function entregarVenta()
     .then(response => response.text())
     
     .then(responseData => {
-        console.log(responseData);  // Resultado de enviar el json.
+        window.alert(responseData);  // Resultado de enviar el json.
     })
     
     .catch(error => {
