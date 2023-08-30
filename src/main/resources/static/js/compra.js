@@ -123,7 +123,6 @@ function finalizarCompra()
             return;
 
         cargarCompra();
-        window.alert("Compra registrada exitosamente!");
 
         //  ACÁ ENVIAR compra a donde corresponda.
         
@@ -134,9 +133,6 @@ function finalizarCompra()
         proveedor.value = 0;
         metodoDePago.value = "default";
         monto.value = "0.00";
-        
-        //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
-        //  location.reload();
     }, 250);
 }
 
@@ -161,7 +157,12 @@ function entregarCompra()
     .then(response => response.text())
     
     .then(responseData => {
-        console.log(responseData);  // Resultado de enviar el json.
+        // console.log(responseData);
+
+        window.alert(responseData); // Resultado de enviar el json.
+                
+        //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+        // location.reload();
     })
     
     .catch(error => {
