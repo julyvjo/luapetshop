@@ -22,9 +22,9 @@
 
 ##  PRODUCTO
 
-- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Agregar CODIGO a los modals (codigo de producto del proveedor)
-- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Agregar atributo CODIGO en HTML
-- [ ] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar CODIGO (codigo de producto del proveedor)
+- [x] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Agregar CODIGO a los modals (codigo de producto del proveedor)
+- [x] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Agregar atributo CODIGO en HTML
+- [x] EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Implementar CODIGO (codigo de producto del proveedor)
 
 - [x] <sup>~~EDITAR LINEA INDIVIDUAL + NUEVO PRODUCTO; Quitar doble confirmación (se puede simplemente volver a editar)~~</sup>
 
