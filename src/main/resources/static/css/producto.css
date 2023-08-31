@@ -189,9 +189,10 @@
     align-items: center;
 }
 
-#productoModalEditorLinea > div:nth-child(3),
-#productoModalEditorLinea > div:nth-child(4),
-#productoModalEditorLinea > div:nth-child(5)
+#productoModalEditorLinea > div:nth-child(2), /* PROVEEDOR + CODIGO  */
+#productoModalEditorLinea > div:nth-child(3), /*   $C, %R, $G, $V    */
+#productoModalEditorLinea > div:nth-child(4), /*  CATEGORIA Y STOCK  */
+#productoModalEditorLinea > div:nth-child(5)  /* IMAGEN DEL PRODUCTO */
 {
     /* background-color: yellow; */
 
@@ -203,6 +204,7 @@
 
 #productoModalEditorLinea > div:nth-child(5) > input
 {
+    /* IMAGEN DEL PRODUCTO */
     border: solid 1px var(--primary);
 }
 

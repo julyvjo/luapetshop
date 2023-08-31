@@ -158,11 +158,22 @@
                         </div> -->
 
                         <div>
-                            <label for="editorLineaProveedor">Proveedor</label>
-                            <select id="modalEditorLineaProveedor" name="editorLineaProveedor" required>
-                                <option value="0">SELECCIONAR PROVEEDOR</option>
-                                <option th:each="item: ${proveedores}" th:value="${item.id_proveedor}" th:text="${item.nombre}"></option>
-                            </select>
+                            <div>
+                                <label for="editorLineaCodigoProveedor">Codigo Proveedor</label>
+                                <input type="text" id="editorLineaCodigoProveedor" name="editorLineaCodigoProveedor" required>
+                                <!-- <select id="modalEditorLineaCodigoProveedor" name="editorLineaCodigoProveedor" required>
+                                    <option value="0">CODIGO PROVEEDOR</option>
+                                    <option th:each="item: ${proveedores}" th:value="${item.id_proveedor}" th:text="${item.nombre}"></option>
+                                </select> -->
+                            </div>
+
+                            <div>
+                                <label for="editorLineaProveedor">Proveedor</label>
+                                <select id="modalEditorLineaProveedor" name="editorLineaProveedor" required>
+                                    <option value="0">SELECCIONAR PROVEEDOR</option>
+                                    <option th:each="item: ${proveedores}" th:value="${item.id_proveedor}" th:text="${item.nombre}"></option>
+                                </select>
+                            </div>
                         </div>
 
                         <div>
