@@ -154,6 +154,15 @@ function validarNuevoProducto()     // AÚN NO SE VALIDAR PARA EVITAR SQL INJECT
     //     return false;
     // }
 
+    const nuevoProductoCodigoProveedor = document.getElementById("modalNuevoProductoCodigoProveedor");
+
+    if (nuevoProductoCodigoProveedor.value === "")
+    {
+        //  Asumo que todos los productos van a venir de proveedores que asignan códigos a sus productos!
+        console.log("ERROR: Completar código del producto!");
+        return false;
+    }
+
     //  Proveedor por ahora no puede implementarse
     const nuevoProductoProveedor = document.getElementById("modalNuevoProductoProveedor");
 
@@ -229,6 +238,7 @@ function enviarNuevoProducto()
     //  Descripción por ahora no va a ser implementado.
     // const nuevoProductoDescripcion = document.getElementById("modalNuevoProductoDescripcion");
 
+    const nuevoProductoCodigoProveedor = document.getElementById("modalNuevoProductoCodigoProveedor");
     const nuevoProductoProveedor = document.getElementById("modalNuevoProductoProveedor");
     const nuevoProductoPrecioCompra = document.getElementById("modalNuevoProductoPrecioCompra");
     const nuevoProductoRentabilidad = document.getElementById("modalNuevoProductoRentabilidad");
@@ -245,6 +255,7 @@ function enviarNuevoProducto()
 
     // datosProducto.append('descripcion', nuevoProductoDescripcion.value);
 
+    datosProducto.append('codigo', nuevoProductoCodigoProveedor.value);
     datosProducto.append('proveedor', parseInt(nuevoProductoProveedor.value));
     datosProducto.append('precio_compra', parseFloat(nuevoProductoPrecioCompra.value));
     datosProducto.append('rentabilidad', parseFloat(nuevoProductoRentabilidad.value));
@@ -269,6 +280,7 @@ function reiniciarNuevoProducto()
     //  Descripción por ahora no va a ser implementado.
     // const nuevoProductoDescripcion = document.getElementById("modalNuevoProductoDescripcion");
 
+    const nuevoProductoCodigoProveedor = document.getElementById("modalNuevoProductoCodigoProveedor");
     const nuevoProductoProveedor = document.getElementById("modalNuevoProductoProveedor");
     const nuevoProductoPrecioCompra = document.getElementById("modalNuevoProductoPrecioCompra");
     const nuevoProductoRentabilidad = document.getElementById("modalNuevoProductoRentabilidad");
@@ -281,6 +293,7 @@ function reiniciarNuevoProducto()
     // nuevoProductoCodigo.value = "";
     nuevoProductoNombre.value = "";
     // nuevoProductoDescripcion.value = "";
+    nuevoProductoCodigoProveedor.value = "";
     nuevoProductoProveedor.value = "0";
     nuevoProductoPrecioCompra.value = "0.00";
     nuevoProductoRentabilidad.value = "0.00";
@@ -330,6 +343,7 @@ function cargarEditor(fila)
     const filaIdProducto = tr.getAttribute("data-id-producto");
     const filaIdCategoria = tr.getAttribute("data-id-categoria");
     const filaIdProveedor = tr.getAttribute("data-id-proveedor");
+    const filaCodigoProveedor = tr.getAttribute("data-codigo");
     const h5 = tr.querySelectorAll("h5");
 
     /*
@@ -380,6 +394,9 @@ function cargarEditor(fila)
     //             editorLineaDescripcion.value = editorLineaDescripcion.getAttribute("data-default-value");
     //     });
     // }
+
+    const editorLineaCodigoProveedor = document.getElementById("modalEditorLineaCodigoProveedor");
+    editorLineaCodigoProveedor.value = filaCodigoProveedor;
 
     const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
     editorLineaProveedor.value = filaIdProveedor;
@@ -518,6 +535,15 @@ function validarEditorLinea()       //  AÚN NO SE VALIDAR PARA EVITAR SQL INJEC
     //     return false;
     // }
 
+    const editorLineaCodigoProveedor = document.getElementById("modalEditorLineaCodigoProveedor");
+
+    if (editorLineaCodigoProveedor.value === "")
+    {
+        //  Asumo que todos los productos van a venir de proveedores que asignan códigos a sus productos!
+        console.log("ERROR: Completar código del producto!");
+        return false;
+    }
+
     //  Proveedor por ahora no puede implementarse
     const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
 
@@ -593,6 +619,7 @@ function enviarEditorLinea()
     //  Descripción no va a implementarse por ahora.
     // const editorLineaDescripcion = document.getElementById("modalEditorLineaDescripcion");
     
+    const editorLineaCodigoProveedor = document.getElementById("modalEditorLineaCodigoProveedor");
     const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
     const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
     const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
@@ -610,6 +637,7 @@ function enviarEditorLinea()
 
     // datosProducto.append('descripcion', editorLineaDescripcion.value);
 
+    datosProducto.append('codigo', editorLineaCodigoProveedor.value);   //  Código del producto DEL PROVEEDOR
     datosProducto.append('proveedor', parseInt(editorLineaProveedor.value));
     datosProducto.append('precio_compra', parseFloat(editorLineaPrecioCompra.value));
     datosProducto.append('rentabilidad', ( parseFloat(editorLineaRentabilidad.value) / parseFloat(100) ).toFixed(4));
@@ -633,6 +661,7 @@ function reiniciarEditorLinea()
     //  DESCRIPCIÓN POR AHORA NO SE VA A USAR
     // const editorLineaDescripcion = document.getElementById("modalEditorLineaDescripcion");
     
+    const editorLineaCodigoProveedor = document.getElementById("modalEditorLineaCodigoProveedor");
     const editorLineaProveedor = document.getElementById("modalEditorLineaProveedor");
     const editorLineaPrecioCompra = document.getElementById("modalEditorLineaPrecioCompra");
     const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
@@ -645,7 +674,8 @@ function reiniciarEditorLinea()
     // editorLineaCodigo.value = "";
     editorLineaNombre.value = "";
     // editorLineaDescripcion.value = ""; 
-    editorLineaProveedor.value = "0"; 
+    editorLineaCodigoProveedor.value = "";
+    editorLineaProveedor.value = "0";
     editorLineaPrecioCompra.value = "0.00"; 
     editorLineaRentabilidad.value = "0.00"; 
     editorLineaGanancia.value = "0.00"; 
