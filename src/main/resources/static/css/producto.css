@@ -98,9 +98,10 @@
     align-items: center;
 }
 
-#productoModalNuevoProducto > div:nth-child(3),
-#productoModalNuevoProducto > div:nth-child(4),
-#productoModalNuevoProducto > div:nth-child(5)
+#productoModalNuevoProducto > div:nth-child(2), /* PROVEEDOR + CODIGO  */
+#productoModalNuevoProducto > div:nth-child(3), /*   $C, %R, $G, $V    */
+#productoModalNuevoProducto > div:nth-child(4), /*  CATEGORIA Y STOCK  */
+#productoModalNuevoProducto > div:nth-child(5)  /* IMAGEN DEL PRODUCTO */
 {
     /* background-color: yellow; */
 

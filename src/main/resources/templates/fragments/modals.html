@@ -45,11 +45,22 @@
                         </div> -->
 
                         <div>
-                            <label for="nuevoProductoProveedor">Proveedor</label>
-                            <select id="modalNuevoProductoProveedor" name="nuevoProductoProveedor" required>
-                                <option value="0">SELECCIONAR PROVEEDOR</option>
-                                <option th:each="item: ${proveedores}" th:value="${item.id_proveedor}" th:text="${item.nombre}"></option>
-                            </select>
+                            <div>
+                                <label for="nuevoProductoProveedor">Codigo Proveedor</label>
+                                <input type="text" id="modalNuevoProductoCodigoProveedor" name="nuevoProductoCodigoProveedor" required>
+                                <!-- <select id="modalNuevoProductoCodigoProveedor" name="nuevoProductoCodigoProveedor" required>
+                                    <option value="0">CODIGO PROVEEDOR</option>
+                                    <option th:each="item: ${proveedores}" th:value="${item.id_proveedor}" th:text="${item.nombre}"></option>
+                                </select> -->
+                            </div>
+
+                            <div>
+                                <label for="nuevoProductoProveedor">Proveedor</label>
+                                <select id="modalNuevoProductoProveedor" name="nuevoProductoProveedor" required>
+                                    <option value="0">SELECCIONAR PROVEEDOR</option>
+                                    <option th:each="item: ${proveedores}" th:value="${item.id_proveedor}" th:text="${item.nombre}"></option>
+                                </select>
+                            </div>
                         </div>
 
                         <div>
