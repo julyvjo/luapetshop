@@ -310,10 +310,6 @@ function cargarEditor(fila)
         h5[9] - Editor Linea
     */
 
-    //  Imagen aún está pendiente.
-    // const imagen = document.getElementById("editorLineaRutaImagen");
-    // imagen.textContent = h5[0].getAttribute("data-imagen");
-
     // const editorLineaCodigo = document.getElementById("modalEditorLineaCodigo");
     // editorLineaCodigo.value = h5[1].textContent;
 
@@ -370,58 +366,17 @@ function cargarEditor(fila)
     editorLineaPrecioCompra.value = h5[5].textContent;
     editorLineaDefaultPrecioCompra = parseFloat( h5[5].textContent ).toFixed(2);
 
-    // if (h5[5].textContent != "0.00")
-    // {   
-    //     editorLineaPrecioCompra.setAttribute("data-default-value", h5[5].textContent);
-    //     editorLineaPrecioCompra.addEventListener("change", () =>
-    //     {
-    //         if (editorLineaPrecioCompra.value === "")
-    //             editorLineaPrecioCompra.value = editorLineaPrecioCompra.getAttribute("data-default-value");
-    //     });
-    // }
-
     const editorLineaRentabilidad = document.getElementById("modalEditorLineaRentabilidad");
     editorLineaRentabilidad.value = parseFloat(h5[6].textContent).toFixed(2);
     editorLineaDefaultRentabilidad = parseFloat(h5[6].textContent).toFixed(2);
-
-    // if (h5[6].textContent != "0.00")
-    // {   
-    //     editorLineaRentabilidad.setAttribute("data-default-value", h5[6].textContent);
-    //     editorLineaRentabilidad.addEventListener("change", () =>
-    //     {
-    //         if (editorLineaRentabilidad.value === "")
-    //             editorLineaRentabilidad.value = editorLineaRentabilidad.getAttribute("data-default-value");
-    //     });
-    // }
 
     const editorLineaGanancia = document.getElementById("modalEditorLineaGanancia");
     editorLineaGanancia.value = h5[7].textContent;
     editorLineaDefaultGanancia = parseFloat( h5[7].textContent ).toFixed(2);
     
-
-    // if (h5[7].textContent != "0.00")
-    // {   
-    //     editorLineaGanancia.setAttribute("data-default-value", h5[7].textContent);
-    //     editorLineaGanancia.addEventListener("change", () =>
-    //     {
-    //         if (editorLineaGanancia.value === "")
-    //             editorLineaGanancia.value = editorLineaGanancia.getAttribute("data-default-value");
-    //     });
-    // }
-    
     const editorLineaPrecioVenta = document.getElementById("modalEditorLineaPrecioVenta");
     editorLineaPrecioVenta.value = parseFloat( h5[8].textContent ).toFixed(2);
     editorLineaDefaultPrecioVenta = parseFloat( h5[8].textContent ).toFixed(2);
-
-    // if (h5[8].textContent != "0.00")
-    // {   
-    //     editorLineaPrecioVenta.setAttribute("data-default-value", h5[8].textContent);
-    //     editorLineaPrecioVenta.addEventListener("change", () =>
-    //     {
-    //         if (editorLineaPrecioVenta.value === "")
-    //             editorLineaPrecioVenta.value = editorLineaPrecioVenta.getAttribute("data-default-value");
-    //     });
-    // }
 
     const editorLineaID = document.getElementById("modalEditorLineaId");
     editorLineaID.value = filaIdProducto;
