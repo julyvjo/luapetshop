@@ -258,7 +258,7 @@ function enviarNuevoProducto()
     datosProducto.append('codigo', nuevoProductoCodigoProveedor.value);
     datosProducto.append('proveedor', parseInt(nuevoProductoProveedor.value));
     datosProducto.append('precio_compra', parseFloat(nuevoProductoPrecioCompra.value));
-    datosProducto.append('rentabilidad', parseFloat(nuevoProductoRentabilidad.value));
+    datosProducto.append('rentabilidad', ( parseFloat(nuevoProductoRentabilidad.value) / parseFloat(100) ).toFixed(4));
     datosProducto.append('ganancia', parseFloat(nuevoProductoGanancia.value));
     datosProducto.append('precio_venta', parseFloat(nuevoProductoPrecioVenta.value));
     datosProducto.append('categoria', parseInt(nuevoProductoCategoria.value));
