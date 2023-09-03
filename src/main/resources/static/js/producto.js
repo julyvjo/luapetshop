@@ -85,11 +85,6 @@ if (nuevoProducto)
     {
         mostrarModal("modalNuevoProducto");
 
-        // agregarEventListenerFloat("modalNuevoProductoPrecioCompra");
-        // agregarEventListenerFloat("modalNuevoProductoRentabilidad");
-        // agregarEventListenerFloat("modalNuevoProductoGanancia");
-        // agregarEventListenerFloat("modalNuevoProductoPrecioVenta");
-
         agregarEventListenerInteger("modalNuevoProductoStock");
 
         window.onclick = null;
@@ -105,27 +100,6 @@ nuevoProductoEnviar.addEventListener("click", () =>
 {
     if(!validarNuevoProducto())
         return;
-
-    // if ( !window.confirm("Estás por finalizar la compra...\n\n¿Estás seguro?") )
-    // return;
-
-    // // Insistir con la confirmación para evitar lo máximo posible finalizar por accidente.
-    // setTimeout(() =>
-    // {
-    //     if ( !window.confirm("¿Realmente estás seguro?") )
-    //         return;
-
-    //     enviarNuevoProducto();
-
-    //     window.alert("Producto registrado exitosamente!");
-
-    //     //  REINICIAR TODO
-
-    //     reiniciarNuevoProducto();
-        
-    //     //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
-    //     //  location.reload();
-    // }, 250);
 
     enviarNuevoProducto();
 
@@ -321,11 +295,6 @@ if (arrayBotonEditar.length !== 0)
         {
             mostrarModal("modalEditorLinea");
             cargarEditor(fila);
-
-            // agregarEventListenerFloat("modalEditorLineaPrecioCompra");
-            // agregarEventListenerFloat("modalEditorLineaRentabilidad");
-            // agregarEventListenerFloat("modalEditorLineaGanancia");
-            // agregarEventListenerFloat("modalEditorLineaPrecioVenta");
 
             agregarEventListenerInteger("modalNuevoProductoStock");
 
@@ -772,8 +741,8 @@ if (inputBuscador)
     {
         if (e.key === "Enter")
         {
-          e.preventDefault();
-          chequearBuscador();
+            e.preventDefault();
+            chequearBuscador();
         }
         else // Maybe I should use some regEx to improve this...
         {
@@ -822,11 +791,9 @@ function buscadorGoToPage(contenido)
 {
     let actualurl = new URL(window.location.href);
     let nombre = actualurl.searchParams.get('nombre');
-    // console.log('parametro nombre =' + nombre);
 
     actualurl.searchParams.set('nombre',contenido);
     actualurl.searchParams.set('page',1);
-    // console.log('nueva url =' + actualurl.toString());
     window.location.href = actualurl.toString();        
 }
 // **************************************************************
@@ -852,8 +819,6 @@ nuevoProductoPrecioCompra.addEventListener("change", () =>
     nuevoProductoPrecioCompra.value = nuevoProductoPrecioCompra.value.replace(/,/g, ".");
     nuevoProductoPrecioCompra.value = parseFloat(nuevoProductoPrecioCompra.value).toFixed(2);
 
-    // AJUSTAR RENTABILIDAD?
-
     // AJUSTAR GANANCIA
     nuevoProductoGanancia.value = ( parseFloat(nuevoProductoPrecioCompra.value) * ( parseFloat(nuevoProductoRentabilidad.value) / 100 ) ).toFixed(2);
 
@@ -872,8 +837,6 @@ nuevoProductoRentabilidad.addEventListener("change", () =>
 
     nuevoProductoRentabilidad.value = nuevoProductoRentabilidad.value.replace(/,/g, ".");
     nuevoProductoRentabilidad.value = parseFloat(nuevoProductoRentabilidad.value).toFixed(2);
-
-    // AJUSTAR PRECIO_COMPRA?
 
     // AJUSTAR GANANCIA
     nuevoProductoGanancia.value = ( parseFloat(nuevoProductoPrecioCompra.value) * ( parseFloat(nuevoProductoRentabilidad.value) / 100 ) ).toFixed(2);
@@ -894,8 +857,6 @@ nuevoProductoGanancia.addEventListener("change", () =>
     nuevoProductoGanancia.value = nuevoProductoGanancia.value.replace(/,/g, ".");
     nuevoProductoGanancia.value = parseFloat(nuevoProductoGanancia.value).toFixed(2);
 
-    // AJUSTAR PRECIO_COMPRA?
-
     // AJUSTAR RENTABILIDAD
     nuevoProductoRentabilidad.value = ( ( parseFloat(nuevoProductoGanancia.value) / parseFloat(nuevoProductoPrecioCompra.value) ) * parseFloat(100) ).toFixed(2);
 
@@ -914,8 +875,6 @@ nuevoProductoPrecioVenta.addEventListener("change", () =>
 
     nuevoProductoPrecioVenta.value = nuevoProductoPrecioVenta.value.replace(/,/g, ".");
     nuevoProductoPrecioVenta.value = parseFloat(nuevoProductoPrecioVenta.value).toFixed(2);
-
-    // AJUSTAR PRECIO_COMPRA?
 
     // AJUSTAR GANANCIA
     nuevoProductoGanancia.value = ( parseFloat(nuevoProductoPrecioVenta.value) - parseFloat(nuevoProductoPrecioCompra.value) ).toFixed(2);
