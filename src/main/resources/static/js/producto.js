@@ -745,6 +745,13 @@ if (arrayBotonFoto.length !== 0)
             const IMAGEN = element.getAttribute("data-imagen");
 
             const MODAL_FOTO_IMAGEN = document.getElementById("modalFotoImagen");
+
+            if (!IMAGEN)    //  Handling del caso que un producto NO tenga imagen.
+            {
+                MODAL_FOTO_IMAGEN.setAttribute("src", `productos/default.png`);
+                return;
+            }
+
             MODAL_FOTO_IMAGEN.setAttribute("src", `${IMAGEN}`);
         });
     });
