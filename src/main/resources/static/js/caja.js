@@ -101,19 +101,12 @@ MOVIMIENTO_EXCEPCIONAL_REGISTRAR.addEventListener("click", () =>
         else
             movimientoExcepcional.motivo = MOVIMIENTO_EXCEPCIONAL_MOTIVO.value;
 
-        window.alert("Movimiento registrado exitosamente!\nSe actualizará la página en unos instantes.");
-
         //  ENTREGA DE movimientoExcepcional
-
         // console.log(movimientoExcepcional);
         entregarMovimientoExcepcional();
 
         //  REINICIAR TODO
-        
         reiniciarMovimientoExcepcional();
-
-        //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
-        setTimeout(() => {location.reload()}, 2000);
     }, 250);
 });
 
@@ -138,7 +131,12 @@ function entregarMovimientoExcepcional()
     .then(response => response.text())
     
     .then(responseData => {
-        console.log(responseData);  // Resultado de enviar el json.
+        // console.log(responseData);  // Resultado de enviar el json.
+        
+        window.alert(responseData);
+        
+        //Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+        location.reload();
     })
     
     .catch(error => {
@@ -336,7 +334,7 @@ if (CERRAR_CAJA_BUTTON)
             .then(response => response.text())
     
             .then(responseData => {
-                console.log(responseData);  // Resultado de enviar el json.
+                // console.log(responseData);  // Resultado de enviar el json.
                 window.alert(responseData);
                 //Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
                 location.reload();
