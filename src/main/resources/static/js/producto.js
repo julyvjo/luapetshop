@@ -51,26 +51,6 @@ function validarNumeroFloat(string)
     // console.log(validateNumber("12,34.56"));// false (múltiples separadores)
     // console.log(validateNumber("abc"));     // false (contiene caracteres no válidos como letras)
 }
-
-function agregarEventListenerFloat(nombre)
-{
-    const ID = nombre;
-
-    const elemento = document.getElementById(ID);
-    elemento.addEventListener("change", (e) =>
-    {
-        if (validarNumeroFloat(elemento.value) === false)
-        {
-            console.log("ERROR: No es un número float! Reiniciando a valor default.");
-            elemento.value = "0.00";
-            return;
-        }
-        
-        //  Fuerzo redondeo a 2 decimales.
-        elemento.value = elemento.value.replace(/,/g, ".");
-        elemento.value = parseFloat(elemento.value).toFixed(2);
-    });
-}
 // **************************************************************
 
 
