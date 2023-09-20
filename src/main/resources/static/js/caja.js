@@ -173,60 +173,100 @@ SALDOS_CUENTAS.forEach(element =>
 
 // CONTADOR EFECTIVO
 
+    //  Cada "data-value" es un auxiliar que almacena el valor PREVIO
+    //  del contador propiamente dicho, para validar que sea siempre
+    //  un número entero :)
+
 const MINUS10 = document.getElementById("cerrarCajaContadorMinus10");
 const CONTADOR10 = document.getElementById("cerrarCajaContador10");
+CONTADOR10.setAttribute("data-value", "0");
 const PLUS10 = document.getElementById("cerrarCajaContadorPlus10");
 cerrarCajaEventListeners(CONTADOR10, MINUS10, PLUS10);
 
 const MINUS20 = document.getElementById("cerrarCajaContadorMinus20");
 const CONTADOR20 = document.getElementById("cerrarCajaContador20");
+CONTADOR20.setAttribute("data-value", "0");
 const PLUS20 = document.getElementById("cerrarCajaContadorPlus20");
 cerrarCajaEventListeners(CONTADOR20, MINUS20, PLUS20);
 
 const MINUS50 = document.getElementById("cerrarCajaContadorMinus50");
 const CONTADOR50 = document.getElementById("cerrarCajaContador50");
+CONTADOR50.setAttribute("data-value", "0"); 
 const PLUS50 = document.getElementById("cerrarCajaContadorPlus50");
 cerrarCajaEventListeners(CONTADOR50, MINUS50, PLUS50);
 
 const MINUS100 = document.getElementById("cerrarCajaContadorMinus100");
 const CONTADOR100 = document.getElementById("cerrarCajaContador100");
+CONTADOR100.setAttribute("data-value", "0"); 
 const PLUS100 = document.getElementById("cerrarCajaContadorPlus100");
 cerrarCajaEventListeners(CONTADOR100, MINUS100, PLUS100);
 
 const MINUS200 = document.getElementById("cerrarCajaContadorMinus200");
 const CONTADOR200 = document.getElementById("cerrarCajaContador200");
+CONTADOR200.setAttribute("data-value", "0");
 const PLUS200 = document.getElementById("cerrarCajaContadorPlus200");
 cerrarCajaEventListeners(CONTADOR200, MINUS200, PLUS200);
 
 const MINUS500 = document.getElementById("cerrarCajaContadorMinus500");
 const CONTADOR500 = document.getElementById("cerrarCajaContador500");
+CONTADOR500.setAttribute("data-value", "0");  
 const PLUS500 = document.getElementById("cerrarCajaContadorPlus500");
 cerrarCajaEventListeners(CONTADOR500, MINUS500, PLUS500);
 
 const MINUS1000 = document.getElementById("cerrarCajaContadorMinus1000");
 const CONTADOR1000 = document.getElementById("cerrarCajaContador1000");
+CONTADOR1000.setAttribute("data-value", "0"); 
 const PLUS1000 = document.getElementById("cerrarCajaContadorPlus1000");
 cerrarCajaEventListeners(CONTADOR1000, MINUS1000, PLUS1000);
 
 const MINUS2000 = document.getElementById("cerrarCajaContadorMinus2000");
 const CONTADOR2000 = document.getElementById("cerrarCajaContador2000");
+CONTADOR2000.setAttribute("data-value", "0");
 const PLUS2000 = document.getElementById("cerrarCajaContadorPlus2000");
 cerrarCajaEventListeners(CONTADOR2000, MINUS2000, PLUS2000);
+
+function validarInputContador(string)
+{
+    //  Regular expression para validar que string represente un número float
+     const numberRegex = /^[0-9]+$/;
+    // const numberRegex = /^[0-9]+([.,][0-9]+)?$/;;    //  Por si solo quisiera validar un número flotante.
+
+    return numberRegex.test(string);
+
+    // Ejemplos:
+    // console.log(validateNumber("12345"));   // true
+    // console.log(validateNumber("12.345"));  // false (número float)
+    // console.log(validateNumber("12,345"));  // false (número float)
+    // console.log(validateNumber("12,34.56"));// false (múltiples separadores)
+    // console.log(validateNumber("abc"));     // false (contiene caracteres no válidos como letras)
+}
 
 function cerrarCajaEventListeners(CONTADOR, MINUS, PLUS)
 {
     CONTADOR.addEventListener("change", () =>
     {
-        console.log("hola");
+        if (validarInputContador(CONTADOR.value))
+        {
+            CONTADOR.value = parseInt(CONTADOR.value);
+            
+            CONTADOR.setAttribute("data-value", CONTADOR.value);
+        }
+        else
+        {
+            console.log("ERROR: Input inválido! Reiniciando a valor previo...");
+            CONTADOR.value = CONTADOR.getAttribute("data-value");
+        }
+
+        cerrarCajaActualizarTotal();
     });
 
     CONTADOR.addEventListener("keydown", (e) =>
     {
-        e.preventDefault();
-
         if (e.key === "ArrowUp" || e.key === "ArrowRight")
         {
+            e.preventDefault();
             CONTADOR.value = parseInt(CONTADOR.value) + 1;
+            cerrarCajaActualizarTotal();
         }
         else if (e.key === "ArrowDown" || e.key === "ArrowLeft")
         {
@@ -236,10 +276,10 @@ function cerrarCajaEventListeners(CONTADOR, MINUS, PLUS)
                 return;
             }
             
+            e.preventDefault();
             CONTADOR.value = parseInt(CONTADOR.value) - 1;
+            cerrarCajaActualizarTotal();
         }
-
-        cerrarCajaActualizarTotal();
     });
 
     MINUS.addEventListener("click", () =>
@@ -306,6 +346,8 @@ if (cerrarCaja)
     cerrarCaja.addEventListener("click", (e) =>
     {
         mostrarModal("modalCerrarCaja");
+
+        window.onclick = null;
     });
 }
 
