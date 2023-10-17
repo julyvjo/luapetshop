@@ -873,35 +873,58 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
     if ( !validarMetodosPago() )
         return;
 
-    if ( !window.confirm("Estás por finalizar la venta...\n\n¿Estás seguro?") )
-        return;
+    //  ENVIO DE PAYLOAD SIN DOBLE CONFIRM
+    cargarCarritoVenta();
+    // window.alert("VENTA FINALIZADA");
 
-    // Insistir con la confirmación para evitar lo máximo posible finalizar la venta por accidente.
-    setTimeout(() =>
-    {
-        if ( !window.confirm("¿Realmente estás seguro?") )
-            return;
+    //  ACÁ ENVIAR carritoVenta a donde corresponda.
+    entregarVenta();
+    // console.log(carritoVenta);
 
-        cargarCarritoVenta();
-        // window.alert("VENTA FINALIZADA");
+    //  REINICIAR TODO
+    carritoReiniciar();
+    carritoVenta = iniciarCarritoVenta(carritoVenta);
+    metodoPago.value = "default";
+    montoMetodoPago.value = "0.00";
+    metodoPagoComplementario.value = "default";
+    metodoPagoComplementario.disabled = true;
+    montoMetodoPagoComplementario.value = "0.00";
+    totalVentaConvertido = 0;
+    
+    //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+    //  location.reload();
+    // ----------------------------------------------------
 
-        //  ACÁ ENVIAR carritoVenta a donde corresponda.
-        entregarVenta();
-        // console.log(carritoVenta);
+    
+    // if ( !window.confirm("Estás por finalizar la venta...\n\n¿Estás seguro?") )
+    //     return;
 
-        //  REINICIAR TODO
-        carritoReiniciar();
-        carritoVenta = iniciarCarritoVenta(carritoVenta);
-        metodoPago.value = "default";
-        montoMetodoPago.value = "0.00";
-        metodoPagoComplementario.value = "default";
-        metodoPagoComplementario.disabled = true;
-        montoMetodoPagoComplementario.value = "0.00";
-        totalVentaConvertido = 0;
+    // // Insistir con la confirmación para evitar lo máximo posible finalizar la venta por accidente.
+    // setTimeout(() =>
+    // {
+    //     if ( !window.confirm("¿Realmente estás seguro?") )
+    //         return;
+
+    //     cargarCarritoVenta();
+    //     // window.alert("VENTA FINALIZADA");
+
+    //     //  ACÁ ENVIAR carritoVenta a donde corresponda.
+    //     entregarVenta();
+    //     // console.log(carritoVenta);
+
+    //     //  REINICIAR TODO
+    //     carritoReiniciar();
+    //     carritoVenta = iniciarCarritoVenta(carritoVenta);
+    //     metodoPago.value = "default";
+    //     montoMetodoPago.value = "0.00";
+    //     metodoPagoComplementario.value = "default";
+    //     metodoPagoComplementario.disabled = true;
+    //     montoMetodoPagoComplementario.value = "0.00";
+    //     totalVentaConvertido = 0;
         
-        //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
-        //  location.reload();
-    }, 250);
+    //     //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+    //     //  location.reload();
+    // }, 250);
 });
 // **************************************************************
 
