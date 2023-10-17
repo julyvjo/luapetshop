@@ -113,27 +113,41 @@ function finalizarCompra()
         return;
     }
 
-    if ( !window.confirm("Estás por finalizar la compra...\n\n¿Estás seguro?") )
-        return;
+    //  ENVIO DE PAYLOAD SIN DOBLE CONFIRM
+    cargarCompra();
 
-    // Insistir con la confirmación para evitar lo máximo posible finalizar la compra por accidente.
-    setTimeout(() =>
-    {
-        if ( !window.confirm("¿Realmente estás seguro?") )
-            return;
+    //  ACÁ ENVIAR compra a donde corresponda.
+    
+     entregarCompra();
 
-        cargarCompra();
+    //  REINICIAR TODO
+    compra = iniciarCompra(compra);
+    proveedor.value = 0;
+    metodoDePago.value = "default";
+    monto.value = "0.00";
+    // --------------------------
 
-        //  ACÁ ENVIAR compra a donde corresponda.
+    // if ( !window.confirm("Estás por finalizar la compra...\n\n¿Estás seguro?") )
+    //     return;
+
+    // // Insistir con la confirmación para evitar lo máximo posible finalizar la compra por accidente.
+    // setTimeout(() =>
+    // {
+    //     if ( !window.confirm("¿Realmente estás seguro?") )
+    //         return;
+
+    //     cargarCompra();
+
+    //     //  ACÁ ENVIAR compra a donde corresponda.
         
-         entregarCompra();
+    //      entregarCompra();
 
-        //  REINICIAR TODO
-        compra = iniciarCompra(compra);
-        proveedor.value = 0;
-        metodoDePago.value = "default";
-        monto.value = "0.00";
-    }, 250);
+    //     //  REINICIAR TODO
+    //     compra = iniciarCompra(compra);
+    //     proveedor.value = 0;
+    //     metodoDePago.value = "default";
+    //     monto.value = "0.00";
+    // }, 250);
 }
 
 function entregarCompra()
