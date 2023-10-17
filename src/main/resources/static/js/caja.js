@@ -81,33 +81,55 @@ MOVIMIENTO_EXCEPCIONAL_REGISTRAR.addEventListener("click", () =>
         return;
     }
 
-    if ( !window.confirm("Estás por finalizar la compra...\n\n¿Estás seguro?") )
-        return;
+    // ENVIO DE PAYLOAD SIN DOBLE CONFIRM
+    
+    // CARGA DE movimientoExcepcional
 
-    // Insistir con la confirmación para evitar lo máximo posible finalizar por accidente.
-    setTimeout(() =>
-    {
-        if ( !window.confirm("¿Realmente estás seguro?") )
-            return;
+    movimientoExcepcional.tipo = MOVIMIENTO_EXCEPCIONAL_TIPO.value;
+    movimientoExcepcional.id_cuenta = parseInt(MOVIMIENTO_EXCEPCIONAL_FONDO.value);
+    movimientoExcepcional.monto = parseFloat(MOVIMIENTO_EXCEPCIONAL_MONTO.value).toFixed(2);
+    
+    if (MOVIMIENTO_EXCEPCIONAL_MOTIVO.value === "")
+        movimientoExcepcional.motivo = "Motivo no especificado.";
+    else
+        movimientoExcepcional.motivo = MOVIMIENTO_EXCEPCIONAL_MOTIVO.value;
 
-        // CARGA DE movimientoExcepcional
+    //  ENTREGA DE movimientoExcepcional
+    // console.log(movimientoExcepcional);
+    entregarMovimientoExcepcional();
 
-        movimientoExcepcional.tipo = MOVIMIENTO_EXCEPCIONAL_TIPO.value;
-        movimientoExcepcional.id_cuenta = parseInt(MOVIMIENTO_EXCEPCIONAL_FONDO.value);
-        movimientoExcepcional.monto = parseFloat(MOVIMIENTO_EXCEPCIONAL_MONTO.value).toFixed(2);
+    //  REINICIAR TODO
+    reiniciarMovimientoExcepcional();
+    // ----------------------------------------------------------------
+
+
+    // if ( !window.confirm("Estás por finalizar la compra...\n\n¿Estás seguro?") )
+    //     return;
+
+    // // Insistir con la confirmación para evitar lo máximo posible finalizar por accidente.
+    // setTimeout(() =>
+    // {
+    //     if ( !window.confirm("¿Realmente estás seguro?") )
+    //         return;
+
+    //     // CARGA DE movimientoExcepcional
+
+    //     movimientoExcepcional.tipo = MOVIMIENTO_EXCEPCIONAL_TIPO.value;
+    //     movimientoExcepcional.id_cuenta = parseInt(MOVIMIENTO_EXCEPCIONAL_FONDO.value);
+    //     movimientoExcepcional.monto = parseFloat(MOVIMIENTO_EXCEPCIONAL_MONTO.value).toFixed(2);
         
-        if (MOVIMIENTO_EXCEPCIONAL_MOTIVO.value === "")
-            movimientoExcepcional.motivo = "Motivo no especificado.";
-        else
-            movimientoExcepcional.motivo = MOVIMIENTO_EXCEPCIONAL_MOTIVO.value;
+    //     if (MOVIMIENTO_EXCEPCIONAL_MOTIVO.value === "")
+    //         movimientoExcepcional.motivo = "Motivo no especificado.";
+    //     else
+    //         movimientoExcepcional.motivo = MOVIMIENTO_EXCEPCIONAL_MOTIVO.value;
 
-        //  ENTREGA DE movimientoExcepcional
-        // console.log(movimientoExcepcional);
-        entregarMovimientoExcepcional();
+    //     //  ENTREGA DE movimientoExcepcional
+    //     // console.log(movimientoExcepcional);
+    //     entregarMovimientoExcepcional();
 
-        //  REINICIAR TODO
-        reiniciarMovimientoExcepcional();
-    }, 250);
+    //     //  REINICIAR TODO
+    //     reiniciarMovimientoExcepcional();
+    // }, 250);
 });
 
 function entregarMovimientoExcepcional()
@@ -357,37 +379,61 @@ if (CERRAR_CAJA_BUTTON)
 {
     CERRAR_CAJA_BUTTON.addEventListener("click", () =>
     {
-        if ( !window.confirm("Estás por cerrar TODAS las cajas...\n\n¿Estás seguro?") )
-            return;
+        // ENVIO DE PAYLOAD SIN DOBLE CONFIRM
+        // prepararCajas();
+        // entregarCajas();
 
-        // Insistir con la confirmación para evitar lo máximo posible finalizar por accidente.
-        setTimeout(() =>
-        {
-            if ( !window.confirm("¿Realmente estás seguro?") )
-                return;
+        const API_URL = "/caja/cerrar";
+        const LINK = new URL(API_URL, window.location.origin);
 
-            // prepararCajas();
-            // entregarCajas();
+        fetch(LINK)
+        .then(response => response.text())
 
-            const API_URL = "/caja/cerrar";
-            const LINK = new URL(API_URL, window.location.origin);
+        .then(responseData => {
+            // console.log(responseData);  // Resultado de enviar el json.
+            window.alert(responseData);
+            //Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+            location.reload();
+        })
+        
+        .catch(error => {
+            console.log("ERROR: ", error);  // Errores que puedan haber.
+            window.alert("ERROR: ", error);
+        })
+        // ---------------------------------------------------------------------------------
 
-            fetch(LINK)
-            .then(response => response.text())
+
+        // if ( !window.confirm("Estás por cerrar TODAS las cajas...\n\n¿Estás seguro?") )
+        //     return;
+
+        // // Insistir con la confirmación para evitar lo máximo posible finalizar por accidente.
+        // setTimeout(() =>
+        // {
+        //     if ( !window.confirm("¿Realmente estás seguro?") )
+        //         return;
+
+        //     // prepararCajas();
+        //     // entregarCajas();
+
+        //     const API_URL = "/caja/cerrar";
+        //     const LINK = new URL(API_URL, window.location.origin);
+
+        //     fetch(LINK)
+        //     .then(response => response.text())
     
-            .then(responseData => {
-                // console.log(responseData);  // Resultado de enviar el json.
-                window.alert(responseData);
-                //Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
-                location.reload();
-            })
+        //     .then(responseData => {
+        //         // console.log(responseData);  // Resultado de enviar el json.
+        //         window.alert(responseData);
+        //         //Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
+        //         location.reload();
+        //     })
             
-            .catch(error => {
-                console.log("ERROR: ", error);  // Errores que puedan haber.
-                window.alert("ERROR: ", error);
-            })
+        //     .catch(error => {
+        //         console.log("ERROR: ", error);  // Errores que puedan haber.
+        //         window.alert("ERROR: ", error);
+        //     })
 
-        }, 250);
+        // }, 250);
     });
 }
 // **************************************************************
