@@ -69,6 +69,13 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+		    <groupId>org.apache.pdfbox</groupId>
+		    <artifactId>pdfbox</artifactId>
+		    <version>2.0.29</version>
+		    <scope>system</scope>
+		    <systemPath>/home/julian/git/luapetshop/lib/pdfbox-app-2.0.29.jar</systemPath>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -77,6 +84,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<includeSystemScope>true</includeSystemScope>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
@@ -85,6 +93,20 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			
+			<plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-jar-plugin</artifactId>
+	            <configuration>
+	                <archive>
+	                    <manifest>
+	                        <addClasspath>true</addClasspath>
+	                        <classpathPrefix>lib/</classpathPrefix>
+	                    </manifest>
+	                </archive>
+	            </configuration>
+        	</plugin>
+			
 		</plugins>
 	</build>
 

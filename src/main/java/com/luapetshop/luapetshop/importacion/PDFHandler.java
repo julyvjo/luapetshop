@@ -10,6 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class PDFHandler {
 	
+	String CADENA_RELLENO = "Código Descripción MDP Y";
+	
 	public String processFile(MultipartFile file, String pages) {
 		StringBuilder sb = new StringBuilder();
 		ArrayList<Integer> parsedPages = parsePages(pages);
@@ -41,7 +43,7 @@ public class PDFHandler {
                 pdfTextStripper.setEndPage(targetPageNumber);
 
                 // Obtiene el texto de la página específica y guárdalo en una cadena
-                //String text = pdfTextStripper.getText(document);
+                String text = pdfTextStripper.getText(document);
                 
                 //Obtiene el texto línea por línea
                 String[] lines = pdfTextStripper.getText(document).split("\\r?\\n");
@@ -63,6 +65,10 @@ public class PDFHandler {
 	
 	
 	protected  String procesarLinea(String line) {
+		
+		if (line.startsWith(CADENA_RELLENO)) {
+            line = line.substring(CADENA_RELLENO.length()).trim();
+		}
 		
         //index de la coma
         int commaIndex = line.indexOf(',');
