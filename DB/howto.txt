@@ -1,0 +1,12 @@
+#logear en mysql
+mysql -u root -p
+
+#ver dbs
+show databases;
+
+#crear BD
+create database <nombre>;
+
+#aplicar dump
+mysql -u root -p luapetshop_prod < dump.sql
+

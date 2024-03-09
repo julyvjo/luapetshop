@@ -1,0 +1,530 @@
+codigo;nombre;precio;proveedor
+1;sr-bandeja-sanitaria-mediana;1,600.00;Sin rival
+2;sr-bandeja-sanitaria-gigante;4,800.00;Sin rival
+3;sr-pala-sanitaria-economica;250.00;Sin rival
+4;sr-pala-sanitaria-kupka-larga;6,390.00;Sin rival
+5;sr-litera-catit-gris;43,560.00;Sin rival
+6;sr-litera-catit-rosa;45,560.00;Sin rival
+7;sr-repuesto-litera-carbon;1,700.00;Sin rival
+8;sr-bolsa-sanitaria-practicat;1,390.00;Sin rival
+9;sr-bolsita-recolectora-3rollos;820.00;Sin rival
+10;sr-capsula-bolsitas;1,155.00;Sin rival
+11;sr-hueso-bolsitas;975.00;Sin rival
+12;ba-rubicat-classic-53kg;3,900.00;B A
+13;ba-rubicat-lavanda-53kg;3,960.00;B A
+14;ba-rubicat-original-53kg;4,020.00;B A
+15;lonco-altagama-limon-36kg;2,450.00;Lonco
+16;lonco-altagama-lavanda-36kg;2,450.00;Lonco
+17;lonco-altagama-mañanas-campo-36kg;2,450.00;Lonco
+18;sr-piedra-aglutinante-claycat-3-3kg;0.00;Sin rival
+19;faican-piedra-sanitaria-2kg;352.00;Faican
+20;faican-piedra-sanitaria-4kg;704.00;Faican
+21;faican-piedra-sanitaria-12kg;2,112.00;Faican
+22;faican-piedra-sanitaria-25kg;4,400.00;Faican
+23;salice-monkat;1,731.00;Salice
+24;sr-pellet-2kg;0.00;Sin rival
+25;sr-pellet-4kg;0.00;Sin rival
+26;mc-pellet-5kg;1,741.00;Sin rival
+27;sr-lazycat-silica-3-8kg;7,350.00;Sin rival
+28;sr-cancat-silica-lavanda-3-8kg;7,350.00;Sin rival
+29;sr-cancat-silica-limon-3-8kg;7,350.00;Sin rival
+30;sr-cancat-silica-neutra-3-8kg;7,350.00;Sin rival
+31;sr-cancat-silica-rosas-3-8kg;7,350.00;Sin rival
+32;ba-lebon-paño-chico-x10;4,270.00;B A
+33;ba-lebon-paño-mediano-x10;5,125.00;B A
+34;ba-lebon-paño-grande-x10;5,980.00;B A
+35;sr-cancat-paño-premium-x10;0.00;Sin rival
+36;sr-paño-mickey-x20;8,060.00;Sin rival
+37;sr-pañopet-mini-x10;5,770.00;Sin rival
+38;sr-paño-humedo-toalla;900.00;Sin rival
+39;sr-aca-no-aerosol-350ml;6,080.00;Sin rival
+40;sr-aca-no-liquido-500ml;4,760.00;Sin rival
+41;sr-pipi-aqui;2,510.00;Sin rival
+42;bandeja-pasto-macho;27,360.00;Sin rival
+43;sr-pañal-ch;2,000.00;Sin rival
+44;sr-pañal-m;2,000.00;Sin rival
+45;sr-pañal-g;2,000.00;Sin rival
+46;sr-shampoo-super-blanco-500ml;3,860.00;Sin rival
+47;sr-shampoo-2en1-500ml;3,860.00;Sin rival
+48;sr-shampoo-osspret-belleza;2,650.00;Sin rival
+49;sr-shampoo-osspret-cachorro;3,360.00;Sin rival
+50;sr-shampoo-osspret-menta-aloe;3,560.00;Sin rival
+51;sr-shampoo-osspret-mixfrutal;3,360.00;Sin rival
+52;sr-shampoo-osspret-tradicional;3,700.00;Sin rival
+53;sr-enjuague-extrabrillo;3,500.00;Sin rival
+54;sr-espuma-seca-350cc;3,500.00;Sin rival
+55;sr-limpia-lagrimas-125cc;2,600.00;Sin rival
+56;sr-locion-osspret-130cc;4,100.00;Sin rival
+57;sr-locion-osspret-desatanudos-130cc;5,200.00;Sin rival
+58;sr-kit-cepillo-dental;2,500.00;Sin rival
+59;salice-dentalplax;0.00;Sin rival
+60;sr-kit-dental;4,500.00;Sin rival
+61;sr-guante-aseo-pinche-goma;3,035.00;Sin rival
+62;sr-guante-aseo-pinche-metal;6,500.00;Sin rival
+63;sr-alicate-curvo-lima-mediano;2,750.00;Sin rival
+64;sr-alicate-profesional-grande;3,800.00;Sin rival
+65;sr-alicate-tijera-gatos;3,000.00;Sin rival
+66;sr-cancat-sacanudos-rastrillo;6,300.00;Sin rival
+67;sr-cardina-madera-extra-grande;2,930.00;Sin rival
+68;sr-cardina-madera-grande;2,300.00;Sin rival
+69;sr-cardina-madera-mediana;1,700.00;Sin rival
+70;sr-cardina-madera-chica;1,350.00;Sin rival
+71;sr-cardina-plastica-puntas-protegidas-chica;1,850.00;Sin rival
+72;sr-cardina-plastica-puntas-protegidas-mediana;2,750.00;Sin rival
+73;sr-cardina-plastica-simple-chica;1,420.00;Sin rival
+74;sr-cardina-plastica-simple-grande;2,600.00;Sin rival
+75;sr-cardina-plastica-simple-mediana;2,200.00;Sin rival
+76;sr-cepillo-doble-mediano;3,500.00;Sin rival
+77;sr-cortanudos-mediano-mango;5,450.00;Sin rival
+78;sr-rastrillo-13dientes-azulyamarillo;4,810.00;Sin rival
+79;sr-cepillo-silicona-baño;5,350.00;Sin rival
+80;sa-pasti-power-2-5;3,146.00;Salice
+81;sa-pasti-power-5-10;3,509.00;Salice
+82;sa-pasti-power-10-20;3,890.00;Salice
+83;sa-pasti-power-20-30;4,876.00;Salice
+84;sa-pasti-power-30-40;5,748.00;Salice
+85;sa-collar-gato-tea;4,362.00;Salice
+86;sa-collar-perroC-M-tea;4,530.00;Salice
+87;sa-collar-perroG-tea;4,677.00;Salice
+88;lonco-babs-gato;0.00;Sin rival
+89;lonco-babs-perro-5;0.00;Sin rival
+90;lonco-babs-perro-5-10;0.00;Sin rival
+91;lonco-babs-perro-10-20;0.00;Sin rival
+92;lonco-babs-perro-20-40;0.00;Sin rival
+93;lonco-lapi-gato-4;0.00;Sin rival
+94;lonco-lapi-gato-4-8;0.00;Sin rival
+95;lonco-lapi-perro-10;0.00;Sin rival
+96;lonco-lapi-perro-11-20;0.00;Sin rival
+97;lonco-lapi-perro-21-40;0.00;Sin rival
+98;lonco-babs-aca-no;0.00;Sin rival
+99;lonco-talco-babs;3,510.00;Sin rival
+100;sr-porta-catnip;2,700.00;Sin rival
+101;sr-porta-disuasivo;2,600.00;Sin rival
+102;sa-power-gato-2-3;1,891.00;Salice
+103;sa-power-gato-4-8;2,087.00;Salice
+104;sa-power-perro-5-10;1,768.00;Salice
+105;sa-power-perro-11-20;1,984.00;Salice
+106;sa-power-perro-21-40;2,680.00;Salice
+107;sr-rodillo-pelos-pelusa;2,000.00;Sin rival
+108;sr-rodillo-pelos-pelusa-repuesto;1,850.00;Sin rival
+109;sr-quitapelusa-importador;1,850.00;Sin rival
+110;ros-huella-sacapelo-lavarropa-x2;8,044.00;Per ros
+111;sr-cepillo-quitapelusa-chico;2,400.00;Sin rival
+112;ros-cepillo-recolector-pelos-pelusa;11,700.00;Per ros
+113;sr-cepillo-quitapelusa-grande;8,900.00;Sin rival
+114;dakota-vestido-2;2,500.00;Sin rival
+115;dakota-vestido-3;2,600.00;Sin rival
+116;dakota-vestido-4;2,900.00;Sin rival
+117;ros-buzo-friza-stamping-talles-25cm;11,089.00;Per ros
+118;ros-buzo-friza-stamping-tallem-25cm;12,655.00;Per ros
+119;ros-buzo-friza-stamping-tallel-33cm;12,748.00;Per ros
+120;ros-buzo-friza-stamping-tallexl-38cm;13,600.00;Per ros
+121;ros-buzo-friza-stamping-tallexxl-43cm;14,373.00;Per ros
+122;ros-camisa-hawaiana;7,594.00;Per ros
+123;ros-campera-reversible-fluo-polar-negro-t3-35cm;12,098.00;Per ros
+124;ros-campera-reversible-fluo-polar-negro-t6-50cm;14,233.00;Per ros
+125;ros-campera-reversible-fluo-polar-negro-t9-65cm;16,688.00;Per ros
+126;ros-musculosa-splash-talle1-25cm;4,429.00;Per ros
+127;ros-musculosa-splash-talle2-30cm;4,633.00;Per ros
+128;ros-musculosa-splash-talle3-35cm;5,060.00;Per ros
+129;ros-musculosa-splash-talle4-40cm;5,474.00;Per ros
+130;ros-musculosa-splash-talle5-45cm;5,895.00;Per ros
+131;ros-musculosa-splash-talle6-50cm;6,431.00;Per ros
+132;ros-musculosa-totalprint-talleS;4,393.00;Per ros
+133;ros-musculosa-totalprint-talleM;5,689.00;Per ros
+134;ros-musculosa-totalprint-talleL;7,130.00;Per ros
+135;ros-musculosa-totalprint-talleXL;8,151.00;Per ros
+136;ros-musculosa-totalprint-talleXXL;8,682.00;Per ros
+137;ros-piloto-plastico-capuche-talle3-35cm;6,679.00;Per ros
+138;ros-piloto-plastico-capuche-talle4-45cm;7,294.00;Per ros
+139;ros-piloto-plastico-capuche-talle6-50cm;8,179.00;Per ros
+140;ros-piloto-plastico-capuche-talle9-65cm;10,406.00;Per ros
+141;sr-camiseta-argentina-t10;3,500.00;Sin rival
+142;sr-camiseta-argentina-t2;2,200.00;Sin rival
+143;sr-camiseta-argentina-t3;2,500.00;Sin rival
+144;sr-camiseta-argentina-t5;2,700.00;Sin rival
+145;sr-camiseta-argentina-t6;2,800.00;Sin rival
+146;sr-camiseta-argentina-t8;3,000.00;Sin rival
+147;sr-polar-soft-0-1-2;2,000.00;Sin rival
+148;sr-polar-soft-3-4;2,500.00;Sin rival
+149;sr-polar-soft-10;4,050.00;Sin rival
+150;sr-polar-fantasia-6-7;3,200.00;Sin rival
+151;sr-polar-fantasia-9;3,750.00;Sin rival
+152;navidad-pañuelo;3,170.00;Per ros
+153;navidad-remera-sinri;1,800.00;Per ros
+154;navidad-pijama;7,631.00;Per ros
+155;navidad-adorno;2,382.00;Per ros
+156;ros-moises-aro-chico;3,900.00;Sin rival
+157;ros-moises-aro-mediano;4,100.00;Sin rival
+158;ros-moises-aro-grande;4,500.00;Sin rival
+159;ros-moises-aro-sweet-peluche;21,500.00;Per ros
+160;ros-moises-aro-sweet-peluche-chico;17,299.00;Per ros
+161;ros-colchoneta-mullida-60x45;10,869.00;Per ros
+162;ros-colchoneta-mullida-90x60;17,974.00;Per ros
+163;ros-colchoneta-mullida-75x75;17,974.00;Per ros
+164;ros-colchoneta-soft-86x68;21,563.00;Per ros
+165;ros-colchoneta-soft-105x65;24,619.00;Per ros
+166;ros-colchoneta-soft-71x57;18,806.00;Per ros
+167;ros-moises-jean-chico;13,339.00;Per ros
+168;ros-moises-jean-mediano;16,601.00;Per ros
+169;ros-moises-jean-grande;21,049.00;Per ros
+170;ros-moises-cabaña;23,235.00;Per ros
+171;ros-moises-atenas-chico;21,430.00;Per ros
+172;srj-colchoneta-chica;0.00;Sin rival
+173;srj-colchoneta-grande;0.00;Sin rival
+174;sr-colchoneta-chica-impermeable;5,085.00;Sin rival
+175;sr-colchoneta-grande-impermeable;6,000.00;Sin rival
+176;ros-acolchado-chico;14,529.00;Per ros
+177;sr-mantita-polar-soft75x100;2,500.00;Sin rival
+178;sr-funda-auto;9,500.00;Sin rival
+179;ros-comedero-acero-inoxidable-8;2,440.00;Sin rival
+180;ros-comedero-acero-inoxidable-16;2,800.00;Sin rival
+181;ros-comedero-acero-inoxidable-32;3,260.00;Sin rival
+182;ros-comedero-acero-inoxidable-coker-32;4,250.00;Sin rival
+183;ros-comedero-acero-inoxidable-64;5,460.00;Sin rival
+184;ros-comedero-acero-inoxidable-96;8,350.00;Sin rival
+185;sr-bebedero-portatil-500ml;2,200.00;Sin rival
+186;sr-comedero-acero-huellita-17cm;4,220.00;Sin rival
+187;sr-comedero-acero-huellita-14cm;3,350.00;Sin rival
+188;sr-comedero-acero-animalprint-11cm;2,900.00;Sin rival
+189;sr-comedero-acero-bordepintado-26cm;4,200.00;Sin rival
+190;sr-comedero-acero-bordepintado-18cm;2,590.00;Sin rival
+191;sr-comedero-acero-bordepintado-16cm;2,050.00;Sin rival
+192;sr-comedero-cara-de-gato;660.00;Sin rival
+193;sr-comedero-comelento-pez;1,700.00;Sin rival
+194;sr-comedero-comelento-regudiet;1,855.00;Sin rival
+195;sr-comedero-doble-bebedero-rosca;4,000.00;Sin rival
+196;sr-comedero-doble-hueso;1,520.00;Sin rival
+197;sr-comedero-cuadrado-1;375.00;Sin rival
+198;sr-comedero-gato;330.00;Sin rival
+199;sr-comedero-perro-redondo-mediano;670.00;Sin rival
+200;sr-comedero-perro-ovalado-chico;415.00;Sin rival
+201;sr-comedero-perro-ovalado-mediano;570.00;Sin rival
+202;sr-comedero-perro-ovalado-coker;690.00;Sin rival
+203;sr-comedero-portatil-plegable-13x5;1,560.00;Sin rival
+204;sr-comederoceramica-livingworld-420ml;1,990.00;Sin rival
+205;ros-comedero-altura-ajustable;28,500.00;Per ros
+206;pr-bebedero-garrafa;5,100.00;Per ros
+207;pr-bebedero-comedero-automatico;3,700.00;Per ros
+208;pr-bebedero-tapa;17,000.00;Per ros
+209;sr-fuente-flor;16,850.00;Sin rival
+210;sr-fuente-acero;28,100.00;Sin rival
+211;dakota-mochila;14,900.00;Dakota
+212;dakota-esquimal;9,900.00;Dakota
+213;dakota-bolso-dakota;6,900.00;Dakota
+214;sr-transportador-carton;2,200.00;Sin rival
+215;ros-bolso-lujo-colchoneta;30,026.00;Per ros
+216;ros-bolso-torino-chico;44,813.00;Per ros
+217;ros-transportadora;105,105.00;Per ros
+218;sr-bolso-rigido-cuerina;7,000.00;Sin rival
+219;sr-bolso-tela-nap;7,300.00;Sin rival
+220;sr-bolso-burbuja;20,665.00;Sin rival
+221;sr-mochila-transparente;32,000.00;Sin rival
+222;sr-bolso-rigido-cuerina-chico;6,000.00;Sin rival
+223;sr-bolso-chico-tela-n1;3,021.00;Sin rival
+224;ros-laberinto-plastico-3pisos;12,600.00;Sin rival
+225;sr-6662-juguetevinilo-chifle;1,300.00;Sin rival
+226;sr-base-plus-gato-resorte;4,150.00;Sin rival
+227;sr-base-plus-gato-resorte-premium;6,100.00;Sin rival
+228;sr-gato-resorte-simple;1,100.00;Sin rival
+229;sr-cancat-pelota-doble-pluma;2,600.00;Sin rival
+230;sr-cancat-raton-doble-hilo;2,600.00;Sin rival
+231;sr-cancat-raton-pelota-color;2,550.00;Sin rival
+232;sr-cancat-raton-tricolor-sonido;2,550.00;Sin rival
+233;sr-cañita-plastico-pompon;1,500.00;Sin rival
+234;sr-juguete-cañita-madera-raton;2,200.00;Sin rival
+235;sr-juguete-cañita-leopardo;3,330.00;Sin rival
+236;sr-juguete-ratita-plush-x6;1,870.00;Sin rival
+237;sr-juguete-ratita-plush-x6;312.00;Sin rival
+238;sr-juguete-ratita-plush-x4;1,910.00;Sin rival
+239;sr-juguete-ratita-plush-x1;478.00;Sin rival
+240;sr-juguete-sonajero-pelota;800.00;Sin rival
+241;sr-keio-arandela-goma-surtida;1,820.00;Sin rival
+242;sr-keio-hueso-pinches;1,950.00;Sin rival
+243;sr-keio-hueso-pinches-chico;1,750.00;Sin rival
+244;sr-keio-huesito-dosificador-8cm;1,080.00;Sin rival
+245;sr-keio-pelota-dosificadora;2,040.00;Sin rival
+246;sr-keio-manija-goma-aros;1,700.00;Sin rival
+247;sr-keio-pelota-goma;2,000.00;Sin rival
+248;sr-manta-lamer-chica;2,940.00;Sin rival
+249;sr-manta-lamer-mediana;3,670.00;Sin rival
+250;sr-manta-lamer-grande;5,250.00;Sin rival
+251;sr-manta-lamer-redonda;4,000.00;Sin rival
+252;sr-arandela-chica-limpiadientes;1,350.00;Sin rival
+253;sr-arandela-grande-limpiadientes;1,700.00;Sin rival
+254;sr-mordillo-5aros-limpiadiente;1,000.00;Sin rival
+255;sr-palito-cuero-x200;3,786.00;Sin rival
+256;sr-pelota-deportiva-relax;665.00;Sin rival
+257;sr-pelota-gatera-pluma;2,500.00;Sin rival
+258;sr-pelota-giroscopo-plastico;2,450.00;Sin rival
+259;sr-pelota-goma-semiblanda-emoji;670.00;Sin rival
+260;sr-pelota-plastica-cascabelx6;1,911.00;Sin rival
+261;sr-pelota-plastica-cascabelx1;319.00;Sin rival
+262;sr-pulpito-rojablanca-chica;850.00;Sin rival
+263;sr-pulpito-rojablanca-mediana;1,730.00;Sin rival
+264;sr-pulpito-rojablanca-grande;2,500.00;Sin rival
+265;sr-pelota-trenza-colores;2,500.00;Sin rival
+266;sr-peluchefelpa-chifle-keio;2,750.00;Sin rival
+267;sr-peluchefelpa-chifle-empanada;1,900.00;Sin rival
+268;sr-peluchefelpa-dona-chifle;2,400.00;Sin rival
+269;sr-peluchefelpa-pollo-chifle;2,270.00;Sin rival
+270;sr-pesa-goma-mediana;1,400.00;Sin rival
+271;sr-ratita-sisal-medium-x2;1,100.00;Sin rival
+272;sr-raton-grande-friccion;1,700.00;Sin rival
+273;sr-raton-tela-cascabel-x3;1,060.00;Sin rival
+274;sr-rueda-trenzada-mediana;2,850.00;Sin rival
+275;sr-soga-muñeco;3,050.00;Sin rival
+276;sr-soga-2nudos-15cm;2,370.00;Sin rival
+277;sr-soga-2pelotas-trenzadas;6,250.00;Sin rival
+278;sr-soga-3nudos-35cm;3,800.00;Sin rival
+279;sr-hueso-goma-mediano;1,650.00;Sin rival
+280;sr-pelota-gato-goma-x6;2,700.00;Sin rival
+281;sr-pelota-gato-goma-x1;450.00;Sin rival
+282;sr-rama-grande;1,100.00;Sin rival
+283;sr-pelota-goma-grande;1,080.00;Sin rival
+284;sr-pelota-goma-mediana;600.00;Sin rival
+285;sr-pelota-goma-chica;390.00;Sin rival
+286;sr-pelota-plastico-duro;1,080.00;Sin rival
+287;sr-pelota-plumas;1,650.00;Sin rival
+288;sr-ratita-brillo-x2;1,600.00;Sin rival
+289;sr-pelota-soga-algodon-chica;1,500.00;Sin rival
+290;sr-pelota-soga-algodon-grande;1,800.00;Sin rival
+291;sr-pelota-pinches-luz;1,850.00;Sin rival
+292;sr-rata-cuerda-vibracion;2,210.00;Sin rival
+293;sr-pelota-limpiadientes-soga;1,500.00;Sin rival
+294;pr-peluche-pescado-catnip;5,000.00;Per ros
+295;sr-caña-pescar-pluma;6,200.00;Sin rival
+296;sr-pajaro-puchin-gallo;2,300.00;Sin rival
+297;sr-keio-frisbee-18cm;2,200.00;Sin rival
+298;sr-fitness-pelota-soga;3,000.00;Sin rival
+299;kimey-granada-encias;1,390.00;Sin rival
+300;kimey-hueso-chico;870.00;Sin rival
+301;kimey-hueso-grande;1,290.00;Sin rival
+302;ros-muebles-gatos-basepalo;19,381.00;Per ros
+303;ros-muebles-gatos-arcopalo;42,380.00;Per ros
+304;ros-muebles-gatos-cajon-triangulo;41,840.00;Per ros
+305;ros-muebles-gatos-aro-raton;17,880.00;Per ros
+306;ros-rascador-carton-alfombra;4,288.00;Per ros
+307;ros-rascador-carton-maxi;16,173.00;Per ros
+308;ros-rascador-carton-helice;6,572.00;Per ros
+309;ros-rascador-carton-medioinfinito;6,572.00;Per ros
+310;ros-rascador-carton-cuadradogrande;9,835.00;Per ros
+311;ros-rascador-carton-sincaja;3,119.00;Per ros
+312;sr-agatar-rascador-carton-triangulo-chico;1,300.00;Sin rival
+313;sr-agatar-rascador-carton-triangulo;1,300.00;Sin rival
+314;sr-rascador-esquinero-sillon;9,370.00;Sin rival
+315;sr-rascador-rampa-juguete;4,000.00;Sin rival
+316;sr-rascador-tuerca;3,680.00;Sin rival
+317;sr-rascador-cilindro-peluche;2,500.00;Sin rival
+318;sr-rascador-infinito-grande;11,550.00;Sin rival
+319;sr-rascador-infinito-mediano;10,240.00;Sin rival
+320;sr-rascador-infinito-chico;9,000.00;Sin rival
+321;sr-rascador-fosforito;2,351.00;Sin rival
+322;sr-rascador-raton;2,200.00;Sin rival
+323;depelos-rascador-hexagonal;3,000.00;Sin rival
+324;sr-frifri-alfombra;5,000.00;Sin rival
+325;sr-rascador-escalera;4,500.00;Sin rival
+326;ar-chapita-colgante;650.00;Per ros
+327;ar-chapita-remachada;0.00;Sin rival
+328;sr-bozal-canasto-plastico-n6;3,500.00;Sin rival
+329;sr-bozal-canasto-plastico-n5;3,050.00;Sin rival
+330;sr-bozal-canasto-plastico-n4;2,850.00;Sin rival
+331;sr-bozal-canasto-plastico-n3;2,000.00;Sin rival
+332;sr-collar-ahorque-puas-10eslabones;7,050.00;Sin rival
+333;sr-collar-ahorque-puas-9eslabones;5,580.00;Sin rival
+334;sr-collar-color-n1;620.00;Sin rival
+335;sr-collar-color-n2;630.00;Sin rival
+336;sr-collar-color-n3;820.00;Sin rival
+337;sr-collar-color-n4;1,135.00;Sin rival
+338;sr-collar-color-n5;1,350.00;Sin rival
+339;sr-collar-color-n6;1,380.00;Sin rival
+340;sr-collar-color-n7;1,500.00;Sin rival
+341;sr-collar-cuerina-leopardo;2,550.00;Sin rival
+342;sr-collar-cuero-pañuelo-n3;1,700.00;Sin rival
+343;sr-collar-cuero-pañuelo-n5;2,700.00;Sin rival
+344;sr-collar-elastizado-cascabelx12;9,400.00;Sin rival
+345;sr-collar-gato-goma-x4;3,200.00;Sin rival
+346;sr-collar-gato-goma-x1;800.00;Sin rival
+347;sr-collar-pañuelo-cascabelx12;9,400.00;Sin rival
+348;sr-collar-poliester-n1-estampado;750.00;Sin rival
+349;sr-collar-poliester-n2-estampado;800.00;Sin rival
+350;sr-collar-poliester-n3-estampado;1,000.00;Sin rival
+351;sr-collar-poliester-n4-estampado;1,050.00;Sin rival
+352;sr-collar-poliester-n5-estampado;1,250.00;Sin rival
+353;sr-collar-poliester-n6-estampado;1,300.00;Sin rival
+354;sr-collar-poliester-n7-estampado;1,550.00;Sin rival
+355;sr-collar-poliester-n1-regulable;820.00;Sin rival
+356;sr-collar-poliester-n2-regulable;1,050.00;Sin rival
+357;sr-collar-poliester-n3-regulable;1,350.00;Sin rival
+358;sr-collar-poliester-n4-regulable;1,850.00;Sin rival
+359;sr-collar-regulable-cascabelx12;9,400.00;Sin rival
+360;sr-collarconbandana;1,800.00;Sin rival
+361;sr-collar-nylon-tricolor;1,700.00;Sin rival
+362;sr-correaycollar-color-n6;3,620.00;Sin rival
+363;sr-correa-cromada-manija-cuero-120cm;3,000.00;Sin rival
+364;sr-correa-alpinista-doble;1,900.00;Sin rival
+365;sr-correa-color-5metros;7,750.00;Sin rival
+366;sr-correa-color-3metros;5,050.00;Sin rival
+367;sr-correa-color-n1;1,650.00;Sin rival
+368;sr-correa-color-n2;1,850.00;Sin rival
+369;sr-correa-color-n3;2,500.00;Sin rival
+370;sr-correa-color-n4;2,700.00;Sin rival
+371;sr-correa-extensible-3m;3,560.00;Sin rival
+372;sr-correa-extensible-5m;5,065.00;Sin rival
+373;sr-correa-poliester-n1-estampado;1,840.00;Sin rival
+374;sr-correa-poliester-n2-estampado;2,140.00;Sin rival
+375;sr-correa-poliester-n3-estampado;2,650.00;Sin rival
+376;sr-correa-poliester-n4-estampado;2,910.00;Sin rival
+377;sr-correaypretal-n1-estampado;3,500.00;Sin rival
+378;sr-correaypretal-n2-estampado;4,300.00;Sin rival
+379;sr-correaypretal-n3-estampado;5,400.00;Sin rival
+380;sr-correaypretal-n4-estampado;6,700.00;Sin rival
+381;sr-arnesycorrea-patitas-n2;1,350.00;Sin rival
+382;sr-pretal-color-n9;2,700.00;Sin rival
+383;sr-pretal-poliester-n2-estampado;1,250.00;Sin rival
+384;sr-pretal-poliester-n3-estampado;1,300.00;Sin rival
+385;sr-pretal-poliester-n5-estampado;1,800.00;Sin rival
+386;sr-pretal-poliester-n7-estampado;2,250.00;Sin rival
+387;sr-pretal-regulable-n1;1,650.00;Sin rival
+388;sr-pretal-regulable-n2;2,350.00;Sin rival
+389;sr-pretal-regulable-n3;3,000.00;Sin rival
+390;sr-pretal-regulable-n4;4,200.00;Sin rival
+391;sr-pechera-s;5,650.00;Sin rival
+392;sr-pechera-m;7,500.00;Sin rival
+393;sr-conjunto-arnes-alas;2,700.00;Sin rival
+394;sr-conjunto-arnes-conejito;7,180.00;Sin rival
+395;ros-arnes-reflex-xs;8,344.00;Per ros
+396;ros-arnes-reflex-s;9,281.00;Per ros
+397;ros-arnes-reflex-m;10,406.00;Per ros
+398;ros-arnes-reflex-l;11,531.00;Per ros
+399;ros-arnes-reflex-xl;13,106.00;Per ros
+400;ros-arnes-reflex-xxl;14,231.00;Per ros
+401;ros-arnes-pollera-m;16,718.00;Per ros
+402;ros-arnes-pollera-l;17,481.00;Per ros
+403;ros-arnes-superman-s;9,188.00;Per ros
+404;ros-arnes-batman-m;10,313.00;Per ros
+405;ros-arnes-superman-l;11,813.00;Per ros
+406;ros-arnes-batman-xl;13,688.00;Per ros
+407;ros-arnes-chaleco-jean-m;11,531.00;Per ros
+408;ros-arnes-chaleco-jean-xl;15,000.00;Per ros
+409;ros-arnes-fantasia-s;8,118.00;Per ros
+410;ros-arnes-fantasia-l;9,245.00;Per ros
+411;ros-arnes-soft-plush-xs;8,344.00;Per ros
+412;ros-arnes-soft-plush-xl;13,106.00;Per ros
+413;sr-cinturon-seguridad-color;2,990.00;Sin rival
+414;sr-cinturon-seguridad-doble;3,000.00;Sin rival
+415;sr-pechera-neoprene-xl;2,600.00;Sin rival
+416;sr-pechera-neoprene-s;2,200.00;Sin rival
+417;sr-arnes-neoprene-s;2,500.00;Rugiendo
+418;re-bozal-canasta-cinta-m;1,780.00;Rugiendo
+419;re-bozal-canasta-cinta-l;2,400.00;Rugiendo
+420;re-correa-regulable-2mts;2,900.00;Rugiendo
+421;re-correa-regulable-2mts-doble;3,620.00;Rugiendo
+422;re-arnes-anti-tiron;5,160.00;Rugiendo
+423;ros-hierba-gatera;500.00;Sin rival
+424;sr-cholitas-galletitas-antisarro-500gr;1,450.00;Sin rival
+425;sr-drzoo-bocaditos-pollo-200gr;0.00;Sin rival
+426;sr-drzoo-galletitas-x50grs;0.00;Sin rival
+427;sr-drzoo-grill-churrasquitos-x50grs;0.00;Sin rival
+428;sr-drzoo-tiritas-gato;0.00;Sin rival
+429;sr-golocan-bocadito-2kg-carne;13,400.00;Per ros
+430;sr-golocan-bocadito-2kg-chocolate;13,400.00;Per ros
+431;sr-golocan-bocadito-2kg-pollo;13,400.00;Per ros
+432;sr-golocan-bocadito-3u-carne;670.00;Per ros
+433;sr-golocan-bocadito-3u-chocolate;670.00;Per ros
+434;sr-golocan-bocadito-3u-pollo;670.00;Per ros
+435;sr-golocan-bocadito-cpch-100grs;0.00;Sin rival
+436;sr-golocan-minibocadito-bajograsas-100grs;875.00;Sin rival
+437;sr-palito-twist-cuero-blanco;0.00;Sin rival
+438;sr-grisin-cuero-natural-9-10;347.00;Sin rival
+439;sr-hueso-cuero-2-3;1,300.00;Sin rival
+440;sr-hueso-cuero-4-5;765.00;Sin rival
+441;sr-hueso-cuero-5-6;510.00;Sin rival
+442;sr-hueso-cuero-7-8;950.00;Sin rival
+443;sr-hueso-cuero-8-9;1,180.00;Sin rival
+444;sr-hueso-vainilla-duro-chico;520.00;Sin rival
+445;sr-hueso-vainilla-duro-mediano;800.00;Sin rival
+446;sr-innovar-mix-130grs;800.00;Sin rival
+447;sr-innovar-pepas-200grs;650.00;Sin rival
+448;ba-orejas-cerdo;635.00;B A
+449;orejas-vaca ;190.50;B A
+450;animal-cakes;0.00;Lonco
+451;sobrecito-whiskas;460.00;Mascota
+452;sobrecito-pedigree;1,690.00;Mascota
+453;mc-pouch-kitten;1,171.67;Lonco
+454;mc-pouch-instintive;1,364.17;Lonco
+455;mc-pouch-kitten;1,364.17;Lonco
+456;mc-pouch-puppy-medium;973.83;Lonco
+457;mc-pouch-adulto-mediano;1,620.00;Mascota
+458;mc-pouch-catchow-pescado;988.67;El bigote
+459;mc-pouch-felix-salmon;958.67;El bigote
+460;dentalife;1,735.71;El bigote
+461;latita-agility;925.00;Valmor
+462;catit-creamy-atun-salmon-40gs;1,600.00;Sin rival
+463;valmor-sieger-kitten;1,119.00;Valmor
+464;valmor-sieger-cat;1,119.00;Valmor
+465;sa-optimum-puppy;537.50;Salice
+466;sa-optimum-dog;537.50;Salice
+467;sr-golocan-bocadito-2kg-carne;0.00;Lonco
+468;sr-golocan-bocadito-2kg-chocolate;0.00;Lonco
+469;sr-golocan-bocadito-2kg-pollo;0.00;Lonco
+470;cat-chow-15;52,210.00;El bigote
+471;excellent-kitten-75;46,440.00;El bigote
+472;excellent-cat-15;80,900.00;El bigote
+473;excellent-puppy-mg-20;62,870.00;El bigote
+474;excellent-dog-rp 15;48,620.00;El bigote
+475;excellent-dog-rmg-20;55,430.00;El bigote
+476;excellent-dog-skincare-15;50,400.00;El bigote
+477;proplan-kitten-75;69,610.00;El bigote
+478;proplan-cat-adulto-15;110,320.00;El bigote
+479;proplan-puppys-rm-15;77,740.00;El bigote
+480;proplan-dog-rm-15;70,660.00;El bigote
+481;agility-cat-10;30,821.00;Valmor
+482;agility-kitten-10;33,510.00;Valmor
+483;agility-dog-20;29,970.00;Valmor
+484;agility-puppy-20;34,700.00;Valmor
+485;biopet-dog-20;21,000.00;Edu
+486;biopet-puppy-15;16,875.00;Edu
+487;estampa-puppy-15;17,500.00;Edu
+488;estampa-cat-15;0.00;Lonco
+489;estampa-dog-20;21,250.00;Edu
+490;eukanuba-dog-15;38,750.00;Lonco
+491;infinity-cat-10;22,118.00;Salice
+492;nutribon-cat-20;33,000.00;Edu
+493;nutribon-dog-20;33,000.00;Edu
+494;nutricare-dog-22;32,285.00;Lonco
+495;nutrique-dog-12;0.00;Lonco
+496;nutrique-cat-75;56,430.00;Lonco
+497;oldprince-equilibrium-20;38,055.00;Salice
+498;oldprince-puppy-15;47,450.00;Salice
+499;oldprince-small-15;51,511.00;Mascota
+500;oldprince-dog-15;43,131.00;Salice
+501;oldprince-cat-75;28,910.00;Salice
+502;oldprince-cat-urinary-75;33,170.00;Salice
+503;performance-dog-20;54,135.00;Lonco
+504;performance-dog-junior-15;47,392.00;Lonco
+505;performance-cat-75;35,215.00;Lonco
+506;performance-kitten-75;38,955.00;Lonco
+507;royal-dog-maxi-15;57,145.00;Lonco
+508;royal-dog-medium-15;57,391.00;Lonco
+509;royal-dog-mini-75;36,800.00;Lonco
+510;royal-puppys-mini-75;36,650.00;Lonco
+511;royal-puppys-medium-15;63,325.00;Lonco
+512;royal-cat-fit32-15;87,151.00;Lonco
+513;sieger-criadores-20;42,135.00;Valmor
+514;sieger-dog-mp-12;39,015.00;Valmor
+515;sieger-dog-15;39,710.00;Valmor
+516;sieger-puppys-15;45,440.00;Valmor
+517;sieger-cat-75;33,760.00;Valmor
+518;sieger-kitten-75;35,450.00;Valmor
+519;vital-dog-premium-20;46,806.00;Mascota
+520;vital-dog-20;43,232.00;Mascota
+521;vital-puppys-large-20;52,992.00;Mascota
+522;vital-puppys-medium-20;52,992.00;Mascota
+523;vital-cat-complete-15;38,931.00;Lonco
+524;vital-cat-15;62,010.00;Lonco
+525;vital-kitten-75;37,020.00;Lonco
+526;royal-cat-urinary-1-5;15,756.00;Mascota
+527;royal-cat-hipoalergenico-1-5;22,190.00;Lonco
+528;royal-dog-gastrointestinal-2;12,250.00;Lonco
+529;royal-cat-exigent-1-5;13,655.00;Lonco
