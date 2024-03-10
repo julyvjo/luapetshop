@@ -72,11 +72,69 @@
                 <!--a class="page-link" th:href="@{/producto(page=${prev})}">Anterior</a-->
                 <a class="fixed page-link" th:href="@{/producto(page=${prev}, nombre=${nombre})}">Anterior</a>
             </li>
-            
-            <li class="page-item" th:each="page : ${pages}" th:classappend="${current == page? 'actual':''}">
+
+<!-- TOTAL <= 15; MOSTRAR TODO -->
+
+            <li th:if="${last <= 15}" class="page-item" th:each="page : ${pages}" th:classappend="${current == page? 'actual':''}">
                 <a class="page-link" th:href="@{/producto(page=${page}, nombre=${nombre})}" th:text="${page}"></a>
             </li>
-            
+
+<!-- TOTAL > 15; ACTUAL <= 8; OCULTAR ELIPSIS INICIAL -->
+
+            <th:block th:if="${last > 15 && current <= 8}" th:each="i : ${#numbers.sequence(1, 13)}">
+                <li class="page-item" th:classappend="${i == current? 'actual':''}">
+                    <a class="page-link" th:href="@{/producto(page=${i}, nombre=${nombre})}" th:text="${i}"></a>
+                </li>
+            </th:block>
+
+            <li th:if="${last > 15 && current <= 8}" class="page-item disabled">
+                <a class="page-link" th:text="..."></a>
+            </li>
+
+            <li th:if="${last > 15 && current <= 8}" class="page-item">
+                <a class="page-link" th:href="@{/producto(page=${last}, nombre=${nombre})}" th:text="${last}"></a>
+            </li>
+
+<!-- TOTAL > 15; ACTUAL > 8; MOSTRAR ELIPSIS INICIAL -->
+
+            <li th:if="${last > 15 && current > 8 && current + 5 < last}" class="page-item">
+                <a class="page-link" th:href="@{/producto(page=1, nombre=${nombre})}" th:text="1"></a>
+            </li>
+
+            <li th:if="${last > 15 && current > 8 && current + 5 < last}" class="page-item disabled">
+                <a class="page-link" th:text="..."></a>
+            </li>
+
+            <th:block th:if="${last > 15 && current > 8 && current + 5 < last}" th:each="i : ${#numbers.sequence(current - 5, current + 5)}">
+                <li class="page-item" th:classappend="${i == current? 'actual':''}">
+                    <a class="page-link" th:href="@{/producto(page=${i}, nombre=${nombre})}" th:text="${i}"></a>
+                </li>
+            </th:block>
+
+            <li th:if="${last > 15 && current > 8 && current + 5 < last}" class="page-item disabled">
+                <a class="page-link" th:text="..."></a>
+            </li>
+
+            <li th:if="${last > 15 && current > 8 && current + 5 < last}" class="page-item">
+                <a class="page-link" th:href="@{/producto(page=${last}, nombre=${nombre})}" th:text="${last}"></a>
+            </li>
+
+<!-- TOTAL > 15; ACTUAL > 8 && ACTUAL >= TOTAL - 5; OCULTAR ELIPSIS FINAL -->
+
+            <li th:if="${last > 15 && current > 8 && current + 5 >= last}" class="page-item">
+                <a class="page-link" th:href="@{/producto(page=1, nombre=${nombre})}" th:text="1"></a>
+            </li>
+
+            <li th:if="${last > 15 && current > 8 && current + 5 >= last}" class="page-item disabled">
+                <a class="page-link" th:text="..."></a>
+            </li>
+
+            <th:block th:if="${last > 15 && current > 8 && current + 5 >= last}" th:each="i : ${#numbers.sequence(last - 12, last)}">
+                <li class="page-item" th:classappend="${i == current? 'actual':''}">
+                    <a class="page-link" th:href="@{/producto(page=${i}, nombre=${nombre})}" th:text="${i}"></a>
+                </li>
+            </th:block>
+
             <li class="page-item" th:classappend="${current == last? 'disabled':''}">
                 <a class="fixed page-link" th:href="@{/producto(page=${next}, nombre=${nombre})}">Siguiente</a>
             </li>
