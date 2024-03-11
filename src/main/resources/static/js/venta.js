@@ -482,9 +482,10 @@ function carritoInsertarPlaceholder()
         let h5 = document.createElement("h5");
         h5.classList.add("py-2");
 
-        const button = document.createElement("button");
-        button.classList.add("botonBorrarFila");
-        button.textContent = "🗑";
+        const button = document.createElement("p");
+        // const button = document.createElement("button");
+        // button.classList.add("botonBorrarFila");
+        // button.textContent = "🗑";
 
         h5.appendChild(button);
 
@@ -499,7 +500,7 @@ function carritoInsertarPlaceholder()
         h5 = document.createElement("h5");
         h5.classList.add("py-2");
 
-        h5.textContent = "Producto placeholder";
+        // h5.textContent = "Producto placeholder";
 
         data.appendChild(h5);
 
@@ -511,7 +512,7 @@ function carritoInsertarPlaceholder()
             
         h5 = document.createElement("h5");
         h5.classList.add("py-2");
-        h5.textContent = "18.12";
+        // h5.textContent = "18.12";
 
         data.appendChild(h5);
 
@@ -525,8 +526,9 @@ function carritoInsertarPlaceholder()
         cantidadInput.classList.add("py-2");
         cantidadInput.setAttribute("autocomplete", "off");
         cantidadInput.setAttribute("min", 1);
+        cantidadInput.setAttribute("disabled", "");
         cantidadInput.style.textAlign = "center";
-        cantidadInput.value = 1;
+        // cantidadInput.value = 1;
 
         data.appendChild(cantidadInput);
 
@@ -538,7 +540,7 @@ function carritoInsertarPlaceholder()
 
         h5 = document.createElement("h5");
         h5.classList.add("py-2");
-        h5.textContent = "18.12";
+        // h5.textContent = "18.12";
 
         data.appendChild(h5);
 
