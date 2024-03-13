@@ -333,6 +333,12 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
         button.addEventListener("click", (e) =>
         {
+            //Actualizo el subtotal y total implícito (sin modificador de método de pago)
+            carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id, true);
+
+            //Actualizo los valores de metodo de pago y total que se ven en el GUI.
+            actualizarMetodoPagoYTotal();
+
             carritoEliminarFila(resultadoBusquedaProducto.id_producto);
         });
 
@@ -568,30 +574,11 @@ function carritoEliminarFila(id_producto)
 
         if (tieneElAtributo && valorAtributo.toString() === id_producto.toString())
         {     
-            
-            // Actualizar TOTAL
-
-            //  Convierto valores de subtotal y totalVenta a flotantes
-            const subtotal = document.getElementById(`subtotal${id_producto}`);
-            let subtotalConvertido = parseFloat(subtotal.textContent).toFixed(2);
-
-            const totalVenta = document.getElementById("appVentaTotal");
-            // let totalVentaConvertido = parseFloat(totalVenta.textContent).toFixed(2);
-            totalVentaConvertido = parseFloat(totalVenta.textContent).toFixed(2);
-
-            //  Quito el valor del subtotal a totalVenta
-            totalVenta.textContent = (totalVentaConvertido - subtotalConvertido).toFixed(2);
-
-            // Actualizar METODOS DE PAGO
-            
             const tablaCarritoVenta = document.getElementById("table");
             tablaCarritoVenta.removeChild(listadoCarrito[index]);
-
+            
             if (listadoCarrito.length === 2)    //  Este valor no se actualiza luego de borrar,   
-                carritoInsertarPlaceholder();   //  ergo indica que el carrito está vacío
-
-            //  Lo dejo comentado en lugar de elimnar porque no se qué función cumplía invocar esta función desde acá.
-            // actualizarMetodoPagoYTotal();
+            carritoInsertarPlaceholder();   //  ergo indica que el carrito está vacío
 
             return;
         }
@@ -744,7 +731,7 @@ function validarInputMontos(string)
 
 let totalVentaConvertido = 0;
 
-function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId)
+function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId, restar = false)
 {    
     //  Convierto valores de subtotal y totalVenta a flotantes
     const subtotal = document.getElementById(`${subtotalId}`);
@@ -762,8 +749,11 @@ function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId)
     // totalVentaConvertido = parseFloat(totalVenta.textContent);
     subtotalConvertido = parseFloat(subtotal.textContent);
 
-    //  Finalmente actualizo el valor de totalVenta con el nuevo subtotal
-    totalVentaConvertido += subtotalConvertido;
+    if(!restar)
+    {
+        //  Finalmente actualizo el valor de totalVenta con el nuevo subtotal
+        totalVentaConvertido += subtotalConvertido;
+    }
 }
 
 function actualizarMetodoPagoYTotal()   // Actualizar MONTO metodos de pago y total VENTA CONVERTIDO
