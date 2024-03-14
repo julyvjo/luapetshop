@@ -939,13 +939,13 @@ function validarMetodosPago()
         return false;
     }
 
-    if ( montoMetodoPago === 0 )
+    if ( montoMetodoPago.value === "0.00" )
     {
         window.alert("ERROR: No se está usando METODO DE PAGO!");
         return false;
     }
 
-    if ( metodoPagoComplementario.value != "default" && montoMetodoPago === 0 )
+    if ( metodoPagoComplementario.value != "default" && montoMetodoPagoComplementario.value === "0.00" )
     {
         window.alert("ERROR: No se está usando METODO DE PAGO COMPLEMENTARIO!");
         return false;
