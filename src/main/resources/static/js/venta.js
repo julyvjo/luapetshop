@@ -383,10 +383,10 @@ function carritoCrearFila(resultadoBusquedaProducto)
         const cantidadInput = document.createElement("input");
         cantidadInput.classList.add("py-2");
         cantidadInput.id = `cantidadInput${resultadoBusquedaProducto.id_producto}`;
-        cantidadInput.setAttribute("autocomplete", "off");
-        cantidadInput.setAttribute("min", 1);
+        // cantidadInput.setAttribute("autocomplete", "off");
+        // cantidadInput.setAttribute("min", 1);
         cantidadInput.style.textAlign = "center";
-        cantidadInput.value = 1;
+        cantidadInput.value = "1.00";
 
         data.appendChild(cantidadInput);
 
@@ -419,7 +419,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
             if (carritoValidarCantidad(cantidadInput.value) === false)
             {
                 console.log("ERROR: Se esperaba un número entero! Reiniciando a valor predeterminado.");
-                cantidadInput.value = "1";
+                cantidadInput.value = "1.00";
                 return;
             }
 
@@ -434,7 +434,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
             {
                 e.preventDefault();
 
-                cantidadInput.value = parseInt(cantidadInput.value) + 1;
+                cantidadInput.value = (parseFloat(cantidadInput.value) + 1.0).toFixed(2);
                 carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
                 actualizarMetodoPagoYTotal("aparte");
             }
@@ -442,9 +442,9 @@ function carritoCrearFila(resultadoBusquedaProducto)
             {
                 e.preventDefault();
 
-                if (parseInt(cantidadInput.value) - 1 > 0)
+                if (parseFloat(cantidadInput.value) - 1.0 > 0.01)
                 {
-                    cantidadInput.value = parseInt(cantidadInput.value) - 1;
+                    cantidadInput.value = (parseFloat(cantidadInput.value) - 1.0).toFixed(2);
                     carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
                     actualizarMetodoPagoYTotal("aparte");
                 }

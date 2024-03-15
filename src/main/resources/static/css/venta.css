@@ -265,9 +265,10 @@ input.py-2
     width: 12.5vw;
 }
 
-#table > tr > td:nth-child(4) > input
+#table > tr > td:nth-child(4) > input,
+#table > tr > td:nth-child(5) > input
 {
-    width: 5vw;
+    width: 10vw;
 }
 /* *********************************************** */
 
