@@ -1014,12 +1014,13 @@ function cargarCarritoVenta()
     for (let index = 1; index < listadoCarrito.length; index++)
     {
         dataIdProducto = listadoCarrito[index].getAttribute("data-id-producto");
-        cantidad = document.getElementById(`cantidadInput${dataIdProducto}`).value;
+        // cantidad = document.getElementById(`cantidadInput${dataIdProducto}`).value;
+        cantidad = document.getElementById(`cantidadInput${dataIdProducto}`).textContext;
         precio_venta = document.getElementById(`subtotal${dataIdProducto}`).textContent;
 
         carritoVenta.lineas_venta.push({
             "id_producto": parseInt(dataIdProducto),
-            "cantidad": parseInt(cantidad),
+            "cantidad": parseFloat(cantidad).toFixed(2),
             "precio_venta": parseFloat(precio_venta).toFixed(2),
         })
     }
