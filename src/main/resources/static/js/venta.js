@@ -396,12 +396,23 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
         data = document.createElement("td");
 
-        h5 = document.createElement("h5");
-        h5.id = `subtotal${fila.getAttribute("data-id-producto")}`;
-        h5.classList.add("py-2");
-        h5.textContent = (precioUnitario * cantidadInput.value).toFixed(2);
 
-        data.appendChild(h5);
+        const subtotalInput = document.createElement("input");
+        subtotalInput.classList.add("py-2");
+        subtotalInput.id = `subtotal${fila.getAttribute("data-id-producto")}`;
+        subtotalInput.setAttribute("autocomplete", "off");
+        subtotalInput.setAttribute("min", 1);
+        subtotalInput.style.textAlign = "center";
+        subtotalInput.value = (precioUnitario * cantidadInput.value).toFixed(2);
+
+        data.appendChild(subtotalInput);
+
+        // h5 = document.createElement("h5");
+        // h5.id = `subtotal${fila.getAttribute("data-id-producto")}`;
+        // h5.classList.add("py-2");
+        // h5.textContent = (precioUnitario * cantidadInput.value).toFixed(2);
+
+        // data.appendChild(h5);
 
         fila.appendChild(data);
 
@@ -423,7 +434,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
                 return;
             }
 
-            carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
+            carritoActualizarSubtotal(precioUnitario, cantidadInput.value, subtotalInput.id);
 
             actualizarMetodoPagoYTotal("aparte");
         });
@@ -435,7 +446,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
                 e.preventDefault();
 
                 cantidadInput.value = (parseFloat(cantidadInput.value) + 1.0).toFixed(2);
-                carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
+                carritoActualizarSubtotal(precioUnitario, cantidadInput.value, subtotalInput.id);
                 actualizarMetodoPagoYTotal("aparte");
             }
             else if (e.key === "ArrowDown" || e.key === "ArrowLeft")
@@ -445,7 +456,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
                 if (parseFloat(cantidadInput.value) - 1.0 > 0.01)
                 {
                     cantidadInput.value = (parseFloat(cantidadInput.value) - 1.0).toFixed(2);
-                    carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id);
+                    carritoActualizarSubtotal(precioUnitario, cantidadInput.value, subtotalInput.id);
                     actualizarMetodoPagoYTotal("aparte");
                 }
             }
@@ -729,25 +740,25 @@ function validarInputMontos(string)
 
 // MODIFICADORES METODO DE PAGO
 
-let totalVentaConvertido = 0;
+let totalVentaConvertido = 0.00;
 
 function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId, restar = false)
 {    
     //  Convierto valores de subtotal y totalVenta a flotantes
     const subtotal = document.getElementById(`${subtotalId}`);
-    let subtotalConvertido = parseFloat(subtotal.textContent);
+    let subtotalConvertido = parseFloat(subtotal.value);
 
     //  Quito el valor del subtotal previo a totalVenta
-    if (totalVentaConvertido != "0.00")
+    if (totalVentaConvertido != 0.00)
     {
         totalVentaConvertido -= subtotalConvertido;
     }
 
     //  Actualizo valores de subtotal y totalVenta
-    subtotal.textContent = (precioUnitario * cantidadInput).toFixed(2);
+    subtotal.value = (precioUnitario * cantidadInput).toFixed(2);
 
     // totalVentaConvertido = parseFloat(totalVenta.textContent);
-    subtotalConvertido = parseFloat(subtotal.textContent);
+    subtotalConvertido = parseFloat(subtotal.value);
 
     if(!restar)
     {
@@ -881,7 +892,7 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
     metodoPagoComplementario.value = "default";
     metodoPagoComplementario.disabled = true;
     montoMetodoPagoComplementario.value = "0.00";
-    totalVentaConvertido = 0;
+    totalVentaConvertido = 0.00;
     
     //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
     //  location.reload();
@@ -912,7 +923,7 @@ appVentaFinalizarVenta.addEventListener("click", (e) =>
     //     metodoPagoComplementario.value = "default";
     //     metodoPagoComplementario.disabled = true;
     //     montoMetodoPagoComplementario.value = "0.00";
-    //     totalVentaConvertido = 0;
+    //     totalVentaConvertido = 0.00;
         
     //     //  Recargar página; esto podría evitarse si es prioridad mantener modalidad SPA.
     //     //  location.reload();
