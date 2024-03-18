@@ -555,11 +555,18 @@ function carritoInsertarPlaceholder()
 
         data = document.createElement("td");
 
-        h5 = document.createElement("h5");
-        h5.classList.add("py-2");
-        // h5.textContent = "18.12";
+        const subtotalInput = document.createElement("input");
+        subtotalInput.classList.add("py-2");
+        subtotalInput.setAttribute("autocomplete", "off");
+        subtotalInput.setAttribute("disabled", "");
 
-        data.appendChild(h5);
+        data.appendChild(subtotalInput);
+
+        // h5 = document.createElement("h5");
+        // h5.classList.add("py-2");
+        // // h5.textContent = "18.12";
+
+        // data.appendChild(h5);
 
         fila.appendChild(data);
 
