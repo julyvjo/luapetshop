@@ -300,15 +300,31 @@ function estaEnCarrito(id_producto) //  id_producto es el nombre de la propiedad
 function carritoValidarCantidad(string)
 {
     //  Regular expression para validar que string represente un número entero
-     const numberRegex = /^[0-9]+$/;
-    // const numberRegex = /^[0-9]+([.,][0-9]+)?$/;  //  Por si solo quisiera validar un número float.
+    //  const numberRegex = /^[0-9]+$/;
+    const numberRegex = /^[0-9]+([.,][0-9]+)?$/;  //  Por si solo quisiera validar un número float.
 
     return numberRegex.test(string);
 
     // Ejemplos:
     // console.log(validateNumber("12345"));   // true
-    // console.log(validateNumber("12.345"));  // false (número float)
-    // console.log(validateNumber("12,345"));  // false (número float)
+    // console.log(validateNumber("12.345"));  // true
+    // console.log(validateNumber("12,345"));  // true
+    // console.log(validateNumber("12,34.56"));// false (múltiples separadores)
+    // console.log(validateNumber("abc"));     // false (contiene caracteres no válidos como letras)
+}
+
+function carritoValidarSubtotal(string)
+{
+    //  Regular expression para validar que string represente un número entero
+    //  const numberRegex = /^[0-9]+$/;
+    const numberRegex = /^[0-9]+([.,][0-9]+)?$/;  //  Por si solo quisiera validar un número float.
+
+    return numberRegex.test(string);
+
+    // Ejemplos:
+    // console.log(validateNumber("12345"));   // true
+    // console.log(validateNumber("12.345"));  // true
+    // console.log(validateNumber("12,345"));  // true
     // console.log(validateNumber("12,34.56"));// false (múltiples separadores)
     // console.log(validateNumber("abc"));     // false (contiene caracteres no válidos como letras)
 }
@@ -404,6 +420,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
         subtotalInput.setAttribute("min", 1);
         subtotalInput.style.textAlign = "center";
         subtotalInput.value = (precioUnitario * cantidadInput.value).toFixed(2);
+        subtotalInput.setAttribute("data-precio-anterior", subtotalInput.value);
 
         data.appendChild(subtotalInput);
 
@@ -429,12 +446,26 @@ function carritoCrearFila(resultadoBusquedaProducto)
         {   
             if (carritoValidarCantidad(cantidadInput.value) === false)
             {
-                console.log("ERROR: Se esperaba un número entero! Reiniciando a valor predeterminado.");
+                console.log("ERROR: Se esperaba un número real! Reiniciando a valor predeterminado.");
                 cantidadInput.value = "1.00";
                 return;
             }
 
-            carritoActualizarSubtotal(precioUnitario, cantidadInput.value, subtotalInput.id);
+            carritoActualizarSubtotal(precioUnitario, subtotalInput.value, cantidadInput.id);
+
+            actualizarMetodoPagoYTotal("aparte");
+        });
+
+        subtotalInput.addEventListener("change", () =>
+        {   
+            if (carritoValidarSubtotal(subtotalInput.value) === false)
+            {
+                console.log("ERROR: Se esperaba un número real! Reiniciando a valor predeterminado.");
+                subtotalInput.value = "1.00";
+                return;
+            }
+
+            carritoActualizarCantidad(precioUnitario, cantidadInput, subtotalInput);
 
             actualizarMetodoPagoYTotal("aparte");
         });
@@ -748,6 +779,25 @@ function validarInputMontos(string)
 // MODIFICADORES METODO DE PAGO
 
 let totalVentaConvertido = 0.00;
+
+function carritoActualizarCantidad(precioUnitario, cantidadInput, subtotalInput)
+{
+    console.log("carritoActualizarCantidad");
+
+    //  Convierto valores de subtotal y totalVenta a flotantes
+    let subtotalConvertido = parseFloat(subtotalInput.value);
+
+    //  Quito el valor del subtotal previo a totalVenta
+    if (totalVentaConvertido != 0.00)
+    {
+        totalVentaConvertido -= parseFloat(subtotalInput.getAttribute("data-precio-anterior"));
+    }
+
+    cantidadInput.value = (subtotalConvertido / precioUnitario).toFixed(2);
+
+    //  Finalmente actualizo el valor de totalVenta con el nuevo subtotal
+    totalVentaConvertido += subtotalConvertido;
+}
 
 function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId, restar = false)
 {    
