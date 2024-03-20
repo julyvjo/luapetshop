@@ -350,7 +350,8 @@ function carritoCrearFila(resultadoBusquedaProducto)
         button.addEventListener("click", (e) =>
         {
             //Actualizo el subtotal y total implícito (sin modificador de método de pago)
-            carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id, true);
+            // carritoActualizarSubtotal(precioUnitario, cantidadInput.value, h5.id, true);
+            carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalInput, true);
 
             //Actualizo los valores de metodo de pago y total que se ven en el GUI.
             actualizarMetodoPagoYTotal();
@@ -444,14 +445,21 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
         cantidadInput.addEventListener("change", () =>
         {   
-            if (carritoValidarCantidad(cantidadInput.value) === false)
+            if (!carritoValidarCantidad(cantidadInput.value) && carritoValidarCantidad(cantidadInput.value) > 0.001)
             {
                 console.log("ERROR: Se esperaba un número real! Reiniciando a valor predeterminado.");
-                cantidadInput.value = "1.00";
+                cantidadInput.value = "1.000";
+
+                // carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalInput);
+                // actualizarMetodoPagoYTotal("aparte");
+
                 return;
             }
 
-            carritoActualizarSubtotal(precioUnitario, subtotalInput.value, cantidadInput.id);
+            //Parseo correctamente antes de calcular
+            cantidadInput.value = (parseFloat(cantidadInput.value)).toFixed(3);
+
+            carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalInput);
 
             actualizarMetodoPagoYTotal("aparte");
         });
@@ -462,6 +470,10 @@ function carritoCrearFila(resultadoBusquedaProducto)
             {
                 console.log("ERROR: Se esperaba un número real! Reiniciando a valor predeterminado.");
                 subtotalInput.value = "1.00";
+
+                carritoActualizarCantidad(precioUnitario, cantidadInput, subtotalInput);
+                actualizarMetodoPagoYTotal("aparte");
+
                 return;
             }
 
@@ -476,21 +488,21 @@ function carritoCrearFila(resultadoBusquedaProducto)
             {
                 e.preventDefault();
 
-                cantidadInput.value = (parseFloat(cantidadInput.value) + 1.0).toFixed(2);
-                carritoActualizarSubtotal(precioUnitario, cantidadInput.value, subtotalInput.id);
-                actualizarMetodoPagoYTotal("aparte");
+                cantidadInput.value = (parseFloat(cantidadInput.value) + 1.0).toFixed(3);
+
             }
             else if (e.key === "ArrowDown" || e.key === "ArrowLeft")
             {
                 e.preventDefault();
 
-                if (parseFloat(cantidadInput.value) - 1.0 > 0.01)
+                if (parseFloat(cantidadInput.value) - 1.0 > 0.001)
                 {
-                    cantidadInput.value = (parseFloat(cantidadInput.value) - 1.0).toFixed(2);
-                    carritoActualizarSubtotal(precioUnitario, cantidadInput.value, subtotalInput.id);
-                    actualizarMetodoPagoYTotal("aparte");
+                    cantidadInput.value = (parseFloat(cantidadInput.value) - 1.0).toFixed(3);
                 }
             }
+
+            carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalInput);
+            actualizarMetodoPagoYTotal("aparte");
         });
 
     // AGREGAR FILA AL CARRITO
@@ -799,23 +811,22 @@ function carritoActualizarCantidad(precioUnitario, cantidadInput, subtotalInput)
     totalVentaConvertido += subtotalConvertido;
 }
 
-function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalId, restar = false)
+function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalInput, restar = false)
 {    
     //  Convierto valores de subtotal y totalVenta a flotantes
-    const subtotal = document.getElementById(`${subtotalId}`);
-    let subtotalConvertido = parseFloat(subtotal.value);
+    let subtotalConvertido = parseFloat(subtotalInput.value);
 
     //  Quito el valor del subtotal previo a totalVenta
     if (totalVentaConvertido != 0.00)
     {
-        totalVentaConvertido -= subtotalConvertido;
+        totalVentaConvertido -= parseFloat(subtotalInput.getAttribute("data-precio-anterior"));
     }
 
     //  Actualizo valores de subtotal y totalVenta
-    subtotal.value = (precioUnitario * cantidadInput).toFixed(2);
+    subtotalInput.value = (precioUnitario * parseFloat(cantidadInput.value)).toFixed(2);
 
     // totalVentaConvertido = parseFloat(totalVenta.textContent);
-    subtotalConvertido = parseFloat(subtotal.value);
+    subtotalConvertido = parseFloat(subtotalInput.value);
 
     if(!restar)
     {
