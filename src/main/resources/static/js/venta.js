@@ -403,7 +403,7 @@ function carritoCrearFila(resultadoBusquedaProducto)
         // cantidadInput.setAttribute("autocomplete", "off");
         // cantidadInput.setAttribute("min", 1);
         cantidadInput.style.textAlign = "center";
-        cantidadInput.value = "1.00";
+        cantidadInput.value = "1.000";
 
         data.appendChild(cantidadInput);
 
@@ -476,6 +476,8 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
                 return;
             }
+
+            subtotalInput.value = (parseFloat(subtotalInput.value)).toFixed(2);
 
             carritoActualizarCantidad(precioUnitario, cantidadInput, subtotalInput);
 
@@ -807,6 +809,8 @@ function carritoActualizarCantidad(precioUnitario, cantidadInput, subtotalInput)
 
     cantidadInput.value = (subtotalConvertido / precioUnitario).toFixed(2);
 
+    subtotalInput.setAttribute("data-precio-anterior", subtotalInput.value);
+
     //  Finalmente actualizo el valor de totalVenta con el nuevo subtotal
     totalVentaConvertido += subtotalConvertido;
 }
@@ -827,6 +831,8 @@ function carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalInput,
 
     // totalVentaConvertido = parseFloat(totalVenta.textContent);
     subtotalConvertido = parseFloat(subtotalInput.value);
+
+    subtotalInput.setAttribute("data-precio-anterior", subtotalInput.value);
 
     if(!restar)
     {
