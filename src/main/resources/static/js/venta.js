@@ -445,13 +445,13 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
         cantidadInput.addEventListener("change", () =>
         {   
-            if (!carritoValidarCantidad(cantidadInput.value) && carritoValidarCantidad(cantidadInput.value) > 0.001)
+            if (!carritoValidarCantidad(cantidadInput.value) || carritoValidarCantidad(cantidadInput.value) < 0.001)
             {
                 console.log("ERROR: Se esperaba un número real! Reiniciando a valor predeterminado.");
                 cantidadInput.value = "1.000";
 
-                // carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalInput);
-                // actualizarMetodoPagoYTotal("aparte");
+                carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalInput);
+                actualizarMetodoPagoYTotal("aparte");
 
                 return;
             }
@@ -486,6 +486,19 @@ function carritoCrearFila(resultadoBusquedaProducto)
 
         cantidadInput.addEventListener("keydown", (e) =>
         {
+            if (cantidadInput.value.length === 1 && e.key === "Backspace")
+            {
+                e.preventDefault();
+
+                console.log("ERROR: Cantidad tiene que ser mayor que 0.001! Reiniciando a valor predeterminado.");
+                cantidadInput.value = "1.000";
+
+                carritoActualizarSubtotal(precioUnitario, cantidadInput, subtotalInput);
+                actualizarMetodoPagoYTotal("aparte");
+
+                return;
+            }
+
             if (e.key === "ArrowUp" || e.key === "ArrowRight")
             {
                 e.preventDefault();
@@ -807,7 +820,7 @@ function carritoActualizarCantidad(precioUnitario, cantidadInput, subtotalInput)
         totalVentaConvertido -= parseFloat(subtotalInput.getAttribute("data-precio-anterior"));
     }
 
-    cantidadInput.value = (subtotalConvertido / precioUnitario).toFixed(2);
+    cantidadInput.value = (subtotalConvertido / precioUnitario).toFixed(3);
 
     subtotalInput.setAttribute("data-precio-anterior", subtotalInput.value);
 
