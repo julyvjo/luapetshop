@@ -1105,20 +1105,20 @@ function cargarCarritoVenta()
     const listadoCarrito = document.querySelectorAll("tr");
 
     let dataIdProducto = 0;
-    let cantidad = 0;
-    let precio_venta = 0;
+    let cantidad = 0.0;
+    let precio_venta = 0.0;
 
     //  index = 1 Para saltear el tr de <thead>
     for (let index = 1; index < listadoCarrito.length; index++)
     {
         dataIdProducto = listadoCarrito[index].getAttribute("data-id-producto");
         // cantidad = document.getElementById(`cantidadInput${dataIdProducto}`).value;
-        cantidad = document.getElementById(`cantidadInput${dataIdProducto}`).textContext;
-        precio_venta = document.getElementById(`subtotal${dataIdProducto}`).textContent;
+        cantidad = document.getElementById(`cantidadInput${dataIdProducto}`).value;
+        precio_venta = document.getElementById(`subtotal${dataIdProducto}`).value;
 
         carritoVenta.lineas_venta.push({
             "id_producto": parseInt(dataIdProducto),
-            "cantidad": parseFloat(cantidad).toFixed(2),
+            "cantidad": parseFloat(cantidad).toFixed(3),
             "precio_venta": parseFloat(precio_venta).toFixed(2),
         })
     }
