@@ -23,13 +23,13 @@ public class LineaVenta {
 	@JoinColumn(name = "id_producto")
 	private Producto producto;
 	private double precio_venta;
-	private int cantidad;
+	private double cantidad;
 	
 	public LineaVenta() {
 		super();
 	}
 
-	public LineaVenta(int id_linea_venta, Venta venta, Producto producto, double precio_venta, int cantidad) {
+	public LineaVenta(int id_linea_venta, Venta venta, Producto producto, double precio_venta, double cantidad) {
 		super();
 		this.id_linea_venta = id_linea_venta;
 		this.venta = venta;
@@ -38,7 +38,7 @@ public class LineaVenta {
 		this.cantidad = cantidad;
 	}
 
-	public LineaVenta(Venta venta, Producto producto, double precio_venta, int cantidad) {
+	public LineaVenta(Venta venta, Producto producto, double precio_venta, double cantidad) {
 		super();
 		this.venta = venta;
 		this.producto = producto;
@@ -78,11 +78,11 @@ public class LineaVenta {
 		this.precio_venta = precio_venta;
 	}
 
-	public int getCantidad() {
+	public double getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(int cantidad) {
+	public void setCantidad(double cantidad) {
 		this.cantidad = cantidad;
 	}
 	

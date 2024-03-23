@@ -149,7 +149,7 @@ public class VentaService {
 	        	linea_venta.setProducto(prod);
 	        	
 	        	//setear cantidad vendida
-	        	int cantidad = (int)line.get("cantidad");
+	        	Double cantidad = Double.parseDouble((String)line.get("cantidad"));
 	        	linea_venta.setCantidad(cantidad);
 	        	
 	        	//setear precio
@@ -158,7 +158,7 @@ public class VentaService {
 	        	venta.getLineasVenta().add(linea_venta);
 	        	
 	        	//modificar stock del producto
-	        	int stock_actual = prod.getStock();
+	        	double stock_actual = prod.getStock();
 	        	prod.setStock(stock_actual - cantidad);
 	        	
 	        	//acumulamos precio_compra del producto por la cantidad vendida
