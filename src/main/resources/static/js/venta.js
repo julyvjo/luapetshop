@@ -499,14 +499,14 @@ function carritoCrearFila(resultadoBusquedaProducto)
                 return;
             }
 
-            if (e.key === "ArrowUp" || e.key === "ArrowRight")
+            if (e.key === "ArrowUp")
             {
                 e.preventDefault();
 
                 cantidadInput.value = (parseFloat(cantidadInput.value) + 1.0).toFixed(3);
 
             }
-            else if (e.key === "ArrowDown" || e.key === "ArrowLeft")
+            else if (e.key === "ArrowDown")
             {
                 e.preventDefault();
 
