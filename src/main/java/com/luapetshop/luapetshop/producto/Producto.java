@@ -39,10 +39,10 @@ public class Producto {
 	private double rentabilidad;
 	private double ganancia;
 	private double precio_venta;
-	private int stock;
+	private double stock;
 	public Producto(int id_producto, Categoria categoria, Proveedor proveedor, String nombre, String codigo,
 			String imagen, String descripcion, double precio_compra, double rentabilidad, double ganancia,
-			double precio_venta, int stock) {
+			double precio_venta, double stock) {
 		super();
 		this.id_producto = id_producto;
 		this.categoria = categoria;
@@ -126,10 +126,10 @@ public class Producto {
 	public void setPrecio_venta(double precio_venta) {
 		this.precio_venta = precio_venta;
 	}
-	public int getStock() {
+	public double getStock() {
 		return stock;
 	}
-	public void setStock(int stock) {
+	public void setStock(double stock) {
 		this.stock = stock;
 	}
 	
